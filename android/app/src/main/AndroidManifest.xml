@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.pulpox_admin">
+    package="cl.pulpox.admin">
    <application
         android:label="pulpox_admin"
         android:name="${applicationName}"

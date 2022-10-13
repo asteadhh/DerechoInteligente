@@ -1,4 +1,4 @@
-package com.example.pulpox_admin
+package cl.pulpox.admin
 
 import io.flutter.embedding.android.FlutterActivity
 
