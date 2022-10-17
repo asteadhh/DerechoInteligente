@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../components/background.dart';
 import '../../responsive.dart';
 import '../landingPage/menu.dart';
+import '../landingPage/main/components/landing_page_drawer.dart';
 import 'components/login_signup_btn.dart';
 import 'components/welcome_image.dart';
 
@@ -46,7 +47,15 @@ class WelcomeScreen extends StatelessWidget {
             ],
           ),
           mobile: Scaffold(
-            // drawer: ,
+            appBar: AppBar(),
+            // floatingActionButton: Builder(builder: (context) {
+            //   return FloatingActionButton(
+
+            //     onPressed: () =>
+            //         Scaffold.of(context).openDrawer(), // <-- Opens drawer.
+            //   );
+            // }),
+            drawer: LandingPageDrawer(),
             body: SingleChildScrollView(
               child: MobileWelcomeScreen(),
             ),

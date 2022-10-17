@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import '../../../constants/custom_colors.dart';
+import '../../../../constants/custom_colors.dart';
 
 class OrDivider extends StatelessWidget {
   const OrDivider({Key? key}) : super(key: key);

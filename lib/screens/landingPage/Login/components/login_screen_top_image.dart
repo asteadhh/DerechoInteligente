@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-import '../../../constants.dart';
+import '../../../../constants.dart';
 
-class SignUpScreenTopImage extends StatelessWidget {
-  const SignUpScreenTopImage({
+class LoginScreenTopImage extends StatelessWidget {
+  const LoginScreenTopImage({
     Key? key,
   }) : super(key: key);
 
@@ -13,21 +13,21 @@ class SignUpScreenTopImage extends StatelessWidget {
     return Column(
       children: [
         Text(
-          "Sign Up".toUpperCase(),
+          "LOGIN",
           style: TextStyle(fontWeight: FontWeight.bold),
         ),
-        SizedBox(height: defaultPadding),
+        SizedBox(height: defaultPadding * 2),
         Row(
           children: [
             const Spacer(),
             Expanded(
               flex: 8,
-              child: SvgPicture.asset("assets/icons/signup.svg"),
+              child: SvgPicture.asset("assets/icons/login.svg"),
             ),
             const Spacer(),
           ],
         ),
-        SizedBox(height: defaultPadding),
+        SizedBox(height: defaultPadding * 2),
       ],
     );
   }
