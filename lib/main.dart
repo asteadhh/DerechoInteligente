@@ -1,15 +1,63 @@
 import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:firebase_messaging/firebase_messaging.dart';
+
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get_storage/get_storage.dart';
 import 'package:pulpox_admin/routes/app_pages.dart';
 
 import '/utils/translations.dart';
 import 'constants/theme.dart';
+import 'firebase_options.dart';
 import 'screens/signIn/login_screen.dart';
 
-void main() {
-  runApp(MyApp());
+const bool USE_EMULATOR = false;
+bool isWhite = false;
+// final _configuration =
+//     PurchasesConfiguration('appl_OqbbEQVikcpaJAqloPlswHAVzSd');
+int? isviewed;
+Future main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
+  FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterFatalError;
+  // if (USE_EMULATOR) {
+  //   _connectToFirebaseEmulator();
+  // }
+  await GetStorage.init();
+
+  SharedPreferences prefs = await SharedPreferences.getInstance();
+
+  // LINE TO CLEAN SHARED PREFERENCES //
+  // await prefs.clear();
+
+  isviewed = prefs.getInt('onBoard');
+
+  //
+  // await Purchases.configure(_configuration);
+  FirebaseMessaging messaging = FirebaseMessaging.instance;
+
+  NotificationSettings settings = await messaging.requestPermission(
+    alert: true,
+    announcement: false,
+    badge: true,
+    carPlay: false,
+    criticalAlert: false,
+    provisional: false,
+    sound: true,
+  );
+
+  print('User granted permission: ${settings.authorizationStatus}');
+  runApp(
+    MyApp(
+        // prefs: prefs,
+        ),
+  );
 }
 
 class MyApp extends StatelessWidget {
