@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 
 import '../../constants.dart';
+import '../../controllers/menu_landing_page_controller.dart';
 
-class MenuLandingPage extends StatelessWidget {
+class MenuLandingPage extends GetView<MenuLandingPageController> {
   @override
   Widget build(BuildContext context) {
+    Get.lazyPut(() => MenuLandingPageController());
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 30),
       child: Row(
@@ -30,11 +34,17 @@ class MenuLandingPage extends StatelessWidget {
     );
   }
 
-  Widget _menuItem({String title = 'Title Menu', isActive = false}) {
+  Widget _menuItem({var title = 'Title Menu', isActive = false}) {
     return Padding(
       padding: const EdgeInsets.only(right: 75),
       child: MouseRegion(
         cursor: SystemMouseCursors.click,
+        onEnter: ((event) async {
+          Get.lazyPut(() => MenuLandingPageController());
+          print(title);
+          controller.activatedScreen = title;
+          print(controller.activatedScreen);
+        }),
         child: Column(
           children: [
             Text(

@@ -13,6 +13,7 @@ import 'package:pulpox_admin/routes/app_pages.dart';
 import '/utils/translations.dart';
 import 'constants/theme.dart';
 import 'firebase_options.dart';
+import 'screens/Welcome/welcome_screen.dart';
 import 'screens/signIn/login_screen.dart';
 
 const bool USE_EMULATOR = false;
@@ -93,16 +94,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       getPages: AppPages.routes,
 
-      home: LoginPage(),
-      // home: MultiProvider(
-      //   providers: [
-      //     ChangeNotifierProvider(
-      //       create: (context) => MenuController(),
-      //     ),
-      //   ],
-      //   // child: MainScreen(),
-      //   child: LoginPage(),
-      // ),
+      // home: LoginPage(),
+      home: WelcomeScreen(),
     );
   }
 }

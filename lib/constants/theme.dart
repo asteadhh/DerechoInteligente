@@ -24,9 +24,9 @@ ThemeData lightTheme = ThemeData(
   brightness: Brightness.light,
   primaryColor: Colors.amber,
   fontFamily: 'OpenSans',
-  scaffoldBackgroundColor: CustomColors.backgroundcolor,
+  scaffoldBackgroundColor: Constants.backgroundcolor,
   appBarTheme: AppBarTheme(
-    backgroundColor: CustomColors.backgroundcolor,
+    backgroundColor: Constants.backgroundcolor,
   ),
   colorScheme: ColorScheme.fromSwatch(
     primarySwatch: Colors.amber,
@@ -37,8 +37,8 @@ ThemeData lightTheme = ThemeData(
     bodyText1: TextStyle(),
     bodyText2: TextStyle(),
   ).apply(
-    bodyColor: CustomColors.ourBlack,
-    displayColor: CustomColors.ourBlack,
+    bodyColor: Constants.ourBlack,
+    displayColor: Constants.ourBlack,
   ),
 );
 

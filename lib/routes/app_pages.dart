@@ -1,7 +1,9 @@
 import 'package:get/get.dart';
+import 'package:pulpox_admin/screens/landingPage/menu.dart';
 
 import '../screens/main/main_screen.dart';
 import '../screens/signIn/login_screen.dart';
+import 'bindings.dart';
 
 part 'app_routes.dart';
 
@@ -23,6 +25,11 @@ class AppPages {
       name: _Paths.platform,
       page: () => MainScreen(),
       // binding: NotificacionesScreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.landingMenu,
+      page: () => MenuLandingPage(),
+      binding: MenuLandingPageBinding(),
     ),
   ];
 }

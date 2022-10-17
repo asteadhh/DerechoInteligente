@@ -2,12 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../constants.dart';
+import '../../controllers/menu_landing_page_controller.dart';
 import '../../routes/app_pages.dart';
-import '../main/main_screen.dart';
 
 class SignInBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    Get.lazyPut(() => MenuLandingPageController());
     return Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
@@ -147,7 +148,7 @@ class SignInBody extends StatelessWidget {
                 height: 50,
                 child: Center(child: Text("Sign In"))),
             onPressed: () {
-              Get.offAllNamed(AppPages.main);
+              Get.offAllNamed(AppPages.platform);
             },
             style: ElevatedButton.styleFrom(
               primary: Colors.deepPurple,

@@ -2,12 +2,17 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 
-class CustomColors {
+class Constants {
   static const Color backgroundcolor = Color.fromRGBO(249, 245, 255, 1);
   static const Color ourBlack = Color.fromRGBO(2, 17, 27, 0.8);
   static const Color ourYellow = Color.fromRGBO(240, 200, 8, 1);
   static const Color ourOrange = Color.fromRGBO(221, 28, 26, 1);
   static const Color ourBlue = Color.fromRGBO(98, 144, 195, 1);
+
+  static const Color kPrimaryColor = Color(0xFF6F35A5);
+  static const Color kPrimaryLightColor = Color(0xFFF1E6FF);
+
+  static const double defaultPadding = 16.0;
 
   static const Color jurixNavy = Color(0xFF2C384A);
   static const Color jurixNaranjo = Color(0xFFF57C00);
@@ -18,7 +23,7 @@ class CustomColors {
   // static const Color backgroundcolor = Color.fromRGBO(234, 234, 240, 1.5);
   static const Color jurixWhite = Color.fromARGB(255, 255, 255, 255);
 
-  static const Color kPrimaryColor = Color(0xFF00BF6D);
+  // static const Color kPrimaryColor = Color(0xFF00BF6D);
   static const Color kSecondaryColor = Color(0xFFFE9901);
   static const Color kContentColorLightTheme = Color(0xFF1D1D35);
   static const Color kContentColorDarkTheme = Color(0xFFF5FCF9);
@@ -62,8 +67,6 @@ class CustomColors {
   static const primaryColor = Color(0xFF2697FF);
   static const secondaryColor = Color(0xFF2A2D3E);
   static const bgColor = Color(0xFF212332);
-
-  static const defaultPadding = 16.0;
 }
 
 // {"Amber":"ffc107","Coquelicot":"f34213","Gainsboro":"e1dee3","Teal":"218380","Charcoal":"2c384a"}

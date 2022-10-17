@@ -21,6 +21,7 @@ part of 'app_pages.dart';
 class _Paths {
   static const main = '/';
   static const platform = '/platform';
+  static const landingMenu = '/landingMenu';
 
   // Example :
   // static const index = '/';
