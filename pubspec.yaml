@@ -70,6 +70,7 @@ flutter:
     - assets/
     - assets/jurixlogo/
     - assets/jurixlogo/300dpi/300dpi_jurix_isotipo_350px.png
+    - assets/images/illustration-2.png
 
   fonts:
     - family: Poppins
