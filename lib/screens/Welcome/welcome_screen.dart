@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../components/background.dart';
 import '../../responsive.dart';
+import '../landingPage/menu.dart';
 import 'components/login_signup_btn.dart';
 import 'components/welcome_image.dart';
 
@@ -17,7 +18,7 @@ class WelcomeScreen extends StatelessWidget {
             desktop: Row(
               mainAxisAlignment: MainAxisAlignment.end,
               children: [
-                const Expanded(
+                Expanded(
                   child: WelcomeImage(),
                 ),
                 Expanded(
@@ -25,7 +26,7 @@ class WelcomeScreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: const [
                       SizedBox(
-                        width: 450,
+                        // width: 450,
                         child: LoginAndSignupBtn(),
                       ),
                     ],
@@ -33,7 +34,7 @@ class WelcomeScreen extends StatelessWidget {
                 ),
               ],
             ),
-            mobile: const MobileWelcomeScreen(),
+            mobile: MobileWelcomeScreen(),
           ),
         ),
       ),

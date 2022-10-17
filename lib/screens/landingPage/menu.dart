@@ -39,12 +39,12 @@ class MenuLandingPage extends GetView<MenuLandingPageController> {
       padding: const EdgeInsets.only(right: 75),
       child: MouseRegion(
         cursor: SystemMouseCursors.click,
-        onEnter: ((event) async {
-          Get.lazyPut(() => MenuLandingPageController());
-          print(title);
-          controller.activatedScreen = title;
-          print(controller.activatedScreen);
-        }),
+        // onEnter: ((event) async {
+        //   Get.lazyPut(() => MenuLandingPageController());
+        //   print(title);
+        //   controller.activatedScreen = title;
+        //   print(controller.activatedScreen);
+        // }),
         child: Column(
           children: [
             Text(
