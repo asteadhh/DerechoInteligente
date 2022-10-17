@@ -19,25 +19,8 @@ part of 'app_pages.dart';
 /// contains a list of route names.
 // made separately to make it easier to manage route naming
 class _Paths {
-  static const signIn = '/signIn';
-  static const register = '/register';
-  static const userInfo = '/userInfo';
-  static const olvideMiContrasena = '/olvideMiContrasena';
-  static const main = '/main';
-  static const dashboard = '/dashboard';
-  static const configuracionDeCuenta = '/configuracionDeCuenta';
-  static const terminosYCondiciones = '/terminosYCondiciones';
-  static const politicaDePrivacidad = '/politicaDePrivacidad';
-  static const languageSetting = '/languageSetting';
-  static const newMessages = '/newMessages';
-  static const categories = '/categories';
-  static const enterUserNameSocial = '/enterUserNameSocial';
-  static const pagos = '/pagos';
-  static const clientPaymentsCreatePage = '/clientPaymentsCreatePage';
-  static const cuotas = '/cuotas';
-  static const chatPage = '/chatPage';
-  static const chatIndividual = '/chatIndividual';
-  static const notificaciones = '/notificaciones';
+  static const main = '/';
+  static const platform = '/platform';
 
   // Example :
   // static const index = '/';
