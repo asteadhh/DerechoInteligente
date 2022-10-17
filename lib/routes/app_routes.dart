@@ -22,6 +22,10 @@ class _Paths {
   static const main = '/';
   static const platform = '/platform';
   static const landingMenu = '/landingMenu';
+  static const iniciosesion = '/iniciosesion';
+  static const registrosesion = '/registrosesion';
+  static const contactUs = '/contactus';
+  static const help = '/help';
 
   // Example :
   // static const index = '/';

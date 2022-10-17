@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../components/background.dart';
+import '../../controllers/menu_landing_page_controller.dart';
 import '../../responsive.dart';
 import '../landingPage/menu.dart';
 import '../landingPage/main/components/landing_page_drawer.dart';
 import 'components/login_signup_btn.dart';
 import 'components/welcome_image.dart';
 
-class WelcomeScreen extends StatelessWidget {
+class WelcomeScreen extends GetView<MenuLandingPageController> {
   const WelcomeScreen({Key? key}) : super(key: key);
 
   @override
@@ -24,37 +26,18 @@ class WelcomeScreen extends StatelessWidget {
                 child: MenuLandingPage(),
               ),
               SingleChildScrollView(
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.end,
-                  children: [
-                    Expanded(
-                      child: WelcomeImage(),
-                    ),
-                    Expanded(
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: const [
-                          SizedBox(
-                            // width: 450,
-                            child: LoginAndSignupBtn(),
-                          ),
-                        ],
-                      ),
-                    ),
-                  ],
+                child: Obx(
+                  () => IndexedStack(
+                    index: controller.tabIndex.value,
+                    children: [],
+                  ),
                 ),
+                // child: DesktopWelcomeScreen(),
               ),
             ],
           ),
           mobile: Scaffold(
             appBar: AppBar(),
-            // floatingActionButton: Builder(builder: (context) {
-            //   return FloatingActionButton(
-
-            //     onPressed: () =>
-            //         Scaffold.of(context).openDrawer(), // <-- Opens drawer.
-            //   );
-            // }),
             drawer: LandingPageDrawer(),
             body: SingleChildScrollView(
               child: MobileWelcomeScreen(),
@@ -62,6 +45,35 @@ class WelcomeScreen extends StatelessWidget {
           ),
         ),
       ),
+    );
+  }
+}
+
+class DesktopWelcomeScreen extends StatelessWidget {
+  const DesktopWelcomeScreen({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        Expanded(
+          child: WelcomeImage(),
+        ),
+        Expanded(
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: const [
+              SizedBox(
+                // width: 450,
+                child: LoginAndSignupBtn(),
+              ),
+            ],
+          ),
+        ),
+      ],
     );
   }
 }

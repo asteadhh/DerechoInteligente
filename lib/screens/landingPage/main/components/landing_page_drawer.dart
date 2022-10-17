@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+
+import '../../../../routes/app_pages.dart';
 
 class LandingPageDrawer extends StatelessWidget {
   const LandingPageDrawer({
@@ -19,7 +22,14 @@ class LandingPageDrawer extends StatelessWidget {
               DrawerListTile(
                 title: "Home",
                 icon: Icons.home,
-                press: () {},
+                press: () {
+                  if (Get.currentRoute == AppPages.platform) {
+                    Get.back();
+                  } else {
+                    Scaffold.of(context).closeDrawer();
+                    Get.toNamed(AppPages.platform);
+                  }
+                },
               ),
               DrawerListTile(
                 title: "About Us",
@@ -38,7 +48,6 @@ class LandingPageDrawer extends StatelessWidget {
               ),
             ],
           ),
-          Expanded(child: Container()),
           Column(
             children: [
               DrawerListTile(

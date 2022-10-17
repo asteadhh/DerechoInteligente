@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:provider/provider.dart';
+import 'package:get/get.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 
 import '/controllers/MenuController.dart';
 import '/responsive.dart';
 import '../../../constants.dart';
 
-class Header extends StatelessWidget {
+class Header extends GetView<MenuController> {
   const Header({
     Key? key,
   }) : super(key: key);
@@ -18,7 +19,11 @@ class Header extends StatelessWidget {
         if (!Responsive.isDesktop(context))
           IconButton(
             icon: Icon(Icons.menu),
-            onPressed: context.read<MenuController>().controlMenu,
+            onPressed: () {
+              // Get.lazyPut(() => MenuController());
+              // return controller.controlMenu();
+              Scaffold.of(context).openDrawer();
+            },
           ),
         if (!Responsive.isMobile(context))
           Text(

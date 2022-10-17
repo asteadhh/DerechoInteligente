@@ -1,7 +1,8 @@
+import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pulpox_admin/screens/landingPage/menu.dart';
 
-import '../screens/main/main_screen.dart';
+import '../screens/landingPage/main/main_screen.dart';
 import '../screens/signIn/login_screen.dart';
 import 'bindings.dart';
 
@@ -14,6 +15,7 @@ class AppPages {
   /// when the app is opened, this page will be the first to be shown
   static const main = _Paths.main;
   static const platform = _Paths.platform;
+  static const iniciosesion = _Paths.iniciosesion;
 
   static final routes = [
     GetPage(
