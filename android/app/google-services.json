@@ -100,42 +100,6 @@
           ]
         }
       }
-    },
-    {
-      "client_info": {
-        "mobilesdk_app_id": "1:258011664234:android:b18423c82c4723c5839f13",
-        "android_client_info": {
-          "package_name": "com.example.pulpox_admin"
-        }
-      },
-      "oauth_client": [
-        {
-          "client_id": "258011664234-us40vogj0ho7kf63aejesn0bu367p2fi.apps.googleusercontent.com",
-          "client_type": 3
-        }
-      ],
-      "api_key": [
-        {
-          "current_key": "AIzaSyAsCHcEsl1NVNNuq14Tq-qcfmYBMOWPc4k"
-        }
-      ],
-      "services": {
-        "appinvite_service": {
-          "other_platform_oauth_client": [
-            {
-              "client_id": "258011664234-us40vogj0ho7kf63aejesn0bu367p2fi.apps.googleusercontent.com",
-              "client_type": 3
-            },
-            {
-              "client_id": "258011664234-cv4pahmv0ra2t1v36b4omhl0821sjli3.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.pulpoxAdmin"
-              }
-            }
-          ]
-        }
-      }
     }
   ],
   "configuration_version": "1"

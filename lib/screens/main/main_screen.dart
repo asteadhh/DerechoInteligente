@@ -22,10 +22,12 @@ class MainScreen extends StatelessWidget {
                 // default flex = 1
                 // and it takes 1/6 part of the screen
                 child: SideMenu(),
+                // child: Container(),
               ),
             Expanded(
               // It takes 5/6 part of the screen
               flex: 5,
+              // child: Container(),
               child: DashboardScreen(),
             ),
           ],
