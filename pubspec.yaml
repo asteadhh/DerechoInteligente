@@ -30,6 +30,8 @@ dependencies:
   google_sign_in_web: ^0.10.1
   # flutter_login_facebook: ^1.4.1
 
+  provider: ^5.0.0
+
   # validator for inputs
   form_field_validator: ^1.0.1
   # cached_network_image: ^1.1.1
