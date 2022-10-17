@@ -12,29 +12,44 @@ class WelcomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Background(
-      child: SingleChildScrollView(
-        child: SafeArea(
-          child: Responsive(
-            desktop: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: [
-                Expanded(
-                  child: WelcomeImage(),
+      child: SafeArea(
+        child: Responsive(
+          desktop: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: 30,
                 ),
-                Expanded(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: const [
-                      SizedBox(
-                        // width: 450,
-                        child: LoginAndSignupBtn(),
+                child: MenuLandingPage(),
+              ),
+              SingleChildScrollView(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: [
+                    Expanded(
+                      child: WelcomeImage(),
+                    ),
+                    Expanded(
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: const [
+                          SizedBox(
+                            // width: 450,
+                            child: LoginAndSignupBtn(),
+                          ),
+                        ],
                       ),
-                    ],
-                  ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
+            ],
+          ),
+          mobile: Scaffold(
+            // drawer: ,
+            body: SingleChildScrollView(
+              child: MobileWelcomeScreen(),
             ),
-            mobile: MobileWelcomeScreen(),
           ),
         ),
       ),

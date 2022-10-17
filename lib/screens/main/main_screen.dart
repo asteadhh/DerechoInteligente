@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:provider/provider.dart';
 
 import 'components/side_menu.dart';
 import '/controllers/MenuController.dart';
@@ -12,7 +11,7 @@ class MainScreen extends GetView<MenuController> {
   Widget build(BuildContext context) {
     return Scaffold(
       // key: context.read<MenuController>().scaffoldKey,
-      drawer: SideMenu(),
+      drawer: SideMenuPlatform(),
       body: SafeArea(
         child: Row(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -22,7 +21,7 @@ class MainScreen extends GetView<MenuController> {
               Expanded(
                 // default flex = 1
                 // and it takes 1/6 part of the screen
-                child: SideMenu(),
+                child: SideMenuPlatform(),
                 // child: Container(),
               ),
             Expanded(
