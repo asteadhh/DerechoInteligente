@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:provider/provider.dart';
 
 import 'components/side_menu.dart';
@@ -6,11 +7,11 @@ import '/controllers/MenuController.dart';
 import '/responsive.dart';
 import '/screens/dashboard/dashboard_screen.dart';
 
-class MainScreen extends StatelessWidget {
+class MainScreen extends GetView<MenuController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      key: context.read<MenuController>().scaffoldKey,
+      // key: context.read<MenuController>().scaffoldKey,
       drawer: SideMenu(),
       body: SafeArea(
         child: Row(
