@@ -13,19 +13,44 @@ class MenuLandingPage extends GetView<MenuLandingPageController> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: [
-              _menuItem(title: 'Home', activo: 0),
-              _menuItem(title: 'About us', activo: 1),
-              _menuItem(title: 'Contact us', activo: 2),
-              _menuItem(title: 'Help', activo: 3),
-            ],
+          Obx(
+            () => Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                _menuItem(
+                    title: 'Home',
+                    isActive:
+                        controller.tabIndex.toString() == '0' ? true : false,
+                    activo: 0),
+                _menuItem(
+                  title: 'About us',
+                  activo: 1,
+                  isActive:
+                      controller.tabIndex.toString() == '1' ? true : false,
+                ),
+                _menuItem(
+                  title: 'Contact us',
+                  activo: 2,
+                  isActive:
+                      controller.tabIndex.toString() == '2' ? true : false,
+                ),
+                _menuItem(
+                  title: 'Help',
+                  activo: 3,
+                  isActive:
+                      controller.tabIndex.toString() == '3' ? true : false,
+                ),
+              ],
+            ),
           ),
           Row(
             children: [
-              _menuItem(title: 'Sign In', isActive: true, activo: 4),
-              _registerButton()
+              _menuItem(
+                title: 'Sign In',
+                activo: 4,
+                isActive: controller.tabIndex.toString() == '4' ? true : false,
+              ),
+              _registerButton(5)
             ],
           ),
         ],
@@ -40,15 +65,6 @@ class MenuLandingPage extends GetView<MenuLandingPageController> {
         padding: const EdgeInsets.only(right: 75),
         child: MouseRegion(
           cursor: SystemMouseCursors.click,
-          // onEnter: (event) {
-          //   controller.changeTabIndex(activo);
-          // },
-          // onEnter: ((event) async {
-          //   Get.lazyPut(() => MenuLandingPageController());
-          //   print(title);
-          //   controller.activatedScreen = title;
-          //   print(controller.activatedScreen);
-          // }),
           child: Column(
             children: [
               Text(
@@ -78,25 +94,28 @@ class MenuLandingPage extends GetView<MenuLandingPageController> {
     );
   }
 
-  Widget _registerButton() {
-    return Container(
-      padding: EdgeInsets.symmetric(horizontal: 30, vertical: 8),
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(15),
-        boxShadow: [
-          BoxShadow(
-            color: grey200,
-            spreadRadius: 10,
-            blurRadius: 12,
+  Widget _registerButton(var activo) {
+    return GestureDetector(
+      onTap: () => controller.changeTabIndex(activo),
+      child: Container(
+        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 8),
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(15),
+          boxShadow: [
+            BoxShadow(
+              color: grey200,
+              spreadRadius: 10,
+              blurRadius: 12,
+            ),
+          ],
+        ),
+        child: Text(
+          'Register',
+          style: TextStyle(
+            fontWeight: FontWeight.bold,
+            color: Colors.black54,
           ),
-        ],
-      ),
-      child: Text(
-        'Register',
-        style: TextStyle(
-          fontWeight: FontWeight.bold,
-          color: Colors.black54,
         ),
       ),
     );
