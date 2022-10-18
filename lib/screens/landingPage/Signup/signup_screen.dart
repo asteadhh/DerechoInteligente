@@ -1,47 +1,55 @@
 import 'package:flutter/material.dart';
-import '../../../components/background.dart';
 import '../../../constants/custom_colors.dart';
 import '../../../responsive.dart';
 import 'components/sign_up_top_image.dart';
 import 'components/signup_form.dart';
 
 class SignUpScreen extends StatelessWidget {
-  const SignUpScreen({Key? key}) : super(key: key);
+  SignUpScreen({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Background(
-      child: SingleChildScrollView(
-        child: Responsive(
-          mobile: MobileSignupScreen(),
-          desktop: Row(
+    return Responsive(
+      mobile: MobileSignupScreen(),
+      // mobile: Container(),
+      desktop: DesktopSignupScreen(),
+      // desktop: Container(),
+    );
+  }
+}
+
+class DesktopSignupScreen extends StatelessWidget {
+  DesktopSignupScreen({
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return Row(
+      children: [
+        Expanded(
+          child: SignUpScreenTopImage(),
+        ),
+        Expanded(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Expanded(
-                child: SignUpScreenTopImage(),
+              SizedBox(
+                width: 450,
+                child: SignUpForm(),
               ),
-              Expanded(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    SizedBox(
-                      width: 450,
-                      child: SignUpForm(),
-                    ),
-                    SizedBox(height: Constants.defaultPadding / 2),
-                    // SocalSignUp()
-                  ],
-                ),
-              )
+              SizedBox(height: Constants.defaultPadding / 2),
+              // SocalSignUp()
             ],
           ),
-        ),
-      ),
+        )
+      ],
     );
   }
 }
 
 class MobileSignupScreen extends StatelessWidget {
-  const MobileSignupScreen({
+  MobileSignupScreen({
     Key? key,
   }) : super(key: key);
 

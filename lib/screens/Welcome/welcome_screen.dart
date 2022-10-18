@@ -14,8 +14,6 @@ import '../landingPage/aboutUs/aboutUs_screen.dart';
 import '../landingPage/main/main_screen.dart';
 import '../landingPage/menu.dart';
 import '../plataforma/main/components/landing_page_drawer.dart';
-import 'components/login_signup_btn.dart';
-import 'components/welcome_image.dart';
 
 class WelcomeScreen extends GetView<MenuLandingPageController> {
   const WelcomeScreen({Key? key}) : super(key: key);
@@ -43,8 +41,10 @@ class WelcomeScreen extends GetView<MenuLandingPageController> {
                       ContactUsScreen(),
                       HelpScreen(),
                       LoginScreen(),
-                      // SignUpScreen(),
-                      // LoginDesktop(),
+                      // Container(
+                      //   child: Text('dd'),
+                      // ),
+                      SignUpScreen(),
                     ],
                   ),
                 ),
@@ -65,7 +65,10 @@ class WelcomeScreen extends GetView<MenuLandingPageController> {
                     ContactUsScreen(),
                     HelpScreen(),
                     LoginScreen(),
-                    // SignUpScreen(),
+                    // Container(
+                    //   child: Text('dd'),
+                    // ),
+                    SignUpScreen(),
                   ],
                 ),
               ),

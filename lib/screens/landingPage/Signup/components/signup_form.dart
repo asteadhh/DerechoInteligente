@@ -29,7 +29,7 @@ class SignUpForm extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: defaultPadding),
+            padding: EdgeInsets.symmetric(vertical: defaultPadding),
             child: TextFormField(
               textInputAction: TextInputAction.done,
               obscureText: true,
@@ -43,12 +43,12 @@ class SignUpForm extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: defaultPadding / 2),
+          SizedBox(height: defaultPadding / 2),
           ElevatedButton(
             onPressed: () {},
             child: Text("Sign Up".toUpperCase()),
           ),
-          const SizedBox(height: defaultPadding),
+          SizedBox(height: defaultPadding),
           AlreadyHaveAnAccountCheck(
             login: false,
             press: () {
