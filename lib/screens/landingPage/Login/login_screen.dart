@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-import '../../../components/background.dart';
 import '../../../responsive.dart';
 import 'components/login_form.dart';
 import 'components/login_screen_top_image.dart';
@@ -11,10 +10,10 @@ class LoginScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Responsive(
-      mobile: const MobileLoginScreen(),
+      mobile: MobileLoginScreen(),
       desktop: Row(
         children: [
-          const Expanded(
+          Expanded(
             child: LoginScreenTopImage(),
           ),
           Expanded(

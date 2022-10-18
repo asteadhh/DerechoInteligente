@@ -10,11 +10,11 @@ class MenuLandingPage extends GetView<MenuLandingPageController> {
     Get.lazyPut(() => MenuLandingPageController());
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 30),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          Obx(
-            () => Row(
+      child: Obx(
+        () => Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 _menuItem(
@@ -42,18 +42,19 @@ class MenuLandingPage extends GetView<MenuLandingPageController> {
                 ),
               ],
             ),
-          ),
-          Row(
-            children: [
-              _menuItem(
-                title: 'Sign In',
-                activo: 4,
-                isActive: controller.tabIndex.toString() == '4' ? true : false,
-              ),
-              _registerButton(5)
-            ],
-          ),
-        ],
+            Row(
+              children: [
+                _menuItem(
+                  title: 'Sign In',
+                  activo: 4,
+                  isActive:
+                      controller.tabIndex.toString() == '4' ? true : false,
+                ),
+                _registerButton(5),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }

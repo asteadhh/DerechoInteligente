@@ -6,6 +6,8 @@ import 'package:pulpox_admin/screens/landingPage/help/help_screen.dart';
 import '../../components/background.dart';
 import '../../controllers/menu_landing_page_controller.dart';
 import '../../responsive.dart';
+import '../landingPage/Login/components/login_form.dart';
+import '../landingPage/Login/components/login_screen_top_image.dart';
 import '../landingPage/Login/login_screen.dart';
 import '../landingPage/Signup/signup_screen.dart';
 import '../landingPage/aboutUs/aboutUs_screen.dart';
@@ -40,8 +42,9 @@ class WelcomeScreen extends GetView<MenuLandingPageController> {
                       AboutUsScreen(),
                       ContactUsScreen(),
                       HelpScreen(),
-                      // LoginScreen(),
+                      LoginScreen(),
                       // SignUpScreen(),
+                      // LoginDesktop(),
                     ],
                   ),
                 ),
@@ -61,7 +64,7 @@ class WelcomeScreen extends GetView<MenuLandingPageController> {
                     AboutUsScreen(),
                     ContactUsScreen(),
                     HelpScreen(),
-                    // LoginScreen(),
+                    LoginScreen(),
                     // SignUpScreen(),
                   ],
                 ),
@@ -79,37 +82,8 @@ class WelcomeScreen extends GetView<MenuLandingPageController> {
   }
 }
 
-class DesktopWelcomeScreen extends StatelessWidget {
-  const DesktopWelcomeScreen({
-    Key? key,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.end,
-      children: [
-        Expanded(
-          child: WelcomeImage(),
-        ),
-        Expanded(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: const [
-              SizedBox(
-                // width: 450,
-                child: LoginAndSignupBtn(),
-              ),
-            ],
-          ),
-        ),
-      ],
-    );
-  }
-}
-
-class MobileWelcomeScreen extends StatelessWidget {
-  const MobileWelcomeScreen({
+class LoginDesktop extends StatelessWidget {
+  const LoginDesktop({
     Key? key,
   }) : super(key: key);
 
@@ -117,16 +91,24 @@ class MobileWelcomeScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
-      children: <Widget>[
-        const WelcomeImage(),
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: [
         Row(
-          children: const [
-            Spacer(),
+          children: [
             Expanded(
-              flex: 8,
-              child: LoginAndSignupBtn(),
+              child: LoginScreenTopImage(),
             ),
-            Spacer(),
+            Expanded(
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: const [
+                  SizedBox(
+                    width: 450,
+                    child: LoginForm(),
+                  ),
+                ],
+              ),
+            ),
           ],
         ),
       ],
