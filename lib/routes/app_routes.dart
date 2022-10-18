@@ -20,12 +20,13 @@ part of 'app_pages.dart';
 // made separately to make it easier to manage route naming
 class _Paths {
   static const main = '/';
-  static const platform = '/platform';
   static const landingMenu = '/landingMenu';
+  static const contactUs = '/contactus';
+  static const aboutUs = '/aboutus';
+  static const help = '/help';
   static const iniciosesion = '/iniciosesion';
   static const registrosesion = '/registrosesion';
-  static const contactUs = '/contactus';
-  static const help = '/help';
+  static const platform = '/platform';
 
   // Example :
   // static const index = '/';

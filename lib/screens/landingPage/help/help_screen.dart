@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class MainScreen extends StatelessWidget {
-  const MainScreen({super.key});
+class HelpScreen extends StatelessWidget {
+  const HelpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('main'),
+      child: Text('Help '),
     );
   }
 }

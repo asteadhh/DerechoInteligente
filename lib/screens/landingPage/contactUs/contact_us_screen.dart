@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
-class MainScreen extends StatelessWidget {
-  const MainScreen({super.key});
+class ContactUsScreen extends StatelessWidget {
+  const ContactUsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      child: Text('main'),
+      child: Text('Contact Us '),
     );
   }
 }

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 
 import '../../constants.dart';
 import '../../controllers/menu_landing_page_controller.dart';
@@ -17,15 +16,15 @@ class MenuLandingPage extends GetView<MenuLandingPageController> {
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              _menuItem(title: 'Home'),
-              _menuItem(title: 'About us'),
-              _menuItem(title: 'Contact us'),
-              _menuItem(title: 'Help'),
+              _menuItem(title: 'Home', activo: 0),
+              _menuItem(title: 'About us', activo: 1),
+              _menuItem(title: 'Contact us', activo: 2),
+              _menuItem(title: 'Help', activo: 3),
             ],
           ),
           Row(
             children: [
-              _menuItem(title: 'Sign In', isActive: true),
+              _menuItem(title: 'Sign In', isActive: true, activo: 4),
               _registerButton()
             ],
           ),
@@ -34,39 +33,46 @@ class MenuLandingPage extends GetView<MenuLandingPageController> {
     );
   }
 
-  Widget _menuItem({var title = 'Title Menu', isActive = false}) {
-    return Padding(
-      padding: const EdgeInsets.only(right: 75),
-      child: MouseRegion(
-        cursor: SystemMouseCursors.click,
-        // onEnter: ((event) async {
-        //   Get.lazyPut(() => MenuLandingPageController());
-        //   print(title);
-        //   controller.activatedScreen = title;
-        //   print(controller.activatedScreen);
-        // }),
-        child: Column(
-          children: [
-            Text(
-              '$title',
-              style: TextStyle(
-                fontWeight: FontWeight.bold,
-                color: isActive ? Colors.deepPurple : Colors.grey,
+  Widget _menuItem({var title = 'Title Menu', isActive = false, var activo}) {
+    return GestureDetector(
+      onTap: () => controller.changeTabIndex(activo),
+      child: Padding(
+        padding: const EdgeInsets.only(right: 75),
+        child: MouseRegion(
+          cursor: SystemMouseCursors.click,
+          // onEnter: (event) {
+          //   controller.changeTabIndex(activo);
+          // },
+          // onEnter: ((event) async {
+          //   Get.lazyPut(() => MenuLandingPageController());
+          //   print(title);
+          //   controller.activatedScreen = title;
+          //   print(controller.activatedScreen);
+          // }),
+          child: Column(
+            children: [
+              Text(
+                '$title',
+                style: TextStyle(
+                  fontWeight: FontWeight.bold,
+                  color: isActive ? Colors.deepPurple : Colors.grey,
+                ),
               ),
-            ),
-            SizedBox(
-              height: 6,
-            ),
-            isActive
-                ? Container(
-                    padding: EdgeInsets.symmetric(horizontal: 12, vertical: 2),
-                    decoration: BoxDecoration(
-                      color: Colors.deepPurple,
-                      borderRadius: BorderRadius.circular(30),
-                    ),
-                  )
-                : SizedBox()
-          ],
+              SizedBox(
+                height: 6,
+              ),
+              isActive
+                  ? Container(
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 12, vertical: 2),
+                      decoration: BoxDecoration(
+                        color: Colors.deepPurple,
+                        borderRadius: BorderRadius.circular(30),
+                      ),
+                    )
+                  : SizedBox()
+            ],
+          ),
         ),
       ),
     );

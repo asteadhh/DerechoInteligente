@@ -1,19 +1,25 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pulpox_admin/screens/landingPage/contactUs/contact_us_screen.dart';
+import 'package:pulpox_admin/screens/landingPage/help/help_screen.dart';
 
 import '../../components/background.dart';
 import '../../controllers/menu_landing_page_controller.dart';
 import '../../responsive.dart';
+import '../landingPage/Login/login_screen.dart';
+import '../landingPage/Signup/signup_screen.dart';
+import '../landingPage/aboutUs/aboutUs_screen.dart';
+import '../landingPage/main/main_screen.dart';
 import '../landingPage/menu.dart';
-import '../landingPage/main/components/landing_page_drawer.dart';
+import '../plataforma/main/components/landing_page_drawer.dart';
 import 'components/login_signup_btn.dart';
 import 'components/welcome_image.dart';
 
 class WelcomeScreen extends GetView<MenuLandingPageController> {
   const WelcomeScreen({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
+    Get.lazyPut(() => MenuLandingPageController());
     return Background(
       child: SafeArea(
         child: Responsive(
@@ -29,7 +35,14 @@ class WelcomeScreen extends GetView<MenuLandingPageController> {
                 child: Obx(
                   () => IndexedStack(
                     index: controller.tabIndex.value,
-                    children: [],
+                    children: [
+                      MainScreen(),
+                      AboutUsScreen(),
+                      ContactUsScreen(),
+                      HelpScreen(),
+                      // LoginScreen(),
+                      // SignUpScreen(),
+                    ],
                   ),
                 ),
                 // child: DesktopWelcomeScreen(),
@@ -40,8 +53,25 @@ class WelcomeScreen extends GetView<MenuLandingPageController> {
             appBar: AppBar(),
             drawer: LandingPageDrawer(),
             body: SingleChildScrollView(
-              child: MobileWelcomeScreen(),
+              child: Obx(
+                () => IndexedStack(
+                  index: controller.tabIndex.value,
+                  children: [
+                    MainScreen(),
+                    AboutUsScreen(),
+                    ContactUsScreen(),
+                    HelpScreen(),
+                    // LoginScreen(),
+                    // SignUpScreen(),
+                  ],
+                ),
+              ),
+              // child: DesktopWelcomeScreen(),
             ),
+            // body: SingleChildScrollView(
+
+            //     // child: MobileWelcomeScreen(),
+            //     ),
           ),
         ),
       ),
