@@ -4,6 +4,7 @@ import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:url_strategy/url_strategy.dart';
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -14,7 +15,6 @@ import '/utils/translations.dart';
 import 'constants/theme.dart';
 import 'firebase_options.dart';
 import 'screens/Welcome/welcome_screen.dart';
-import 'screens/signIn/login_screen.dart';
 
 const bool USE_EMULATOR = false;
 bool isWhite = false;
@@ -54,6 +54,7 @@ Future main() async {
   );
 
   print('User granted permission: ${settings.authorizationStatus}');
+  setPathUrlStrategy();
   runApp(
     MyApp(
         // prefs: prefs,
@@ -90,7 +91,7 @@ class MyApp extends StatelessWidget {
       darkTheme: darkTheme,
       // themeMode: ThemeMode.system,
       // themeMode: ThemeService().theme,
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.light,
       title: 'Pulpox',
       debugShowCheckedModeBanner: false,
       getPages: AppPages.routes,

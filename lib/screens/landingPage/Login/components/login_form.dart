@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 
 import '../../../../components/already_have_an_account_acheck.dart';
 import '../../../../constants.dart';
 import '../../../../constants/custom_colors.dart';
-import '../../Signup/signup_screen.dart';
+import '../../../../controllers/menu_landing_page_controller.dart';
 
-class LoginForm extends StatelessWidget {
+class LoginForm extends GetView<MenuLandingPageController> {
   const LoginForm({
     Key? key,
   }) : super(key: key);
@@ -56,14 +57,18 @@ class LoginForm extends StatelessWidget {
           const SizedBox(height: defaultPadding),
           AlreadyHaveAnAccountCheck(
             press: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (context) {
-                    return SignUpScreen();
-                  },
-                ),
-              );
+              print('object');
+              controller.tabIndex.toString() == '4'
+                  ? controller.changeTabIndex(5)
+                  : controller.changeTabIndex(4);
+              // Navigator.push(
+              //   context,
+              //   MaterialPageRoute(
+              //     builder: (context) {
+              //       return SignUpScreen();
+              //     },
+              //   ),
+              // );
             },
           ),
         ],

@@ -55,6 +55,7 @@ dependencies:
   timeago: ^3.1.0
   # google_sign_in_web: ^0.10.1
   flutter_signin_button: ^2.0.0
+  url_strategy: ^0.2.0
 
 dev_dependencies:
   flutter_test:
@@ -81,6 +82,18 @@ flutter:
     - assets/images/illustration-2.png
 
   fonts:
+    - family: MontserratBold
+      fonts:
+        - asset: assets/fonts/monserat/Montserrat-Bold.ttf
+    - family: MontserratLight
+      fonts:
+        - asset: assets/fonts/monserat/Montserrat-Light.ttf
+    - family: MontserratRegular
+      fonts:
+        - asset: assets/fonts/monserat/Montserrat-Regular.ttf
+    - family: MontserratMedium
+      fonts:
+        - asset: assets/fonts/monserat/Montserrat-Medium.ttf
     - family: Poppins
       fonts:
         - asset: assets/fonts/poppins/Poppins-Thin.ttf
