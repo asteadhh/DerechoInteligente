@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
-class SideMenu extends StatelessWidget {
-  const SideMenu({
+class SideMenuPlatform extends StatelessWidget {
+  const SideMenuPlatform({
     Key? key,
   }) : super(key: key);
 
