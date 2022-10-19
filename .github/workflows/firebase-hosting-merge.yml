@@ -2,7 +2,7 @@
 # https://github.com/firebase/firebase-tools
 
 name: Deploy to Firebase Hosting on merge
-'on':
+"on":
   push:
     branches:
       - Projecto-Mango
@@ -11,12 +11,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - run: >-
-          sudo snap install flutter --classic && flutter config --enable-web &&
-          flutter build web -t lib/main_prod.dart --release
+      - run: sudo snap install flutter --classic
+      - run: flutter config --enable-web
+      - run: flutter build web -t lib/main_prod.dart --release
       - uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          repoToken: '${{ secrets.GITHUB_TOKEN }}'
-          firebaseServiceAccount: '${{ secrets.FIREBASE_SERVICE_ACCOUNT_PROJECTO_MANGO }}'
+          repoToken: "${{ secrets.GITHUB_TOKEN }}"
+          firebaseServiceAccount: "${{ secrets.FIREBASE_SERVICE_ACCOUNT_PROJECTO_MANGO }}"
           channelId: live
           projectId: projecto-mango
