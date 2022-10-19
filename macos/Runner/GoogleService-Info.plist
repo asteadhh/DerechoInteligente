@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>258011664234-cv4pahmv0ra2t1v36b4omhl0821sjli3.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.258011664234-cv4pahmv0ra2t1v36b4omhl0821sjli3</string>
+	<key>ANDROID_CLIENT_ID</key>
+	<string>258011664234-55aktgdjgqt8k3r9grce8trebsu0h24o.apps.googleusercontent.com</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB6zmp5sTCQCKTjkZSWMsIaWfuJ8S03DOs</string>
+	<key>GCM_SENDER_ID</key>
+	<string>258011664234</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.pulpoxAdmin</string>
+	<key>PROJECT_ID</key>
+	<string>projecto-mango</string>
+	<key>STORAGE_BUCKET</key>
+	<string>projecto-mango.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:258011664234:ios:e1b57a06686955db839f13</string>
+</dict>
+</plist>
