@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import '../constants/theme.dart';
 import '../routes/app_pages.dart';
+import '../screens/landingPage/base/home_page_landing.dart';
+import '../screens/landingPage/main/main_screen.dart';
 import '/screens/home_page.dart';
 import '/utils/authentication.dart';
 import '/widgets/auth_dialog.dart';
@@ -71,12 +73,14 @@ class _TopBarContentsState extends State<TopBarContents> {
                               : _isHovering[0] = false;
                         });
                       },
-                      onTap: () {},
+                      onTap: () {
+                        Get.toNamed(AppPages.aboutUs);
+                      },
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
-                            'Discover',
+                            'About Us',
                             style: TextStyle(
                               color: _isHovering[0]
                                   ? Colors.blue[200]
@@ -107,7 +111,9 @@ class _TopBarContentsState extends State<TopBarContents> {
                               : _isHovering[1] = false;
                         });
                       },
-                      onTap: () {},
+                      onTap: () {
+                        Get.toNamed(AppPages.contactUS);
+                      },
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
@@ -218,8 +224,9 @@ class _TopBarContentsState extends State<TopBarContents> {
                                       Navigator.of(context).pushReplacement(
                                         MaterialPageRoute(
                                           fullscreenDialog: true,
-                                          builder: (context) =>
-                                              HomePageLanding(),
+                                          builder: (context) => LandingPageBase(
+                                            widget: HomeLandingContent(),
+                                          ),
                                         ),
                                       );
                                     }).catchError((error) {

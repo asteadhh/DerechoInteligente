@@ -10,20 +10,42 @@ import '../../../widgets/floating_quick_access_bar.dart';
 class HomeLanding extends StatelessWidget {
   HomeLanding({
     Key? key,
-    // required this.screenSize,
+    required this.content,
   }) : super(key: key);
+
+  Widget content;
 
   @override
   Widget build(BuildContext context) {
     final Size screenSize = MediaQuery.of(context).size;
     return Column(
       children: [
+        content,
+        SizedBox(height: screenSize.height / 10),
+        BottomBar(),
+      ],
+    );
+  }
+}
+
+class HomeLandingContent extends StatelessWidget {
+  const HomeLandingContent({
+    Key? key,
+    // required this.screenSize,
+  }) : super(key: key);
+
+  // final Size screenSize;
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
         Stack(
           children: [
             Container(
               child: SizedBox(
-                height: screenSize.height * 0.45,
-                width: screenSize.width,
+                height: MediaQuery.of(context).size.height * 0.45,
+                width: MediaQuery.of(context).size.width,
                 child: Image.asset(
                   'assets/images/cover.jpg',
                   fit: BoxFit.cover,
@@ -32,14 +54,14 @@ class HomeLanding extends StatelessWidget {
             ),
             Column(
               children: [
-                FloatingQuickAccessBar(screenSize: screenSize),
+                FloatingQuickAccessBar(screenSize: MediaQuery.of(context).size),
                 Container(
                   child: Column(
                     children: [
                       FeaturedHeading(
-                        screenSize: screenSize,
+                        screenSize: MediaQuery.of(context).size,
                       ),
-                      FeaturedTiles(screenSize: screenSize)
+                      FeaturedTiles(screenSize: MediaQuery.of(context).size)
                     ],
                   ),
                 ),
@@ -47,10 +69,8 @@ class HomeLanding extends StatelessWidget {
             )
           ],
         ),
-        DestinationHeading(screenSize: screenSize),
+        DestinationHeading(screenSize: MediaQuery.of(context).size),
         DestinationCarousel(),
-        SizedBox(height: screenSize.height / 10),
-        BottomBar(),
       ],
     );
   }

@@ -5,6 +5,7 @@ import 'package:pulpox_admin/screens/landingPage/contactUs/contact_us_screen.dar
 import 'package:pulpox_admin/screens/landingPage/help/help_screen.dart';
 import 'package:pulpox_admin/screens/landingPage/menu.dart';
 
+import '../screens/home_page.dart';
 import '../screens/landingPage/main/main_screen.dart';
 import '../screens/plataforma/main/main_screen.dart';
 import '../screens/signIn/login_screen.dart';
@@ -29,7 +30,7 @@ class AppPages {
   static final routes = [
     GetPage(
       name: _Paths.main,
-      page: () => HomeLanding(),
+      page: () => Home(),
       // binding: NotificacionesScreenBinding(),
     ),
     GetPage(

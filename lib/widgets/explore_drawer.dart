@@ -1,3 +1,6 @@
+import 'package:get/get.dart';
+
+import '../routes/app_pages.dart';
 import '/screens/home_page.dart';
 import '/utils/authentication.dart';
 import 'package:flutter/material.dart';
@@ -113,7 +116,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                                   Navigator.of(context).pushReplacement(
                                     MaterialPageRoute(
                                       fullscreenDialog: true,
-                                      builder: (context) => HomePageLanding(),
+                                      builder: (context) => Home(),
                                     ),
                                   );
                                 }).catchError((error) {
@@ -146,9 +149,12 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                   : Container(),
               userEmail != null ? SizedBox(height: 20) : Container(),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Get.toNamed(AppPages.aboutUs);
+                  // LandingPageBase()
+                },
                 child: Text(
-                  'Discover',
+                  'About Us',
                   style: TextStyle(color: Colors.white, fontSize: 22),
                 ),
               ),
@@ -160,7 +166,9 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                 ),
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Get.toNamed(AppPages.contactUS);
+                },
                 child: Text(
                   'Contact Us',
                   style: TextStyle(color: Colors.white, fontSize: 22),
