@@ -37,7 +37,7 @@ class WelcomeScreen extends GetView<MenuLandingPageController> {
                   () => IndexedStack(
                     index: controller.tabIndex.value,
                     children: [
-                      MainScreen(),
+                      // MainScreen(),
                       AboutUsScreen(),
                       ContactUsScreen(),
                       HelpScreen(),
@@ -57,7 +57,7 @@ class WelcomeScreen extends GetView<MenuLandingPageController> {
                 () => IndexedStack(
                   index: controller.tabIndex.value,
                   children: [
-                    MainScreen(),
+                    // MainScreen(),
                     AboutUsScreen(),
                     ContactUsScreen(),
                     HelpScreen(),

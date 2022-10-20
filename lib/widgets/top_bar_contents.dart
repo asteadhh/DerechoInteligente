@@ -1,6 +1,7 @@
 import 'package:get/get.dart';
 
 import '../constants/theme.dart';
+import '../routes/app_pages.dart';
 import '/screens/home_page.dart';
 import '/utils/authentication.dart';
 import '/widgets/auth_dialog.dart';
@@ -42,14 +43,19 @@ class _TopBarContentsState extends State<TopBarContents> {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              Text(
-                'PulPox',
-                style: TextStyle(
-                  color: Colors.blueGrey[100],
-                  fontSize: 20,
-                  fontFamily: 'Montserrat',
-                  fontWeight: FontWeight.w400,
-                  letterSpacing: 3,
+              GestureDetector(
+                onTap: () {
+                  Get.toNamed(AppPages.main);
+                },
+                child: Text(
+                  'PulPox',
+                  style: TextStyle(
+                    color: Colors.blueGrey[100],
+                    fontSize: 20,
+                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.w400,
+                    letterSpacing: 3,
+                  ),
                 ),
               ),
               Expanded(

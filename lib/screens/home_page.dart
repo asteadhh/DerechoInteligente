@@ -1,17 +1,13 @@
-import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
 import 'package:get/get.dart';
+import 'package:pulpox_admin/routes/app_pages.dart';
 import '../constants/theme.dart';
 import '/widgets/web_scrollbar.dart';
-import '/widgets/bottom_bar.dart';
-import '/widgets/carousel.dart';
-import '/widgets/destination_heading.dart';
 import '/widgets/explore_drawer.dart';
-import '/widgets/featured_heading.dart';
-import '/widgets/featured_tiles.dart';
-import '/widgets/floating_quick_access_bar.dart';
 import '/widgets/responsive.dart';
 import '/widgets/top_bar_contents.dart';
 import 'package:flutter/material.dart';
+
+import 'landingPage/main/main_screen.dart';
 
 class HomePageLanding extends StatefulWidget {
   static const String route = '/';
@@ -71,14 +67,19 @@ class _HomePageLandingState extends State<HomePageLanding> {
                   },
                 ),
               ],
-              title: Text(
-                'PulPox',
-                style: TextStyle(
-                  color: Colors.blueGrey[100],
-                  fontSize: 20,
-                  fontFamily: 'Montserrat',
-                  fontWeight: FontWeight.w400,
-                  letterSpacing: 3,
+              title: GestureDetector(
+                onTap: () {
+                  Get.toNamed(AppPages.main);
+                },
+                child: Text(
+                  'PulPox',
+                  style: TextStyle(
+                    color: Colors.blueGrey[100],
+                    fontSize: 20,
+                    fontFamily: 'Montserrat',
+                    fontWeight: FontWeight.w400,
+                    letterSpacing: 3,
+                  ),
                 ),
               ),
             )
@@ -96,43 +97,7 @@ class _HomePageLandingState extends State<HomePageLanding> {
         child: SingleChildScrollView(
           controller: _scrollController,
           physics: ClampingScrollPhysics(),
-          child: Column(
-            children: [
-              Stack(
-                children: [
-                  Container(
-                    child: SizedBox(
-                      height: screenSize.height * 0.45,
-                      width: screenSize.width,
-                      child: Image.asset(
-                        'assets/images/cover.jpg',
-                        fit: BoxFit.cover,
-                      ),
-                    ),
-                  ),
-                  Column(
-                    children: [
-                      FloatingQuickAccessBar(screenSize: screenSize),
-                      Container(
-                        child: Column(
-                          children: [
-                            FeaturedHeading(
-                              screenSize: screenSize,
-                            ),
-                            FeaturedTiles(screenSize: screenSize)
-                          ],
-                        ),
-                      ),
-                    ],
-                  )
-                ],
-              ),
-              DestinationHeading(screenSize: screenSize),
-              DestinationCarousel(),
-              SizedBox(height: screenSize.height / 10),
-              BottomBar(),
-            ],
-          ),
+          child: HomeLanding(),
         ),
       ),
     );
