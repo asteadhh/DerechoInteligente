@@ -266,7 +266,7 @@ class _AuthDialogState extends State<AuthDialog> {
                                       Navigator.of(context)
                                           .pushReplacement(MaterialPageRoute(
                                         fullscreenDialog: true,
-                                        builder: (context) => HomePageLanding(),
+                                        builder: (context) => Home(),
                                       ));
                                     });
                                   }

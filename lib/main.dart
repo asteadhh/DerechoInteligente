@@ -103,7 +103,7 @@ class MyApp extends StatelessWidget {
       // home: MainScreen(),
 
       // home: WelcomeScreen(),
-      home: HomePageLanding(),
+      home: Home(),
     );
   }
 }

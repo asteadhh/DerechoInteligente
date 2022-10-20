@@ -1,105 +1,15 @@
-import 'package:get/get.dart';
-import 'package:pulpox_admin/routes/app_pages.dart';
-import '../constants/theme.dart';
-import '/widgets/web_scrollbar.dart';
-import '/widgets/explore_drawer.dart';
-import '/widgets/responsive.dart';
-import '/widgets/top_bar_contents.dart';
 import 'package:flutter/material.dart';
 
+import 'landingPage/base/home_page_landing.dart';
 import 'landingPage/main/main_screen.dart';
 
-class HomePageLanding extends StatefulWidget {
-  static const String route = '/';
-
-  @override
-  _HomePageLandingState createState() => _HomePageLandingState();
-}
-
-class _HomePageLandingState extends State<HomePageLanding> {
-  late ScrollController _scrollController;
-  double _scrollPosition = 0;
-  double _opacity = 0;
-
-  _scrollListener() {
-    setState(() {
-      _scrollPosition = _scrollController.position.pixels;
-    });
-  }
-
-  @override
-  void initState() {
-    _scrollController = ScrollController();
-    _scrollController.addListener(_scrollListener);
-    super.initState();
-  }
+class Home extends StatelessWidget {
+  const Home({super.key});
 
   @override
   Widget build(BuildContext context) {
-    var screenSize = MediaQuery.of(context).size;
-    _opacity = _scrollPosition < screenSize.height * 0.40
-        ? _scrollPosition / (screenSize.height * 0.40)
-        : 1;
-
-    return Scaffold(
-      backgroundColor: Theme.of(context).backgroundColor,
-      extendBodyBehindAppBar: true,
-      appBar: ResponsiveWidget.isSmallScreen(context)
-          ? AppBar(
-              backgroundColor:
-                  Theme.of(context).bottomAppBarColor.withOpacity(_opacity),
-              elevation: 0,
-              centerTitle: true,
-              actions: [
-                IconButton(
-                  icon: Icon(Icons.brightness_6),
-                  splashColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  onPressed: () {
-                    //CHANGE THEME MODE
-                    // EasyDynamicTheme.of(context).changeTheme();
-
-                    Get.changeThemeMode(ThemeService().loadThemeFromBox()
-                        ? ThemeMode.light
-                        : ThemeMode.dark);
-                    ThemeService()
-                        .saveThemeToBox(!ThemeService().loadThemeFromBox());
-                  },
-                ),
-              ],
-              title: GestureDetector(
-                onTap: () {
-                  Get.toNamed(AppPages.main);
-                },
-                child: Text(
-                  'PulPox',
-                  style: TextStyle(
-                    color: Colors.blueGrey[100],
-                    fontSize: 20,
-                    fontFamily: 'Montserrat',
-                    fontWeight: FontWeight.w400,
-                    letterSpacing: 3,
-                  ),
-                ),
-              ),
-            )
-          : PreferredSize(
-              preferredSize: Size(screenSize.width, 1000),
-              child: TopBarContents(_opacity),
-            ),
-      drawer: ExploreDrawer(),
-      body: WebScrollbar(
-        color: Colors.blueGrey,
-        backgroundColor: Colors.blueGrey.withOpacity(0.3),
-        width: 10,
-        heightFraction: 0.3,
-        controller: _scrollController,
-        child: SingleChildScrollView(
-          controller: _scrollController,
-          physics: ClampingScrollPhysics(),
-          child: HomeLanding(),
-        ),
-      ),
+    return LandingPageBase(
+      widget: HomeLandingContent(),
     );
   }
 }

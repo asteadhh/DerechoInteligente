@@ -113,7 +113,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                                   Navigator.of(context).pushReplacement(
                                     MaterialPageRoute(
                                       fullscreenDialog: true,
-                                      builder: (context) => HomePageLanding(),
+                                      builder: (context) => Home(),
                                     ),
                                   );
                                 }).catchError((error) {
@@ -146,7 +146,9 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                   : Container(),
               userEmail != null ? SizedBox(height: 20) : Container(),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  // LandingPageBase()
+                },
                 child: Text(
                   'Discover',
                   style: TextStyle(color: Colors.white, fontSize: 22),
