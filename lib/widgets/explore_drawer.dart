@@ -1,3 +1,6 @@
+import 'package:get/get.dart';
+
+import '../routes/app_pages.dart';
 import '/screens/home_page.dart';
 import '/utils/authentication.dart';
 import 'package:flutter/material.dart';
@@ -147,10 +150,11 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
               userEmail != null ? SizedBox(height: 20) : Container(),
               InkWell(
                 onTap: () {
+                  Get.toNamed(AppPages.aboutUs);
                   // LandingPageBase()
                 },
                 child: Text(
-                  'Discover',
+                  'About Us',
                   style: TextStyle(color: Colors.white, fontSize: 22),
                 ),
               ),
@@ -162,7 +166,9 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                 ),
               ),
               InkWell(
-                onTap: () {},
+                onTap: () {
+                  Get.toNamed(AppPages.contactUS);
+                },
                 child: Text(
                   'Contact Us',
                   style: TextStyle(color: Colors.white, fontSize: 22),

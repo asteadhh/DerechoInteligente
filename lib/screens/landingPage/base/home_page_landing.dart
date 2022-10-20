@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 
 import '../../../constants/theme.dart';
 import '../../../widgets/bottom_bar.dart';
-import '../main/main_screen.dart';
 import '/routes/app_pages.dart';
 import '/widgets/web_scrollbar.dart';
 import '/widgets/explore_drawer.dart';

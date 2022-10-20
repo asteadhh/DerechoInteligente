@@ -73,12 +73,14 @@ class _TopBarContentsState extends State<TopBarContents> {
                               : _isHovering[0] = false;
                         });
                       },
-                      onTap: () {},
+                      onTap: () {
+                        Get.toNamed(AppPages.aboutUs);
+                      },
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
-                            'Discover',
+                            'About Us',
                             style: TextStyle(
                               color: _isHovering[0]
                                   ? Colors.blue[200]
@@ -109,7 +111,9 @@ class _TopBarContentsState extends State<TopBarContents> {
                               : _isHovering[1] = false;
                         });
                       },
-                      onTap: () {},
+                      onTap: () {
+                        Get.toNamed(AppPages.contactUS);
+                      },
                       child: Column(
                         mainAxisSize: MainAxisSize.min,
                         children: [
