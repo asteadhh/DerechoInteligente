@@ -72,7 +72,7 @@ class _HomePageLandingState extends State<HomePageLanding> {
                 ),
               ],
               title: Text(
-                'EXPLORE',
+                'PulPox',
                 style: TextStyle(
                   color: Colors.blueGrey[100],
                   fontSize: 20,

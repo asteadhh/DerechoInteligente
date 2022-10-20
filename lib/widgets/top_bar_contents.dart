@@ -43,7 +43,7 @@ class _TopBarContentsState extends State<TopBarContents> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                'EXPLORE',
+                'PulPox',
                 style: TextStyle(
                   color: Colors.blueGrey[100],
                   fontSize: 20,
