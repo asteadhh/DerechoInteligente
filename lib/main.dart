@@ -11,10 +11,12 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:pulpox_admin/routes/app_pages.dart';
 
+import '/utils/authentication.dart';
+
 import '/utils/translations.dart';
 import 'constants/theme.dart';
 import 'firebase_options.dart';
-import 'screens/Welcome/welcome_screen.dart';
+import 'screens/home_page.dart';
 
 const bool USE_EMULATOR = false;
 bool isWhite = false;
@@ -56,9 +58,7 @@ Future main() async {
   print('User granted permission: ${settings.authorizationStatus}');
   setPathUrlStrategy();
   runApp(
-    MyApp(
-        // prefs: prefs,
-        ),
+    MyApp(),
   );
 }
 
@@ -66,6 +66,12 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    Future getUserInfo() async {
+      await getUser();
+      print(uid);
+    }
+
+    ;
     return GetMaterialApp(
 //       debugShowCheckedModeBanner: false,
 //       title: 'Pulpox Landing',
@@ -79,18 +85,16 @@ class MyApp extends StatelessWidget {
 //       ),
 // //areglar
 
+      onInit: getUserInfo,
+
       translations: Messages(),
       locale: Locale('es', 'ES'),
       fallbackLocale: Locale('es', 'ES'),
       navigatorObservers: [
         FirebaseAnalyticsObserver(analytics: FirebaseAnalytics.instance),
       ],
-      // theme: Themes.light,
       theme: lightTheme,
-      // darkTheme: Themes.dark,
       darkTheme: darkTheme,
-      // themeMode: ThemeMode.system,
-      // themeMode: ThemeService().theme,
       themeMode: ThemeMode.light,
       title: 'Pulpox',
       debugShowCheckedModeBanner: false,
@@ -98,7 +102,8 @@ class MyApp extends StatelessWidget {
 
       // home: MainScreen(),
 
-      home: WelcomeScreen(),
+      // home: WelcomeScreen(),
+      home: HomePageLanding(),
     );
   }
 }

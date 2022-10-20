@@ -87,7 +87,7 @@ class LoginForm extends GetView<MenuLandingPageController> {
                 buttonType: ButtonType.google,
                 // mini: true,
                 onPressed: () {
-                  LoginController().signInWithGoogle();
+                  // LoginController().signInWithGoogle();
                 },
               ),
               const SizedBox(width: 20),
@@ -95,7 +95,7 @@ class LoginForm extends GetView<MenuLandingPageController> {
                 buttonType: ButtonType.facebook,
                 // mini: true,
                 onPressed: () {
-                  LoginController().facebookSignInMethod();
+                  // LoginController().facebookSignInMethod();
                 },
               ),
             ],
