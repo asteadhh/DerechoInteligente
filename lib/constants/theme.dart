@@ -5,74 +5,50 @@ import 'package:get_storage/get_storage.dart';
 import 'custom_colors.dart';
 
 ThemeData darkTheme = ThemeData(
+  primarySwatch: Colors.blueGrey,
+  backgroundColor: Colors.blueGrey[900],
+  cardColor: Colors.black,
+  primaryTextTheme: TextTheme(
+    button: TextStyle(
+      color: Colors.blueGrey[200],
+      decorationColor: Colors.blueGrey[50],
+    ),
+    subtitle2: TextStyle(
+      color: Colors.white,
+    ),
+    subtitle1: TextStyle(
+      color: Colors.blueGrey[300],
+    ),
+    headline1: TextStyle(
+      color: Colors.white70,
+    ),
+  ),
+  bottomAppBarColor: Colors.black,
+  iconTheme: IconThemeData(color: Colors.blueGrey[200]),
   brightness: Brightness.dark,
-  primaryColor: Colors.amber,
-  // scaffoldBackgroundColor: CustomColors.backgrueriaoundcolor,
-  appBarTheme: AppBarTheme(
-    backgroundColor: Color.fromARGB(0, 44, 44, 44),
-  ),
-  fontFamily: 'OpenSans',
-  buttonTheme: ButtonThemeData(
-    buttonColor: Colors.amber,
-    disabledColor: Colors.grey,
-  ),
-  accentColor: Colors.red,
-  // colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.red),
 );
 
 ThemeData lightTheme = ThemeData(
+  primarySwatch: Colors.blueGrey,
+  backgroundColor: Colors.white,
+  cardColor: Colors.blueGrey[50],
+  primaryTextTheme: TextTheme(
+    button: TextStyle(
+      color: Colors.blueGrey,
+      decorationColor: Colors.blueGrey[300],
+    ),
+    subtitle2: TextStyle(
+      color: Colors.blueGrey[900],
+    ),
+    subtitle1: TextStyle(
+      color: Colors.black,
+    ),
+    headline1: TextStyle(color: Colors.blueGrey[800]),
+  ),
+  bottomAppBarColor: Colors.blueGrey[900],
+  iconTheme: IconThemeData(color: Colors.blueGrey),
   brightness: Brightness.light,
-  primaryColor: Colors.amber,
-  fontFamily: 'OpenSans',
-  scaffoldBackgroundColor: Constants.backgroundcolor,
-  appBarTheme: AppBarTheme(
-    backgroundColor: Constants.backgroundcolor,
-  ),
-  colorScheme: ColorScheme.fromSwatch(
-    primarySwatch: Colors.amber,
-  ).copyWith(
-    secondary: Color.fromRGBO(243, 66, 19, 1),
-  ),
-  textTheme: TextTheme(
-    bodyText1: TextStyle(),
-    bodyText2: TextStyle(),
-  ).apply(
-    bodyColor: Constants.ourBlack,
-    displayColor: Constants.ourBlack,
-  ),
 );
-
-// class Themes {
-//   static final light = ThemeData.light().copyWith(
-//     brightness: Brightness.light,
-//     primaryColor: Colors.amber,
-//     // fontFamily: 'OpenSans',
-//     scaffoldBackgroundColor: CustomColors.backgroundcolor,
-//     appBarTheme: AppBarTheme(
-//       backgroundColor: CustomColors.backgroundcolor,
-//     ),
-//     colorScheme: ColorScheme.fromSwatch(
-//       primarySwatch: Colors.amber,
-//     ).copyWith(
-//       secondary: Color.fromRGBO(243, 66, 19, 1),
-//     ),
-//     textTheme: TextTheme(
-//       bodyText1: TextStyle(),
-//       bodyText2: TextStyle(),
-//     ).apply(
-//       bodyColor: CustomColors.ourBlack,
-//       displayColor: CustomColors.ourBlack,
-//     ),
-//   );
-//   static final dark = ThemeData.dark().copyWith(
-//       accentColor: Colors.red,
-//       brightness: Brightness.dark,
-//       primaryColor: Colors.amber,
-//       buttonTheme: ButtonThemeData(
-//         buttonColor: Colors.amber,
-//         disabledColor: Colors.grey,
-//       ));
-// }
 
 class ThemeService extends GetxController {
   final _box = GetStorage();
