@@ -96,7 +96,7 @@ class MyApp extends StatelessWidget {
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: ThemeMode.light,
-      title: 'Pulpox',
+      title: 'PulPox',
       debugShowCheckedModeBanner: false,
       getPages: AppPages.routes,
 

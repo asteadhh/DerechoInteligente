@@ -1,4 +1,6 @@
 import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
+import 'package:get/get.dart';
+import '../constants/theme.dart';
 import '/widgets/web_scrollbar.dart';
 import '/widgets/bottom_bar.dart';
 import '/widgets/carousel.dart';
@@ -58,12 +60,19 @@ class _HomePageLandingState extends State<HomePageLanding> {
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onPressed: () {
-                    EasyDynamicTheme.of(context).changeTheme();
+                    //CHANGE THEME MODE
+                    // EasyDynamicTheme.of(context).changeTheme();
+
+                    Get.changeThemeMode(ThemeService().loadThemeFromBox()
+                        ? ThemeMode.light
+                        : ThemeMode.dark);
+                    ThemeService()
+                        .saveThemeToBox(!ThemeService().loadThemeFromBox());
                   },
                 ),
               ],
               title: Text(
-                'EXPLORE',
+                'PulPox',
                 style: TextStyle(
                   color: Colors.blueGrey[100],
                   fontSize: 20,

@@ -1,4 +1,6 @@
-import 'package:easy_dynamic_theme/easy_dynamic_theme.dart';
+import 'package:get/get.dart';
+
+import '../constants/theme.dart';
 import '/screens/home_page.dart';
 import '/utils/authentication.dart';
 import '/widgets/auth_dialog.dart';
@@ -41,7 +43,7 @@ class _TopBarContentsState extends State<TopBarContents> {
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
               Text(
-                'EXPLORE',
+                'PulPox',
                 style: TextStyle(
                   color: Colors.blueGrey[100],
                   fontSize: 20,
@@ -135,7 +137,13 @@ class _TopBarContentsState extends State<TopBarContents> {
                 highlightColor: Colors.transparent,
                 color: Colors.white,
                 onPressed: () {
-                  EasyDynamicTheme.of(context).changeTheme();
+                  //Change Theme Mode
+                  // EasyDynamicTheme.of(context).changeTheme();
+                  Get.changeThemeMode(ThemeService().loadThemeFromBox()
+                      ? ThemeMode.light
+                      : ThemeMode.dark);
+                  ThemeService()
+                      .saveThemeToBox(!ThemeService().loadThemeFromBox());
                 },
               ),
               SizedBox(

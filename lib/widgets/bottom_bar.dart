@@ -44,7 +44,7 @@ class BottomBar extends StatelessWidget {
                 SizedBox(height: 20),
                 InfoText(
                   type: 'Email',
-                  text: 'explore@gmail.com',
+                  text: 'contacto@pulpox.cl',
                 ),
                 SizedBox(height: 5),
                 InfoText(
@@ -59,7 +59,7 @@ class BottomBar extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 Text(
-                  'Copyright © 2020 | EXPLORE',
+                  'Copyright © 2022 | PulPox',
                   style: TextStyle(
                     color: Colors.blueGrey[300],
                     fontSize: 14,
@@ -122,7 +122,7 @@ class BottomBar extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 Text(
-                  'Copyright © 2020 | EXPLORE',
+                  'Copyright © 2022 | PulPox',
                   style: TextStyle(
                     color: Colors.blueGrey[300],
                     fontSize: 14,
