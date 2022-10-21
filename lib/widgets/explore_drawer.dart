@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
+import '../constants/custom_colors.dart';
+import '../controllers/MenuController.dart';
 import '../routes/app_pages.dart';
 import '/screens/home_page.dart';
 import '/utils/authentication.dart';
@@ -18,7 +20,6 @@ class ExploreDrawer extends StatefulWidget {
 }
 
 class _ExploreDrawerState extends State<ExploreDrawer> {
-  bool _isProcessing = false;
   FirebaseAuth auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
@@ -107,11 +108,11 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                             borderRadius: BorderRadius.circular(15),
                           ),
                         ),
-                        onPressed: _isProcessing
+                        onPressed: MenuController().isProcessing.value
                             ? null
                             : () async {
                                 setState(() {
-                                  _isProcessing = true;
+                                  MenuController().isProcessing.value = true;
                                 });
                                 await signOut().then((result) {
                                   print(result);
@@ -125,7 +126,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                                   print('Sign Out Error: $error');
                                 });
                                 setState(() {
-                                  _isProcessing = false;
+                                  MenuController().isProcessing.value = false;
                                 });
                               },
                         // shape: RoundedRectangleBorder(
@@ -136,7 +137,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                             top: 15.0,
                             bottom: 15.0,
                           ),
-                          child: _isProcessing
+                          child: MenuController().isProcessing.value
                               ? CircularProgressIndicator()
                               : Text(
                                   'Sign out',

@@ -61,12 +61,15 @@ class Constants {
   static const String kGoogleLogoPath = 'assets/images/google_logo.png';
   static const String kJurixLogoPath =
       'assets/jurixlogo/300dpi/300dpi_jurix_isotipo_350px.png';
+  static const String kPulpoxPath = 'assets/images/logo.png';
 
 // Dashboard
 
   static const primaryColor = Color(0xFF2697FF);
   static const secondaryColor = Color(0xFF2A2D3E);
   static const Color bgColor = Color(0xFF212332);
+
+  //
 }
 
 // {"Amber":"ffc107","Coquelicot":"f34213","Gainsboro":"e1dee3","Teal":"218380","Charcoal":"2c384a"}

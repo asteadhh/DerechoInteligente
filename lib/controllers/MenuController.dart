@@ -3,4 +3,6 @@ import 'package:get/get.dart';
 
 import '../models/user_chat.dart';
 
-class MenuController extends GetxController {}
+class MenuController extends GetxController {
+  RxBool isProcessing = false.obs;
+}

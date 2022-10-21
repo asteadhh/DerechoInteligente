@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:pulpox_admin/constants/custom_colors.dart';
 
 class SideMenuPlatform extends StatelessWidget {
   const SideMenuPlatform({
@@ -12,7 +13,7 @@ class SideMenuPlatform extends StatelessWidget {
       child: ListView(
         children: [
           DrawerHeader(
-            child: Image.asset("assets/images/logo.png"),
+            child: Image.asset(Constants.kPulpoxPath),
           ),
           DrawerListTile(
             title: "Dashboard",
@@ -79,12 +80,13 @@ class DrawerListTile extends StatelessWidget {
       horizontalTitleGap: 0.0,
       leading: SvgPicture.asset(
         svgSrc,
-        color: Colors.white54,
+        color: Theme.of(context).primaryTextTheme.headline1!.color,
         height: 16,
       ),
       title: Text(
         title,
-        style: TextStyle(color: Colors.white54),
+        style: TextStyle(
+            color: Theme.of(context).primaryTextTheme.headline1!.color),
       ),
     );
   }

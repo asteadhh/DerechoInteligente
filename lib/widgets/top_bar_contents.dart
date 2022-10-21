@@ -1,7 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
+import '../constants/custom_colors.dart';
 import '../constants/theme.dart';
+import '../controllers/MenuController.dart';
 import '../routes/app_pages.dart';
 import '../screens/landingPage/base/home_page_landing.dart';
 import '../screens/landingPage/main/main_screen.dart';
@@ -31,7 +33,7 @@ class _TopBarContentsState extends State<TopBarContents> {
     false
   ];
 
-  bool _isProcessing = false;
+  // bool _isProcessing = false;
 
   @override
   Widget build(BuildContext context) {
@@ -258,11 +260,12 @@ class _TopBarContentsState extends State<TopBarContents> {
                                 borderRadius: BorderRadius.circular(15),
                               ),
                             ),
-                            onPressed: _isProcessing
+                            onPressed: MenuController().isProcessing.value
                                 ? null
                                 : () async {
                                     setState(() {
-                                      _isProcessing = true;
+                                      MenuController().isProcessing.value =
+                                          true;
                                     });
                                     await signOut().then((result) {
                                       print(result);
@@ -278,7 +281,8 @@ class _TopBarContentsState extends State<TopBarContents> {
                                       print('Sign Out Error: $error');
                                     });
                                     setState(() {
-                                      _isProcessing = false;
+                                      MenuController().isProcessing.value =
+                                          false;
                                     });
                                   },
                             child: Padding(
@@ -286,7 +290,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                                 top: 8.0,
                                 bottom: 8.0,
                               ),
-                              child: _isProcessing
+                              child: MenuController().isProcessing.value
                                   ? CircularProgressIndicator()
                                   : Text(
                                       'Sign out',
@@ -296,7 +300,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                                       ),
                                     ),
                             ),
-                          )
+                          ),
                         ],
                       ),
               ),

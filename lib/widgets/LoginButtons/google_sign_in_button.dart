@@ -1,3 +1,5 @@
+import '../../constants/custom_colors.dart';
+import '../../controllers/MenuController.dart';
 import '/screens/home_page.dart';
 import '/utils/authentication.dart';
 import 'package:flutter/material.dart';
@@ -8,8 +10,6 @@ class GoogleButton extends StatefulWidget {
 }
 
 class _GoogleButtonState extends State<GoogleButton> {
-  bool _isProcessing = false;
-
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
@@ -31,7 +31,7 @@ class _GoogleButtonState extends State<GoogleButton> {
         ),
         onPressed: () async {
           setState(() {
-            _isProcessing = true;
+            MenuController().isProcessing.value = true;
           });
           await signInWithGoogle().then((result) {
             print(result);
@@ -48,12 +48,12 @@ class _GoogleButtonState extends State<GoogleButton> {
             print('Registration Error: $error');
           });
           setState(() {
-            _isProcessing = false;
+            MenuController().isProcessing.value = false;
           });
         },
         child: Padding(
           padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-          child: _isProcessing
+          child: MenuController().isProcessing.value
               ? CircularProgressIndicator(
                   valueColor: new AlwaysStoppedAnimation<Color>(
                     Colors.blueGrey,

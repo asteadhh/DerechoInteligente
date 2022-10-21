@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 
+import '../../../constants/theme.dart';
+import '../../../routes/app_pages.dart';
 import '../../../utils/sign_in.dart';
-import '../../home_page.dart';
 import '/controllers/MenuController.dart';
 import '/responsive.dart';
 import '../../../constants.dart';
@@ -32,6 +32,20 @@ class Header extends GetView<MenuController> {
             "Dashboard",
             style: Theme.of(context).textTheme.headline6,
           ),
+        IconButton(
+          icon: Icon(Icons.brightness_6),
+          splashColor: Colors.transparent,
+          highlightColor: Colors.transparent,
+          color: Theme.of(context).primaryTextTheme.headline6!.color,
+          onPressed: () {
+            //Change Theme Mode
+            // EasyDynamicTheme.of(context).changeTheme();
+            Get.changeThemeMode(ThemeService().loadThemeFromBox()
+                ? ThemeMode.light
+                : ThemeMode.dark);
+            ThemeService().saveThemeToBox(!ThemeService().loadThemeFromBox());
+          },
+        ),
         if (!Responsive.isMobile(context))
           Spacer(flex: Responsive.isDesktop(context) ? 2 : 1),
         Expanded(child: SearchField()),
@@ -41,8 +55,8 @@ class Header extends GetView<MenuController> {
   }
 }
 
-class ProfileCard extends StatelessWidget {
-  const ProfileCard({
+class ProfileCard extends GetView<MenuController> {
+  ProfileCard({
     Key? key,
   }) : super(key: key);
 
@@ -73,17 +87,16 @@ class ProfileCard extends StatelessWidget {
             ),
           GestureDetector(
             onTap: () async {
+              MenuController().isProcessing.value = false;
               await signOut().then((result) {
                 print(result);
-                Navigator.of(context).pushReplacement(
-                  MaterialPageRoute(
-                    fullscreenDialog: true,
-                    builder: (context) => Home(),
-                  ),
-                );
+                Get.offAllNamed(AppPages.main);
               }).catchError((error) {
                 print('Sign Out Error: $error');
               });
+              // setState(() {
+
+              // });
             },
             child: Icon(Icons.keyboard_arrow_down),
           ),
@@ -103,7 +116,7 @@ class SearchField extends StatelessWidget {
     return TextField(
       decoration: InputDecoration(
         hintText: "Search",
-        fillColor: secondaryColor,
+        // fillColor: Theme.of(context).cardTheme.color,
         filled: true,
         border: OutlineInputBorder(
           borderSide: BorderSide.none,
@@ -116,6 +129,7 @@ class SearchField extends StatelessWidget {
             margin: EdgeInsets.symmetric(horizontal: defaultPadding / 2),
             decoration: BoxDecoration(
               color: primaryColor,
+              // color: Theme.of(context).primaryTextTheme.button!.decorationColor,
               borderRadius: const BorderRadius.all(Radius.circular(10)),
             ),
             child: SvgPicture.asset("assets/icons/Search.svg"),
