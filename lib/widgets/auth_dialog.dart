@@ -230,6 +230,14 @@ class _AuthDialogState extends State<AuthDialog> {
                       Flexible(
                         flex: 1,
                         child: Container(
+                          decoration: ShapeDecoration(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              side:
+                                  BorderSide(color: Colors.blueGrey, width: 3),
+                            ),
+                            color: Colors.white,
+                          ),
                           width: double.maxFinite,
                           child: TextButton(
                             style: TextButton.styleFrom(
@@ -313,7 +321,7 @@ class _AuthDialogState extends State<AuthDialog> {
                                       'Log in',
                                       style: TextStyle(
                                         fontSize: 14,
-                                        color: Colors.white,
+                                        color: Colors.blueGrey,
                                       ),
                                     ),
                             ),
@@ -324,6 +332,14 @@ class _AuthDialogState extends State<AuthDialog> {
                       Flexible(
                         flex: 1,
                         child: Container(
+                          decoration: ShapeDecoration(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              side:
+                                  BorderSide(color: Colors.blueGrey, width: 3),
+                            ),
+                            color: Colors.white,
+                          ),
                           width: double.maxFinite,
                           child: TextButton(
                             style: TextButton.styleFrom(
@@ -382,7 +398,7 @@ class _AuthDialogState extends State<AuthDialog> {
                                       'Sign up',
                                       style: TextStyle(
                                         fontSize: 14,
-                                        color: Colors.white,
+                                        color: Colors.blueGrey,
                                       ),
                                     ),
                             ),
