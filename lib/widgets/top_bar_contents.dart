@@ -212,14 +212,17 @@ class _TopBarContentsState extends State<TopBarContents> {
                     value ? _isHovering[3] = true : _isHovering[3] = false;
                   });
                 },
-                onTap: userEmail == null
-                    ? () {
-                        showDialog(
-                          context: context,
-                          builder: (context) => AuthDialog(),
-                        );
-                      }
-                    : null,
+                onTap:
+                    //  userEmail == null
+                    //     ?
+                    () {
+                  showDialog(
+                    context: context,
+                    builder: (context) => AuthDialog(),
+                  );
+                }
+                // : null
+                ,
                 child: FirebaseAuth.instance.currentUser == null
                     ? Text(
                         'Sign in',
