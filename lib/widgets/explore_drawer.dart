@@ -202,7 +202,7 @@ class AdministraccionEnableWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FirebaseAuth.instance.currentUser != null
+    return FirebaseAuth.instance.currentUser == null
         ? Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,

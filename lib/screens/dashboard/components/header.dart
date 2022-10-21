@@ -3,6 +3,8 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
+import '../../../utils/sign_in.dart';
+import '../../home_page.dart';
 import '/controllers/MenuController.dart';
 import '/responsive.dart';
 import '../../../constants.dart';
@@ -69,7 +71,22 @@ class ProfileCard extends StatelessWidget {
                   const EdgeInsets.symmetric(horizontal: defaultPadding / 2),
               child: Text("Angelina Jolie"),
             ),
-          Icon(Icons.keyboard_arrow_down),
+          GestureDetector(
+            onTap: () async {
+              await signOut().then((result) {
+                print(result);
+                Navigator.of(context).pushReplacement(
+                  MaterialPageRoute(
+                    fullscreenDialog: true,
+                    builder: (context) => Home(),
+                  ),
+                );
+              }).catchError((error) {
+                print('Sign Out Error: $error');
+              });
+            },
+            child: Icon(Icons.keyboard_arrow_down),
+          ),
         ],
       ),
     );
