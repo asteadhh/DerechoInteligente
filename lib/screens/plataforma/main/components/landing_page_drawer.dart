@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
+import '../../../../constants/custom_colors.dart';
 import '/controllers/menu_landing_page_controller.dart';
 
 class LandingPageDrawer extends GetView<MenuLandingPageController> {
@@ -17,7 +18,7 @@ class LandingPageDrawer extends GetView<MenuLandingPageController> {
           Column(
             children: [
               DrawerHeader(
-                child: Image.asset("assets/images/logo.png"),
+                child: Image.asset(Constants.kPulpoxPath),
               ),
               DrawerListTile(
                 title: "Home",

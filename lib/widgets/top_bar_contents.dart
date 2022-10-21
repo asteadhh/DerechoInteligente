@@ -1,6 +1,9 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
+import '../constants/custom_colors.dart';
 import '../constants/theme.dart';
+import '../controllers/MenuController.dart';
 import '../routes/app_pages.dart';
 import '../screens/landingPage/base/home_page_landing.dart';
 import '../screens/landingPage/main/main_screen.dart';
@@ -30,7 +33,7 @@ class _TopBarContentsState extends State<TopBarContents> {
     false
   ];
 
-  bool _isProcessing = false;
+  // bool _isProcessing = false;
 
   @override
   Widget build(BuildContext context) {
@@ -140,6 +143,50 @@ class _TopBarContentsState extends State<TopBarContents> {
                         ],
                       ),
                     ),
+                    FirebaseAuth.instance.currentUser != null
+                        ? Row(
+                            children: [
+                              SizedBox(width: screenSize.width / 20),
+                              InkWell(
+                                onHover: (value) {
+                                  setState(() {
+                                    value
+                                        ? _isHovering[2] = true
+                                        : _isHovering[2] = false;
+                                  });
+                                },
+                                onTap: () {
+                                  Get.toNamed(AppPages.platform);
+                                },
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Text(
+                                      'Administracción',
+                                      style: TextStyle(
+                                        color: _isHovering[2]
+                                            ? Colors.blue[200]
+                                            : Colors.white,
+                                      ),
+                                    ),
+                                    SizedBox(height: 5),
+                                    Visibility(
+                                      maintainAnimation: true,
+                                      maintainState: true,
+                                      maintainSize: true,
+                                      visible: _isHovering[2],
+                                      child: Container(
+                                        height: 2,
+                                        width: 20,
+                                        color: Colors.white,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ],
+                          )
+                        : SizedBox.shrink(),
                   ],
                 ),
               ),
@@ -175,7 +222,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                         );
                       }
                     : null,
-                child: userEmail == null
+                child: FirebaseAuth.instance.currentUser == null
                     ? Text(
                         'Sign in',
                         style: TextStyle(
@@ -184,27 +231,27 @@ class _TopBarContentsState extends State<TopBarContents> {
                       )
                     : Row(
                         children: [
-                          CircleAvatar(
-                            radius: 15,
-                            backgroundImage: imageUrl != null
-                                ? NetworkImage(imageUrl!)
-                                : null,
-                            child: imageUrl == null
-                                ? Icon(
-                                    Icons.account_circle,
-                                    size: 30,
-                                  )
-                                : Container(),
-                          ),
-                          SizedBox(width: 5),
-                          Text(
-                            name ?? userEmail!,
-                            style: TextStyle(
-                              color: _isHovering[3]
-                                  ? Colors.white
-                                  : Colors.white70,
-                            ),
-                          ),
+                          // CircleAvatar(
+                          //   radius: 15,
+                          //   backgroundImage: imageUrl != null
+                          //       ? NetworkImage(imageUrl!)
+                          //       : null,
+                          //   child: imageUrl == null
+                          //       ? Icon(
+                          //           Icons.account_circle,
+                          //           size: 30,
+                          //         )
+                          //       : Container(),
+                          // ),
+                          // SizedBox(width: 5),
+                          // Text(
+                          //   name ?? userEmail!,
+                          //   style: TextStyle(
+                          //     color: _isHovering[3]
+                          //         ? Colors.white
+                          //         : Colors.white70,
+                          //   ),
+                          // ),
                           SizedBox(width: 10),
                           TextButton(
                             style: TextButton.styleFrom(
@@ -213,11 +260,12 @@ class _TopBarContentsState extends State<TopBarContents> {
                                 borderRadius: BorderRadius.circular(15),
                               ),
                             ),
-                            onPressed: _isProcessing
+                            onPressed: MenuController().isProcessing.value
                                 ? null
                                 : () async {
                                     setState(() {
-                                      _isProcessing = true;
+                                      MenuController().isProcessing.value =
+                                          true;
                                     });
                                     await signOut().then((result) {
                                       print(result);
@@ -233,7 +281,8 @@ class _TopBarContentsState extends State<TopBarContents> {
                                       print('Sign Out Error: $error');
                                     });
                                     setState(() {
-                                      _isProcessing = false;
+                                      MenuController().isProcessing.value =
+                                          false;
                                     });
                                   },
                             child: Padding(
@@ -241,7 +290,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                                 top: 8.0,
                                 bottom: 8.0,
                               ),
-                              child: _isProcessing
+                              child: MenuController().isProcessing.value
                                   ? CircularProgressIndicator()
                                   : Text(
                                       'Sign out',
@@ -251,7 +300,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                                       ),
                                     ),
                             ),
-                          )
+                          ),
                         ],
                       ),
               ),

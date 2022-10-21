@@ -27,6 +27,7 @@ class _Paths {
   static const iniciosesion = '/iniciosesion';
   static const registrosesion = '/registrosesion';
   static const platform = '/platform';
+  static const errorPagina = '/notfound';
 
   // Example :
   // static const index = '/';

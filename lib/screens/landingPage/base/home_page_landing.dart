@@ -93,25 +93,27 @@ class _LandingPageBaseState extends State<LandingPageBase> {
               child: TopBarContents(_opacity),
             ),
       drawer: ExploreDrawer(),
-      body: WebScrollbar(
-        color: Colors.blueGrey,
-        backgroundColor: Colors.blueGrey.withOpacity(0.3),
-        width: 10,
-        heightFraction: 0.3,
+      body:
+          // WebScrollbar(
+          //   color: Colors.blueGrey,
+          //   backgroundColor: Colors.blueGrey.withOpacity(0.3),
+          //   width: 10,
+          //   heightFraction: 0.3,
+          //   controller: _scrollController,
+          //   child:
+          SingleChildScrollView(
         controller: _scrollController,
-        child: SingleChildScrollView(
-          controller: _scrollController,
-          physics: ClampingScrollPhysics(),
-          // child: HomeLanding(content: widgets),
-          child: Column(
-            children: [
-              widgets,
-              SizedBox(height: screenSize.height / 10),
-              BottomBar(),
-            ],
-          ),
-          // child: HomeLanding(content: Text('ss')),
+        physics: ClampingScrollPhysics(),
+        // child: HomeLanding(content: widgets),
+        child: Column(
+          children: [
+            widgets,
+            SizedBox(height: screenSize.height / 10),
+            BottomBar(),
+          ],
         ),
+        // child: HomeLanding(content: Text('ss')),
+        // ),
       ),
     );
   }

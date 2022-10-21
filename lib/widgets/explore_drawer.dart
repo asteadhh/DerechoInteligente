@@ -1,5 +1,8 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
+import '../constants/custom_colors.dart';
+import '../controllers/MenuController.dart';
 import '../routes/app_pages.dart';
 import '/screens/home_page.dart';
 import '/utils/authentication.dart';
@@ -17,7 +20,7 @@ class ExploreDrawer extends StatefulWidget {
 }
 
 class _ExploreDrawerState extends State<ExploreDrawer> {
-  bool _isProcessing = false;
+  FirebaseAuth auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -70,25 +73,25 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        CircleAvatar(
-                          radius: 20,
-                          backgroundImage:
-                              imageUrl != null ? NetworkImage(imageUrl!) : null,
-                          child: imageUrl == null
-                              ? Icon(
-                                  Icons.account_circle,
-                                  size: 40,
-                                )
-                              : Container(),
-                        ),
-                        SizedBox(width: 10),
-                        Text(
-                          name ?? userEmail!,
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.white70,
-                          ),
-                        )
+                        // CircleAvatar(
+                        //   radius: 20,
+                        //   backgroundImage:
+                        //       imageUrl != null ? NetworkImage(imageUrl!) : null,
+                        //   child: imageUrl == null
+                        //       ? Icon(
+                        //           Icons.account_circle,
+                        //           size: 40,
+                        //         )
+                        //       : Container(),
+                        // ),
+                        // SizedBox(width: 10),
+                        // Text(
+                        //   name ?? userEmail!,
+                        //   style: TextStyle(
+                        //     fontSize: 20,
+                        //     color: Colors.white70,
+                        //   ),
+                        // )
                       ],
                     ),
               SizedBox(height: 20),
@@ -105,11 +108,11 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                             borderRadius: BorderRadius.circular(15),
                           ),
                         ),
-                        onPressed: _isProcessing
+                        onPressed: MenuController().isProcessing.value
                             ? null
                             : () async {
                                 setState(() {
-                                  _isProcessing = true;
+                                  MenuController().isProcessing.value = true;
                                 });
                                 await signOut().then((result) {
                                   print(result);
@@ -123,7 +126,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                                   print('Sign Out Error: $error');
                                 });
                                 setState(() {
-                                  _isProcessing = false;
+                                  MenuController().isProcessing.value = false;
                                 });
                               },
                         // shape: RoundedRectangleBorder(
@@ -134,7 +137,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                             top: 15.0,
                             bottom: 15.0,
                           ),
-                          child: _isProcessing
+                          child: MenuController().isProcessing.value
                               ? CircularProgressIndicator()
                               : Text(
                                   'Sign out',
@@ -174,6 +177,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                   style: TextStyle(color: Colors.white, fontSize: 22),
                 ),
               ),
+              AdministraccionEnableWidget(),
               Expanded(
                 child: Align(
                   alignment: Alignment.bottomCenter,
@@ -185,11 +189,43 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                     ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),
       ),
     );
+  }
+}
+
+class AdministraccionEnableWidget extends StatelessWidget {
+  const AdministraccionEnableWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return FirebaseAuth.instance.currentUser == null
+        ? Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Padding(
+                padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
+                child: Divider(
+                  color: Colors.blueGrey[400],
+                  thickness: 2,
+                ),
+              ),
+              InkWell(
+                onTap: () {
+                  Get.toNamed(AppPages.platform);
+                },
+                child: Text(
+                  'Administracción',
+                  style: TextStyle(color: Colors.white, fontSize: 22),
+                ),
+              ),
+            ],
+          )
+        : SizedBox.shrink();
   }
 }

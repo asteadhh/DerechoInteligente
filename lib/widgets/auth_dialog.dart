@@ -2,7 +2,8 @@ import '../screens/home_page.dart';
 import '/utils/authentication.dart';
 import 'package:flutter/material.dart';
 
-import 'google_sign_in_button.dart';
+import 'LoginButtons/facebook_sign_in_button.dart';
+import 'LoginButtons/google_sign_in_button.dart';
 
 class AuthDialog extends StatefulWidget {
   @override
@@ -93,7 +94,7 @@ class _AuthDialogState extends State<AuthDialog> {
                     ),
                   ),
                 ),
-                SizedBox(height: 30),
+                SizedBox(height: 20),
                 Padding(
                   padding: const EdgeInsets.only(
                     left: 20.0,
@@ -230,6 +231,14 @@ class _AuthDialogState extends State<AuthDialog> {
                       Flexible(
                         flex: 1,
                         child: Container(
+                          decoration: ShapeDecoration(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              side:
+                                  BorderSide(color: Colors.blueGrey, width: 3),
+                            ),
+                            color: Colors.white,
+                          ),
                           width: double.maxFinite,
                           child: TextButton(
                             style: TextButton.styleFrom(
@@ -313,7 +322,7 @@ class _AuthDialogState extends State<AuthDialog> {
                                       'Log in',
                                       style: TextStyle(
                                         fontSize: 14,
-                                        color: Colors.white,
+                                        color: Colors.blueGrey,
                                       ),
                                     ),
                             ),
@@ -324,6 +333,14 @@ class _AuthDialogState extends State<AuthDialog> {
                       Flexible(
                         flex: 1,
                         child: Container(
+                          decoration: ShapeDecoration(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(20),
+                              side:
+                                  BorderSide(color: Colors.blueGrey, width: 3),
+                            ),
+                            color: Colors.white,
+                          ),
                           width: double.maxFinite,
                           child: TextButton(
                             style: TextButton.styleFrom(
@@ -382,7 +399,7 @@ class _AuthDialogState extends State<AuthDialog> {
                                       'Sign up',
                                       style: TextStyle(
                                         fontSize: 14,
-                                        color: Colors.white,
+                                        color: Colors.blueGrey,
                                       ),
                                     ),
                             ),
@@ -420,9 +437,11 @@ class _AuthDialogState extends State<AuthDialog> {
                     color: Colors.blueGrey[200],
                   ),
                 ),
-                SizedBox(height: 30),
+                SizedBox(height: 10),
                 Center(child: GoogleButton()),
-                SizedBox(height: 30),
+                SizedBox(height: 5),
+                Center(child: FacebookButton()),
+                SizedBox(height: 5),
                 Padding(
                   padding: const EdgeInsets.all(8.0),
                   child: Text(

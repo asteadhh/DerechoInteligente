@@ -1,15 +1,15 @@
+import '../../constants/custom_colors.dart';
+import '../../controllers/MenuController.dart';
 import '/screens/home_page.dart';
 import '/utils/authentication.dart';
 import 'package:flutter/material.dart';
 
-class GoogleButton extends StatefulWidget {
+class FacebookButton extends StatefulWidget {
   @override
-  _GoogleButtonState createState() => _GoogleButtonState();
+  _FacebookButtonState createState() => _FacebookButtonState();
 }
 
-class _GoogleButtonState extends State<GoogleButton> {
-  bool _isProcessing = false;
-
+class _FacebookButtonState extends State<FacebookButton> {
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
@@ -31,7 +31,7 @@ class _GoogleButtonState extends State<GoogleButton> {
         ),
         onPressed: () async {
           setState(() {
-            _isProcessing = true;
+            MenuController().isProcessing.value = true;
           });
           await signInWithGoogle().then((result) {
             print(result);
@@ -48,12 +48,12 @@ class _GoogleButtonState extends State<GoogleButton> {
             print('Registration Error: $error');
           });
           setState(() {
-            _isProcessing = false;
+            MenuController().isProcessing.value = false;
           });
         },
         child: Padding(
           padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-          child: _isProcessing
+          child: MenuController().isProcessing.value
               ? CircularProgressIndicator(
                   valueColor: new AlwaysStoppedAnimation<Color>(
                     Colors.blueGrey,
@@ -64,13 +64,13 @@ class _GoogleButtonState extends State<GoogleButton> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Image(
-                      image: AssetImage("assets/images/google_logo.png"),
+                      image: AssetImage("assets/images/facebook.png"),
                       height: 30.0,
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 20),
                       child: Text(
-                        'Continue with Google',
+                        'Continue with Facebook',
                         style: TextStyle(
                           fontSize: 20,
                           color: Colors.blueGrey,

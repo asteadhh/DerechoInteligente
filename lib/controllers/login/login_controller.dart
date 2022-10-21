@@ -14,6 +14,9 @@ class LoginController extends GetxController {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
+  final List isHovering =
+      [false, false, false, false, false, false, false, false].obs;
+
   //
   void signInWithEmailAndPassword() async {
     try {

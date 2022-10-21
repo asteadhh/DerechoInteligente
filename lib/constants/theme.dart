@@ -2,12 +2,18 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-import 'custom_colors.dart';
+// import 'custom_colors.dart';
+import '../constants/custom_colors.dart';
 
 ThemeData darkTheme = ThemeData(
   primarySwatch: Colors.blueGrey,
   backgroundColor: Colors.blueGrey[900],
+  accentColor: Constants.bgColor,
   cardColor: Colors.black,
+  cardTheme: CardTheme(
+    color: Colors.black,
+    shadowColor: Colors.white,
+  ),
   primaryTextTheme: TextTheme(
     button: TextStyle(
       color: Colors.blueGrey[200],
@@ -22,6 +28,9 @@ ThemeData darkTheme = ThemeData(
     headline1: TextStyle(
       color: Colors.white70,
     ),
+    headline6: TextStyle(
+      color: Colors.white70,
+    ),
   ),
   bottomAppBarColor: Colors.black,
   iconTheme: IconThemeData(color: Colors.blueGrey[200]),
@@ -29,9 +38,15 @@ ThemeData darkTheme = ThemeData(
 );
 
 ThemeData lightTheme = ThemeData(
+  accentColor: Colors.white,
   primarySwatch: Colors.blueGrey,
   backgroundColor: Colors.white,
+  // backgroundColor: Colors.blueGrey,
   cardColor: Colors.blueGrey[50],
+  cardTheme: CardTheme(
+    color: Colors.black,
+    shadowColor: Colors.white,
+  ),
   primaryTextTheme: TextTheme(
     button: TextStyle(
       color: Colors.blueGrey,
@@ -44,6 +59,7 @@ ThemeData lightTheme = ThemeData(
       color: Colors.black,
     ),
     headline1: TextStyle(color: Colors.blueGrey[800]),
+    headline6: TextStyle(color: Colors.blueGrey[800]),
   ),
   bottomAppBarColor: Colors.blueGrey[900],
   iconTheme: IconThemeData(color: Colors.blueGrey),
