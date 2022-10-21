@@ -6,16 +6,24 @@ import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
 import '../../home_page.dart';
-import '../../landingPage/404 Screens/error/error_screen.dart';
 import 'components/side_menu.dart';
 import '/controllers/MenuController.dart';
 import '/responsive.dart';
 import '/screens/dashboard/dashboard_screen.dart';
 
-class PlatformAdminMainScreen extends GetView<MenuController> {
+class PlatformAdminMainScreen extends StatefulWidget {
+  @override
+  State<PlatformAdminMainScreen> createState() =>
+      _PlatformAdminMainScreenState();
+}
+
+class _PlatformAdminMainScreenState extends State<PlatformAdminMainScreen> {
   @override
   Widget build(BuildContext context) {
-    if (FirebaseAuth.instance.currentUser != null) {
+    if (FirebaseAuth.instance.currentUser == null) {
+      // return CircularProgressIndicator();
+      return Home();
+    } else {
       return Scaffold(
         backgroundColor: Theme.of(context).accentColor,
         // key: context.read<MenuController>().scaffoldKey,
@@ -42,9 +50,6 @@ class PlatformAdminMainScreen extends GetView<MenuController> {
           ),
         ),
       );
-    } else {
-      // return CircularProgressIndicator();
-      return Home();
     }
   }
 }
