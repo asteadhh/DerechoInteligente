@@ -2,11 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-import 'custom_colors.dart';
+// import 'custom_colors.dart';
+import '../constants/custom_colors.dart';
 
 ThemeData darkTheme = ThemeData(
   primarySwatch: Colors.blueGrey,
   backgroundColor: Colors.blueGrey[900],
+  accentColor: Constants.bgColor,
   cardColor: Colors.black,
   primaryTextTheme: TextTheme(
     button: TextStyle(
@@ -29,6 +31,7 @@ ThemeData darkTheme = ThemeData(
 );
 
 ThemeData lightTheme = ThemeData(
+  accentColor: Constants.bgColor,
   primarySwatch: Colors.blueGrey,
   backgroundColor: Colors.white,
   cardColor: Colors.blueGrey[50],

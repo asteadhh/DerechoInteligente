@@ -6,6 +6,7 @@ import 'package:pulpox_admin/screens/landingPage/help/help_screen.dart';
 import 'package:pulpox_admin/screens/landingPage/menu.dart';
 
 import '../screens/home_page.dart';
+import '../screens/landingPage/404 Screens/error/error_screen.dart';
 import '../screens/landingPage/main/main_screen.dart';
 import '../screens/plataforma/main/main_screen.dart';
 import '../screens/signIn/login_screen.dart';
@@ -26,6 +27,7 @@ class AppPages {
   static const register = _Paths.registrosesion;
   static const platform = _Paths.platform;
   static const iniciosesion = _Paths.iniciosesion;
+  static const errorPagina = _Paths.errorPagina;
 
   static final routes = [
     GetPage(
@@ -33,9 +35,20 @@ class AppPages {
       page: () => Home(),
       // binding: NotificacionesScreenBinding(),
     ),
+    // GetPage(
+    //   name: _Paths.errorPagina,
+    //   page: () => AppPages.routes.contains(Get.currentRoute)
+    //       ? Home()
+    //       : const Screen404(),
+    // ),
+    // GetPage(
+    //   name: _Paths.errorPagina,
+    //   page: () => ErrorScreen(),
+    //   // binding: NotificacionesScreenBinding(),
+    // ),
     GetPage(
       name: _Paths.platform,
-      page: () => MainScreen(),
+      page: () => PlatformAdminMainScreen(),
       // binding: NotificacionesScreenBinding(),
     ),
     GetPage(

@@ -17,6 +17,7 @@ import '/utils/translations.dart';
 import 'constants/theme.dart';
 import 'firebase_options.dart';
 import 'screens/home_page.dart';
+import 'screens/landingPage/404 Screens/error/error_screen.dart';
 
 const bool USE_EMULATOR = false;
 bool isWhite = false;
@@ -73,18 +74,6 @@ class MyApp extends StatelessWidget {
 
     ;
     return GetMaterialApp(
-//       debugShowCheckedModeBanner: false,
-//       title: 'Pulpox Landing',
-
-//       //areglar
-//       theme: ThemeData.dark().copyWith(
-//         scaffoldBackgroundColor: bgColor,
-//         textTheme: GoogleFonts.poppinsTextTheme(Theme.of(context).textTheme)
-//             .apply(bodyColor: Colors.white),
-//         canvasColor: secondaryColor,
-//       ),
-// //areglar
-
       onInit: getUserInfo,
 
       translations: Messages(),
@@ -99,6 +88,8 @@ class MyApp extends StatelessWidget {
       title: 'PulPox',
       debugShowCheckedModeBanner: false,
       getPages: AppPages.routes,
+      initialRoute: '/',
+      unknownRoute: GetPage(name: '/notfound', page: () => const Screen404()),
 
       // home: MainScreen(),
 

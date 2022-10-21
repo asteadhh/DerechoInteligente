@@ -1,14 +1,6 @@
-import 'package:flutter/material.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:get/get.dart';
 
-class MenuController extends GetxController {
-  // final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+import '../models/user_chat.dart';
 
-  // GlobalKey<ScaffoldState> get scaffoldKey => _scaffoldKey;
-
-  // void controlMenu() {
-  //   if (!_scaffoldKey.currentState!.isDrawerOpen) {
-  //     _scaffoldKey.currentState!.openDrawer();
-  //   }
-  // }
-}
+class MenuController extends GetxController {}

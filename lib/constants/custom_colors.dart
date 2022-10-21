@@ -66,7 +66,7 @@ class Constants {
 
   static const primaryColor = Color(0xFF2697FF);
   static const secondaryColor = Color(0xFF2A2D3E);
-  static const bgColor = Color(0xFF212332);
+  static const Color bgColor = Color(0xFF212332);
 }
 
 // {"Amber":"ffc107","Coquelicot":"f34213","Gainsboro":"e1dee3","Teal":"218380","Charcoal":"2c384a"}
