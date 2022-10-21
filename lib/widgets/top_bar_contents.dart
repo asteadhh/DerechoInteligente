@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
 import '../constants/theme.dart';
@@ -140,44 +141,50 @@ class _TopBarContentsState extends State<TopBarContents> {
                         ],
                       ),
                     ),
-                    SizedBox(width: screenSize.width / 20),
-                    InkWell(
-                      onHover: (value) {
-                        setState(() {
-                          value
-                              ? _isHovering[2] = true
-                              : _isHovering[2] = false;
-                        });
-                      },
-                      onTap: () {
-                        Get.toNamed(AppPages.platform);
-                      },
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(
-                            'Administracción',
-                            style: TextStyle(
-                              color: _isHovering[2]
-                                  ? Colors.blue[200]
-                                  : Colors.white,
-                            ),
-                          ),
-                          SizedBox(height: 5),
-                          Visibility(
-                            maintainAnimation: true,
-                            maintainState: true,
-                            maintainSize: true,
-                            visible: _isHovering[2],
-                            child: Container(
-                              height: 2,
-                              width: 20,
-                              color: Colors.white,
-                            ),
+                    FirebaseAuth.instance.currentUser != null
+                        ? Row(
+                            children: [
+                              SizedBox(width: screenSize.width / 20),
+                              InkWell(
+                                onHover: (value) {
+                                  setState(() {
+                                    value
+                                        ? _isHovering[2] = true
+                                        : _isHovering[2] = false;
+                                  });
+                                },
+                                onTap: () {
+                                  Get.toNamed(AppPages.platform);
+                                },
+                                child: Column(
+                                  mainAxisSize: MainAxisSize.min,
+                                  children: [
+                                    Text(
+                                      'Administracción',
+                                      style: TextStyle(
+                                        color: _isHovering[2]
+                                            ? Colors.blue[200]
+                                            : Colors.white,
+                                      ),
+                                    ),
+                                    SizedBox(height: 5),
+                                    Visibility(
+                                      maintainAnimation: true,
+                                      maintainState: true,
+                                      maintainSize: true,
+                                      visible: _isHovering[2],
+                                      child: Container(
+                                        height: 2,
+                                        width: 20,
+                                        color: Colors.white,
+                                      ),
+                                    )
+                                  ],
+                                ),
+                              ),
+                            ],
                           )
-                        ],
-                      ),
-                    ),
+                        : SizedBox.shrink(),
                   ],
                 ),
               ),
@@ -213,7 +220,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                         );
                       }
                     : null,
-                child: userEmail == null
+                child: FirebaseAuth.instance.currentUser == null
                     ? Text(
                         'Sign in',
                         style: TextStyle(

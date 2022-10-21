@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
 import '../routes/app_pages.dart';
@@ -18,6 +19,7 @@ class ExploreDrawer extends StatefulWidget {
 
 class _ExploreDrawerState extends State<ExploreDrawer> {
   bool _isProcessing = false;
+  FirebaseAuth auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -174,6 +176,37 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                   style: TextStyle(color: Colors.white, fontSize: 22),
                 ),
               ),
+              AdministraccionEnableWidget(),
+              Expanded(
+                child: Align(
+                  alignment: Alignment.bottomCenter,
+                  child: Text(
+                    'Copyright © 2022 | PulPox SpA',
+                    style: TextStyle(
+                      color: Colors.blueGrey[300],
+                      fontSize: 14,
+                    ),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class AdministraccionEnableWidget extends StatelessWidget {
+  const AdministraccionEnableWidget({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return FirebaseAuth.instance.currentUser != null
+        ? Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
               Padding(
                 padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
                 child: Divider(
@@ -190,22 +223,8 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                   style: TextStyle(color: Colors.white, fontSize: 22),
                 ),
               ),
-              Expanded(
-                child: Align(
-                  alignment: Alignment.bottomCenter,
-                  child: Text(
-                    'Copyright © 2022 | PulPox SpA',
-                    style: TextStyle(
-                      color: Colors.blueGrey[300],
-                      fontSize: 14,
-                    ),
-                  ),
-                ),
-              )
             ],
-          ),
-        ),
-      ),
-    );
+          )
+        : SizedBox.shrink();
   }
 }
