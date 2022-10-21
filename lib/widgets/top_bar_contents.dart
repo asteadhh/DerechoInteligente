@@ -184,27 +184,27 @@ class _TopBarContentsState extends State<TopBarContents> {
                       )
                     : Row(
                         children: [
-                          CircleAvatar(
-                            radius: 15,
-                            backgroundImage: imageUrl != null
-                                ? NetworkImage(imageUrl!)
-                                : null,
-                            child: imageUrl == null
-                                ? Icon(
-                                    Icons.account_circle,
-                                    size: 30,
-                                  )
-                                : Container(),
-                          ),
-                          SizedBox(width: 5),
-                          Text(
-                            name ?? userEmail!,
-                            style: TextStyle(
-                              color: _isHovering[3]
-                                  ? Colors.white
-                                  : Colors.white70,
-                            ),
-                          ),
+                          // CircleAvatar(
+                          //   radius: 15,
+                          //   backgroundImage: imageUrl != null
+                          //       ? NetworkImage(imageUrl!)
+                          //       : null,
+                          //   child: imageUrl == null
+                          //       ? Icon(
+                          //           Icons.account_circle,
+                          //           size: 30,
+                          //         )
+                          //       : Container(),
+                          // ),
+                          // SizedBox(width: 5),
+                          // Text(
+                          //   name ?? userEmail!,
+                          //   style: TextStyle(
+                          //     color: _isHovering[3]
+                          //         ? Colors.white
+                          //         : Colors.white70,
+                          //   ),
+                          // ),
                           SizedBox(width: 10),
                           TextButton(
                             style: TextButton.styleFrom(

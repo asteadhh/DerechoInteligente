@@ -70,25 +70,25 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                       mainAxisAlignment: MainAxisAlignment.start,
                       mainAxisSize: MainAxisSize.max,
                       children: [
-                        CircleAvatar(
-                          radius: 20,
-                          backgroundImage:
-                              imageUrl != null ? NetworkImage(imageUrl!) : null,
-                          child: imageUrl == null
-                              ? Icon(
-                                  Icons.account_circle,
-                                  size: 40,
-                                )
-                              : Container(),
-                        ),
-                        SizedBox(width: 10),
-                        Text(
-                          name ?? userEmail!,
-                          style: TextStyle(
-                            fontSize: 20,
-                            color: Colors.white70,
-                          ),
-                        )
+                        // CircleAvatar(
+                        //   radius: 20,
+                        //   backgroundImage:
+                        //       imageUrl != null ? NetworkImage(imageUrl!) : null,
+                        //   child: imageUrl == null
+                        //       ? Icon(
+                        //           Icons.account_circle,
+                        //           size: 40,
+                        //         )
+                        //       : Container(),
+                        // ),
+                        // SizedBox(width: 10),
+                        // Text(
+                        //   name ?? userEmail!,
+                        //   style: TextStyle(
+                        //     fontSize: 20,
+                        //     color: Colors.white70,
+                        //   ),
+                        // )
                       ],
                     ),
               SizedBox(height: 20),
