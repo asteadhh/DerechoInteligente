@@ -132,20 +132,22 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                         // shape: RoundedRectangleBorder(
                         //   borderRadius: BorderRadius.circular(15),
                         // ),
-                        child: Padding(
-                          padding: EdgeInsets.only(
-                            top: 15.0,
-                            bottom: 15.0,
-                          ),
-                          child: MenuController().isProcessing.value
-                              ? CircularProgressIndicator()
-                              : Text(
-                                  'Sign out',
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    color: Colors.white,
+                        child: Obx(
+                          () => Padding(
+                            padding: EdgeInsets.only(
+                              top: 15.0,
+                              bottom: 15.0,
+                            ),
+                            child: MenuController().isProcessing.value
+                                ? CircularProgressIndicator()
+                                : Text(
+                                    'sign_out'.tr,
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      color: Colors.white,
+                                    ),
                                   ),
-                                ),
+                          ),
                         ),
                       ),
                     )

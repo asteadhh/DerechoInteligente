@@ -286,20 +286,22 @@ class _TopBarContentsState extends State<TopBarContents> {
                                           false;
                                     });
                                   },
-                            child: Padding(
-                              padding: EdgeInsets.only(
-                                top: 8.0,
-                                bottom: 8.0,
-                              ),
-                              child: MenuController().isProcessing.value
-                                  ? CircularProgressIndicator()
-                                  : Text(
-                                      'Sign out',
-                                      style: TextStyle(
-                                        fontSize: 14,
-                                        color: Colors.white,
+                            child: Obx(
+                              () => Padding(
+                                padding: EdgeInsets.only(
+                                  top: 8.0,
+                                  bottom: 8.0,
+                                ),
+                                child: MenuController().isProcessing.value
+                                    ? CircularProgressIndicator()
+                                    : Text(
+                                        'sign_out'.tr,
+                                        style: TextStyle(
+                                          fontSize: 14,
+                                          color: Colors.white,
+                                        ),
                                       ),
-                                    ),
+                              ),
                             ),
                           ),
                         ],

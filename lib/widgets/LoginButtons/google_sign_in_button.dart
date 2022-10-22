@@ -1,15 +1,24 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:get/get.dart';
+
 import '../../constants/custom_colors.dart';
 import '../../controllers/MenuController.dart';
+import '../../controllers/login/login_controller.dart';
+import '../../routes/app_pages.dart';
 import '/screens/home_page.dart';
 import '/utils/authentication.dart';
 import 'package:flutter/material.dart';
 
-class GoogleButton extends StatefulWidget {
-  @override
-  _GoogleButtonState createState() => _GoogleButtonState();
-}
+// class GoogleButton extends StatefulWidget {
+class GoogleButton extends StatelessWidget {
+//   @override
+//   _GoogleButtonState createState() => _GoogleButtonState();
+// }
 
-class _GoogleButtonState extends State<GoogleButton> {
+// class _GoogleButtonState extends State<GoogleButton> {
+  // final LoginController loginController = Get.put<LoginController>(LoginController());
+  // LoginController
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
@@ -30,9 +39,11 @@ class _GoogleButtonState extends State<GoogleButton> {
           elevation: 0,
         ),
         onPressed: () async {
-          setState(() {
-            MenuController().isProcessing.value = true;
-          });
+          // setState(() {
+          MenuController().isProcessing.value = true;
+          // });
+          // LoginController().signInWithGoogle();
+
           await signInWithGoogle().then((result) {
             print(result);
             if (result != null) {
@@ -44,12 +55,89 @@ class _GoogleButtonState extends State<GoogleButton> {
                 ),
               );
             }
+            Future.delayed(
+              Duration(milliseconds: 2),
+              (() async {
+                final snapShot = await FirebaseFirestore.instance
+                    .collection('users')
+                    .doc(FirebaseAuth
+                        .instance.currentUser!.uid) // varuId in your case
+                    .get();
+
+                if (!snapShot.exists) {
+                  print('object');
+                  // Document with id == varuId doesn't exist.
+                  FirebaseFirestore.instance
+                      .collection('users')
+                      // .doc(auth.currentUser!.uid)
+                      .doc(FirebaseAuth.instance.currentUser!.uid)
+                      // .collection('userProfile')
+                      .set({
+                        'uid': FirebaseAuth.instance.currentUser!.uid,
+                        'createdOn': DateTime.now(),
+                        'modifiedOn': DateTime.now(),
+                        'lastLogInOn': DateTime.now(),
+                        'nombre':
+                            FirebaseAuth.instance.currentUser!.displayName,
+                        'correo': FirebaseAuth.instance.currentUser!.email,
+                        'maestro': false,
+                        'dirrecciones': null,
+                        'antecedentes': null,
+                        'foto': FirebaseAuth.instance.currentUser!.photoURL,
+                        'primerApellido': null,
+                        'segundoApellido': null,
+                        'rut': null,
+                        'numeroDeSerie': null,
+                        'estadoDeChat': null,
+                        'acumuladoRatingUsuario': null,
+                        'cantiadadTrabajosUsuario': null,
+                        'acumuladoRatingMaestro': null,
+                        'cantiadadTrabajosMaestro': null,
+                        'genero': null,
+                        'cumpleanos': null,
+                        'phone': null,
+                        'iniciado': null,
+                        'status': 'Available',
+                        'numeroTelefono': '',
+                        'aboutMe': '',
+                        'nickname':
+                            FirebaseAuth.instance.currentUser!.displayName,
+                        'chattingWith': [],
+                        'pushToken': [],
+                      })
+                      .then((value) => print(
+                          FirebaseAuth.instance.currentUser!.email.toString()))
+                      .then((value) {
+                        Get.offNamed(AppPages.platform);
+                        // Get.offAll(Text1Screen);
+                      })
+                      .then((value) {
+                        // LandingPageController().registerNotification(),
+                      });
+                  // You can add data to Firebase Firestore here
+                } else {
+                  FirebaseFirestore.instance
+                      .collection('users')
+                      .doc(FirebaseAuth.instance.currentUser!.uid)
+                      .update(
+                    {'lastLogInOn': DateTime.now()},
+                  ).then((value) {
+                    MenuController().isProcessing.value = false;
+                    Get.offAllNamed(AppPages.platform);
+                  }).then(
+                    (value) {
+                      // LandingPageController().registerNotification();
+                    },
+                  );
+                }
+              }),
+            );
           }).catchError((error) {
             print('Registration Error: $error');
           });
-          setState(() {
-            MenuController().isProcessing.value = false;
-          });
+          // setState(() {
+
+          // });
         },
         child: Padding(
           padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
