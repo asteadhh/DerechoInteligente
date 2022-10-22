@@ -11,17 +11,6 @@ import 'package:flutter/material.dart';
 import 'auth_dialog.dart';
 
 class ExploreDrawer extends GetView<MenuController> {
-// class ExploreDrawer extends StatefulWidget {
-//   const ExploreDrawer({
-//     Key? key,
-//   }) : super(key: key);
-
-//   @override
-//   _ExploreDrawerState createState() => _ExploreDrawerState();
-// }
-
-// class _ExploreDrawerState extends State<ExploreDrawer> {
-
   final MenuController controller = Get.put<MenuController>(MenuController());
 
   FirebaseAuth auth = FirebaseAuth.instance;

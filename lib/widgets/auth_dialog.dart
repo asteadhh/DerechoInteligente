@@ -1,3 +1,5 @@
+import 'package:get/get_state_manager/get_state_manager.dart';
+
 import '../screens/home_page.dart';
 import '/utils/authentication.dart';
 import 'package:flutter/material.dart';
@@ -5,12 +7,12 @@ import 'package:flutter/material.dart';
 import 'LoginButtons/facebook_sign_in_button.dart';
 import 'LoginButtons/google_sign_in_button.dart';
 
-class AuthDialog extends StatefulWidget {
-  @override
-  _AuthDialogState createState() => _AuthDialogState();
-}
+class AuthDialog extends StatelessWidget {
+//   @override
+//   _AuthDialogState createState() => _AuthDialogState();
+// }
 
-class _AuthDialogState extends State<AuthDialog> {
+// class _AuthDialogState extends State<AuthDialog> {
   @override
   Widget build(BuildContext context) {
     return Dialog(

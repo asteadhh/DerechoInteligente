@@ -6,13 +6,13 @@ import 'components/side_menu.dart';
 import '/responsive.dart';
 import '/screens/dashboard/dashboard_screen.dart';
 
-class PlatformAdminMainScreen extends StatefulWidget {
-  @override
-  State<PlatformAdminMainScreen> createState() =>
-      _PlatformAdminMainScreenState();
-}
+class PlatformAdminMainScreen extends StatelessWidget {
+//   @override
+//   State<PlatformAdminMainScreen> createState() =>
+//       _PlatformAdminMainScreenState();
+// }
 
-class _PlatformAdminMainScreenState extends State<PlatformAdminMainScreen> {
+// class _PlatformAdminMainScreenState extends State<PlatformAdminMainScreen> {
   @override
   Widget build(BuildContext context) {
     if (FirebaseAuth.instance.currentUser == null) {
