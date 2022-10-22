@@ -90,7 +90,7 @@ class _LandingPageBaseState extends State<LandingPageBase> {
             )
           : PreferredSize(
               preferredSize: Size(screenSize.width, 1000),
-              child: TopBarContents(_opacity),
+              child: TopBarContents(),
             ),
       drawer: ExploreDrawer(),
       body:

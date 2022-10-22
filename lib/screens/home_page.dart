@@ -19,9 +19,17 @@ class Home extends StatelessWidget {
       );
     } else if (Platform.isAndroid || Platform.isIOS) {
       //running on android or ios device
-      return AuthDialogContentMobile();
+      // return AuthDialogContentMobile();
+
+      return LandingPageBase(
+        widget: HomeLandingContent(),
+      );
     } else {
-      return AuthDialogContentMobile();
+      // return AuthDialogContentMobile();
+
+      return LandingPageBase(
+        widget: HomeLandingContent(),
+      );
     }
   }
 }

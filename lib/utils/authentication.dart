@@ -9,7 +9,7 @@ final GoogleSignIn googleSignIn = GoogleSignIn();
 
 String? uid;
 String? name;
-String? userEmail;
+String? userEmail = '';
 String? imageUrl;
 
 /// For checking if the user is already signed into the

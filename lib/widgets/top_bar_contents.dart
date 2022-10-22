@@ -10,26 +10,18 @@ import '/utils/authentication.dart';
 import '/widgets/auth_dialog.dart';
 import 'package:flutter/material.dart';
 
-class TopBarContents extends StatefulWidget {
-  final double opacity;
+class TopBarContents extends GetView<MenuController> {
+//   final double opacity;
 
-  TopBarContents(this.opacity);
+//   TopBarContents(this.opacity);
 
-  @override
-  _TopBarContentsState createState() => _TopBarContentsState();
-}
+//   @override
+//   _TopBarContentsState createState() => _TopBarContentsState();
+// }
 
-class _TopBarContentsState extends State<TopBarContents> {
-  final List _isHovering = [
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false,
-    false
-  ];
+// class _TopBarContentsState extends State<TopBarContents> {
+
+  final MenuController controller = Get.put<MenuController>(MenuController());
 
   // bool _isProcessing = false;
 
@@ -40,7 +32,7 @@ class _TopBarContentsState extends State<TopBarContents> {
     return PreferredSize(
       preferredSize: Size(screenSize.width, 1000),
       child: Container(
-        color: Theme.of(context).bottomAppBarColor.withOpacity(widget.opacity),
+        color: Theme.of(context).bottomAppBarColor.withOpacity(0),
         child: Padding(
           padding: EdgeInsets.all(20),
           child: Row(
@@ -68,11 +60,11 @@ class _TopBarContentsState extends State<TopBarContents> {
                     SizedBox(width: screenSize.width / 8),
                     InkWell(
                       onHover: (value) {
-                        setState(() {
-                          value
-                              ? _isHovering[0] = true
-                              : _isHovering[0] = false;
-                        });
+                        // setState(() {
+                        value
+                            ? controller.isHovering[0] = true
+                            : controller.isHovering[0] = false;
+                        // });
                       },
                       onTap: () {
                         Get.toNamed(AppPages.aboutUs);
@@ -83,7 +75,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                           Text(
                             'About Us',
                             style: TextStyle(
-                              color: _isHovering[0]
+                              color: controller.isHovering[0]
                                   ? Colors.blue[200]
                                   : Colors.white,
                             ),
@@ -93,7 +85,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                             maintainAnimation: true,
                             maintainState: true,
                             maintainSize: true,
-                            visible: _isHovering[0],
+                            visible: controller.isHovering[0],
                             child: Container(
                               height: 2,
                               width: 20,
@@ -106,11 +98,11 @@ class _TopBarContentsState extends State<TopBarContents> {
                     SizedBox(width: screenSize.width / 20),
                     InkWell(
                       onHover: (value) {
-                        setState(() {
-                          value
-                              ? _isHovering[1] = true
-                              : _isHovering[1] = false;
-                        });
+                        // setState(() {
+                        value
+                            ? controller.isHovering[1] = true
+                            : controller.isHovering[1] = false;
+                        // });
                       },
                       onTap: () {
                         Get.toNamed(AppPages.contactUS);
@@ -121,7 +113,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                           Text(
                             'Contact Us',
                             style: TextStyle(
-                              color: _isHovering[1]
+                              color: controller.isHovering[1]
                                   ? Colors.blue[200]
                                   : Colors.white,
                             ),
@@ -131,7 +123,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                             maintainAnimation: true,
                             maintainState: true,
                             maintainSize: true,
-                            visible: _isHovering[1],
+                            visible: controller.isHovering[1],
                             child: Container(
                               height: 2,
                               width: 20,
@@ -147,11 +139,11 @@ class _TopBarContentsState extends State<TopBarContents> {
                               SizedBox(width: screenSize.width / 20),
                               InkWell(
                                 onHover: (value) {
-                                  setState(() {
-                                    value
-                                        ? _isHovering[2] = true
-                                        : _isHovering[2] = false;
-                                  });
+                                  // setState(() {
+                                  value
+                                      ? controller.isHovering[2] = true
+                                      : controller.isHovering[2] = false;
+                                  // });
                                 },
                                 onTap: () {
                                   Get.toNamed(AppPages.platform);
@@ -162,7 +154,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                                     Text(
                                       'Administracción',
                                       style: TextStyle(
-                                        color: _isHovering[2]
+                                        color: controller.isHovering[2]
                                             ? Colors.blue[200]
                                             : Colors.white,
                                       ),
@@ -172,7 +164,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                                       maintainAnimation: true,
                                       maintainState: true,
                                       maintainSize: true,
-                                      visible: _isHovering[2],
+                                      visible: controller.isHovering[2],
                                       child: Container(
                                         height: 2,
                                         width: 20,
@@ -208,9 +200,11 @@ class _TopBarContentsState extends State<TopBarContents> {
               ),
               InkWell(
                 onHover: (value) {
-                  setState(() {
-                    value ? _isHovering[3] = true : _isHovering[3] = false;
-                  });
+                  // setState(() {
+                  value
+                      ? controller.isHovering[3] = true
+                      : controller.isHovering[3] = false;
+                  // });
                 },
                 onTap:
                     //  userEmail == null
@@ -227,7 +221,9 @@ class _TopBarContentsState extends State<TopBarContents> {
                     ? Text(
                         'Sign in',
                         style: TextStyle(
-                          color: _isHovering[3] ? Colors.white : Colors.white70,
+                          color: controller.isHovering[3]
+                              ? Colors.white
+                              : Colors.white70,
                         ),
                       )
                     : Row(
@@ -248,7 +244,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                           // Text(
                           //   name ?? userEmail!,
                           //   style: TextStyle(
-                          //     color: _isHovering[3]
+                          //     color: controller.isHovering[3]
                           //         ? Colors.white
                           //         : Colors.white70,
                           //   ),
@@ -261,13 +257,12 @@ class _TopBarContentsState extends State<TopBarContents> {
                                 borderRadius: BorderRadius.circular(15),
                               ),
                             ),
-                            onPressed: MenuController().isProcessing.value
+                            onPressed: controller.isProcessing.value
                                 ? null
                                 : () async {
-                                    setState(() {
-                                      MenuController().isProcessing.value =
-                                          true;
-                                    });
+                                    // setState(() {
+                                    controller.isProcessing.value = true;
+                                    // });
                                     await signOut().then((result) {
                                       print(result);
                                       Navigator.of(context).pushReplacement(
@@ -281,10 +276,9 @@ class _TopBarContentsState extends State<TopBarContents> {
                                     }).catchError((error) {
                                       print('Sign Out Error: $error');
                                     });
-                                    setState(() {
-                                      MenuController().isProcessing.value =
-                                          false;
-                                    });
+                                    // setState(() {
+                                    controller.isProcessing.value = false;
+                                    // });
                                   },
                             child: Obx(
                               () => Padding(
@@ -292,7 +286,7 @@ class _TopBarContentsState extends State<TopBarContents> {
                                   top: 8.0,
                                   bottom: 8.0,
                                 ),
-                                child: MenuController().isProcessing.value
+                                child: controller.isProcessing.value
                                     ? CircularProgressIndicator()
                                     : Text(
                                         'sign_out'.tr,

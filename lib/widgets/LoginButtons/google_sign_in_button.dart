@@ -2,23 +2,13 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
-import '../../constants/custom_colors.dart';
 import '../../controllers/MenuController.dart';
-import '../../controllers/login/login_controller.dart';
 import '../../routes/app_pages.dart';
 import '/screens/home_page.dart';
 import '/utils/authentication.dart';
 import 'package:flutter/material.dart';
 
-// class GoogleButton extends StatefulWidget {
-class GoogleButton extends StatelessWidget {
-//   @override
-//   _GoogleButtonState createState() => _GoogleButtonState();
-// }
-
-// class _GoogleButtonState extends State<GoogleButton> {
-  // final LoginController loginController = Get.put<LoginController>(LoginController());
-  // LoginController
+class GoogleButton extends GetView<MenuController> {
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
@@ -40,7 +30,7 @@ class GoogleButton extends StatelessWidget {
         ),
         onPressed: () async {
           // setState(() {
-          MenuController().isProcessing.value = true;
+          controller.isProcessing.value = true;
           // });
           // LoginController().signInWithGoogle();
 

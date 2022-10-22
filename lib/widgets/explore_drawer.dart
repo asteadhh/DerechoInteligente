@@ -10,16 +10,20 @@ import 'package:flutter/material.dart';
 
 import 'auth_dialog.dart';
 
-class ExploreDrawer extends StatefulWidget {
-  const ExploreDrawer({
-    Key? key,
-  }) : super(key: key);
+class ExploreDrawer extends GetView<MenuController> {
+// class ExploreDrawer extends StatefulWidget {
+//   const ExploreDrawer({
+//     Key? key,
+//   }) : super(key: key);
 
-  @override
-  _ExploreDrawerState createState() => _ExploreDrawerState();
-}
+//   @override
+//   _ExploreDrawerState createState() => _ExploreDrawerState();
+// }
 
-class _ExploreDrawerState extends State<ExploreDrawer> {
+// class _ExploreDrawerState extends State<ExploreDrawer> {
+
+  final MenuController controller = Get.put<MenuController>(MenuController());
+
   FirebaseAuth auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
@@ -108,12 +112,12 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                             borderRadius: BorderRadius.circular(15),
                           ),
                         ),
-                        onPressed: MenuController().isProcessing.value
+                        onPressed: controller.isProcessing.value
                             ? null
                             : () async {
-                                setState(() {
-                                  MenuController().isProcessing.value = true;
-                                });
+                                // setState(() {
+                                controller.isProcessing.value = true;
+                                // });
                                 await signOut().then((result) {
                                   print(result);
                                   Navigator.of(context).pushReplacement(
@@ -125,9 +129,9 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                                 }).catchError((error) {
                                   print('Sign Out Error: $error');
                                 });
-                                setState(() {
-                                  MenuController().isProcessing.value = false;
-                                });
+                                // setState(() {
+                                controller.isProcessing.value = false;
+                                // });
                               },
                         // shape: RoundedRectangleBorder(
                         //   borderRadius: BorderRadius.circular(15),
@@ -138,7 +142,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                               top: 15.0,
                               bottom: 15.0,
                             ),
-                            child: MenuController().isProcessing.value
+                            child: controller.isProcessing.isTrue
                                 ? CircularProgressIndicator()
                                 : Text(
                                     'sign_out'.tr,

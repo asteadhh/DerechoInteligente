@@ -1,13 +1,8 @@
-import 'dart:math';
-
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 
 import '../../home_page.dart';
 import 'components/side_menu.dart';
-import '/controllers/MenuController.dart';
 import '/responsive.dart';
 import '/screens/dashboard/dashboard_screen.dart';
 

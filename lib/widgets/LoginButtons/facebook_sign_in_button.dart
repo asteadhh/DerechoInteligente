@@ -3,20 +3,18 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:get/get.dart';
 
-import '../../constants/custom_colors.dart';
 import '../../controllers/MenuController.dart';
-import '../../controllers/login/login_controller.dart';
 import '../../routes/app_pages.dart';
-import '/screens/home_page.dart';
-import '/utils/authentication.dart';
 import 'package:flutter/material.dart';
 
-class FacebookButton extends StatefulWidget {
-  @override
-  _FacebookButtonState createState() => _FacebookButtonState();
-}
+class FacebookButton extends GetView<MenuController> {
+//   @override
+//   _FacebookButtonState createState() => _FacebookButtonState();
+// }
 
-class _FacebookButtonState extends State<FacebookButton> {
+// class _FacebookButtonState extends State<FacebookButton> {
+
+  final MenuController controller = Get.put<MenuController>(MenuController());
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
@@ -38,7 +36,7 @@ class _FacebookButtonState extends State<FacebookButton> {
         ),
         onPressed: () async {
           // setState(() {
-          MenuController().isProcessing.value = true;
+          controller.isProcessing.value = true;
           // });
 
 //
@@ -140,12 +138,12 @@ class _FacebookButtonState extends State<FacebookButton> {
           //   print('Registration Error: $error');
           // });
           // setState(() {
-          MenuController().isProcessing.value = false;
+          controller.isProcessing.value = false;
           // });
         },
         child: Padding(
           padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-          child: MenuController().isProcessing.value
+          child: controller.isProcessing.value
               ? CircularProgressIndicator(
                   valueColor: new AlwaysStoppedAnimation<Color>(
                     Colors.blueGrey,

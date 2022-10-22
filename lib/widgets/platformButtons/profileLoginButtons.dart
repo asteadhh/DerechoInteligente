@@ -6,14 +6,8 @@ import '../../controllers/MenuController.dart';
 import '../../routes/app_pages.dart';
 import '../../utils/sign_in.dart';
 
-class ProfileLoginButton extends StatefulWidget {
-  const ProfileLoginButton({Key? key}) : super(key: key);
-
-  @override
-  State<ProfileLoginButton> createState() => _ProfileLoginButtonState();
-}
-
-class _ProfileLoginButtonState extends State<ProfileLoginButton> {
+class ProfileLoginButton extends GetView<MenuController> {
+  final MenuController controller = Get.put<MenuController>(MenuController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -102,6 +96,7 @@ class MenuItems {
   }
 
   static onChanged(BuildContext context, MenuItem item) {
+    final MenuController controller = Get.put<MenuController>(MenuController());
     switch (item) {
       case MenuItems.home:
         //Do something
@@ -114,7 +109,7 @@ class MenuItems {
         break;
       case MenuItems.logout:
         //Do something
-        MenuController().isProcessing.value = false;
+        controller.isProcessing.value = false;
         signOut().then((result) {
           print(result);
           Get.offAllNamed(AppPages.main);
