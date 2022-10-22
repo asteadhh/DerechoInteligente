@@ -1,5 +1,9 @@
+import 'dart:io';
+
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/auth_dialog.dart';
 import 'landingPage/base/home_page_landing.dart';
 import 'landingPage/main/main_screen.dart';
 
@@ -8,8 +12,16 @@ class Home extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return LandingPageBase(
-      widget: HomeLandingContent(),
-    );
+    if (kIsWeb) {
+      //running on web
+      return LandingPageBase(
+        widget: HomeLandingContent(),
+      );
+    } else if (Platform.isAndroid || Platform.isIOS) {
+      //running on android or ios device
+      return AuthDialogContentMobile();
+    } else {
+      return AuthDialogContentMobile();
+    }
   }
 }

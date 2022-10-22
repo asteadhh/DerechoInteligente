@@ -18,6 +18,7 @@ import 'constants/theme.dart';
 import 'firebase_options.dart';
 import 'screens/home_page.dart';
 import 'screens/landingPage/404 Screens/error/error_screen.dart';
+import 'widgets/auth_dialog.dart';
 
 const bool USE_EMULATOR = false;
 bool isWhite = false;
@@ -94,6 +95,8 @@ class MyApp extends StatelessWidget {
       // home: MainScreen(),
 
       // home: WelcomeScreen(),
+
+      // AuthDialogContentDesktop()
       home: Home(),
     );
   }
