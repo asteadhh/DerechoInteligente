@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
 import '../../../constants/theme.dart';
+import '../../../controllers/platform/PlatformAdminMainScreenController.dart';
 import '../../../routes/app_pages.dart';
 import '../../../utils/sign_in.dart';
 import '/controllers/MenuController.dart';
@@ -90,6 +91,7 @@ class ProfileCard extends GetView<MenuController> {
               MenuController().isProcessing.value = false;
               await signOut().then((result) {
                 print(result);
+                controller.tabIndex.value = 0;
                 Get.offAllNamed(AppPages.main);
               }).catchError((error) {
                 print('Sign Out Error: $error');

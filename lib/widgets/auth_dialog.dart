@@ -1,4 +1,6 @@
+import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
+import 'package:pulpox_admin/controllers/MenuController.dart';
 
 import '../screens/home_page.dart';
 import '/utils/authentication.dart';
@@ -7,7 +9,7 @@ import 'package:flutter/material.dart';
 import 'LoginButtons/facebook_sign_in_button.dart';
 import 'LoginButtons/google_sign_in_button.dart';
 
-class AuthDialog extends StatelessWidget {
+class AuthDialog extends GetView<MenuController> {
 //   @override
 //   _AuthDialogState createState() => _AuthDialogState();
 // }
@@ -34,6 +36,7 @@ class AuthDialogContentDesktop extends StatefulWidget {
 }
 
 class _AuthDialogContentDesktopState extends State<AuthDialogContentDesktop> {
+  final MenuController controller = Get.put<MenuController>(MenuController());
   late TextEditingController textControllerEmail;
   late FocusNode textFocusNodeEmail;
   bool _isEditingEmail = false;
@@ -90,6 +93,8 @@ class _AuthDialogContentDesktopState extends State<AuthDialogContentDesktop> {
 
   @override
   Widget build(BuildContext context) {
+    final MenuController controller = Get.put<MenuController>(MenuController());
+
     return SingleChildScrollView(
       child: Padding(
         padding: const EdgeInsets.all(16.0),
@@ -273,7 +278,8 @@ class _AuthDialogContentDesktopState extends State<AuthDialogContentDesktop> {
                                 _validatePassword(
                                         textControllerPassword.text) ==
                                     null) {
-                              await signInWithEmailPassword(
+                              await controller
+                                  .signInWithEmailPassword(
                                       textControllerEmail.text,
                                       textControllerPassword.text)
                                   .then((result) {
@@ -367,7 +373,8 @@ class _AuthDialogContentDesktopState extends State<AuthDialogContentDesktop> {
                             setState(() {
                               _isRegistering = true;
                             });
-                            await registerWithEmailPassword(
+                            await controller
+                                .registerWithEmailPassword(
                                     textControllerEmail.text,
                                     textControllerPassword.text)
                                 .then((result) {
@@ -541,6 +548,7 @@ class _AuthDialogContentMobileState extends State<AuthDialogContentMobile> {
 
   @override
   Widget build(BuildContext context) {
+    final MenuController controller = Get.put<MenuController>(MenuController());
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       body: Center(
@@ -730,7 +738,8 @@ class _AuthDialogContentMobileState extends State<AuthDialogContentMobile> {
                                     _validatePassword(
                                             textControllerPassword.text) ==
                                         null) {
-                                  await signInWithEmailPassword(
+                                  await controller
+                                      .signInWithEmailPassword(
                                           textControllerEmail.text,
                                           textControllerPassword.text)
                                       .then((result) {
@@ -826,7 +835,8 @@ class _AuthDialogContentMobileState extends State<AuthDialogContentMobile> {
                                 setState(() {
                                   _isRegistering = true;
                                 });
-                                await registerWithEmailPassword(
+                                await controller
+                                    .registerWithEmailPassword(
                                         textControllerEmail.text,
                                         textControllerPassword.text)
                                     .then((result) {

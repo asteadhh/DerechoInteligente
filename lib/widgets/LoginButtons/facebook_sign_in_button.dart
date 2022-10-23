@@ -4,6 +4,7 @@ import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/MenuController.dart';
+import '../../controllers/platform/PlatformAdminMainScreenController.dart';
 import '../../routes/app_pages.dart';
 import 'package:flutter/material.dart';
 
@@ -100,6 +101,9 @@ class FacebookButton extends GetView<MenuController> {
                       })
                       .then((value) => print('First Time LogIn Facebook'))
                       .then((value) {
+                        MenuController().isProcessing.value = false;
+                        controller.platformEnabledIndex(1);
+
                         Get.offNamed(AppPages.platform);
                         // Get.offAll(Text1Screen);
                       });
@@ -109,7 +113,9 @@ class FacebookButton extends GetView<MenuController> {
                       .collection('users')
                       .doc(FirebaseAuth.instance.currentUser!.uid)
                       .update({'lastLogInOn': DateTime.now()}).then((value) {
-                    Get.offAllNamed(AppPages.platform);
+                    MenuController().isProcessing.value = false;
+                    controller.platformEnabledIndex(1);
+                    Get.offNamed(AppPages.platform);
                     // Get.offAll(Text2Screen);
                   });
                 }

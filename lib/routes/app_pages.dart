@@ -49,7 +49,7 @@ class AppPages {
     GetPage(
       name: _Paths.platform,
       page: () => PlatformAdminMainScreen(),
-      // binding: NotificacionesScreenBinding(),
+      binding: PlatformAdminMainScreenBinding(),
     ),
     GetPage(
       name: _Paths.landingMenu,

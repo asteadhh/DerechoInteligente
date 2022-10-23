@@ -263,7 +263,7 @@ class TopBarContents extends GetView<MenuController> {
                                     // setState(() {
                                     controller.isProcessing.value = true;
                                     // });
-                                    await signOut().then((result) {
+                                    await controller.signOut().then((result) {
                                       print(result);
                                       Navigator.of(context).pushReplacement(
                                         MaterialPageRoute(

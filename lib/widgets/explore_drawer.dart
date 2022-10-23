@@ -1,11 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
-import '../constants/custom_colors.dart';
 import '../controllers/MenuController.dart';
 import '../routes/app_pages.dart';
 import '/screens/home_page.dart';
-import '/utils/authentication.dart';
 import 'package:flutter/material.dart';
 
 import 'auth_dialog.dart';
@@ -25,7 +23,7 @@ class ExploreDrawer extends GetView<MenuController> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              userEmail == null
+              controller.userEmail == null
                   ? Container(
                       width: double.maxFinite,
                       child: TextButton(
@@ -88,7 +86,7 @@ class ExploreDrawer extends GetView<MenuController> {
                       ],
                     ),
               SizedBox(height: 20),
-              userEmail != null
+              controller.userEmail != null
                   ? Container(
                       width: double.maxFinite,
                       child: TextButton(
@@ -107,7 +105,7 @@ class ExploreDrawer extends GetView<MenuController> {
                                 // setState(() {
                                 controller.isProcessing.value = true;
                                 // });
-                                await signOut().then((result) {
+                                await controller.signOut().then((result) {
                                   print(result);
                                   Navigator.of(context).pushReplacement(
                                     MaterialPageRoute(
@@ -145,7 +143,7 @@ class ExploreDrawer extends GetView<MenuController> {
                       ),
                     )
                   : Container(),
-              userEmail != null ? SizedBox(height: 20) : Container(),
+              controller.userEmail != null ? SizedBox(height: 20) : Container(),
               InkWell(
                 onTap: () {
                   Get.toNamed(AppPages.aboutUs);

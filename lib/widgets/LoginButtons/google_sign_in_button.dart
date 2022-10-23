@@ -1,8 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
+import 'package:get/get.dart';
 
 import '../../controllers/MenuController.dart';
+import '../../controllers/platform/PlatformAdminMainScreenController.dart';
 import '../../routes/app_pages.dart';
 import '/screens/home_page.dart';
 import '/utils/authentication.dart';
@@ -34,7 +36,7 @@ class GoogleButton extends GetView<MenuController> {
           // });
           // LoginController().signInWithGoogle();
 
-          await signInWithGoogle().then((result) {
+          await controller.signInWithGoogle().then((result) {
             print(result);
             if (result != null) {
               Navigator.of(context).pop();
@@ -97,12 +99,14 @@ class GoogleButton extends GetView<MenuController> {
                       })
                       .then((value) => print(
                           FirebaseAuth.instance.currentUser!.email.toString()))
-                      .then((value) {
-                        Get.offNamed(AppPages.platform);
+                      .then((value) async {
+                        MenuController().isProcessing.value = false;
+                        controller.platformEnabledIndex(1);
                         // Get.offAll(Text1Screen);
                       })
                       .then((value) {
                         // LandingPageController().registerNotification(),
+                        Get.offNamed(AppPages.platform);
                       });
                   // You can add data to Firebase Firestore here
                 } else {
@@ -113,7 +117,9 @@ class GoogleButton extends GetView<MenuController> {
                     {'lastLogInOn': DateTime.now()},
                   ).then((value) {
                     MenuController().isProcessing.value = false;
-                    Get.offAllNamed(AppPages.platform);
+                    controller.platformEnabledIndex(1);
+                  }).then((value) {
+                    Get.offNamed(AppPages.platform);
                   }).then(
                     (value) {
                       // LandingPageController().registerNotification();
