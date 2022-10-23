@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import '../../../constants/theme.dart';
 import '../../../widgets/bottom_bar.dart';
 import '/routes/app_pages.dart';
-import '/widgets/web_scrollbar.dart';
 import '/widgets/explore_drawer.dart';
 import '/widgets/responsive.dart';
 import '/widgets/top_bar_contents.dart';
@@ -90,7 +89,7 @@ class _LandingPageBaseState extends State<LandingPageBase> {
             )
           : PreferredSize(
               preferredSize: Size(screenSize.width, 1000),
-              child: TopBarContents(_opacity),
+              child: TopBarContents(),
             ),
       drawer: ExploreDrawer(),
       body:

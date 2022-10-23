@@ -1,25 +1,16 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
-import '../constants/custom_colors.dart';
 import '../controllers/MenuController.dart';
 import '../routes/app_pages.dart';
 import '/screens/home_page.dart';
-import '/utils/authentication.dart';
 import 'package:flutter/material.dart';
 
 import 'auth_dialog.dart';
 
-class ExploreDrawer extends StatefulWidget {
-  const ExploreDrawer({
-    Key? key,
-  }) : super(key: key);
+class ExploreDrawer extends GetView<MenuController> {
+  final MenuController controller = Get.put<MenuController>(MenuController());
 
-  @override
-  _ExploreDrawerState createState() => _ExploreDrawerState();
-}
-
-class _ExploreDrawerState extends State<ExploreDrawer> {
   FirebaseAuth auth = FirebaseAuth.instance;
   @override
   Widget build(BuildContext context) {
@@ -32,7 +23,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              userEmail == null
+              controller.userEmail == null
                   ? Container(
                       width: double.maxFinite,
                       child: TextButton(
@@ -95,7 +86,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                       ],
                     ),
               SizedBox(height: 20),
-              userEmail != null
+              controller.userEmail != null
                   ? Container(
                       width: double.maxFinite,
                       child: TextButton(
@@ -108,13 +99,13 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                             borderRadius: BorderRadius.circular(15),
                           ),
                         ),
-                        onPressed: MenuController().isProcessing.value
+                        onPressed: controller.isProcessing.value
                             ? null
                             : () async {
-                                setState(() {
-                                  MenuController().isProcessing.value = true;
-                                });
-                                await signOut().then((result) {
+                                // setState(() {
+                                controller.isProcessing.value = true;
+                                // });
+                                await controller.signOut().then((result) {
                                   print(result);
                                   Navigator.of(context).pushReplacement(
                                     MaterialPageRoute(
@@ -125,32 +116,34 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                                 }).catchError((error) {
                                   print('Sign Out Error: $error');
                                 });
-                                setState(() {
-                                  MenuController().isProcessing.value = false;
-                                });
+                                // setState(() {
+                                controller.isProcessing.value = false;
+                                // });
                               },
                         // shape: RoundedRectangleBorder(
                         //   borderRadius: BorderRadius.circular(15),
                         // ),
-                        child: Padding(
-                          padding: EdgeInsets.only(
-                            top: 15.0,
-                            bottom: 15.0,
-                          ),
-                          child: MenuController().isProcessing.value
-                              ? CircularProgressIndicator()
-                              : Text(
-                                  'Sign out',
-                                  style: TextStyle(
-                                    fontSize: 20,
-                                    color: Colors.white,
+                        child: Obx(
+                          () => Padding(
+                            padding: EdgeInsets.only(
+                              top: 15.0,
+                              bottom: 15.0,
+                            ),
+                            child: controller.isProcessing.isTrue
+                                ? CircularProgressIndicator()
+                                : Text(
+                                    'sign_out'.tr,
+                                    style: TextStyle(
+                                      fontSize: 20,
+                                      color: Colors.white,
+                                    ),
                                   ),
-                                ),
+                          ),
                         ),
                       ),
                     )
                   : Container(),
-              userEmail != null ? SizedBox(height: 20) : Container(),
+              controller.userEmail != null ? SizedBox(height: 20) : Container(),
               InkWell(
                 onTap: () {
                   Get.toNamed(AppPages.aboutUs);
@@ -203,7 +196,7 @@ class AdministraccionEnableWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FirebaseAuth.instance.currentUser == null
+    return FirebaseAuth.instance.currentUser != null
         ? Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,

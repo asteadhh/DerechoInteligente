@@ -1,15 +1,13 @@
-import '../../constants/custom_colors.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:get/get.dart';
+
 import '../../controllers/MenuController.dart';
+import '../../routes/app_pages.dart';
 import '/screens/home_page.dart';
-import '/utils/authentication.dart';
 import 'package:flutter/material.dart';
 
-class GoogleButton extends StatefulWidget {
-  @override
-  _GoogleButtonState createState() => _GoogleButtonState();
-}
-
-class _GoogleButtonState extends State<GoogleButton> {
+class GoogleButton extends GetView<MenuController> {
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
@@ -30,10 +28,12 @@ class _GoogleButtonState extends State<GoogleButton> {
           elevation: 0,
         ),
         onPressed: () async {
-          setState(() {
-            MenuController().isProcessing.value = true;
-          });
-          await signInWithGoogle().then((result) {
+          // setState(() {
+          controller.isProcessing.value = true;
+          // });
+          // LoginController().signInWithGoogle();
+
+          await controller.signInWithGoogle().then((result) {
             print(result);
             if (result != null) {
               Navigator.of(context).pop();
@@ -44,12 +44,93 @@ class _GoogleButtonState extends State<GoogleButton> {
                 ),
               );
             }
+            Future.delayed(
+              Duration(milliseconds: 2),
+              (() async {
+                final snapShot = await FirebaseFirestore.instance
+                    .collection('users')
+                    .doc(FirebaseAuth
+                        .instance.currentUser!.uid) // varuId in your case
+                    .get();
+
+                if (!snapShot.exists) {
+                  print('object');
+                  // Document with id == varuId doesn't exist.
+                  FirebaseFirestore.instance
+                      .collection('users')
+                      // .doc(auth.currentUser!.uid)
+                      .doc(FirebaseAuth.instance.currentUser!.uid)
+                      // .collection('userProfile')
+                      .set({
+                        'uid': FirebaseAuth.instance.currentUser!.uid,
+                        'createdOn': DateTime.now(),
+                        'modifiedOn': DateTime.now(),
+                        'lastLogInOn': DateTime.now(),
+                        'nombre':
+                            FirebaseAuth.instance.currentUser!.displayName,
+                        'correo': FirebaseAuth.instance.currentUser!.email,
+                        'maestro': false,
+                        'dirrecciones': null,
+                        'antecedentes': null,
+                        'foto': FirebaseAuth.instance.currentUser!.photoURL,
+                        'primerApellido': null,
+                        'segundoApellido': null,
+                        'rut': null,
+                        'numeroDeSerie': null,
+                        'estadoDeChat': null,
+                        'acumuladoRatingUsuario': null,
+                        'cantiadadTrabajosUsuario': null,
+                        'acumuladoRatingMaestro': null,
+                        'cantiadadTrabajosMaestro': null,
+                        'genero': null,
+                        'cumpleanos': null,
+                        'phone': null,
+                        'iniciado': null,
+                        'status': 'Available',
+                        'numeroTelefono': '',
+                        'aboutMe': '',
+                        'nickname':
+                            FirebaseAuth.instance.currentUser!.displayName,
+                        'chattingWith': [],
+                        'pushToken': [],
+                      })
+                      .then((value) => print(
+                          FirebaseAuth.instance.currentUser!.email.toString()))
+                      .then((value) async {
+                        MenuController().isProcessing.value = false;
+                        controller.platformEnabledIndex(1);
+                        // Get.offAll(Text1Screen);
+                      })
+                      .then((value) {
+                        // LandingPageController().registerNotification(),
+                        Get.offNamed(AppPages.platform);
+                      });
+                  // You can add data to Firebase Firestore here
+                } else {
+                  FirebaseFirestore.instance
+                      .collection('users')
+                      .doc(FirebaseAuth.instance.currentUser!.uid)
+                      .update(
+                    {'lastLogInOn': DateTime.now()},
+                  ).then((value) {
+                    MenuController().isProcessing.value = false;
+                    controller.platformEnabledIndex(1);
+                  }).then((value) {
+                    Get.offNamed(AppPages.platform);
+                  }).then(
+                    (value) {
+                      // LandingPageController().registerNotification();
+                    },
+                  );
+                }
+              }),
+            );
           }).catchError((error) {
             print('Registration Error: $error');
           });
-          setState(() {
-            MenuController().isProcessing.value = false;
-          });
+          // setState(() {
+
+          // });
         },
         child: Padding(
           padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),

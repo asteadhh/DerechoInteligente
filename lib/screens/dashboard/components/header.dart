@@ -90,6 +90,7 @@ class ProfileCard extends GetView<MenuController> {
               MenuController().isProcessing.value = false;
               await signOut().then((result) {
                 print(result);
+                controller.tabIndex.value = 0;
                 Get.offAllNamed(AppPages.main);
               }).catchError((error) {
                 print('Sign Out Error: $error');

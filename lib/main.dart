@@ -11,10 +11,9 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:pulpox_admin/routes/app_pages.dart';
 
-import '/utils/authentication.dart';
-
 import '/utils/translations.dart';
 import 'constants/theme.dart';
+import 'controllers/MenuController.dart';
 import 'firebase_options.dart';
 import 'screens/home_page.dart';
 import 'screens/landingPage/404 Screens/error/error_screen.dart';
@@ -68,8 +67,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future getUserInfo() async {
-      await getUser();
-      print(uid);
+      await MenuController().getUser();
+      print(MenuController().uid);
     }
 
     ;
@@ -94,6 +93,8 @@ class MyApp extends StatelessWidget {
       // home: MainScreen(),
 
       // home: WelcomeScreen(),
+
+      // AuthDialogContentDesktop()
       home: Home(),
     );
   }

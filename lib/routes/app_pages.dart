@@ -1,15 +1,12 @@
-import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pulpox_admin/screens/landingPage/aboutUs/aboutUs_screen.dart';
-import 'package:pulpox_admin/screens/landingPage/contactUs/contact_us_screen.dart';
-import 'package:pulpox_admin/screens/landingPage/help/help_screen.dart';
-import 'package:pulpox_admin/screens/landingPage/menu.dart';
+
+import '/screens/landingPage/aboutUs/aboutUs_screen.dart';
+import '/screens/landingPage/contactUs/contact_us_screen.dart';
+import '/screens/landingPage/help/help_screen.dart';
+import '/screens/landingPage/menu.dart';
 
 import '../screens/home_page.dart';
-import '../screens/landingPage/404 Screens/error/error_screen.dart';
-import '../screens/landingPage/main/main_screen.dart';
 import '../screens/plataforma/main/main_screen.dart';
-import '../screens/signIn/login_screen.dart';
 import 'bindings.dart';
 
 part 'app_routes.dart';
@@ -49,7 +46,7 @@ class AppPages {
     GetPage(
       name: _Paths.platform,
       page: () => PlatformAdminMainScreen(),
-      // binding: NotificacionesScreenBinding(),
+      binding: PlatformAdminMainScreenBinding(),
     ),
     GetPage(
       name: _Paths.landingMenu,
