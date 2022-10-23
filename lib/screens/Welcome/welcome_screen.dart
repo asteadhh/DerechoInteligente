@@ -11,8 +11,6 @@ import '../landingPage/Login/components/login_screen_top_image.dart';
 import '../landingPage/Login/login_screen.dart';
 import '../landingPage/Signup/signup_screen.dart';
 import '../landingPage/aboutUs/aboutUs_screen.dart';
-import '../landingPage/main/home_page.dart';
-import '../landingPage/main/main_screen.dart';
 import '../landingPage/menu.dart';
 import '../plataforma/main/components/landing_page_drawer.dart';
 

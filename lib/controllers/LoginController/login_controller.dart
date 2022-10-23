@@ -5,6 +5,8 @@ import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 
+import '../../db/my_user.dart';
+import '../../models/user_chat.dart';
 import '../../routes/app_pages.dart';
 
 class LoginController extends GetxController {
@@ -14,8 +16,21 @@ class LoginController extends GetxController {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
-  final List isHovering =
-      [false, false, false, false, false, false, false, false].obs;
+  Rx<UserChatInfo?> _myUser = Rx<UserChatInfo?>(null);
+
+  UserChatInfo? get myUser => _myUser.value;
+
+  void updateUserStream() {
+    var currentUser = auth.currentUser;
+    print('UODATE');
+    _myUser.bindStream(MyUserDB.myUserStream(currentUser));
+  }
+
+  @override
+  void onInit() {
+    updateUserStream();
+    super.onInit();
+  }
 
   //
   void signInWithEmailAndPassword() async {
@@ -33,6 +48,7 @@ class LoginController extends GetxController {
           Get.offAllNamed(AppPages.main);
         },
       );
+      updateUserStream();
     } catch (e) {
       Get.snackbar(
         'Fallo',
@@ -57,10 +73,11 @@ class LoginController extends GetxController {
     if (user == null) {
       Get.snackbar('Out', 'No One has signed in.',
           snackPosition: SnackPosition.TOP);
-      // Get.offAllNamed(AppPages.signIn);
+      Get.offAllNamed(AppPages.main);
       return;
     }
     _signOut();
+    updateUserStream();
     final String nombreUsuario = user.displayName.toString();
     Get.snackbar('Out', nombreUsuario + ' has successfully signed out.',
         snackPosition: SnackPosition.TOP);
@@ -135,12 +152,19 @@ class LoginController extends GetxController {
                   'numeroTelefono': '',
                   'aboutMe': '',
                   'nickname': auth.currentUser!.displayName,
+                  'chattingWith': [],
+                  'pushToken': [],
                 })
                 .then((value) => print('First Time LogIn Facebook'))
                 .then((value) {
                   Get.offNamed(AppPages.main);
                   // Get.offAll(Text1Screen);
-                });
+                })
+                .then(
+                  (value) {
+                    // LandingPageController().registerNotification();
+                  },
+                );
             // You can add data to Firebase Firestore here
           } else {
             FirebaseFirestore.instance
@@ -149,8 +173,13 @@ class LoginController extends GetxController {
                 .update({'lastLogInOn': DateTime.now()}).then((value) {
               Get.offAllNamed(AppPages.main);
               // Get.offAll(Text2Screen);
-            });
+            }).then(
+              (value) {
+                // LandingPageController().registerNotification();
+              },
+            );
           }
+          updateUserStream();
         }),
       );
     } catch (e) {
@@ -223,13 +252,20 @@ class LoginController extends GetxController {
                   'status': 'Available',
                   'numeroTelefono': '',
                   'aboutMe': '',
-                  'nickname': '',
+                  'nickname': auth.currentUser!.displayName,
+                  'chattingWith': [],
+                  'pushToken': [],
                 })
-                .then((value) => print('1'))
+                .then((value) => print(auth.currentUser!.email.toString()))
                 .then((value) {
                   Get.offNamed(AppPages.main);
                   // Get.offAll(Text1Screen);
-                });
+                })
+                .then(
+                  (value) {
+                    // LandingPageController().registerNotification();
+                  },
+                );
             // You can add data to Firebase Firestore here
           } else {
             FirebaseFirestore.instance
@@ -239,8 +275,13 @@ class LoginController extends GetxController {
               {'lastLogInOn': DateTime.now()},
             ).then((value) {
               Get.offAllNamed(AppPages.main);
-            });
+            }).then(
+              (value) {
+                // LandingPageController().registerNotification();
+              },
+            );
           }
+          updateUserStream();
         }),
       );
     } catch (e) {
@@ -337,13 +378,20 @@ class LoginController extends GetxController {
                   'status': 'Available',
                   'numeroTelefono': '',
                   'aboutMe': '',
-                  'nickname': '',
+                  'nickname': auth.currentUser!.displayName,
+                  'chattingWith': [],
+                  'pushToken': [],
                   // 'verificacionCorreo': false,
                 })
                 .then((value) => print('1'))
                 .then((value) {
                   Get.offAllNamed(AppPages.main);
-                });
+                })
+                .then(
+                  (value) {
+                    // LandingPageController().registerNotification();
+                  },
+                );
             // You can add data to Firebase Firestore here
           } else {
             FirebaseFirestore.instance
@@ -351,8 +399,13 @@ class LoginController extends GetxController {
                 .doc(auth.currentUser!.uid)
                 .update({'lastLogInOn': DateTime.now()}).then((value) {
               Get.offNamed(AppPages.main);
-            });
+            }).then(
+              (value) {
+                // LandingPageController().registerNotification();
+              },
+            );
           }
+          updateUserStream();
           // Get.offAllNamed(AppPages.verified);
           // dispose();
           // Get.deleteAll();

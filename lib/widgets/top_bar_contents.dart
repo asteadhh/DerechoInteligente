@@ -6,7 +6,6 @@ import '../controllers/MenuController.dart';
 import '../routes/app_pages.dart';
 import '../screens/landingPage/base/home_page_landing.dart';
 import '../screens/landingPage/main/main_screen.dart';
-import '/utils/authentication.dart';
 import '/widgets/auth_dialog.dart';
 import 'package:flutter/material.dart';
 

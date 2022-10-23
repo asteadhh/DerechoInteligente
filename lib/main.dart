@@ -11,15 +11,12 @@ import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 import 'package:pulpox_admin/routes/app_pages.dart';
 
-import '/utils/authentication.dart';
-
 import '/utils/translations.dart';
 import 'constants/theme.dart';
 import 'controllers/MenuController.dart';
 import 'firebase_options.dart';
 import 'screens/home_page.dart';
 import 'screens/landingPage/404 Screens/error/error_screen.dart';
-import 'widgets/auth_dialog.dart';
 
 const bool USE_EMULATOR = false;
 bool isWhite = false;

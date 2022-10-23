@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
-import '../widgets/auth_dialog.dart';
 import 'landingPage/base/home_page_landing.dart';
 import 'landingPage/main/main_screen.dart';
 

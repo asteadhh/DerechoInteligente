@@ -1,13 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-import 'package:get/get.dart';
 
 import '../../controllers/MenuController.dart';
-import '../../controllers/platform/PlatformAdminMainScreenController.dart';
 import '../../routes/app_pages.dart';
 import '/screens/home_page.dart';
-import '/utils/authentication.dart';
 import 'package:flutter/material.dart';
 
 class GoogleButton extends GetView<MenuController> {

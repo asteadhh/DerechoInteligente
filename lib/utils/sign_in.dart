@@ -33,12 +33,10 @@ Future getUser() async {
   User user = await FirebaseAuth.instance.currentUser!;
 
   if (authSignedIn == true) {
-    if (user != null) {
-      uid = user.uid;
-      name = user.displayName!;
-      userEmail = user.email!;
-      imageUrl = user.photoURL!;
-    }
+    uid = user.uid;
+    name = user.displayName!;
+    userEmail = user.email!;
+    imageUrl = user.photoURL!;
   }
 }
 
@@ -62,7 +60,6 @@ Future<String> signInWithGoogle() async {
   final User? user = authResult.user;
 
   // Checking if email and name is null
-  assert(user!.uid != null);
   assert(user!.email != null);
   assert(user!.displayName != null);
   assert(user!.photoURL != null);
@@ -73,7 +70,6 @@ Future<String> signInWithGoogle() async {
   imageUrl = user.photoURL!;
 
   assert(!user.isAnonymous);
-  assert(await user.getIdToken() != null);
 
   // final User currentUser = await _auth.currentUser();
   assert(user.uid == _auth.currentUser!.uid);
@@ -94,14 +90,12 @@ Future<String> registerWithEmailPassword(String email, String password) async {
   final User? user = authResult.user;
 
   // checking if uid or email is null
-  assert(user!.uid != null);
   assert(user!.email != null);
 
   uid = user!.uid;
   userEmail = user.email!;
 
   assert(!user.isAnonymous);
-  assert(await user.getIdToken() != null);
 
   // final FirebaseUser currentUser = await _auth.currentUser();
   // assert(user.uid == currentUser.uid);
@@ -122,14 +116,12 @@ Future<String> signInWithEmailPassword(String email, String password) async {
   final User? user = authResult.user;
 
   // checking if uid or email is null
-  assert(user!.uid != null);
   assert(user!.email != null);
 
   uid = user!.uid;
   userEmail = user.email!;
 
   assert(!user.isAnonymous);
-  assert(await user.getIdToken() != null);
 
   // final User currentUser = await _auth.currentUser();
   assert(user.uid == FirebaseAuth.instance.currentUser!.uid);

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../controllers/MenuController.dart';
-import '../../../controllers/platform/PlatformAdminMainScreenController.dart';
 
 import 'components/side_menu.dart';
 import '/responsive.dart';

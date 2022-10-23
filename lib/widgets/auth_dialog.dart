@@ -1,9 +1,7 @@
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:pulpox_admin/controllers/MenuController.dart';
 
 import '../screens/home_page.dart';
-import '/utils/authentication.dart';
 import 'package:flutter/material.dart';
 
 import 'LoginButtons/facebook_sign_in_button.dart';
