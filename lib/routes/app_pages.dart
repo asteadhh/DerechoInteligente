@@ -47,6 +47,9 @@ class AppPages {
       name: _Paths.platform,
       page: () => PlatformAdminMainScreen(),
       binding: PlatformAdminMainScreenBinding(),
+      middlewares: [
+        // PremiumGuard(), // Add the middleware here
+      ],
     ),
     GetPage(
       name: _Paths.landingMenu,
