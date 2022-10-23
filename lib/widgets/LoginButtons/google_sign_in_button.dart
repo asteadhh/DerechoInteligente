@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 
 import '../../controllers/MenuController.dart';
 import '../../routes/app_pages.dart';
+import '../../services/auth_service.dart';
 import '/screens/home_page.dart';
 import 'package:flutter/material.dart';
 
@@ -36,13 +37,17 @@ class GoogleButton extends GetView<MenuController> {
           await controller.signInWithGoogle().then((result) {
             print(result);
             if (result != null) {
+              Get.lazyPut(() => AuthService());
+
               Navigator.of(context).pop();
-              Navigator.of(context).pushReplacement(
-                MaterialPageRoute(
-                  fullscreenDialog: true,
-                  builder: (context) => Home(),
-                ),
-              );
+
+              Get.offAndToNamed(AppPages.platform);
+              // Navigator.of(context).pushReplacement(
+              //   MaterialPageRoute(
+              //     fullscreenDialog: true,
+              //     builder: (context) => Home(),
+              //   ),
+              // );
             }
             Future.delayed(
               Duration(milliseconds: 2),
@@ -98,12 +103,13 @@ class GoogleButton extends GetView<MenuController> {
                           FirebaseAuth.instance.currentUser!.email.toString()))
                       .then((value) async {
                         MenuController().isProcessing.value = false;
-                        controller.platformEnabledIndex(1);
+                        Get.lazyPut(() => AuthService());
+                        // controller.platformEnabledIndex(1);
                         // Get.offAll(Text1Screen);
                       })
                       .then((value) {
                         // LandingPageController().registerNotification(),
-                        Get.offNamed(AppPages.platform);
+                        Get.offAndToNamed(AppPages.platform);
                       });
                   // You can add data to Firebase Firestore here
                 } else {
@@ -114,6 +120,7 @@ class GoogleButton extends GetView<MenuController> {
                     {'lastLogInOn': DateTime.now()},
                   ).then((value) {
                     MenuController().isProcessing.value = false;
+                    Get.lazyPut(() => AuthService());
                     controller.platformEnabledIndex(1);
                   }).then((value) {
                     Get.offNamed(AppPages.platform);

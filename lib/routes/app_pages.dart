@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 
+import '../middlewares/admin_guard.dart';
 import '/screens/landingPage/aboutUs/aboutUs_screen.dart';
 import '/screens/landingPage/contactUs/contact_us_screen.dart';
 import '/screens/landingPage/help/help_screen.dart';
@@ -48,7 +49,7 @@ class AppPages {
       page: () => PlatformAdminMainScreen(),
       binding: PlatformAdminMainScreenBinding(),
       middlewares: [
-        // PremiumGuard(), // Add the middleware here
+        AdminGuard(), // Add the middleware here
       ],
     ),
     GetPage(
