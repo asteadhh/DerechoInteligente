@@ -21,7 +21,6 @@ class Header extends GetView<LoginController> {
     final MenuPlatformController menuPlatformController =
         Get.put<MenuPlatformController>(MenuPlatformController());
 
-    Get.lazyPut(() => MenuPlatformController());
     return Row(
       children: [
         if (!Responsive.isDesktop(context))
@@ -34,10 +33,49 @@ class Header extends GetView<LoginController> {
             },
           ),
         if (!Responsive.isMobile(context))
-          Text(
-            "Dashboard",
-            style: Theme.of(context).textTheme.headline6,
-          ),
+          Obx(() => IndexedStack(
+                    index: menuPlatformController.tabIndex.value,
+                    children: [
+                      Text(
+                        "Dashboard",
+                        style: Theme.of(context).textTheme.headline6,
+                      ),
+                      Text(
+                        "Chat Soporte",
+                        style: Theme.of(context).textTheme.headline6,
+                      ),
+                      Text(
+                        "Estadisticas",
+                        style: Theme.of(context).textTheme.headline6,
+                      ),
+                      Text(
+                        "Revenue",
+                        style: Theme.of(context).textTheme.headline6,
+                      ),
+                      Text(
+                        "Informacion de Usuarios",
+                        style: Theme.of(context).textTheme.headline6,
+                      ),
+                      Text(
+                        "Creditos Maestros",
+                        style: Theme.of(context).textTheme.headline6,
+                      ),
+                      Text(
+                        "On Boarding Maestro",
+                        style: Theme.of(context).textTheme.headline6,
+                      ),
+                      Text(
+                        "Pagos",
+                        style: Theme.of(context).textTheme.headline6,
+                      ),
+                    ],
+                  )
+
+              //  Text(
+              //   "Dashboard",
+              //   style: Theme.of(context).textTheme.headline6,
+              // ),
+              ),
         IconButton(
           icon: Icon(Icons.brightness_6),
           splashColor: Colors.transparent,
