@@ -22,7 +22,7 @@ class LoginController extends GetxController {
 
   void updateUserStream() {
     var currentUser = auth.currentUser;
-    print('UODATE');
+    print('UPDATE');
     _myUser.bindStream(MyUserDB.myUserStream(currentUser));
   }
 
