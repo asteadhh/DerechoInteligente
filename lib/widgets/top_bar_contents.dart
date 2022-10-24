@@ -1,15 +1,15 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
+import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
 
 import '../constants/theme.dart';
-import '../controllers/MenuController.dart';
 import '../routes/app_pages.dart';
 import '../screens/landingPage/base/home_page_landing.dart';
 import '../screens/landingPage/main/main_screen.dart';
 import '/widgets/auth_dialog.dart';
 import 'package:flutter/material.dart';
 
-class TopBarContents extends GetView<MenuController> {
+class TopBarContents extends GetView<LoginController> {
 //   final double opacity;
 
 //   TopBarContents(this.opacity);
@@ -20,7 +20,8 @@ class TopBarContents extends GetView<MenuController> {
 
 // class _TopBarContentsState extends State<TopBarContents> {
 
-  final MenuController controller = Get.put<MenuController>(MenuController());
+  final LoginController controller =
+      Get.put<LoginController>(LoginController());
 
   // bool _isProcessing = false;
 
@@ -262,19 +263,7 @@ class TopBarContents extends GetView<MenuController> {
                                     // setState(() {
                                     controller.isProcessing.value = true;
                                     // });
-                                    await controller.signOut().then((result) {
-                                      print(result);
-                                      Navigator.of(context).pushReplacement(
-                                        MaterialPageRoute(
-                                          fullscreenDialog: true,
-                                          builder: (context) => LandingPageBase(
-                                            widget: HomeLandingContent(),
-                                          ),
-                                        ),
-                                      );
-                                    }).catchError((error) {
-                                      print('Sign Out Error: $error');
-                                    });
+                                    await controller.signOut;
                                     // setState(() {
                                     controller.isProcessing.value = false;
                                     // });

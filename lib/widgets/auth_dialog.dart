@@ -1,13 +1,13 @@
 import 'package:get/get.dart';
-import 'package:pulpox_admin/controllers/MenuController.dart';
 
+import '../controllers/LoginController/login_controller.dart';
 import '../screens/home_page.dart';
 import 'package:flutter/material.dart';
 
 import 'LoginButtons/facebook_sign_in_button.dart';
 import 'LoginButtons/google_sign_in_button.dart';
 
-class AuthDialog extends GetView<MenuController> {
+class AuthDialog extends GetView<LoginController> {
 //   @override
 //   _AuthDialogState createState() => _AuthDialogState();
 // }
@@ -34,7 +34,8 @@ class AuthDialogContentDesktop extends StatefulWidget {
 }
 
 class _AuthDialogContentDesktopState extends State<AuthDialogContentDesktop> {
-  final MenuController controller = Get.put<MenuController>(MenuController());
+  final LoginController controller =
+      Get.put<LoginController>(LoginController());
   late TextEditingController textControllerEmail;
   late FocusNode textFocusNodeEmail;
   bool _isEditingEmail = false;
@@ -91,7 +92,8 @@ class _AuthDialogContentDesktopState extends State<AuthDialogContentDesktop> {
 
   @override
   Widget build(BuildContext context) {
-    final MenuController controller = Get.put<MenuController>(MenuController());
+    final LoginController controller =
+        Get.put<LoginController>(LoginController());
 
     return SingleChildScrollView(
       child: Padding(
@@ -546,7 +548,8 @@ class _AuthDialogContentMobileState extends State<AuthDialogContentMobile> {
 
   @override
   Widget build(BuildContext context) {
-    final MenuController controller = Get.put<MenuController>(MenuController());
+    final LoginController controller =
+        Get.put<LoginController>(LoginController());
     return Scaffold(
       backgroundColor: Theme.of(context).backgroundColor,
       body: Center(

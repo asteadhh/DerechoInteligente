@@ -1,15 +1,16 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
-import '../controllers/MenuController.dart';
+import '../controllers/LoginController/login_controller.dart';
 import '../routes/app_pages.dart';
 import '/screens/home_page.dart';
 import 'package:flutter/material.dart';
 
 import 'auth_dialog.dart';
 
-class ExploreDrawer extends GetView<MenuController> {
-  final MenuController controller = Get.put<MenuController>(MenuController());
+class ExploreDrawer extends GetView<LoginController> {
+  final LoginController controller =
+      Get.put<LoginController>(LoginController());
 
   FirebaseAuth auth = FirebaseAuth.instance;
   @override
@@ -105,17 +106,7 @@ class ExploreDrawer extends GetView<MenuController> {
                                 // setState(() {
                                 controller.isProcessing.value = true;
                                 // });
-                                await controller.signOut().then((result) {
-                                  print(result);
-                                  Navigator.of(context).pushReplacement(
-                                    MaterialPageRoute(
-                                      fullscreenDialog: true,
-                                      builder: (context) => Home(),
-                                    ),
-                                  );
-                                }).catchError((error) {
-                                  print('Sign Out Error: $error');
-                                });
+                                await controller.signOut;
                                 // setState(() {
                                 controller.isProcessing.value = false;
                                 // });

@@ -1,21 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:pulpox_admin/controllers/MenuController.dart';
 
 import '../../../constants/theme.dart';
 import '../../../routes/app_pages.dart';
+import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
 import '../../../utils/sign_in.dart';
-import '/controllers/MenuController.dart';
+import '../../../widgets/platformButtons/profileLoginButtons.dart';
 import '/responsive.dart';
 import '../../../constants.dart';
 
-class Header extends GetView<MenuController> {
-  const Header({
+class Header extends GetView<LoginController> {
+  Header({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final MenuPlatformController menuPlatformController =
+        Get.put<MenuPlatformController>(MenuPlatformController());
+
     return Row(
       children: [
         if (!Responsive.isDesktop(context))
@@ -28,10 +33,49 @@ class Header extends GetView<MenuController> {
             },
           ),
         if (!Responsive.isMobile(context))
-          Text(
-            "Dashboard",
-            style: Theme.of(context).textTheme.headline6,
-          ),
+          Obx(() => IndexedStack(
+                    index: menuPlatformController.tabIndex.value,
+                    children: [
+                      Text(
+                        "Dashboard",
+                        style: Theme.of(context).textTheme.headline6,
+                      ),
+                      Text(
+                        "Chat Soporte",
+                        style: Theme.of(context).textTheme.headline6,
+                      ),
+                      Text(
+                        "Estadisticas",
+                        style: Theme.of(context).textTheme.headline6,
+                      ),
+                      Text(
+                        "Revenue",
+                        style: Theme.of(context).textTheme.headline6,
+                      ),
+                      Text(
+                        "Informacion de Usuarios",
+                        style: Theme.of(context).textTheme.headline6,
+                      ),
+                      Text(
+                        "Creditos Maestros",
+                        style: Theme.of(context).textTheme.headline6,
+                      ),
+                      Text(
+                        "On Boarding Maestro",
+                        style: Theme.of(context).textTheme.headline6,
+                      ),
+                      Text(
+                        "Pagos",
+                        style: Theme.of(context).textTheme.headline6,
+                      ),
+                    ],
+                  )
+
+              //  Text(
+              //   "Dashboard",
+              //   style: Theme.of(context).textTheme.headline6,
+              // ),
+              ),
         IconButton(
           icon: Icon(Icons.brightness_6),
           splashColor: Colors.transparent,
@@ -49,17 +93,28 @@ class Header extends GetView<MenuController> {
         if (!Responsive.isMobile(context))
           Spacer(flex: Responsive.isDesktop(context) ? 2 : 1),
         Expanded(child: SearchField()),
-        ProfileCard()
+        // ProfileCard()
+        ProfileLoginButton(),
       ],
     );
   }
 }
 
-class ProfileCard extends GetView<MenuController> {
+class ProfileCard extends GetView<LoginController> {
   ProfileCard({
     Key? key,
   }) : super(key: key);
-
+  final List<String> items = [
+    'Item1',
+    'Item2',
+    'Item3',
+    'Item4',
+    'Item5',
+    'Item6',
+    'Item7',
+    'Item8',
+  ];
+  String? selectedValue;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -73,6 +128,11 @@ class ProfileCard extends GetView<MenuController> {
         borderRadius: const BorderRadius.all(Radius.circular(10)),
         border: Border.all(color: Colors.white10),
       ),
+      // child: Center(
+      //   child: ProfileLoginButton(),
+      // ),
+
+      // child: ProfileLoginButton(),
       child: Row(
         children: [
           Image.asset(
@@ -87,10 +147,10 @@ class ProfileCard extends GetView<MenuController> {
             ),
           GestureDetector(
             onTap: () async {
-              MenuController().isProcessing.value = false;
+              LoginController().isProcessing.value = false;
               await signOut().then((result) {
                 print(result);
-                controller.tabIndex.value = 0;
+                // controller.tabIndex.value = 0;
                 Get.offAllNamed(AppPages.main);
               }).catchError((error) {
                 print('Sign Out Error: $error');

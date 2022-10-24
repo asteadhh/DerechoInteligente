@@ -1,37 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../../controllers/MenuController.dart';
+import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
 
 import 'components/side_menu.dart';
 import '/responsive.dart';
 import '/screens/dashboard/dashboard_screen.dart';
 
-class PlatformAdminMainScreen extends GetView<MenuController> {
+class PlatformAdminMainScreen extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
-    // Get.put<MenuController>(MenuController());
-
     return PlatformScreenINIT();
-
-    // return Obx(
-    //   () => IndexedStack(
-    //     index: controller.tabIndex.value,
-    //     children: [
-    //       Text('Acceso Denegado'),
-    //       PlatformScreenINIT(),
-    //       // Text('2 ${controller.tabIndex.value.toString()}'),
-    //       // Text('1'),
-    //       // Home(),
-    //     ],
-    //   ),
-    // );
-    // if (FirebaseAuth.instance.currentUser == null) {
-    //   // return CircularProgressIndicator();
-    //   return Home();
-    // } else {
-    //   return
-    // }
   }
 }
 

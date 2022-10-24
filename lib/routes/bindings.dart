@@ -17,9 +17,9 @@ class MenuLandingPageBinding implements Bindings {
 class PlatformAdminMainScreenBinding implements Bindings {
   @override
   void dependencies() {
-    Get.lazyPut<MenuController>(
-      () => MenuController(),
-    );
+    // Get.lazyPut<MenuController>(
+    //   () => MenuController(),
+    // );
     Get.lazyPut<AuthService>(
       () => AuthService(),
     );

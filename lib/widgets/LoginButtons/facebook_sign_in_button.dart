@@ -2,19 +2,21 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:get/get.dart';
+import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
 
 import '../../controllers/MenuController.dart';
 import '../../routes/app_pages.dart';
 import 'package:flutter/material.dart';
 
-class FacebookButton extends GetView<MenuController> {
+class FacebookButton extends GetView<LoginController> {
 //   @override
 //   _FacebookButtonState createState() => _FacebookButtonState();
 // }
 
 // class _FacebookButtonState extends State<FacebookButton> {
 
-  final MenuController controller = Get.put<MenuController>(MenuController());
+  final LoginController controller =
+      Get.put<LoginController>(LoginController());
   @override
   Widget build(BuildContext context) {
     return DecoratedBox(
@@ -100,8 +102,8 @@ class FacebookButton extends GetView<MenuController> {
                       })
                       .then((value) => print('First Time LogIn Facebook'))
                       .then((value) {
-                        MenuController().isProcessing.value = false;
-                        controller.platformEnabledIndex(1);
+                        LoginController().isProcessing.value = false;
+                        // controller.platformEnabledIndex(1);
 
                         Get.offNamed(AppPages.platform);
                         // Get.offAll(Text1Screen);
@@ -112,8 +114,8 @@ class FacebookButton extends GetView<MenuController> {
                       .collection('users')
                       .doc(FirebaseAuth.instance.currentUser!.uid)
                       .update({'lastLogInOn': DateTime.now()}).then((value) {
-                    MenuController().isProcessing.value = false;
-                    controller.platformEnabledIndex(1);
+                    LoginController().isProcessing.value = false;
+                    // controller.platformEnabledIndex(1);
                     Get.offNamed(AppPages.platform);
                     // Get.offAll(Text2Screen);
                   });

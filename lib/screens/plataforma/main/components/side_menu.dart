@@ -1,14 +1,19 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:pulpox_admin/constants/custom_colors.dart';
 
-class SideMenuPlatform extends StatelessWidget {
+import '../../../../controllers/MenuController.dart';
+
+class SideMenuPlatform extends GetView<MenuPlatformController> {
   const SideMenuPlatform({
     Key? key,
   }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    Get.lazyPut(() => MenuPlatformController());
     return Drawer(
       child: ListView(
         children: [
@@ -18,42 +23,66 @@ class SideMenuPlatform extends StatelessWidget {
           DrawerListTile(
             title: "Dashboard",
             svgSrc: "assets/icons/menu_dashbord.svg",
-            press: () {},
+            press: () {
+              controller.platformEnabledIndex(0);
+              print(controller.tabIndex);
+            },
           ),
           DrawerListTile(
-            title: "Transaction",
+            title: "Chat Soporte",
             svgSrc: "assets/icons/menu_tran.svg",
-            press: () {},
+            press: () {
+              controller.platformEnabledIndex(1);
+              print(controller.tabIndex);
+            },
           ),
           DrawerListTile(
-            title: "Task",
+            title: "Estadisticas",
             svgSrc: "assets/icons/menu_task.svg",
-            press: () {},
+            press: () {
+              controller.platformEnabledIndex(2);
+              print(controller.tabIndex);
+            },
           ),
           DrawerListTile(
-            title: "Documents",
+            title: "Revenue",
             svgSrc: "assets/icons/menu_doc.svg",
-            press: () {},
+            press: () {
+              controller.platformEnabledIndex(3);
+              print(controller.tabIndex);
+            },
           ),
           DrawerListTile(
-            title: "Store",
+            title: "Información de Usuarios",
             svgSrc: "assets/icons/menu_store.svg",
-            press: () {},
+            press: () {
+              controller.platformEnabledIndex(4);
+              print(controller.tabIndex);
+            },
           ),
           DrawerListTile(
-            title: "Notification",
+            title: "Creditos Maestros",
             svgSrc: "assets/icons/menu_notification.svg",
-            press: () {},
+            press: () {
+              controller.platformEnabledIndex(5);
+              print(controller.tabIndex);
+            },
           ),
           DrawerListTile(
-            title: "Profile",
+            title: "On Boardin Maestro",
             svgSrc: "assets/icons/menu_profile.svg",
-            press: () {},
+            press: () {
+              controller.platformEnabledIndex(6);
+              print(controller.tabIndex);
+            },
           ),
           DrawerListTile(
-            title: "Settings",
+            title: "Pagos",
             svgSrc: "assets/icons/menu_setting.svg",
-            press: () {},
+            press: () {
+              controller.platformEnabledIndex(7);
+              print(controller.tabIndex);
+            },
           ),
         ],
       ),
