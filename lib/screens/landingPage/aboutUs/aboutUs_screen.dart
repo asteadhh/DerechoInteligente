@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
 
@@ -22,11 +23,24 @@ class AboutUsScreen extends StatelessWidget {
             ),
           ),
           // Text('Imprimir Correo en'),
+
+          SizedBox(
+            height: 20,
+          ),
           ElevatedButton(
             onPressed: () {
               print(LoginController().myUser?.correo);
             },
             child: Text('Imprimir Correo en Stream'),
+          ),
+          SizedBox(
+            height: 20,
+          ),
+          ElevatedButton(
+            onPressed: () {
+              print(FirebaseAuth.instance.currentUser!.email);
+            },
+            child: Text('Imprimir Correo en Firebase'),
           )
         ],
       ),
