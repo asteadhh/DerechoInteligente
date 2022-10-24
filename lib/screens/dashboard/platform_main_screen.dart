@@ -12,9 +12,6 @@ import '../../constants.dart';
 import '../../controllers/MenuController.dart';
 import 'components/header.dart';
 
-import '/responsive.dart';
-import '/screens/dashboard/components/my_fields.dart';
-import 'components/storage_details.dart';
 import 'dashboardContent/dashboard_content.dart';
 
 class DashboardScreen extends StatelessWidget {

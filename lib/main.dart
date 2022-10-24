@@ -23,6 +23,7 @@ bool isWhite = false;
 // final _configuration =
 //     PurchasesConfiguration('appl_OqbbEQVikcpaJAqloPlswHAVzSd');
 int? isviewed;
+int? platformIndex;
 Future main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -40,6 +41,7 @@ Future main() async {
   // await prefs.clear();
 
   isviewed = prefs.getInt('onBoard');
+  platformIndex = prefs.getInt('platformIndex');
 
   //
   // await Purchases.configure(_configuration);

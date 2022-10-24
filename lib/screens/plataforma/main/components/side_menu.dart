@@ -23,65 +23,65 @@ class SideMenuPlatform extends GetView<MenuPlatformController> {
           DrawerListTile(
             title: "Dashboard",
             svgSrc: "assets/icons/menu_dashbord.svg",
-            press: () {
-              controller.platformEnabledIndex(0);
-              print(controller.tabIndex);
+            press: () async {
+              await controller.platformEnabledIndex(0);
+              // print(contsroller.tabIndex);
             },
           ),
           DrawerListTile(
             title: "Chat Soporte",
             svgSrc: "assets/icons/menu_tran.svg",
-            press: () {
-              controller.platformEnabledIndex(1);
-              print(controller.tabIndex);
+            press: () async {
+              await controller.platformEnabledIndex(1);
+              // print(controller.tabIndex);
             },
           ),
           DrawerListTile(
             title: "Estadisticas",
             svgSrc: "assets/icons/menu_task.svg",
-            press: () {
-              controller.platformEnabledIndex(2);
-              print(controller.tabIndex);
+            press: () async {
+              await controller.platformEnabledIndex(2);
+              // print(controller.tabIndex);
             },
           ),
           DrawerListTile(
             title: "Revenue",
             svgSrc: "assets/icons/menu_doc.svg",
-            press: () {
-              controller.platformEnabledIndex(3);
-              print(controller.tabIndex);
+            press: () async {
+              await controller.platformEnabledIndex(3);
+              // print(controller.tabIndex);
             },
           ),
           DrawerListTile(
             title: "Información de Usuarios",
             svgSrc: "assets/icons/menu_store.svg",
-            press: () {
-              controller.platformEnabledIndex(4);
-              print(controller.tabIndex);
+            press: () async {
+              await controller.platformEnabledIndex(4);
+              // print(controller.tabIndex);
             },
           ),
           DrawerListTile(
             title: "Creditos Maestros",
             svgSrc: "assets/icons/menu_notification.svg",
-            press: () {
-              controller.platformEnabledIndex(5);
-              print(controller.tabIndex);
+            press: () async {
+              await controller.platformEnabledIndex(5);
+              // print(controller.tabIndex);
             },
           ),
           DrawerListTile(
             title: "On Boardin Maestro",
             svgSrc: "assets/icons/menu_profile.svg",
-            press: () {
-              controller.platformEnabledIndex(6);
-              print(controller.tabIndex);
+            press: () async {
+              await controller.platformEnabledIndex(6);
+              // print(controller.tabIndex);
             },
           ),
           DrawerListTile(
             title: "Pagos",
             svgSrc: "assets/icons/menu_setting.svg",
-            press: () {
-              controller.platformEnabledIndex(7);
-              print(controller.tabIndex);
+            press: () async {
+              await controller.platformEnabledIndex(7);
+              // print(controller.tabIndex);
             },
           ),
         ],
