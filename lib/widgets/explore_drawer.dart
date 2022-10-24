@@ -106,17 +106,7 @@ class ExploreDrawer extends GetView<LoginController> {
                                 // setState(() {
                                 controller.isProcessing.value = true;
                                 // });
-                                await controller.signOut().then((result) {
-                                  print(result);
-                                  Navigator.of(context).pushReplacement(
-                                    MaterialPageRoute(
-                                      fullscreenDialog: true,
-                                      builder: (context) => Home(),
-                                    ),
-                                  );
-                                }).catchError((error) {
-                                  print('Sign Out Error: $error');
-                                });
+                                await controller.signOut;
                                 // setState(() {
                                 controller.isProcessing.value = false;
                                 // });

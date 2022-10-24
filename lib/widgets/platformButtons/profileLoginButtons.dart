@@ -1,13 +1,15 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
 
 import '../../controllers/MenuController.dart';
 import '../../routes/app_pages.dart';
 import '../../utils/sign_in.dart';
 
-class ProfileLoginButton extends GetView<MenuController> {
-  final MenuController controller = Get.put<MenuController>(MenuController());
+class ProfileLoginButton extends GetView<LoginController> {
+  final LoginController controller =
+      Get.put<LoginController>(LoginController());
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -96,7 +98,8 @@ class MenuItems {
   }
 
   static onChanged(BuildContext context, MenuItem item) {
-    final MenuController controller = Get.put<MenuController>(MenuController());
+    final LoginController controller =
+        Get.put<LoginController>(LoginController());
     switch (item) {
       case MenuItems.home:
         //Do something
