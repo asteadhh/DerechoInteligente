@@ -1,17 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
 
 import '../../../constants/theme.dart';
 import '../../../routes/app_pages.dart';
+import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
 import '../../../utils/sign_in.dart';
-import '/controllers/MenuController.dart';
+import '../../../widgets/platformButtons/profileLoginButtons.dart';
 import '/responsive.dart';
 import '../../../constants.dart';
 
 class Header extends GetView<LoginController> {
-  const Header({
+  Header({
     Key? key,
   }) : super(key: key);
 
@@ -50,7 +50,8 @@ class Header extends GetView<LoginController> {
         if (!Responsive.isMobile(context))
           Spacer(flex: Responsive.isDesktop(context) ? 2 : 1),
         Expanded(child: SearchField()),
-        ProfileCard()
+        // ProfileCard()
+        ProfileLoginButton(),
       ],
     );
   }
@@ -60,7 +61,17 @@ class ProfileCard extends GetView<LoginController> {
   ProfileCard({
     Key? key,
   }) : super(key: key);
-
+  final List<String> items = [
+    'Item1',
+    'Item2',
+    'Item3',
+    'Item4',
+    'Item5',
+    'Item6',
+    'Item7',
+    'Item8',
+  ];
+  String? selectedValue;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -74,6 +85,11 @@ class ProfileCard extends GetView<LoginController> {
         borderRadius: const BorderRadius.all(Radius.circular(10)),
         border: Border.all(color: Colors.white10),
       ),
+      // child: Center(
+      //   child: ProfileLoginButton(),
+      // ),
+
+      // child: ProfileLoginButton(),
       child: Row(
         children: [
           Image.asset(
