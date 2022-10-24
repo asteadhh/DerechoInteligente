@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-
-import '../../../controllers/MenuController.dart';
+import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
 
 import 'components/side_menu.dart';
 import '/responsive.dart';
 import '/screens/dashboard/dashboard_screen.dart';
 
-class PlatformAdminMainScreen extends GetView<MenuController> {
+class PlatformAdminMainScreen extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
     // Get.put<MenuController>(MenuController());

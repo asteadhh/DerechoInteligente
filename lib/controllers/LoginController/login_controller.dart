@@ -1,15 +1,19 @@
+import 'package:firebase_core/firebase_core.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:get/get.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../db/my_user.dart';
 import '../../models/user_chat.dart';
 import '../../routes/app_pages.dart';
 
 class LoginController extends GetxController {
+  final FirebaseAuth _auth = FirebaseAuth.instance;
   final FirebaseAuth auth = FirebaseAuth.instance;
 
   final formKey = GlobalKey<FormState>();
@@ -20,16 +24,140 @@ class LoginController extends GetxController {
 
   UserChatInfo? get myUser => _myUser.value;
 
-  void updateUserStream() {
+  RxBool isProcessing = false.obs;
+  final GoogleSignIn googleSignIn = GoogleSignIn();
+
+  String? uid;
+  String? name;
+  String? userEmail;
+  String? imageUrl;
+
+  final RxList isHovering =
+      [false, false, false, false, false, false, false, false].obs;
+
+  updateUserStream() {
     var currentUser = auth.currentUser;
     print('UPDATE');
     _myUser.bindStream(MyUserDB.myUserStream(currentUser));
+    print('UPDATE FINISHED');
   }
 
   @override
   void onInit() {
     updateUserStream();
     super.onInit();
+  }
+
+  @override
+  // TODO: implement onStart
+  InternalFinalCallback<void> get onStart => super.onStart;
+
+  Future getUser() async {
+    await Firebase.initializeApp();
+
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool authSignedIn = prefs.getBool('auth') ?? false;
+
+    final User? user = _auth.currentUser;
+
+    if (authSignedIn == true) {
+      if (user != null) {
+        updateUserStream();
+      }
+    }
+  }
+
+  /// For authenticating user using Google Sign In
+  /// with Firebase Authentication API.
+  ///
+  /// Retrieves some general user related information
+  /// from their Google account for ease of the login process
+
+  Future<User?> registerWithEmailPassword(String email, String password) async {
+    await Firebase.initializeApp();
+    User? user;
+
+    try {
+      UserCredential userCredential =
+          await _auth.createUserWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+
+      user = userCredential.user;
+
+      if (user != null) {
+        uid = user.uid;
+        userEmail = user.email;
+      }
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'weak-password') {
+        print('The password provided is too weak.');
+      } else if (e.code == 'email-already-in-use') {
+        print('The account already exists for that email.');
+      }
+    } catch (e) {
+      print(e);
+    }
+
+    return user;
+  }
+
+  Future<User?> signInWithEmailPassword(String email, String password) async {
+    await Firebase.initializeApp();
+    User? user;
+
+    try {
+      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+        email: email,
+        password: password,
+      );
+      user = userCredential.user;
+
+      if (user != null) {
+        uid = user.uid;
+        userEmail = user.email;
+
+        SharedPreferences prefs = await SharedPreferences.getInstance();
+        await prefs.setBool('auth', true);
+      }
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        print('No user found for that email.');
+      } else if (e.code == 'wrong-password') {
+        print('Wrong password provided.');
+      }
+    }
+
+    return user;
+  }
+
+  // Future<String> signOut() async {
+  //   await _auth.signOut();
+
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   prefs.setBool('auth', false);
+
+  //   uid = null;
+  //   userEmail = null;
+
+  //   return 'User signed out';
+  // }
+
+  /// For signing out of their Google account
+  void signOutGoogle() async {
+    await googleSignIn.signOut();
+    await _auth.signOut();
+
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool('auth', false);
+
+    uid = null;
+    name = null;
+    userEmail = null;
+    imageUrl = null;
+
+    print("User signed out of Google account");
   }
 
   //
@@ -179,7 +307,7 @@ class LoginController extends GetxController {
               },
             );
           }
-          updateUserStream();
+          // updateUserStream();
         }),
       );
     } catch (e) {
@@ -189,32 +317,62 @@ class LoginController extends GetxController {
     }
   }
 
-  void signInWithGoogle() async {
-    try {
-      UserCredential userCredential;
+  Future<User?> signInWithGoogle() async {
+    await Firebase.initializeApp();
 
-      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-      final GoogleSignInAuthentication googleAuth =
-          await googleUser!.authentication;
-      final OAuthCredential googleAuthCredential =
-          GoogleAuthProvider.credential(
-        accessToken: googleAuth.accessToken,
-        idToken: googleAuth.idToken,
-      );
-      userCredential = await auth.signInWithCredential(googleAuthCredential);
-      final user = userCredential.user;
-      Get.snackbar('Hola', 'Inicio sesion con ${user!.displayName} con Google');
-      // print(user.displayName);
-      // print(user.email);
-      // print(user.emailVerified);
-      // print(user.photoURL);
-      // print(user.uid);
-      Future.delayed(
+    User? user;
+
+    if (kIsWeb) {
+      GoogleAuthProvider authProvider = GoogleAuthProvider();
+
+      try {
+        final UserCredential userCredential =
+            await _auth.signInWithPopup(authProvider);
+
+        user = userCredential.user;
+      } catch (e) {
+        print(e);
+      }
+    } else {
+      final GoogleSignIn googleSignIn = GoogleSignIn();
+
+      final GoogleSignInAccount? googleSignInAccount =
+          await googleSignIn.signIn();
+
+      if (googleSignInAccount != null) {
+        final GoogleSignInAuthentication googleSignInAuthentication =
+            await googleSignInAccount.authentication;
+
+        final AuthCredential credential = GoogleAuthProvider.credential(
+          accessToken: googleSignInAuthentication.accessToken,
+          idToken: googleSignInAuthentication.idToken,
+        );
+
+        try {
+          final UserCredential userCredential =
+              await _auth.signInWithCredential(credential);
+
+          user = userCredential.user;
+        } on FirebaseAuthException catch (e) {
+          if (e.code == 'account-exists-with-different-credential') {
+            print('The account already exists with a different credential.');
+          } else if (e.code == 'invalid-credential') {
+            print('Error occurred while accessing credentials. Try again.');
+          }
+        } catch (e) {
+          print(e);
+        }
+      }
+    }
+
+    if (user != null) {
+      await Future.delayed(
         Duration(milliseconds: 2),
         (() async {
           final snapShot = await FirebaseFirestore.instance
               .collection('users')
-              .doc(auth.currentUser!.uid) // varuId in your case
+              .doc(
+                  FirebaseAuth.instance.currentUser!.uid) // varuId in your case
               .get();
 
           if (!snapShot.exists) {
@@ -223,19 +381,19 @@ class LoginController extends GetxController {
             FirebaseFirestore.instance
                 .collection('users')
                 // .doc(auth.currentUser!.uid)
-                .doc(auth.currentUser!.uid)
+                .doc(FirebaseAuth.instance.currentUser!.uid)
                 // .collection('userProfile')
                 .set({
-                  'uid': auth.currentUser!.uid,
+                  'uid': FirebaseAuth.instance.currentUser!.uid,
                   'createdOn': DateTime.now(),
                   'modifiedOn': DateTime.now(),
                   'lastLogInOn': DateTime.now(),
-                  'nombre': auth.currentUser!.displayName,
-                  'correo': auth.currentUser!.email,
+                  'nombre': FirebaseAuth.instance.currentUser!.displayName,
+                  'correo': FirebaseAuth.instance.currentUser!.email,
                   'maestro': false,
                   'dirrecciones': null,
                   'antecedentes': null,
-                  'foto': auth.currentUser!.photoURL,
+                  'foto': FirebaseAuth.instance.currentUser!.photoURL,
                   'primerApellido': null,
                   'segundoApellido': null,
                   'rut': null,
@@ -252,17 +410,23 @@ class LoginController extends GetxController {
                   'status': 'Available',
                   'numeroTelefono': '',
                   'aboutMe': '',
-                  'nickname': auth.currentUser!.displayName,
+                  'nickname': FirebaseAuth.instance.currentUser!.displayName,
                   'chattingWith': [],
                   'pushToken': [],
                 })
-                .then((value) => print(auth.currentUser!.email.toString()))
+                .then((value) => print(
+                    'Iniciado por primera vez con Google ${FirebaseAuth.instance.currentUser!.email.toString()}'))
+                .then((value) {
+                  updateUserStream();
+                })
                 .then((value) {
                   Get.offNamed(AppPages.main);
                   // Get.offAll(Text1Screen);
                 })
                 .then(
                   (value) {
+                    print(
+                        'Esta es la foto de google 2${LoginController().myUser?.foto}');
                     // LandingPageController().registerNotification();
                   },
                 );
@@ -270,156 +434,30 @@ class LoginController extends GetxController {
           } else {
             FirebaseFirestore.instance
                 .collection('users')
-                .doc(auth.currentUser!.uid)
+                .doc(FirebaseAuth.instance.currentUser!.uid)
                 .update(
               {'lastLogInOn': DateTime.now()},
-            ).then((value) {
-              Get.offAllNamed(AppPages.main);
+            ).whenComplete(() {
+              updateUserStream();
+            }).whenComplete(() {
+              Get.offAllNamed(AppPages.aboutUs);
             }).then(
               (value) {
+                print(
+                    'Iniciado con Google ${FirebaseAuth.instance.currentUser!.email.toString()}');
+                print('Esta es la foto de google 1 ${myUser?.foto}');
                 // LandingPageController().registerNotification();
               },
             );
           }
-          updateUserStream();
+          // updateUserStream();
         }),
       );
-    } catch (e) {
-      Get.snackbar('Fallo', 'Failed to sign in with Google: $e',
-          snackPosition: SnackPosition.TOP);
-      print(e);
+
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      prefs.setBool('auth', true);
     }
-  }
 
-  void sendpasswordresetemail() async {
-    try {
-      await auth
-          .sendPasswordResetEmail(email: emailController.text)
-          .then((value) {
-        Get.offAllNamed(AppPages.main);
-        Get.snackbar("Password Reset email link is been sent", "Success",
-            snackPosition: SnackPosition.TOP);
-      });
-    } catch (e) {
-      Get.snackbar('Fallo', '$e', snackPosition: SnackPosition.TOP);
-    }
-  }
-
-  // Future verifyPhoneNumber(phoneNumber) async {
-  //   auth.verifyPhoneNumber(
-  //     phoneNumber: phoneNumber,
-  //     verificationCompleted: (phonesAuthCredentials) async {},
-  //     verificationFailed: (verificationFailed) async {},
-  //     codeSent: codeSent,
-  //     codeAutoRetrievalTimeout: (verificationId) async {},
-  //   );
-  // }
-
-  void signInWithApple() async {
-    try {
-      UserCredential userCredential;
-
-      final GoogleSignInAccount? googleUser = await GoogleSignIn().signIn();
-      final GoogleSignInAuthentication googleAuth =
-          await googleUser!.authentication;
-      final OAuthCredential appleAuthCredential = GoogleAuthProvider.credential(
-        accessToken: googleAuth.accessToken,
-        idToken: googleAuth.idToken,
-      );
-      userCredential = await auth.signInWithCredential(appleAuthCredential);
-      final user = userCredential.user;
-      Get.snackbar('Hola', 'Inicio sesion con ${user!.displayName} con Apple');
-      print('Ingreso Bien');
-      print(user.displayName);
-      print(user.email);
-      print(user.emailVerified);
-      print(user.photoURL);
-      print(user.uid);
-      Future.delayed(
-        Duration(milliseconds: 2),
-        (() async {
-          final snapShot = await FirebaseFirestore.instance
-              .collection('users')
-              .doc(auth.currentUser!.uid) // varuId in your case
-              .get();
-
-          if (!snapShot.exists) {
-            print('object');
-            // Document with id == varuId doesn't exist.
-            FirebaseFirestore.instance
-                .collection('users')
-                // .doc(auth.currentUser!.uid)
-                .doc(auth.currentUser!.uid)
-                // .collection('userProfile')
-                .set({
-                  'uid': auth.currentUser!.uid,
-                  'createdOn': DateTime.now(),
-                  'modifiedOn': DateTime.now(),
-                  'lastLogInOn': DateTime.now(),
-                  'nombre': auth.currentUser!.displayName,
-                  'correo': auth.currentUser!.email,
-                  'maestro': false,
-                  'dirrecciones': null,
-                  'antecedentes': null,
-                  'foto': auth.currentUser!.photoURL,
-                  'primerApellido': null,
-                  'segundoApellido': null,
-                  'rut': null,
-                  'numeroDeSerie': null,
-                  'estadoDeChat': null,
-                  'acumuladoRatingUsuario': null,
-                  'cantiadadTrabajosUsuario': null,
-                  'acumuladoRatingMaestro': null,
-                  'cantiadadTrabajosMaestro': null,
-                  'genero': null,
-                  'cumpleanos': null,
-                  'phone': null,
-                  'iniciado': null,
-                  'status': 'Available',
-                  'numeroTelefono': '',
-                  'aboutMe': '',
-                  'nickname': auth.currentUser!.displayName,
-                  'chattingWith': [],
-                  'pushToken': [],
-                  // 'verificacionCorreo': false,
-                })
-                .then((value) => print('1'))
-                .then((value) {
-                  Get.offAllNamed(AppPages.main);
-                })
-                .then(
-                  (value) {
-                    // LandingPageController().registerNotification();
-                  },
-                );
-            // You can add data to Firebase Firestore here
-          } else {
-            FirebaseFirestore.instance
-                .collection('users')
-                .doc(auth.currentUser!.uid)
-                .update({'lastLogInOn': DateTime.now()}).then((value) {
-              Get.offNamed(AppPages.main);
-            }).then(
-              (value) {
-                // LandingPageController().registerNotification();
-              },
-            );
-          }
-          updateUserStream();
-          // Get.offAllNamed(AppPages.verified);
-          // dispose();
-          // Get.deleteAll();
-
-          // Get.put(
-          //   AppPages.verified,
-          //   permanent: false,
-          // );
-        }),
-      );
-    } catch (e) {
-      Get.snackbar('Fallo', 'Failed to sign in with Apple: $e',
-          snackPosition: SnackPosition.TOP);
-      print(e);
-    }
+    return user;
   }
 }

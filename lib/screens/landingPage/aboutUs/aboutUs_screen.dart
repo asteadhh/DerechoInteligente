@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
 
 import '../base/home_page_landing.dart';
 
@@ -20,7 +21,13 @@ class AboutUsScreen extends StatelessWidget {
               ),
             ),
           ),
-          Text('ddd'),
+          // Text('Imprimir Correo en'),
+          ElevatedButton(
+            onPressed: () {
+              print(LoginController().myUser?.correo);
+            },
+            child: Text('Imprimir Correo en Stream'),
+          )
         ],
       ),
     );

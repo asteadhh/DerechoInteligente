@@ -1,15 +1,16 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
-import '../controllers/MenuController.dart';
+import '../controllers/LoginController/login_controller.dart';
 import '../routes/app_pages.dart';
 import '/screens/home_page.dart';
 import 'package:flutter/material.dart';
 
 import 'auth_dialog.dart';
 
-class ExploreDrawer extends GetView<MenuController> {
-  final MenuController controller = Get.put<MenuController>(MenuController());
+class ExploreDrawer extends GetView<LoginController> {
+  final LoginController controller =
+      Get.put<LoginController>(LoginController());
 
   FirebaseAuth auth = FirebaseAuth.instance;
   @override

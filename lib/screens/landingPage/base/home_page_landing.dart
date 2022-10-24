@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
 
 import '../../../constants/theme.dart';
 import '../../../widgets/bottom_bar.dart';
@@ -40,6 +41,7 @@ class _LandingPageBaseState extends State<LandingPageBase> {
 
   @override
   Widget build(BuildContext context) {
+    Get.put<LoginController>(LoginController());
     var screenSize = MediaQuery.of(context).size;
     _opacity = _scrollPosition < screenSize.height * 0.40
         ? _scrollPosition / (screenSize.height * 0.40)

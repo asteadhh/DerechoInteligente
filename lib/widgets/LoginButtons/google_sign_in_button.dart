@@ -1,16 +1,13 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
+import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
 
 import '../../controllers/MenuController.dart';
-import '../../routes/app_pages.dart';
-import '../../services/auth_service.dart';
-import '/screens/home_page.dart';
 import 'package:flutter/material.dart';
 
-class GoogleButton extends GetView<MenuController> {
+class GoogleButton extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
+    Get.put(LoginController());
     return DecoratedBox(
       decoration: ShapeDecoration(
         shape: RoundedRectangleBorder(
@@ -34,114 +31,15 @@ class GoogleButton extends GetView<MenuController> {
           // });
           // LoginController().signInWithGoogle();
 
-          await controller.signInWithGoogle().then((result) {
-            print(result);
-            if (result != null) {
-              Get.lazyPut(() => AuthService());
+          await controller.signInWithGoogle();
 
-              Navigator.of(context).pop();
-
-              Get.offAndToNamed(AppPages.platform);
-              // Navigator.of(context).pushReplacement(
-              //   MaterialPageRoute(
-              //     fullscreenDialog: true,
-              //     builder: (context) => Home(),
-              //   ),
-              // );
-            }
-            Future.delayed(
-              Duration(milliseconds: 2),
-              (() async {
-                final snapShot = await FirebaseFirestore.instance
-                    .collection('users')
-                    .doc(FirebaseAuth
-                        .instance.currentUser!.uid) // varuId in your case
-                    .get();
-
-                if (!snapShot.exists) {
-                  print('object');
-                  // Document with id == varuId doesn't exist.
-                  FirebaseFirestore.instance
-                      .collection('users')
-                      // .doc(auth.currentUser!.uid)
-                      .doc(FirebaseAuth.instance.currentUser!.uid)
-                      // .collection('userProfile')
-                      .set({
-                        'uid': FirebaseAuth.instance.currentUser!.uid,
-                        'createdOn': DateTime.now(),
-                        'modifiedOn': DateTime.now(),
-                        'lastLogInOn': DateTime.now(),
-                        'nombre':
-                            FirebaseAuth.instance.currentUser!.displayName,
-                        'correo': FirebaseAuth.instance.currentUser!.email,
-                        'maestro': false,
-                        'dirrecciones': null,
-                        'antecedentes': null,
-                        'foto': FirebaseAuth.instance.currentUser!.photoURL,
-                        'primerApellido': null,
-                        'segundoApellido': null,
-                        'rut': null,
-                        'numeroDeSerie': null,
-                        'estadoDeChat': null,
-                        'acumuladoRatingUsuario': null,
-                        'cantiadadTrabajosUsuario': null,
-                        'acumuladoRatingMaestro': null,
-                        'cantiadadTrabajosMaestro': null,
-                        'genero': null,
-                        'cumpleanos': null,
-                        'phone': null,
-                        'iniciado': null,
-                        'status': 'Available',
-                        'numeroTelefono': '',
-                        'aboutMe': '',
-                        'nickname':
-                            FirebaseAuth.instance.currentUser!.displayName,
-                        'chattingWith': [],
-                        'pushToken': [],
-                      })
-                      .then((value) => print(
-                          FirebaseAuth.instance.currentUser!.email.toString()))
-                      .then((value) async {
-                        MenuController().isProcessing.value = false;
-                        Get.lazyPut(() => AuthService());
-                        // controller.platformEnabledIndex(1);
-                        // Get.offAll(Text1Screen);
-                      })
-                      .then((value) {
-                        // LandingPageController().registerNotification(),
-                        Get.offAndToNamed(AppPages.platform);
-                      });
-                  // You can add data to Firebase Firestore here
-                } else {
-                  FirebaseFirestore.instance
-                      .collection('users')
-                      .doc(FirebaseAuth.instance.currentUser!.uid)
-                      .update(
-                    {'lastLogInOn': DateTime.now()},
-                  ).then((value) {
-                    MenuController().isProcessing.value = false;
-                    Get.lazyPut(() => AuthService());
-                    controller.platformEnabledIndex(1);
-                  }).then((value) {
-                    Get.offNamed(AppPages.platform);
-                  }).then(
-                    (value) {
-                      // LandingPageController().registerNotification();
-                    },
-                  );
-                }
-              }),
-            );
-          }).catchError((error) {
-            print('Registration Error: $error');
-          });
           // setState(() {
 
           // });
         },
         child: Padding(
           padding: const EdgeInsets.fromLTRB(0, 10, 0, 10),
-          child: MenuController().isProcessing.value
+          child: LoginController().isProcessing.value
               ? CircularProgressIndicator(
                   valueColor: new AlwaysStoppedAnimation<Color>(
                     Colors.blueGrey,

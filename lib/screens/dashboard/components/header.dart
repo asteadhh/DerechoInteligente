@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
 
 import '../../../constants/theme.dart';
 import '../../../routes/app_pages.dart';
@@ -9,7 +10,7 @@ import '/controllers/MenuController.dart';
 import '/responsive.dart';
 import '../../../constants.dart';
 
-class Header extends GetView<MenuController> {
+class Header extends GetView<LoginController> {
   const Header({
     Key? key,
   }) : super(key: key);
@@ -55,7 +56,7 @@ class Header extends GetView<MenuController> {
   }
 }
 
-class ProfileCard extends GetView<MenuController> {
+class ProfileCard extends GetView<LoginController> {
   ProfileCard({
     Key? key,
   }) : super(key: key);
@@ -87,10 +88,10 @@ class ProfileCard extends GetView<MenuController> {
             ),
           GestureDetector(
             onTap: () async {
-              MenuController().isProcessing.value = false;
+              LoginController().isProcessing.value = false;
               await signOut().then((result) {
                 print(result);
-                controller.tabIndex.value = 0;
+                // controller.tabIndex.value = 0;
                 Get.offAllNamed(AppPages.main);
               }).catchError((error) {
                 print('Sign Out Error: $error');

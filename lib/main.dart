@@ -2,6 +2,7 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
+import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_strategy/url_strategy.dart';
@@ -13,7 +14,6 @@ import 'package:pulpox_admin/routes/app_pages.dart';
 
 import '/utils/translations.dart';
 import 'constants/theme.dart';
-import 'controllers/MenuController.dart';
 import 'firebase_options.dart';
 import 'screens/landingPage/404 Screens/error/error_screen.dart';
 import 'services/auth_service.dart';
@@ -67,15 +67,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Future getUserInfo() async {
-      await MenuController().getUser();
-
-      print(MenuController().uid);
+      print('MyAPP ${LoginController().myUser?.uid}');
+      // await MenuController().getUser();
+      await LoginController().getUser();
     }
 
     ;
     Get.put(AuthService());
     return GetMaterialApp(
-      onInit: getUserInfo,
+      // onInit: getUserInfo,
+      // onReady: getUserInfo,
       translations: Messages(),
       locale: Locale('es', 'ES'),
       fallbackLocale: Locale('es', 'ES'),
