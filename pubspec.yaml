@@ -65,6 +65,7 @@ dependencies:
   flutter_signin_button: ^2.0.0
   url_strategy: ^0.2.0
   dropdown_button2: ^1.8.8
+  url_launcher: ^6.1.6
 
 dev_dependencies:
   flutter_test:

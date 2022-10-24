@@ -1,3 +1,5 @@
+import 'package:url_launcher/url_launcher.dart';
+
 import '/widgets/bottom_bar_column.dart';
 import '/widgets/info_text.dart';
 import '/widgets/responsive.dart';
@@ -31,6 +33,7 @@ class BottomBar extends StatelessWidget {
                     BottomBarColumn(
                       heading: 'SOCIAL',
                       s1: 'Twitter',
+                      // s1Link: 'https://www.pulpox.cl',
                       s2: 'Facebook',
                       s3: 'YouTube',
                     ),
