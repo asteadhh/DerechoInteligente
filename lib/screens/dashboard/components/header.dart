@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
+import 'package:pulpox_admin/controllers/MenuController.dart';
 
 import '../../../constants/theme.dart';
 import '../../../routes/app_pages.dart';
@@ -17,6 +18,10 @@ class Header extends GetView<LoginController> {
 
   @override
   Widget build(BuildContext context) {
+    final MenuPlatformController menuPlatformController =
+        Get.put<MenuPlatformController>(MenuPlatformController());
+
+    Get.lazyPut(() => MenuPlatformController());
     return Row(
       children: [
         if (!Responsive.isDesktop(context))
