@@ -4,7 +4,7 @@ import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
 
 import 'components/side_menu.dart';
 import '/responsive.dart';
-import '/screens/dashboard/dashboard_screen.dart';
+import '../../dashboard/platform_main_screen.dart';
 
 class PlatformAdminMainScreen extends GetView<LoginController> {
   @override
