@@ -15,8 +15,8 @@ import '/utils/translations.dart';
 import 'constants/theme.dart';
 import 'controllers/MenuController.dart';
 import 'firebase_options.dart';
-import 'screens/home_page.dart';
 import 'screens/landingPage/404 Screens/error/error_screen.dart';
+import 'services/auth_service.dart';
 
 const bool USE_EMULATOR = false;
 bool isWhite = false;
@@ -68,13 +68,14 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     Future getUserInfo() async {
       await MenuController().getUser();
+
       print(MenuController().uid);
     }
 
     ;
+    Get.put(AuthService());
     return GetMaterialApp(
       onInit: getUserInfo,
-
       translations: Messages(),
       locale: Locale('es', 'ES'),
       fallbackLocale: Locale('es', 'ES'),
@@ -87,15 +88,13 @@ class MyApp extends StatelessWidget {
       title: 'PulPox',
       debugShowCheckedModeBanner: false,
       getPages: AppPages.routes,
-      initialRoute: '/',
-      unknownRoute: GetPage(name: '/notfound', page: () => const Screen404()),
-
-      // home: MainScreen(),
-
-      // home: WelcomeScreen(),
-
-      // AuthDialogContentDesktop()
-      home: Home(),
+      // getPages: appPages,
+      initialRoute: AppPages.main,
+      // initialRoute: Routes.home,
+      unknownRoute: GetPage(
+        name: AppPages.errorPagina,
+        page: () => const Screen404(),
+      ),
     );
   }
 }

@@ -129,7 +129,7 @@ class ExploreDrawer extends GetView<MenuController> {
                               top: 15.0,
                               bottom: 15.0,
                             ),
-                            child: controller.isProcessing.isTrue
+                            child: controller.isProcessing.value
                                 ? CircularProgressIndicator()
                                 : Text(
                                     'sign_out'.tr,
