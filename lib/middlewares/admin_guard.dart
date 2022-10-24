@@ -9,7 +9,7 @@ class AdminGuard extends GetMiddleware {
 
   @override
   RouteSettings? redirect(String? route) {
-    return authService.isPremium.value
+    return authService.isAdmin.value
         ? null
         : const RouteSettings(name: AppPages.main);
   }
