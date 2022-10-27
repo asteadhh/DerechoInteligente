@@ -31,6 +31,7 @@ class AppPages {
     GetPage(
       name: _Paths.main,
       page: () => Home(),
+      transition: Transition.noTransition,
       // binding: NotificacionesScreenBinding(),
     ),
     // GetPage(
@@ -51,11 +52,13 @@ class AppPages {
       middlewares: [
         AdminGuard(), // Add the middleware here
       ],
+      transition: Transition.noTransition,
     ),
     GetPage(
       name: _Paths.landingMenu,
       page: () => MenuLandingPage(),
       binding: MenuLandingPageBinding(),
+      transition: Transition.noTransition,
     ),
     GetPage(
       name: _Paths.aboutUs,
@@ -65,11 +68,13 @@ class AppPages {
     GetPage(
       name: _Paths.contactUs,
       page: () => ContactUsScreen(),
+      transition: Transition.noTransition,
       // binding: MenuLandingPageBinding(),
     ),
     GetPage(
       name: _Paths.help,
       page: () => HelpScreen(),
+      transition: Transition.noTransition,
       // binding: MenuLandingPageBinding(),
     ),
     // GetPage(
