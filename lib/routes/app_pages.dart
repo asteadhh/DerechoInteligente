@@ -63,6 +63,7 @@ class AppPages {
     GetPage(
       name: _Paths.aboutUs,
       page: () => AboutUsScreen(),
+      transition: Transition.noTransition,
       // binding: MenuLandingPageBinding(),
     ),
     GetPage(

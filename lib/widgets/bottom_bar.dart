@@ -33,7 +33,7 @@ class BottomBar extends StatelessWidget {
                     BottomBarColumn(
                       heading: 'SOCIAL',
                       s1: 'Twitter',
-                      // s1Link: 'https://www.pulpox.cl',
+                      s1Link: 'https://www.pulpox.cl',
                       s2: 'Facebook',
                       s3: 'YouTube',
                     ),
