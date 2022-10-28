@@ -6,6 +6,7 @@ import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
 
 import '../../constants.dart';
 import '../../responsive.dart';
+import '../platform_image_view.dart';
 
 class ProfileLoginButton extends GetView<LoginController> {
   final String? hint;
@@ -131,6 +132,14 @@ class ProfileLoginButton extends GetView<LoginController> {
                 //             },
                 //           ),
                 //         ),
+                // ),
+                // Container(
+                //   height: 10,
+                //   width: 10,
+                //   child: FittedBox(
+                //     child: PlatformImageViewWidget(
+                //         'https://lh3.googleusercontent.com/a/ALm5wu2b1rkWGWIaQ1PcGTX6hbtE5Q_gJgkY-XCwn0-K=s96-c'),
+                //   ),
                 // ),
 
                 CachedNetworkImage(
