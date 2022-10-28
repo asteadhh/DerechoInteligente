@@ -26,7 +26,7 @@ class SideMenuPlatform extends GetView<MenuPlatformController> {
             svgSrc: "assets/icons/menu_dashbord.svg",
             press: () async {
               // await controller.platformEnabledIndex(0);
-              Get.toNamed(AppPages.dashboard);
+              Get.toNamed(AppPages.platform);
               // print(contsroller.tabIndex);
             },
           ),

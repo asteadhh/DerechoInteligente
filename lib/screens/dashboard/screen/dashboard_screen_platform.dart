@@ -5,9 +5,9 @@ import 'package:pulpox_admin/screens/dashboard/content/estadisticas/estadisticas
 import 'package:pulpox_admin/screens/dashboard/content/informacionDeUsuarios/informacion_de_usuarios_content.dart';
 import 'package:pulpox_admin/screens/dashboard/content/pagos/pagos_content.dart';
 import 'package:pulpox_admin/screens/dashboard/content/revenue/estadisticas_content.dart';
-import 'package:pulpox_admin/screens/dashboard/platform_main_screen.dart';
 
 import '../../plataforma/main/template_platform_screen.dart';
+import '../content/chatSoporte/chat_soporte.dart';
 
 class PlatformAdminMainScreen extends StatelessWidget {
   const PlatformAdminMainScreen({super.key});

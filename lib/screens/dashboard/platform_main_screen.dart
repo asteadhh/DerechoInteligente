@@ -1,18 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
-import 'package:pulpox_admin/screens/dashboard/content/CreditosMaestros/creditos_maestros_content.dart';
-import 'package:pulpox_admin/screens/dashboard/content/estadisticas/estadisticas_content.dart';
-import 'package:pulpox_admin/screens/dashboard/content/informacionDeUsuarios/informacion_de_usuarios_content.dart';
-import 'package:pulpox_admin/screens/dashboard/content/onBoardingMaestro/onBoarding_maestro.dart';
-import 'package:pulpox_admin/screens/dashboard/content/pagos/pagos_content.dart';
-import 'package:pulpox_admin/screens/dashboard/content/revenue/estadisticas_content.dart';
 
 import '../../constants.dart';
 import '../../controllers/MenuController.dart';
+import '../../responsive.dart';
 import 'content/components/header.dart';
-
-import 'content/dashboardContent/dashboard_content.dart';
 
 class MainScreenTemplateScreen extends StatelessWidget {
   MainScreenTemplateScreen({
@@ -35,33 +27,9 @@ class MainScreenTemplateScreen extends StatelessWidget {
             Header(text: tabName),
             SizedBox(height: defaultPadding),
             screenContent,
-            // Obx(
-            //   () => IndexedStack(
-            //     index: menuPlatformController.tabIndex.value,
-            //     children: [
-            //       DashboardContent(),
-            //       ChatContent(),
-            //       EstadisticasContent(),
-            //       RevenueContent(),
-            //       InformacionDeUsuarioContent(),
-            //       CreditosMaestrosContent(),
-            //       OnBoardingMaestroContent(),
-            //       PagosContent(),
-            //     ],
-            //   ),
-            // ),
           ],
         ),
       ),
     );
-  }
-}
-
-class ChatSoporteContent extends StatelessWidget {
-  const ChatSoporteContent({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return Container();
   }
 }

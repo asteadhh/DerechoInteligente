@@ -76,22 +76,29 @@ class AppPages {
       transition: Transition.noTransition,
       // binding: MenuLandingPageBinding(),
     ),
-    GetPage(
-      name: _Paths.dashboard,
-      page: () => PlatformAdminMainScreen(),
-      transition: Transition.noTransition,
-      // binding: MenuLandingPageBinding(),
-    ),
+    // GetPage(
+    //   name: _Paths.dashboard,
+    //   page: () => PlatformAdminMainScreen(),
+    //   transition: Transition.noTransition,
+    //   // binding: MenuLandingPageBinding(),
+
+    // ),
     GetPage(
       name: _Paths.chatSoporte,
       page: () => ChatSoporteScreen(),
       transition: Transition.noTransition,
       // binding: MenuLandingPageBinding(),
+      middlewares: [
+        ChatSoporteGuard(), // Add the middleware here
+      ],
     ),
     GetPage(
       name: _Paths.estadisticas,
       page: () => EstadisticasScreen(),
       transition: Transition.noTransition,
+      middlewares: [
+        EstadisticasGuard(), // Add the middleware here
+      ],
       // binding: MenuLandingPageBinding(),
     ),
     GetPage(
@@ -99,30 +106,45 @@ class AppPages {
       page: () => RevenueScreen(),
       transition: Transition.noTransition,
       // binding: MenuLandingPageBinding(),
+      middlewares: [
+        RevenueGuard(), // Add the middleware here
+      ],
     ),
     GetPage(
       name: _Paths.informacionDeUsuario,
       page: () => InformacionUsuarioScreen(),
       transition: Transition.noTransition,
       // binding: MenuLandingPageBinding(),
+      middlewares: [
+        InformacionDeUsuarioGuard(), // Add the middleware here
+      ],
     ),
     GetPage(
       name: _Paths.creditosMaestros,
       page: () => CreditosMaestrosScreen(),
       transition: Transition.noTransition,
       // binding: MenuLandingPageBinding(),
+      middlewares: [
+        CreditosMaestrosGuard(), // Add the middleware here
+      ],
     ),
     GetPage(
       name: _Paths.pagos,
       page: () => PagosScreen(),
       transition: Transition.noTransition,
       // binding: MenuLandingPageBinding(),
+      middlewares: [
+        PagosGuard(), // Add the middleware here
+      ],
     ),
     GetPage(
       name: _Paths.onBoardingMaestros,
       page: () => OnBoardingMaestrosScreen(),
       transition: Transition.noTransition,
       // binding: MenuLandingPageBinding(),
+      middlewares: [
+        OnBoardingGuard(), // Add the middleware here
+      ],
     ),
   ];
 }

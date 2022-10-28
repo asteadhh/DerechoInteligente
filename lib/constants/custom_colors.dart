@@ -69,6 +69,9 @@ class Constants {
   static const secondaryColor = Color(0xFF2A2D3E);
   static const Color bgColor = Color(0xFF212332);
 
+  static const suportFoto =
+      'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.pinterest.com%2Fpin%2F675821487807551389%2F&psig=AOvVaw1K8xxzdONGIUK9jTsQxc66&ust=1666281473024000&source=images&cd=vfe&ved=0CA0QjRxqFwoTCNjzja3U7PoCFQAAAAAdAAAAABAD';
+
   //
 }
 
