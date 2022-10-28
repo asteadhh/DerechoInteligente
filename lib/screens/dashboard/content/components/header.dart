@@ -3,16 +3,16 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:pulpox_admin/controllers/MenuController.dart';
 
-import '../../../constants/theme.dart';
-import '../../../routes/app_pages.dart';
-import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
-import '../../../utils/sign_in.dart';
-import '../../../widgets/platformButtons/profileLoginButtons.dart';
+import '../../../../constants/theme.dart';
+import '../../../../widgets/platformButtons/profileLoginButtons.dart';
 import '/responsive.dart';
-import '../../../constants.dart';
+import '../../../../constants.dart';
 
-class Header extends GetView<LoginController> {
+class Header extends StatelessWidget {
+  var text;
+
   Header({
+    required this.text,
     Key? key,
   }) : super(key: key);
 
@@ -33,49 +33,53 @@ class Header extends GetView<LoginController> {
             },
           ),
         if (!Responsive.isMobile(context))
-          Obx(() => IndexedStack(
-                    index: menuPlatformController.tabIndex.value,
-                    children: [
-                      Text(
-                        "Dashboard",
-                        style: Theme.of(context).textTheme.headline6,
-                      ),
-                      Text(
-                        "Chat Soporte",
-                        style: Theme.of(context).textTheme.headline6,
-                      ),
-                      Text(
-                        "Estadisticas",
-                        style: Theme.of(context).textTheme.headline6,
-                      ),
-                      Text(
-                        "Revenue",
-                        style: Theme.of(context).textTheme.headline6,
-                      ),
-                      Text(
-                        "Informacion de Usuarios",
-                        style: Theme.of(context).textTheme.headline6,
-                      ),
-                      Text(
-                        "Creditos Maestros",
-                        style: Theme.of(context).textTheme.headline6,
-                      ),
-                      Text(
-                        "On Boarding Maestro",
-                        style: Theme.of(context).textTheme.headline6,
-                      ),
-                      Text(
-                        "Pagos",
-                        style: Theme.of(context).textTheme.headline6,
-                      ),
-                    ],
-                  )
+          Text(
+            text,
+            style: Theme.of(context).textTheme.headline6,
+          ),
+        // Obx(() => IndexedStack(
+        //           index: menuPlatformController.tabIndex.value,
+        //           children: [
+        //             Text(
+        //               "Dashboard",
+        //               style: Theme.of(context).textTheme.headline6,
+        //             ),
+        //             Text(
+        //               "Chat Soporte",
+        //               style: Theme.of(context).textTheme.headline6,
+        //             ),
+        //             Text(
+        //               "Estadisticas",
+        //               style: Theme.of(context).textTheme.headline6,
+        //             ),
+        //             Text(
+        //               "Revenue",
+        //               style: Theme.of(context).textTheme.headline6,
+        //             ),
+        //             Text(
+        //               "Informacion de Usuarios",
+        //               style: Theme.of(context).textTheme.headline6,
+        //             ),
+        //             Text(
+        //               "Creditos Maestros",
+        //               style: Theme.of(context).textTheme.headline6,
+        //             ),
+        //             Text(
+        //               "On Boarding Maestro",
+        //               style: Theme.of(context).textTheme.headline6,
+        //             ),
+        //             Text(
+        //               "Pagos",
+        //               style: Theme.of(context).textTheme.headline6,
+        //             ),
+        //           ],
+        //         )
 
-              //  Text(
-              //   "Dashboard",
-              //   style: Theme.of(context).textTheme.headline6,
-              // ),
-              ),
+        //     //  Text(
+        //     //   "Dashboard",
+        //     //   style: Theme.of(context).textTheme.headline6,
+        //     // ),
+        //     ),
         IconButton(
           icon: Icon(Icons.brightness_6),
           splashColor: Colors.transparent,
@@ -92,7 +96,7 @@ class Header extends GetView<LoginController> {
         ),
         if (!Responsive.isMobile(context))
           Spacer(flex: Responsive.isDesktop(context) ? 2 : 1),
-        Expanded(child: SearchField()),
+        // Expanded(child: SearchField()),
         ProfileLoginButton(),
       ],
     );

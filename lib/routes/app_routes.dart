@@ -28,6 +28,14 @@ class _Paths {
   static const registrosesion = '/registrosesion';
   static const platform = '/platform';
   static const errorPagina = '/notfound';
+  static const dashboard = '/dashboard';
+  static const chatSoporte = '/chatsoporte';
+  static const estadisticas = '/estadisticas';
+  static const revenue = '/revenue';
+  static const informacionDeUsuario = '/informaciondeusuario';
+  static const creditosMaestros = '/creditosmaestros';
+  static const onBoardingMaestros = '/onboardingmaestros';
+  static const pagos = '/pagos';
 
   // Example :
   // static const index = '/';

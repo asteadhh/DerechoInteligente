@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 
 import '../controllers/LoginController/login_controller.dart';
 import '../routes/app_pages.dart';
-import '/screens/home_page.dart';
 import 'package:flutter/material.dart';
 
 import 'auth_dialog.dart';
@@ -67,9 +66,10 @@ class ExploreDrawer extends GetView<LoginController> {
                       children: [
                         // CircleAvatar(
                         //   radius: 20,
-                        //   backgroundImage:
-                        //       imageUrl != null ? NetworkImage(imageUrl!) : null,
-                        //   child: imageUrl == null
+                        //   backgroundImage: controller.myUser?.foto != null
+                        //       ? NetworkImage(controller.myUser?.foto)
+                        //       : null,
+                        //   child: controller.myUser?.foto == null
                         //       ? Icon(
                         //           Icons.account_circle,
                         //           size: 40,
@@ -78,7 +78,8 @@ class ExploreDrawer extends GetView<LoginController> {
                         // ),
                         // SizedBox(width: 10),
                         // Text(
-                        //   name ?? userEmail!,
+                        //   controller.myUser?.nickname ??
+                        //       controller.myUser?.correo!,
                         //   style: TextStyle(
                         //     fontSize: 20,
                         //     color: Colors.white70,

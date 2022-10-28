@@ -1,22 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
 
+import '../../dashboard/content/dashboardContent/dashboard_content.dart';
 import 'components/side_menu.dart';
 import '/responsive.dart';
 import '../../dashboard/platform_main_screen.dart';
 
-class PlatformAdminMainScreen extends GetView<LoginController> {
-  @override
-  Widget build(BuildContext context) {
-    return PlatformScreenINIT();
-  }
-}
-
-class PlatformScreenINIT extends StatelessWidget {
-  const PlatformScreenINIT({
+class PlatformAdminTemplateScreen extends StatelessWidget {
+  PlatformAdminTemplateScreen({
+    required this.contentWidget,
+    required this.templateName,
     Key? key,
   }) : super(key: key);
+
+  String templateName;
+  Widget contentWidget;
 
   @override
   Widget build(BuildContext context) {
@@ -40,7 +37,10 @@ class PlatformScreenINIT extends StatelessWidget {
               // It takes 5/6 part of the screen
               flex: 5,
               // child: Container(),
-              child: DashboardScreen(),
+              child: MainScreenTemplateScreen(
+                tabName: templateName,
+                screenContent: contentWidget,
+              ),
             ),
           ],
         ),
