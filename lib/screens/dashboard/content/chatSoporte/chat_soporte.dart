@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../../constants.dart';
+import '../../../../controllers/chatSoporteController/chat_soporte_controller.dart';
 import '../../../../responsive.dart';
 import 'widget/chat_soporte_screen.dart';
 
@@ -66,12 +68,13 @@ class ChatWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Get.lazyPut(() => ChatSoporteController());
     return Container(
       margin: const EdgeInsets.all(15.0),
       padding: const EdgeInsets.all(3.0),
       decoration: BoxDecoration(border: Border.all(color: Colors.blueAccent)),
-      // child: ChatSoporteWidget(),
-      child: Text('dddd'),
+      child: ChatSoporteScreen(),
+      // child: Text('dddd'),
     );
   }
 }

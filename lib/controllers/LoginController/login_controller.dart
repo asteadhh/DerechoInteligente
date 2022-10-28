@@ -39,7 +39,6 @@ class LoginController extends GetxController {
     var currentUser = auth.currentUser;
     print('UPDATE');
     _myUser.bindStream(MyUserDB.myUserStream(currentUser));
-    print('UPDATE FINISHED');
   }
 
   @override

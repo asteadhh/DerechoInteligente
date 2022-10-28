@@ -24,7 +24,7 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
     return Stack(children: [
       Column(
         children: [
-          buildListMessage(),
+          // buildListMessage(),
           buildInput(context),
         ],
       ),
@@ -195,7 +195,8 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
             reverse: true,
             controller: controller.listScrollController,
             itemBuilder: (context, index) {
-              return buildItem(context, index, snapshot.data?.docs[index]);
+              return Text('data');
+              // return buildItem(context, index, snapshot.data?.docs[index]);
             },
           );
         },

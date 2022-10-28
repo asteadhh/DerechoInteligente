@@ -1,14 +1,17 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
 
 import '../base/home_page_landing.dart';
 
-class AboutUsScreen extends StatelessWidget {
+class AboutUsScreen extends GetView<LoginController> {
   const AboutUsScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
+    final controller = Get.put<LoginController>(LoginController());
     return LandingPageBase(
       widget: Column(
         children: [
@@ -29,7 +32,7 @@ class AboutUsScreen extends StatelessWidget {
           ),
           ElevatedButton(
             onPressed: () {
-              print(LoginController().myUser?.correo);
+              print(controller.myUser?.correo);
             },
             child: Text('Imprimir Correo en Stream'),
           ),

@@ -4,8 +4,6 @@ import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
 
 import '../constants/theme.dart';
 import '../routes/app_pages.dart';
-import '../screens/landingPage/base/home_page_landing.dart';
-import '../screens/landingPage/main/main_screen.dart';
 import '/widgets/auth_dialog.dart';
 import 'package:flutter/material.dart';
 
@@ -20,13 +18,12 @@ class TopBarContents extends GetView<LoginController> {
 
 // class _TopBarContentsState extends State<TopBarContents> {
 
-  final LoginController controller =
-      Get.put<LoginController>(LoginController());
-
   // bool _isProcessing = false;
 
   @override
   Widget build(BuildContext context) {
+    final LoginController controller =
+        Get.put<LoginController>(LoginController());
     var screenSize = MediaQuery.of(context).size;
 
     return PreferredSize(
@@ -230,10 +227,10 @@ class TopBarContents extends GetView<LoginController> {
                         children: [
                           // CircleAvatar(
                           //   radius: 15,
-                          //   backgroundImage: imageUrl != null
-                          //       ? NetworkImage(imageUrl!)
+                          //   backgroundImage: controller.myUser?.foto != null
+                          //       ? NetworkImage(controller.myUser?.foto!)
                           //       : null,
-                          //   child: imageUrl == null
+                          //   child: controller.myUser?.foto == null
                           //       ? Icon(
                           //           Icons.account_circle,
                           //           size: 30,
@@ -242,14 +239,15 @@ class TopBarContents extends GetView<LoginController> {
                           // ),
                           // SizedBox(width: 5),
                           // Text(
-                          //   name ?? userEmail!,
+                          //   controller.myUser?.nickname ??
+                          //       controller.myUser?.correo!,
                           //   style: TextStyle(
                           //     color: controller.isHovering[3]
                           //         ? Colors.white
                           //         : Colors.white70,
                           //   ),
                           // ),
-                          SizedBox(width: 10),
+                          // SizedBox(width: 10),
                           TextButton(
                             style: TextButton.styleFrom(
                               primary: Colors.blueGrey,
