@@ -1,3 +1,4 @@
+import 'package:cached_network_image/cached_network_image.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -85,6 +86,68 @@ class ProfileLoginButton extends GetView<LoginController> {
             ),
             child: Row(
               children: [
+                // Container(
+                //   child: controller.myUser?.foto == null
+                //       ? Icon(
+                //           Icons.account_circle,
+                //           size: 90,
+                //           color: Colors.grey,
+                //         )
+                //       : ClipRRect(
+                //           borderRadius: BorderRadius.circular(45),
+                //           child: Image.network(
+                //             controller.myUser?.foto,
+                //             fit: BoxFit.cover,
+                //             width: MediaQuery.of(context).size.height * .1,
+                //             height: MediaQuery.of(context).size.height * .1,
+                //             errorBuilder: (context, object, stackTrace) {
+                //               return Icon(
+                //                 Icons.account_circle,
+                //                 size: 45,
+                //                 color: Colors.grey,
+                //               );
+                //             },
+                //             loadingBuilder: (BuildContext context, Widget child,
+                //                 ImageChunkEvent? loadingProgress) {
+                //               if (loadingProgress == null) return child;
+                //               return Container(
+                //                 width: 90,
+                //                 height: 90,
+                //                 child: Center(
+                //                   child: CircularProgressIndicator(
+                //                     color: Colors.grey,
+                //                     value: loadingProgress.expectedTotalBytes !=
+                //                                 null &&
+                //                             loadingProgress
+                //                                     .expectedTotalBytes !=
+                //                                 null
+                //                         ? loadingProgress
+                //                                 .cumulativeBytesLoaded /
+                //                             loadingProgress.expectedTotalBytes!
+                //                         : null,
+                //                   ),
+                //                 ),
+                //               );
+                //             },
+                //           ),
+                //         ),
+                // ),
+
+                CachedNetworkImage(
+                  imageUrl:
+                      "https://lh3.googleusercontent.com/a/ALm5wu2b1rkWGWIaQ1PcGTX6hbtE5Q_gJgkY-XCwn0-K=s96-c",
+                  imageBuilder: (context, imageProvider) => Container(
+                    decoration: BoxDecoration(
+                      image: DecorationImage(
+                          image: imageProvider,
+                          fit: BoxFit.cover,
+                          colorFilter: ColorFilter.mode(
+                              Colors.red, BlendMode.colorBurn)),
+                    ),
+                  ),
+                  placeholder: (context, url) => CircularProgressIndicator(),
+                  errorWidget: (context, url, error) => Icon(Icons.error),
+                ),
                 Image.asset(
                   "assets/images/profile_pic.png",
                   height: 38,
