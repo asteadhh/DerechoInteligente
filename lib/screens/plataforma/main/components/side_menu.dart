@@ -5,6 +5,7 @@ import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:pulpox_admin/constants/custom_colors.dart';
 
 import '../../../../controllers/MenuController.dart';
+import '../../../../routes/app_pages.dart';
 
 class SideMenuPlatform extends GetView<MenuPlatformController> {
   const SideMenuPlatform({
@@ -24,7 +25,8 @@ class SideMenuPlatform extends GetView<MenuPlatformController> {
             title: "Dashboard",
             svgSrc: "assets/icons/menu_dashbord.svg",
             press: () async {
-              await controller.platformEnabledIndex(0);
+              // await controller.platformEnabledIndex(0);
+              Get.toNamed(AppPages.dashboard);
               // print(contsroller.tabIndex);
             },
           ),
@@ -32,7 +34,8 @@ class SideMenuPlatform extends GetView<MenuPlatformController> {
             title: "Chat Soporte",
             svgSrc: "assets/icons/menu_tran.svg",
             press: () async {
-              await controller.platformEnabledIndex(1);
+              // await controller.platformEnabledIndex(1);
+              Get.toNamed(AppPages.chatSoporte);
               // print(controller.tabIndex);
             },
           ),
@@ -40,7 +43,9 @@ class SideMenuPlatform extends GetView<MenuPlatformController> {
             title: "Estadisticas",
             svgSrc: "assets/icons/menu_task.svg",
             press: () async {
-              await controller.platformEnabledIndex(2);
+              // await controller.platformEnabledIndex(2);
+
+              Get.toNamed(AppPages.estadisticas);
               // print(controller.tabIndex);
             },
           ),
@@ -48,7 +53,8 @@ class SideMenuPlatform extends GetView<MenuPlatformController> {
             title: "Revenue",
             svgSrc: "assets/icons/menu_doc.svg",
             press: () async {
-              await controller.platformEnabledIndex(3);
+              Get.toNamed(AppPages.revenue);
+              // await controller.platformEnabledIndex(3);
               // print(controller.tabIndex);
             },
           ),
@@ -56,7 +62,8 @@ class SideMenuPlatform extends GetView<MenuPlatformController> {
             title: "Información de Usuarios",
             svgSrc: "assets/icons/menu_store.svg",
             press: () async {
-              await controller.platformEnabledIndex(4);
+              Get.toNamed(AppPages.informacionDeUsuario);
+              // await controller.platformEnabledIndex(4);
               // print(controller.tabIndex);
             },
           ),
@@ -64,7 +71,8 @@ class SideMenuPlatform extends GetView<MenuPlatformController> {
             title: "Creditos Maestros",
             svgSrc: "assets/icons/menu_notification.svg",
             press: () async {
-              await controller.platformEnabledIndex(5);
+              Get.toNamed(AppPages.creditosMaestros);
+              // await controller.platformEnabledIndex(5);
               // print(controller.tabIndex);
             },
           ),
@@ -72,7 +80,8 @@ class SideMenuPlatform extends GetView<MenuPlatformController> {
             title: "On Boardin Maestro",
             svgSrc: "assets/icons/menu_profile.svg",
             press: () async {
-              await controller.platformEnabledIndex(6);
+              Get.toNamed(AppPages.onBoardingMaestros);
+              // await controller.platformEnabledIndex(6);
               // print(controller.tabIndex);
             },
           ),
@@ -80,7 +89,8 @@ class SideMenuPlatform extends GetView<MenuPlatformController> {
             title: "Pagos",
             svgSrc: "assets/icons/menu_setting.svg",
             press: () async {
-              await controller.platformEnabledIndex(7);
+              Get.toNamed(AppPages.pagos);
+              // await controller.platformEnabledIndex(7);
               // print(controller.tabIndex);
             },
           ),

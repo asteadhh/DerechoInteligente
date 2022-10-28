@@ -1,5 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:pulpox_admin/screens/dashboard/content/CreditosMaestros/creditos_maestros_content.dart';
 import 'package:pulpox_admin/screens/dashboard/content/dashboardContent/dashboard_content.dart';
+import 'package:pulpox_admin/screens/dashboard/content/estadisticas/estadisticas_content.dart';
+import 'package:pulpox_admin/screens/dashboard/content/informacionDeUsuarios/informacion_de_usuarios_content.dart';
+import 'package:pulpox_admin/screens/dashboard/content/pagos/pagos_content.dart';
+import 'package:pulpox_admin/screens/dashboard/content/revenue/estadisticas_content.dart';
+import 'package:pulpox_admin/screens/dashboard/platform_main_screen.dart';
 
 import '../../plataforma/main/template_platform_screen.dart';
 
@@ -21,7 +27,7 @@ class ChatSoporteScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PlatformAdminTemplateScreen(
-      contentWidget: ChatSoporteScreen(),
+      contentWidget: ChatSoporteContent(),
       templateName: 'Chat Soporte',
     );
   }
@@ -33,7 +39,7 @@ class EstadisticasScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PlatformAdminTemplateScreen(
-      contentWidget: EstadisticasScreen(),
+      contentWidget: EstadisticasContent(),
       templateName: 'Estadisticas',
     );
   }
@@ -45,7 +51,7 @@ class RevenueScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PlatformAdminTemplateScreen(
-      contentWidget: RevenueScreen(),
+      contentWidget: RevenueContent(),
       templateName: 'Revenue',
     );
   }
@@ -57,7 +63,7 @@ class InformacionUsuarioScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PlatformAdminTemplateScreen(
-      contentWidget: InformacionUsuarioScreen(),
+      contentWidget: InformacionDeUsuarioContent(),
       templateName: 'Informacion Usuarios',
     );
   }
@@ -69,7 +75,7 @@ class CreditosMaestrosScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PlatformAdminTemplateScreen(
-      contentWidget: CreditosMaestrosScreen(),
+      contentWidget: CreditosMaestrosContent(),
       templateName: 'Creditos Maestros',
     );
   }
@@ -81,7 +87,7 @@ class OnBoardingMaestrosScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PlatformAdminTemplateScreen(
-      contentWidget: CreditosMaestrosScreen(),
+      contentWidget: CreditosMaestrosContent(),
       templateName: 'On Boarding Maestros',
     );
   }
@@ -93,7 +99,7 @@ class PagosScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return PlatformAdminTemplateScreen(
-      contentWidget: CreditosMaestrosScreen(),
+      contentWidget: PagosContent(),
       templateName: 'Pagos',
     );
   }

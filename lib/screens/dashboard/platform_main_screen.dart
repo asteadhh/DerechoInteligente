@@ -57,8 +57,8 @@ class MainScreenTemplateScreen extends StatelessWidget {
   }
 }
 
-class ChatContent extends StatelessWidget {
-  const ChatContent({super.key});
+class ChatSoporteContent extends StatelessWidget {
+  const ChatSoporteContent({super.key});
 
   @override
   Widget build(BuildContext context) {

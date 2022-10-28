@@ -39,7 +39,7 @@ class PlatformAdminTemplateScreen extends StatelessWidget {
               // child: Container(),
               child: MainScreenTemplateScreen(
                 tabName: templateName,
-                screenContent: DashboardContent(),
+                screenContent: contentWidget,
               ),
             ),
           ],

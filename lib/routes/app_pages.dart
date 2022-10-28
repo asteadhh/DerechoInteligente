@@ -27,6 +27,14 @@ class AppPages {
   static const platform = _Paths.platform;
   static const iniciosesion = _Paths.iniciosesion;
   static const errorPagina = _Paths.errorPagina;
+  static const dashboard = _Paths.dashboard;
+  static const chatSoporte = _Paths.chatSoporte;
+  static const estadisticas = _Paths.estadisticas;
+  static const revenue = _Paths.revenue;
+  static const informacionDeUsuario = _Paths.informacionDeUsuario;
+  static const creditosMaestros = _Paths.creditosMaestros;
+  static const onBoardingMaestros = _Paths.onBoardingMaestros;
+  static const pagos = _Paths.pagos;
 
   static final routes = [
     GetPage(
@@ -35,17 +43,6 @@ class AppPages {
       transition: Transition.noTransition,
       // binding: NotificacionesScreenBinding(),
     ),
-    // GetPage(
-    //   name: _Paths.errorPagina,
-    //   page: () => AppPages.routes.contains(Get.currentRoute)
-    //       ? Home()
-    //       : const Screen404(),
-    // ),
-    // GetPage(
-    //   name: _Paths.errorPagina,
-    //   page: () => ErrorScreen(),
-    //   // binding: NotificacionesScreenBinding(),
-    // ),
     GetPage(
       name: _Paths.platform,
       page: () => PlatformAdminMainScreen(),
@@ -79,10 +76,53 @@ class AppPages {
       transition: Transition.noTransition,
       // binding: MenuLandingPageBinding(),
     ),
-    // GetPage(
-    //   name: _Paths.iniciosesion,
-    //   page: () => (),
-    //   // binding: MenuLandingPageBinding(),
-    // ),
+    GetPage(
+      name: _Paths.dashboard,
+      page: () => PlatformAdminMainScreen(),
+      transition: Transition.noTransition,
+      // binding: MenuLandingPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.chatSoporte,
+      page: () => ChatSoporteScreen(),
+      transition: Transition.noTransition,
+      // binding: MenuLandingPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.estadisticas,
+      page: () => EstadisticasScreen(),
+      transition: Transition.noTransition,
+      // binding: MenuLandingPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.revenue,
+      page: () => RevenueScreen(),
+      transition: Transition.noTransition,
+      // binding: MenuLandingPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.informacionDeUsuario,
+      page: () => InformacionUsuarioScreen(),
+      transition: Transition.noTransition,
+      // binding: MenuLandingPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.creditosMaestros,
+      page: () => CreditosMaestrosScreen(),
+      transition: Transition.noTransition,
+      // binding: MenuLandingPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.pagos,
+      page: () => PagosScreen(),
+      transition: Transition.noTransition,
+      // binding: MenuLandingPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.onBoardingMaestros,
+      page: () => OnBoardingMaestrosScreen(),
+      transition: Transition.noTransition,
+      // binding: MenuLandingPageBinding(),
+    ),
   ];
 }
