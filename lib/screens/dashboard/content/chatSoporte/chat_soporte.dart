@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 import '../../../../constants.dart';
 import '../../../../responsive.dart';
+import 'widget/chat_soporte_screen.dart';
 
 class ChatSoporteContent extends StatelessWidget {
   const ChatSoporteContent({super.key});
@@ -69,7 +70,8 @@ class ChatWidget extends StatelessWidget {
       margin: const EdgeInsets.all(15.0),
       padding: const EdgeInsets.all(3.0),
       decoration: BoxDecoration(border: Border.all(color: Colors.blueAccent)),
-      child: Text('data 1'),
+      // child: ChatSoporteWidget(),
+      child: Text('dddd'),
     );
   }
 }
