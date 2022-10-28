@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 
 import '../controllers/LoginController/login_controller.dart';
 import '../routes/app_pages.dart';
-import '/screens/home_page.dart';
 import 'package:flutter/material.dart';
 
 import 'auth_dialog.dart';

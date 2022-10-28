@@ -66,6 +66,8 @@ class ProfileLoginButton extends GetView<LoginController> {
 
   @override
   Widget build(BuildContext context) {
+    final LoginController controller =
+        Get.put<LoginController>(LoginController());
     return DropdownButtonHideUnderline(
       child: DropdownButtonHideUnderline(
         child: DropdownButton2(
@@ -92,7 +94,7 @@ class ProfileLoginButton extends GetView<LoginController> {
                     padding: const EdgeInsets.symmetric(
                         horizontal: defaultPadding / 2),
                     child: Text(
-                      "Angelina Jolie",
+                      controller.myUser!.nickname,
                       style: TextStyle(
                           color: Theme.of(context)
                               .primaryTextTheme
