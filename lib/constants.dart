@@ -10,3 +10,4 @@ var blueGrey = Colors.blueGrey.shade50;
 var deepPurple = Colors.deepPurple.shade100;
 
 const defaultPadding = 16.0;
+const chatSoportePadding = 8.0;

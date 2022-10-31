@@ -107,7 +107,7 @@ class ExploreDrawer extends GetView<LoginController> {
                                 // setState(() {
                                 controller.isProcessing.value = true;
                                 // });
-                                await controller.signOut;
+                                LoginController().signOut();
                                 // setState(() {
                                 controller.isProcessing.value = false;
                                 // });

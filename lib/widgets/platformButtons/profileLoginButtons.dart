@@ -142,38 +142,38 @@ class ProfileLoginButton extends GetView<LoginController> {
                 //   ),
                 // ),
 
-                CachedNetworkImage(
-                  imageUrl:
-                      "https://lh3.googleusercontent.com/a/ALm5wu2b1rkWGWIaQ1PcGTX6hbtE5Q_gJgkY-XCwn0-K=s96-c",
-                  imageBuilder: (context, imageProvider) => Container(
-                    decoration: BoxDecoration(
-                      image: DecorationImage(
-                          image: imageProvider,
-                          fit: BoxFit.cover,
-                          colorFilter: ColorFilter.mode(
-                              Colors.red, BlendMode.colorBurn)),
-                    ),
-                  ),
-                  placeholder: (context, url) => CircularProgressIndicator(),
-                  errorWidget: (context, url, error) => Icon(Icons.error),
-                ),
-                Image.asset(
-                  "assets/images/profile_pic.png",
-                  height: 38,
-                ),
-                if (!Responsive.isMobile(context))
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: defaultPadding / 2),
-                    child: Text(
-                      controller.myUser!.nickname,
-                      style: TextStyle(
-                          color: Theme.of(context)
-                              .primaryTextTheme
-                              .subtitle1!
-                              .color),
-                    ),
-                  ),
+                // CachedNetworkImage(
+                //   imageUrl:
+                //       "https://lh3.googleusercontent.com/a/ALm5wu2b1rkWGWIaQ1PcGTX6hbtE5Q_gJgkY-XCwn0-K=s96-c",
+                //   imageBuilder: (context, imageProvider) => Container(
+                //     decoration: BoxDecoration(
+                //       image: DecorationImage(
+                //           image: imageProvider,
+                //           fit: BoxFit.cover,
+                //           colorFilter: ColorFilter.mode(
+                //               Colors.red, BlendMode.colorBurn)),
+                //     ),
+                //   ),
+                //   placeholder: (context, url) => CircularProgressIndicator(),
+                //   errorWidget: (context, url, error) => Icon(Icons.person),
+                // ),
+                // Image.asset(
+                //   "assets/images/profile_pic.png",
+                //   height: 38,
+                // ),
+                // if (!Responsive.isMobile(context))
+                //   Padding(
+                //     padding: const EdgeInsets.symmetric(
+                //         horizontal: defaultPadding / 2),
+                //     child: Text(
+                //       controller.myUser!.nickname,
+                //       style: TextStyle(
+                //           color: Theme.of(context)
+                //               .primaryTextTheme
+                //               .subtitle1!
+                //               .color),
+                //     ),
+                //   ),
               ],
             ),
           ),

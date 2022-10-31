@@ -419,7 +419,6 @@ class LoginController extends GetxController {
                   updateUserStream();
                 })
                 .then((value) {
-                  Get.offNamed(AppPages.main);
                   // Get.offAll(Text1Screen);
                 })
                 .then(
@@ -438,8 +437,6 @@ class LoginController extends GetxController {
               {'lastLogInOn': DateTime.now()},
             ).whenComplete(() {
               updateUserStream();
-            }).whenComplete(() {
-              Get.offAllNamed(AppPages.aboutUs);
             }).then(
               (value) {
                 print(
@@ -449,7 +446,7 @@ class LoginController extends GetxController {
               },
             );
           }
-          // updateUserStream();
+          updateUserStream();
         }),
       );
 
