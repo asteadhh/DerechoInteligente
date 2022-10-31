@@ -27,6 +27,8 @@ class _UserChatInformationWidgetState extends State<UserChatInformationWidget> {
   @override
   Widget build(BuildContext context) {
     ChatController controller = Get.put(ChatController());
+
+    // return Text('dddd');3
     return StreamBuilder<QuerySnapshot>(
       stream: _usersStream,
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -37,20 +39,20 @@ class _UserChatInformationWidgetState extends State<UserChatInformationWidget> {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Text("Loading");
         }
-
+        // return Text(snapshot.toString());
         return ListView.builder(
           padding: EdgeInsets.all(10),
           itemBuilder: (context, index) {
-            print(snapshot.data?.docs[index].id);
-            // return Text(snapshot.data!.docs[index].id);
-
-            return Obx(
-              () => buildItem(
-                context: context,
-                document: snapshot.data!.docs[index],
-                textSearch: controller.textSearch.value,
-              ),
-            );
+            // print(snapshot.data?.docs[index].id);
+            // return Text(snapshot.data!.docs[index].id.toString());
+            return Text('Test Información');
+            // return Obx(
+            //   () => buildItem(
+            //     context: context,
+            //     document: snapshot.data!.docs[index],
+            //     textSearch: controller.textSearch.value,
+            //   ),
+            // );
           },
           itemCount: snapshot.data?.docs.length,
           controller: controller.listScrollController,

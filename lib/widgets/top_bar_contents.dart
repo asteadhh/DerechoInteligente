@@ -4,7 +4,7 @@ import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
 
 import '../constants/theme.dart';
 import '../routes/app_pages.dart';
-import '/widgets/auth_dialog.dart';
+import 'auth_dialog/auth_dialog.dart';
 import 'package:flutter/material.dart';
 
 class TopBarContents extends GetView<LoginController> {

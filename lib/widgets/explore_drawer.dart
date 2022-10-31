@@ -5,7 +5,7 @@ import '../controllers/LoginController/login_controller.dart';
 import '../routes/app_pages.dart';
 import 'package:flutter/material.dart';
 
-import 'auth_dialog.dart';
+import 'auth_dialog/auth_dialog.dart';
 
 class ExploreDrawer extends GetView<LoginController> {
   final LoginController controller =

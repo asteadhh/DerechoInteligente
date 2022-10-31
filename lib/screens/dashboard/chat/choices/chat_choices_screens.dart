@@ -1,7 +1,6 @@
 import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
@@ -11,7 +10,6 @@ import '../../../../constants/firestore_constants.dart';
 import '../../../../controllers/chat/chat_controller copy.dart';
 import '../../../../models/messages_chat.dart';
 import '../../content/chatSoporte/widget/loading_view.dart';
-import 'chat_loged_out.dart';
 import 'widgets/AbrirChatWidget.dart';
 import 'widgets/UserChatInformationWidget.dart';
 
@@ -123,10 +121,7 @@ class ChatChoiceScreen extends GetView<ChatController> {
 
   @override
   Widget build(BuildContext context) {
-    return FirebaseAuth.instance.currentUser != null
-        // ? ChatLogedInScreen()
-        ? ChatLogedIn()
-        : ChatLogedOutScreen();
+    return ChatLogedIn();
   }
 }
 
@@ -181,14 +176,16 @@ class ChatLogedIn extends GetView<ChatController> {
         children: [
           Column(
             children: [
-              // buildSearchBar(),
+              // Text('data'),
               BuildSearchBarWidget(),
               AbrirChatWidget(
                 context: context,
               ),
-              Expanded(
-                // height: MediaQuery.of(context).size.height * 0.8,
+              // UserChatInformationWidget(),
+              Container(
+                height: MediaQuery.of(context).size.height * 0.7,
                 child: UserChatInformationWidget(),
+                // child: Text('Tu Cara'),
               ),
             ],
           ),

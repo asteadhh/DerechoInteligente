@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import '../../../../constants.dart';
 import '../../../../controllers/chatSoporteController/chat_soporte_controller.dart';
 import '../../../../responsive.dart';
+import '../../chat/choices/chat_choices_screens.dart';
 import 'widget/chat_soporte_screen.dart';
 
 class ChatSoporteContent extends StatelessWidget {
@@ -95,11 +96,13 @@ class ChatList extends StatelessWidget {
       decoration: BoxDecoration(border: Border.all(color: Colors.blueAccent)),
       child: Column(
         children: [
-          Text('Aca Van los chats   '),
-          SizedBox(
-            height: 20,
-          ),
-          Text('Ordenados por orden de tiempo y prioridad'),
+          // Text('Aca Van los chats   '),
+          // SizedBox(
+          //   height: 20,
+          // ),
+          // Text('Ordenados por orden de tiempo y prioridad'),
+
+          ChatChoiceScreen(),
         ],
       ),
     );
