@@ -21,23 +21,25 @@ import 'loading_view.dart';
 class ChatSoporteScreen extends GetView<ChatSoporteController> {
   @override
   Widget build(BuildContext context) {
-    return Stack(children: [
-      Column(
-        children: [
-          // buildListMessage(),
+    return Container(
+      child: Stack(children: [
+        Column(
+          children: [
+            // buildListMessage(),
 
-          Text('Aca va el Chat'),
-          SizedBox(
-            height: 20,
-          ),
-          buildInput(context),
-        ],
-      ),
-      GetBuilder<ChatSoporteController>(
-        init: ChatSoporteController(),
-        builder: (controller) => buildLoading(),
-      ),
-    ]);
+            Text('Aca va el Chat'),
+            SizedBox(
+              height: 20,
+            ),
+            buildInput(context),
+          ],
+        ),
+        GetBuilder<ChatSoporteController>(
+          init: ChatSoporteController(),
+          builder: (controller) => buildLoading(),
+        ),
+      ]),
+    );
   }
 
 //WIDGETS Send Message//

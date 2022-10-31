@@ -45,14 +45,14 @@ class _UserChatInformationWidgetState extends State<UserChatInformationWidget> {
           itemBuilder: (context, index) {
             // print(snapshot.data?.docs[index].id);
             // return Text(snapshot.data!.docs[index].id.toString());
-            return Text('Test Información');
-            // return Obx(
-            //   () => buildItem(
-            //     context: context,
-            //     document: snapshot.data!.docs[index],
-            //     textSearch: controller.textSearch.value,
-            //   ),
-            // );
+            // return Text('Test Información');
+            return Obx(
+              () => buildItem(
+                context: context,
+                document: snapshot.data!.docs[index],
+                textSearch: controller.textSearch.value,
+              ),
+            );
           },
           itemCount: snapshot.data?.docs.length,
           controller: controller.listScrollController,
