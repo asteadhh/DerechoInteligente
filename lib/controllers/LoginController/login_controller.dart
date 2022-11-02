@@ -35,7 +35,7 @@ class LoginController extends GetxController {
   final RxList isHovering =
       [false, false, false, false, false, false, false, false].obs;
 
-  updateUserStream() {
+  updateUserStream() async {
     var currentUser = auth.currentUser;
     print('UPDATE');
     _myUser.bindStream(MyUserDB.myUserStream(currentUser));
@@ -446,14 +446,15 @@ class LoginController extends GetxController {
               },
             );
           }
-          updateUserStream();
+          // updateUserStream();
         }),
       );
 
       SharedPreferences prefs = await SharedPreferences.getInstance();
       prefs.setBool('auth', true);
     }
+    return null;
 
-    return user;
+    // return user;
   }
 }
