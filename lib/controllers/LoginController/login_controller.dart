@@ -20,17 +20,17 @@ class LoginController extends GetxController {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
 
-  Rx<UserChatInfo?> _myUser = Rx<UserChatInfo?>(null);
+  Rx<UserChatInfo?> myUserData = Rx<UserChatInfo?>(null);
 
-  UserChatInfo? get myUser => _myUser.value;
+  UserChatInfo? get myUser => myUserData.value;
 
   RxBool isProcessing = false.obs;
   final GoogleSignIn googleSignIn = GoogleSignIn();
 
-  String? uid;
-  String? name;
-  String? userEmail;
-  String? imageUrl;
+  RxString uid = ''.obs;
+  RxString name = ''.obs;
+  RxString userEmail = ''.obs;
+  RxString imageUrl = ''.obs;
 
   final RxList isHovering =
       [false, false, false, false, false, false, false, false].obs;
@@ -38,7 +38,7 @@ class LoginController extends GetxController {
   updateUserStream() async {
     var currentUser = auth.currentUser;
     print('UPDATE');
-    _myUser.bindStream(MyUserDB.myUserStream(currentUser));
+    myUserData.bindStream(MyUserDB.myUserStream(currentUser));
   }
 
   @override
@@ -86,8 +86,8 @@ class LoginController extends GetxController {
       user = userCredential.user;
 
       if (user != null) {
-        uid = user.uid;
-        userEmail = user.email;
+        uid.value = user.uid;
+        userEmail.value = user.email!;
       }
     } on FirebaseAuthException catch (e) {
       if (e.code == 'weak-password') {
@@ -114,8 +114,8 @@ class LoginController extends GetxController {
       user = userCredential.user;
 
       if (user != null) {
-        uid = user.uid;
-        userEmail = user.email;
+        uid.value = user.uid;
+        userEmail.value = user.email!;
 
         SharedPreferences prefs = await SharedPreferences.getInstance();
         await prefs.setBool('auth', true);
@@ -151,10 +151,10 @@ class LoginController extends GetxController {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setBool('auth', false);
 
-    uid = null;
-    name = null;
-    userEmail = null;
-    imageUrl = null;
+    uid.value = '';
+    name.value = '';
+    userEmail.value = '';
+    imageUrl.value = '';
 
     print("User signed out of Google account");
   }

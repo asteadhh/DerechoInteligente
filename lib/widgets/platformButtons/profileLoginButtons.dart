@@ -1,14 +1,13 @@
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:auto_size_text/auto_size_text.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
 
 import '../../constants.dart';
-import '../../responsive.dart';
-import '../platform_image_view.dart';
+import '../explore_drawer.dart';
 
-class ProfileLoginButton extends GetView<LoginController> {
+class ProfileLoginButton extends StatelessWidget {
   final String? hint;
   final String? value;
   final List<String>? dropdownItems;
@@ -68,8 +67,7 @@ class ProfileLoginButton extends GetView<LoginController> {
 
   @override
   Widget build(BuildContext context) {
-    final LoginController controller =
-        Get.put<LoginController>(LoginController());
+    final loginController = Get.put<LoginController>(LoginController());
     return DropdownButtonHideUnderline(
       child: DropdownButtonHideUnderline(
         child: DropdownButton2(
@@ -87,52 +85,21 @@ class ProfileLoginButton extends GetView<LoginController> {
             ),
             child: Row(
               children: [
-                // Container(
-                //   child: controller.myUser?.foto == null
-                //       ? Icon(
-                //           Icons.account_circle,
-                //           size: 90,
-                //           color: Colors.grey,
-                //         )
-                //       : ClipRRect(
-                //           borderRadius: BorderRadius.circular(45),
-                //           child: Image.network(
-                //             controller.myUser?.foto,
-                //             fit: BoxFit.cover,
-                //             width: MediaQuery.of(context).size.height * .1,
-                //             height: MediaQuery.of(context).size.height * .1,
-                //             errorBuilder: (context, object, stackTrace) {
-                //               return Icon(
-                //                 Icons.account_circle,
-                //                 size: 45,
-                //                 color: Colors.grey,
-                //               );
-                //             },
-                //             loadingBuilder: (BuildContext context, Widget child,
-                //                 ImageChunkEvent? loadingProgress) {
-                //               if (loadingProgress == null) return child;
-                //               return Container(
-                //                 width: 90,
-                //                 height: 90,
-                //                 child: Center(
-                //                   child: CircularProgressIndicator(
-                //                     color: Colors.grey,
-                //                     value: loadingProgress.expectedTotalBytes !=
-                //                                 null &&
-                //                             loadingProgress
-                //                                     .expectedTotalBytes !=
-                //                                 null
-                //                         ? loadingProgress
-                //                                 .cumulativeBytesLoaded /
-                //                             loadingProgress.expectedTotalBytes!
-                //                         : null,
-                //                   ),
-                //                 ),
-                //               );
-                //             },
-                //           ),
-                //         ),
-                // ),
+                // AutoSizeText(loginController.myUser!.nickname),
+                // StreamBuilder(
+                //     builder: (context, snapshot) {
+                //       return Text(snapshot.data!.id);
+                //     },
+                //     stream: loginController.myUserData.stream),
+                Container(
+                  child: loginController.myUser?.nickname == null
+                      ? Icon(
+                          Icons.account_circle,
+                          size: 30,
+                          color: Colors.grey,
+                        )
+                      : AutoSizeText(loginController.myUser!.nickname),
+                ),
                 // Container(
                 //   height: 10,
                 //   width: 10,
