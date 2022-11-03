@@ -8,7 +8,6 @@ import '/screens/landingPage/help/help_screen.dart';
 import '/screens/landingPage/menu.dart';
 
 import '../screens/home_page.dart';
-import '../screens/plataforma/main/template_platform_screen.dart';
 import 'bindings.dart';
 
 part 'app_routes.dart';

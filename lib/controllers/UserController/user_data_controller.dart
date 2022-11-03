@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import '../../constants/firebase_auth_constants.dart';
 import '../../constants/firestore_constants.dart';
 import '../../models/user_chat.dart';
-import '../../widgets/userInformation/User_Information.dart';
 
 class UserDataController extends GetxController {
   var userInfo = [].obs;
@@ -12,21 +11,17 @@ class UserDataController extends GetxController {
   @override
   void onInit() {
     _fetchUserInfo(auth.currentUser!.uid);
-    // userInfo = datosUsuarioLogiado(auth.currentUser!.uid);
-    // TODO: implement onInit
+
     super.onInit();
   }
 
   @override
   void onReady() {
-    // userInfo = datosUsuarioLogiado(auth.currentUser!.uid);
-    // TODO: implement onReady
     super.onReady();
   }
 
   Future<UserChatInfo> _fetchUserInfo(String id) async {
     print('_fetchUserInfo');
-    UserChatInfo fetchedUser;
     var snapshot =
         await FirebaseFirestore.instance.collection('user').doc(id).get();
     return UserChatInfo(

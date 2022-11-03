@@ -11,7 +11,6 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../db/my_user.dart';
 import '../../models/user_chat.dart';
 import '../../routes/app_pages.dart';
-import '../../widgets/userInformation/User_Information.dart';
 
 class LoginController extends GetxController {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -50,10 +49,6 @@ class LoginController extends GetxController {
     updateUserStream();
     super.onInit();
   }
-
-  @override
-  // TODO: implement onStart
-  InternalFinalCallback<void> get onStart => super.onStart;
 
   Future getUser() async {
     await Firebase.initializeApp();

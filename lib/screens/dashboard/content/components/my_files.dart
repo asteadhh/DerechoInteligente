@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../../constants.dart';
+import '../../../../controllers/LoginController/login_controller.dart';
 import 'file_info_card.dart';
 import '/responsive.dart';
 import '/models/MyFiles.dart';
@@ -12,6 +14,8 @@ class MyFiles extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final LoginController controller =
+        Get.put<LoginController>(LoginController());
     final Size _size = MediaQuery.of(context).size;
     return Column(
       children: [
@@ -30,7 +34,9 @@ class MyFiles extends StatelessWidget {
                       defaultPadding / (Responsive.isMobile(context) ? 2 : 1),
                 ),
               ),
-              onPressed: () {},
+              onPressed: () {
+                print(controller.myUser!.correo);
+              },
               icon: Icon(Icons.add),
               label: Text("Add New"),
             ),

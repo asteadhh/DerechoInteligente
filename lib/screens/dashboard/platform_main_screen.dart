@@ -3,7 +3,6 @@ import 'package:get/get.dart';
 
 import '../../constants.dart';
 import '../../controllers/MenuController.dart';
-import '../../responsive.dart';
 import 'content/components/header.dart';
 
 class MainScreenTemplateScreen extends StatelessWidget {

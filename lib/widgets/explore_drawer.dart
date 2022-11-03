@@ -1,11 +1,7 @@
-import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-import 'package:image_network/image_network.dart';
 import 'package:pulpox_admin/controllers/UserController/user_data_controller.dart';
 
-import '../constants/firebase_auth_constants.dart';
 import '../constants/firestore_constants.dart';
 import '../controllers/LoginController/login_controller.dart';
 import '../routes/app_pages.dart';
