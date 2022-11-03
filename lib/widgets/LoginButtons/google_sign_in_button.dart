@@ -4,6 +4,8 @@ import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
 import '../../controllers/MenuController.dart';
 import 'package:flutter/material.dart';
 
+import '../../routes/app_pages.dart';
+
 class GoogleButton extends GetView<LoginController> {
   @override
   Widget build(BuildContext context) {
@@ -31,7 +33,11 @@ class GoogleButton extends GetView<LoginController> {
           // });
           // LoginController().signInWithGoogle();
 
-          await controller.signInWithGoogle();
+          await controller
+              .signInWithGoogle()
+              .then((value) => Get.offAllNamed(AppPages.platform));
+          // print(
+          //     'Google Sign in Complete ${controller.myUser!.foto.toString()}');
 
           // setState(() {
 

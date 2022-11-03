@@ -4,22 +4,13 @@ import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
 
 import '../constants/theme.dart';
 import '../routes/app_pages.dart';
-import '/widgets/auth_dialog.dart';
+import 'auth_dialog/auth_dialog.dart';
 import 'package:flutter/material.dart';
 
+import 'platformButtons/profileLoginButtons.dart';
+import 'userInformation/User_Information.dart';
+
 class TopBarContents extends GetView<LoginController> {
-//   final double opacity;
-
-//   TopBarContents(this.opacity);
-
-//   @override
-//   _TopBarContentsState createState() => _TopBarContentsState();
-// }
-
-// class _TopBarContentsState extends State<TopBarContents> {
-
-  // bool _isProcessing = false;
-
   @override
   Widget build(BuildContext context) {
     final LoginController controller =
@@ -177,116 +168,63 @@ class TopBarContents extends GetView<LoginController> {
                   ],
                 ),
               ),
-              IconButton(
-                icon: Icon(Icons.brightness_6),
-                splashColor: Colors.transparent,
-                highlightColor: Colors.transparent,
-                color: Colors.white,
-                onPressed: () {
-                  //Change Theme Mode
-                  // EasyDynamicTheme.of(context).changeTheme();
-                  Get.changeThemeMode(ThemeService().loadThemeFromBox()
-                      ? ThemeMode.light
-                      : ThemeMode.dark);
-                  ThemeService()
-                      .saveThemeToBox(!ThemeService().loadThemeFromBox());
-                },
-              ),
-              SizedBox(
-                width: screenSize.width / 50,
-              ),
-              InkWell(
-                onHover: (value) {
-                  // setState(() {
-                  value
-                      ? controller.isHovering[3] = true
-                      : controller.isHovering[3] = false;
-                  // });
-                },
-                onTap:
-                    //  userEmail == null
-                    //     ?
-                    () {
-                  showDialog(
-                    context: context,
-                    builder: (context) => AuthDialog(),
-                  );
-                }
-                // : null
-                ,
-                child: FirebaseAuth.instance.currentUser == null
-                    ? Text(
-                        'Sign in',
-                        style: TextStyle(
-                          color: controller.isHovering[3]
-                              ? Colors.white
-                              : Colors.white70,
-                        ),
-                      )
-                    : Row(
-                        children: [
-                          // CircleAvatar(
-                          //   radius: 15,
-                          //   backgroundImage: controller.myUser?.foto != null
-                          //       ? NetworkImage(controller.myUser?.foto!)
-                          //       : null,
-                          //   child: controller.myUser?.foto == null
-                          //       ? Icon(
-                          //           Icons.account_circle,
-                          //           size: 30,
-                          //         )
-                          //       : Container(),
-                          // ),
-                          // SizedBox(width: 5),
-                          // Text(
-                          //   controller.myUser?.nickname ??
-                          //       controller.myUser?.correo!,
-                          //   style: TextStyle(
-                          //     color: controller.isHovering[3]
-                          //         ? Colors.white
-                          //         : Colors.white70,
-                          //   ),
-                          // ),
-                          // SizedBox(width: 10),
-                          TextButton(
-                            style: TextButton.styleFrom(
-                              primary: Colors.blueGrey,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.circular(15),
+              // IconButton(
+              //   icon: Icon(Icons.brightness_6),
+              //   splashColor: Colors.transparent,
+              //   highlightColor: Colors.transparent,
+              //   color: Colors.white,
+              //   onPressed: () {
+              //     //Change Theme Mode
+              //     // EasyDynamicTheme.of(context).changeTheme();
+              //     Get.changeThemeMode(ThemeService().loadThemeFromBox()
+              //         ? ThemeMode.light
+              //         : ThemeMode.dark);
+              //     ThemeService()
+              //         .saveThemeToBox(!ThemeService().loadThemeFromBox());
+              //   },
+              // ),
+              // SizedBox(
+              //   width: screenSize.width / 50,
+              // ),
+              Row(
+                children: [
+                  FirebaseAuth.instance.currentUser != null
+                      ? Container(height: 60, child: ProfileFotoSignOutButton())
+                      : SizedBox.shrink(),
+                  // SizedBox(
+                  //   width: screenSize.width / 50,
+                  // ),
+                  InkWell(
+                      onHover: (value) {
+                        // setState(() {
+                        value
+                            ? controller.isHovering[3] = true
+                            : controller.isHovering[3] = false;
+                        // });
+                      },
+                      onTap:
+                          //  userEmail == null
+                          //     ?
+                          () {
+                        showDialog(
+                          context: context,
+                          builder: (context) => AuthDialog(),
+                        );
+                      }
+                      // : null
+                      ,
+                      child: FirebaseAuth.instance.currentUser == null
+                          ? Text(
+                              'Sign in',
+                              style: TextStyle(
+                                color: controller.isHovering[3]
+                                    ? Colors.white
+                                    : Colors.white70,
                               ),
-                            ),
-                            onPressed: controller.isProcessing.value
-                                ? null
-                                : () async {
-                                    // setState(() {
-                                    controller.isProcessing.value = true;
-                                    // });
-                                    await controller.signOut;
-                                    // setState(() {
-                                    controller.isProcessing.value = false;
-                                    // });
-                                  },
-                            child: Obx(
-                              () => Padding(
-                                padding: EdgeInsets.only(
-                                  top: 8.0,
-                                  bottom: 8.0,
-                                ),
-                                child: controller.isProcessing.value
-                                    ? CircularProgressIndicator()
-                                    : Text(
-                                        'sign_out'.tr,
-                                        style: TextStyle(
-                                          fontSize: 14,
-                                          color: Colors.white,
-                                        ),
-                                      ),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-              ),
+                            )
+                          : SizedBox.shrink()),
+                ],
+              )
             ],
           ),
         ),

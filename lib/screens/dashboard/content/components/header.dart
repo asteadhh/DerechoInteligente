@@ -80,20 +80,20 @@ class Header extends StatelessWidget {
         //     //   style: Theme.of(context).textTheme.headline6,
         //     // ),
         //     ),
-        IconButton(
-          icon: Icon(Icons.brightness_6),
-          splashColor: Colors.transparent,
-          highlightColor: Colors.transparent,
-          color: Theme.of(context).primaryTextTheme.headline6!.color,
-          onPressed: () {
-            //Change Theme Mode
-            // EasyDynamicTheme.of(context).changeTheme();
-            Get.changeThemeMode(ThemeService().loadThemeFromBox()
-                ? ThemeMode.light
-                : ThemeMode.dark);
-            ThemeService().saveThemeToBox(!ThemeService().loadThemeFromBox());
-          },
-        ),
+        // IconButton(
+        //   icon: Icon(Icons.brightness_6),
+        //   splashColor: Colors.transparent,
+        //   highlightColor: Colors.transparent,
+        //   color: Theme.of(context).primaryTextTheme.headline6!.color,
+        //   onPressed: () {
+        //     //Change Theme Mode
+        //     // EasyDynamicTheme.of(context).changeTheme();
+        //     Get.changeThemeMode(ThemeService().loadThemeFromBox()
+        //         ? ThemeMode.light
+        //         : ThemeMode.dark);
+        //     ThemeService().saveThemeToBox(!ThemeService().loadThemeFromBox());
+        //   },
+        // ),
         if (!Responsive.isMobile(context))
           Spacer(flex: Responsive.isDesktop(context) ? 2 : 1),
         // Expanded(child: SearchField()),

@@ -1,11 +1,11 @@
 import 'package:get/get.dart';
 
-import '../controllers/LoginController/login_controller.dart';
-import '../screens/home_page.dart';
+import '../../controllers/LoginController/login_controller.dart';
+import '../../screens/home_page.dart';
 import 'package:flutter/material.dart';
 
-import 'LoginButtons/facebook_sign_in_button.dart';
-import 'LoginButtons/google_sign_in_button.dart';
+import '../LoginButtons/facebook_sign_in_button.dart';
+import '../LoginButtons/google_sign_in_button.dart';
 
 class AuthDialog extends GetView<LoginController> {
 //   @override

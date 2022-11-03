@@ -9,28 +9,26 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
-import 'package:pulpox_admin/constants/custom_colors.dart';
 
-import '../../../../../constants/firestore_constants.dart';
-import '../../../../../controllers/chatSoporteController/chat_soporte_controller.dart';
-import '../../../../../models/TypeMessage.dart';
-import '../../../../../models/messages_chat.dart';
-import 'full_photo_page.dart';
-import 'loading_view.dart';
+import '../../../../constants/custom_colors copy.dart';
+import '../../../../constants/firestore_constants.dart';
+import '../../../../controllers/chatSoporteController/chat_soporte_controller.dart';
+import '../../../../models/TypeMessage.dart';
+import '../../../../models/messages_chat.dart';
+import '../../content/chatSoporte/widget/loading_view.dart';
+import '../chat_page/full_photo_page.dart';
 
 class ChatSoporteScreen extends GetView<ChatSoporteController> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: Stack(children: [
+    return Scaffold(
+      appBar: AppBar(
+        title: PlatformText('Soporte'),
+      ),
+      body: Stack(children: [
         Column(
           children: [
-            // buildListMessage(),
-
-            Text('Aca va el Chat'),
-            SizedBox(
-              height: 20,
-            ),
+            buildListMessage(),
             buildInput(context),
           ],
         ),
@@ -125,7 +123,7 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
                     ),
                   );
                 },
-                color: Theme.of(context).accentColor,
+                color: CustomColors.jurixNavy,
               ),
             ),
             color: Colors.white,
@@ -137,13 +135,12 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
                   onSendMessage(
                       controller.textEditingController.text, TypeMessage.text);
                 },
-                style: TextStyle(
-                    color: Theme.of(context).accentColor, fontSize: 15),
+                style: TextStyle(color: CustomColors.jurixNavy, fontSize: 15),
                 controller: controller.textEditingController,
                 decoration: InputDecoration.collapsed(
                   hintText: 'Type your message...',
                   hintStyle: TextStyle(
-                    color: Theme.of(context).backgroundColor,
+                    color: CustomColors.kBlack,
                   ),
                 ),
                 focusNode: controller.focusNode,
@@ -157,7 +154,7 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
                 icon: Icon(Icons.send),
                 onPressed: () => onSendMessage(
                     controller.textEditingController.text, TypeMessage.text),
-                color: Theme.of(context).accentColor,
+                color: CustomColors.jurixNavy,
               ),
             ),
             color: Colors.white,
@@ -168,8 +165,7 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
       height: 50,
       decoration: BoxDecoration(
           border: Border(
-              top:
-                  BorderSide(color: Theme.of(context).accentColor, width: 0.5)),
+              top: BorderSide(color: CustomColors.jurixGris, width: 0.5)),
           color: Colors.white),
     );
   }
@@ -181,8 +177,8 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
   Widget buildListMessage() {
     final Stream<QuerySnapshot> _usersStream = FirebaseFirestore.instance
         .collection('supportChat')
-        .doc('CSbB6mfZK5OuN1B8fU31zFGrI4x2')
-        .collection('CSbB6mfZK5OuN1B8fU31zFGrI4x2')
+        .doc(FirebaseAuth.instance.currentUser!.uid)
+        .collection(FirebaseAuth.instance.currentUser!.uid)
         .snapshots();
     return Flexible(
       child: StreamBuilder<QuerySnapshot>(
@@ -196,26 +192,21 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
             return Text("Loading");
           }
           controller.listMessage.addAll(snapshot.data!.docs);
-
-          return Text('data');
-
-          // return ListView.builder(
-          //   padding: EdgeInsets.all(10),
-          //   itemCount: snapshot.data?.docs.length,
-          //   reverse: true,
-          //   controller: controller.listScrollController,
-          //   itemBuilder: (context, index) {
-          //     return Text('data');
-          //     // return buildItem(context, index, snapshot.data?.docs[index]);
-          //   },
-          // );
+          return ListView.builder(
+            padding: EdgeInsets.all(10),
+            itemCount: snapshot.data?.docs.length,
+            reverse: true,
+            controller: controller.listScrollController,
+            itemBuilder: (context, index) {
+              return buildItem(index, snapshot.data?.docs[index]);
+            },
+          );
         },
       ),
     );
   }
 
-  Widget buildItem(
-      BuildContext context, int index, DocumentSnapshot? document) {
+  Widget buildItem(int index, DocumentSnapshot? document) {
     if (document != null) {
       MessageChat messageChat = MessageChat.fromDocument(document);
       if (messageChat.idFrom == FirebaseAuth.instance.currentUser!.uid) {
@@ -225,12 +216,12 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
                 ? Container(
                     child: Text(
                       messageChat.content,
-                      style: TextStyle(color: Theme.of(context).accentColor),
+                      style: TextStyle(color: CustomColors.jurixNavy),
                     ),
                     padding: EdgeInsets.fromLTRB(15, 10, 15, 10),
                     width: 200,
                     decoration: BoxDecoration(
-                      color: Theme.of(context).accentColor,
+                      color: CustomColors.kGrey,
                       borderRadius: BorderRadius.circular(8),
                     ),
                     margin: EdgeInsets.only(
@@ -260,7 +251,7 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
                                   height: 200,
                                   child: Center(
                                     child: CircularProgressIndicator(
-                                        color: Theme.of(context).accentColor,
+                                        color: CustomColors.jurixNavy,
                                         value: loadingProgress
                                                         .expectedTotalBytes !=
                                                     null &&
@@ -274,7 +265,7 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
                                             : null),
                                   ),
                                   decoration: BoxDecoration(
-                                    color: Theme.of(context).accentColor,
+                                    color: CustomColors.jurixGris,
                                     borderRadius: BorderRadius.all(
                                       Radius.circular(8),
                                     ),
@@ -333,12 +324,12 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
                   isLastMessageLeft(index)
                       ? Material(
                           child: Image.network(
-                            Constants.suportFoto,
+                            CustomColors.suportFoto,
                             loadingBuilder: (context, child, loadingProgress) {
                               if (loadingProgress == null) return child;
                               return Center(
                                 child: CircularProgressIndicator(
-                                    color: Theme.of(context).accentColor,
+                                    color: CustomColors.jurixNavy,
                                     value: loadingProgress.expectedTotalBytes !=
                                                 null &&
                                             loadingProgress
@@ -354,7 +345,7 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
                               return Icon(
                                 Icons.account_circle,
                                 size: 35,
-                                color: Theme.of(context).accentColor,
+                                color: CustomColors.kGrey,
                               );
                             },
                             width: 35,
@@ -381,7 +372,7 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
                           width: 200,
                           margin: EdgeInsets.only(left: 10),
                           decoration: BoxDecoration(
-                              color: Theme.of(context).accentColor,
+                              color: CustomColors.jurixNavy,
                               borderRadius: BorderRadius.circular(8)),
                         )
                       : messageChat.type == '1'
@@ -408,8 +399,7 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
                                         height: 200,
                                         child: Center(
                                           child: CircularProgressIndicator(
-                                              color:
-                                                  Theme.of(context).accentColor,
+                                              color: CustomColors.jurixNavy,
                                               value: loadingProgress
                                                               .expectedTotalBytes !=
                                                           null &&
@@ -423,7 +413,7 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
                                                   : null),
                                         ),
                                         decoration: BoxDecoration(
-                                          color: Theme.of(context).accentColor,
+                                          color: CustomColors.jurixGris,
                                           borderRadius: BorderRadius.all(
                                             Radius.circular(8),
                                           ),
@@ -473,7 +463,7 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
                               ),
                             ),
                             style: TextStyle(
-                              color: Theme.of(context).accentColor,
+                              color: CustomColors.kGrey,
                               fontSize: 12,
                               fontStyle: FontStyle.italic,
                             ),

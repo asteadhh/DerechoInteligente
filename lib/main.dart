@@ -2,7 +2,7 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
+import 'package:firebase_auth_web/firebase_auth_web.dart';
 
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_strategy/url_strategy.dart';
@@ -10,8 +10,9 @@ import 'package:url_strategy/url_strategy.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:pulpox_admin/routes/app_pages.dart';
 
+import 'package:pulpox_admin/routes/app_pages.dart';
+import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
 import '/utils/translations.dart';
 import 'constants/theme.dart';
 import 'firebase_options.dart';
@@ -77,7 +78,7 @@ class MyApp extends StatelessWidget {
     ;
     Get.put(AuthService());
     return GetMaterialApp(
-      // onInit: getUserInfo,
+      onInit: getUserInfo,
       // onReady: getUserInfo,
       translations: Messages(),
       locale: Locale('es', 'ES'),

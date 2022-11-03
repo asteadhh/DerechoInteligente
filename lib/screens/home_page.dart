@@ -1,8 +1,11 @@
 import 'dart:io';
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 
+import '../widgets/auth_dialog/auth_dialog.dart';
+import 'dashboard/screen/dashboard_screen_platform.dart';
 import 'landingPage/base/home_page_landing.dart';
 import 'landingPage/main/main_screen.dart';
 
@@ -18,17 +21,22 @@ class Home extends StatelessWidget {
       );
     } else if (Platform.isAndroid || Platform.isIOS) {
       //running on android or ios device
-      // return AuthDialogContentMobile();
 
-      return LandingPageBase(
-        widget: HomeLandingContent(),
-      );
+      if (FirebaseAuth.instance.currentUser != null) {
+        // signed in
+
+        return PlatformAdminMainScreen();
+      } else {
+        return AuthDialogContentMobile();
+      }
     } else {
-      // return AuthDialogContentMobile();
+      if (FirebaseAuth.instance.currentUser != null) {
+        // signed in
 
-      return LandingPageBase(
-        widget: HomeLandingContent(),
-      );
+        return PlatformAdminMainScreen();
+      } else {
+        return AuthDialogContentMobile();
+      }
     }
   }
 }
