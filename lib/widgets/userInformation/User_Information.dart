@@ -1,4 +1,5 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:avatar_view/avatar_view.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -23,7 +24,7 @@ class UserInformationDataText extends GetView<LoginController> {
   var uid;
   String data;
 
-  var fontSize;
+  double fontSize;
   var color;
   var maxLines;
   var overflow;
@@ -88,30 +89,25 @@ class _UserInformationDataAvatarState extends State<UserInformationDataAvatar> {
           loginController.currentUserData = snapshot.data! as DocumentSnapshot;
         } else {}
         return snapshot.hasData
-            ? ImageNetwork(
-                image: snapshot.data![FirestoreConstants.foto],
-                imageCache: CachedNetworkImageProvider(FirestoreConstants.foto),
-                height: MediaQuery.of(context).size.height * .05,
-                width: MediaQuery.of(context).size.height * .05,
-                duration: 1500,
-                curve: Curves.easeIn,
-                onPointer: true,
-                debugPrint: false,
-                fullScreen: false,
-                fitAndroidIos: BoxFit.cover,
-                fitWeb: BoxFitWeb.fill,
-                borderRadius: BorderRadius.circular(70),
-                onLoading: const CircularProgressIndicator(
-                  color: Colors.indigoAccent,
+            ? AvatarView(
+                radius: 20,
+                // borderWidth: 8,
+                // borderColor: Colors.yellow,
+                avatarType: AvatarType.CIRCLE,
+                backgroundColor: Colors.white,
+                imagePath: snapshot.data![FirestoreConstants.foto],
+                placeHolder: Container(
+                  child: Icon(
+                    Icons.person,
+                    size: 50,
+                  ),
                 ),
-                onError: Icon(
-                  size: (MediaQuery.of(context).size.height * .05),
-                  Icons.person,
-                  color: Colors.grey,
+                errorWidget: Container(
+                  child: Icon(
+                    Icons.error,
+                    size: 50,
+                  ),
                 ),
-                // onTap: () {
-                //   debugPrint("Error de Texto");
-                // },
               )
             : SizedBox.shrink();
       },

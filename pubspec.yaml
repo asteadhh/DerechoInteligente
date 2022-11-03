@@ -74,6 +74,7 @@ dependencies:
   image_network: ^2.5.1
   auto_size_text: ^3.0.0
   firebase_auth_web: ^5.1.1
+  avatar_view: ^1.0.1
 
 dev_dependencies:
   flutter_test:
