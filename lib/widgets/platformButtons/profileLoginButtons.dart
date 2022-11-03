@@ -1,8 +1,10 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pulpox_admin/constants/firestore_constants.dart';
 import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
+import 'package:pulpox_admin/routes/app_pages.dart';
 
 import '../../constants.dart';
 import '../../constants/theme.dart';
@@ -71,65 +73,128 @@ class ProfileLoginButton extends StatelessWidget {
     final loginController = Get.put<LoginController>(LoginController());
     return DropdownButtonHideUnderline(
       child: DropdownButtonHideUnderline(
-        child: DropdownButton2(
-          customButton: Container(
-            margin: EdgeInsets.only(left: defaultPadding),
-            padding: EdgeInsets.symmetric(
-              horizontal: defaultPadding,
-              vertical: defaultPadding / 2,
-            ),
-            decoration: BoxDecoration(
-              // color: secondaryColor,
-              color: Theme.of(context).buttonColor,
-              borderRadius: const BorderRadius.all(Radius.circular(10)),
-              border: Border.all(color: Colors.white10),
-            ),
-            child: Row(
-              children: [
-                UserInformationDataAvatar(),
-                SizedBox(
-                  width: 10,
+        child: kIsWeb
+            ? DropdownButton2(
+                customButton: Container(
+                  margin: EdgeInsets.only(left: defaultPadding),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: defaultPadding,
+                    vertical: defaultPadding / 2,
+                  ),
+                  decoration: BoxDecoration(
+                    // color: secondaryColor,
+                    color: Theme.of(context).buttonColor,
+                    borderRadius: const BorderRadius.all(Radius.circular(10)),
+                    border: Border.all(color: Colors.white10),
+                  ),
+                  child: Row(
+                    children: [
+                      UserInformationDataAvatar(),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      UserInformationDataText(
+                        data: FirestoreConstants.nickname,
+                      ),
+                    ],
+                  ),
                 ),
-                UserInformationDataText(
-                  data: FirestoreConstants.nickname,
+                customItemsHeights: [
+                  ...List<double>.filled(
+                      MenuItems.firstItemsDesktop.length, 48),
+                  8,
+                  ...List<double>.filled(MenuItems.secondItems.length, 48),
+                ],
+                items: [
+                  ...MenuItems.firstItemsDesktop.map(
+                    (item) => DropdownMenuItem<MenuItem>(
+                      value: item,
+                      child: MenuItems.buildItem(context, item),
+                    ),
+                  ),
+                  const DropdownMenuItem<Divider>(
+                      enabled: false, child: Divider()),
+                  ...MenuItems.secondItems.map(
+                    (item) => DropdownMenuItem<MenuItem>(
+                      value: item,
+                      child: MenuItems.buildItem(context, item),
+                    ),
+                  ),
+                ],
+                onChanged: (value) {
+                  MenuItems.onChanged(context, value as MenuItem);
+                },
+                itemHeight: 48,
+                itemPadding: const EdgeInsets.only(left: 16, right: 16),
+                dropdownWidth: 160,
+                dropdownPadding: const EdgeInsets.symmetric(vertical: 6),
+                dropdownDecoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(4),
+                  color: Theme.of(context).buttonColor,
                 ),
-              ],
-            ),
-          ),
-          customItemsHeights: [
-            ...List<double>.filled(MenuItems.firstItems.length, 48),
-            8,
-            ...List<double>.filled(MenuItems.secondItems.length, 48),
-          ],
-          items: [
-            ...MenuItems.firstItems.map(
-              (item) => DropdownMenuItem<MenuItem>(
-                value: item,
-                child: MenuItems.buildItem(context, item),
+                dropdownElevation: 8,
+                offset: const Offset(0, 8),
+              )
+            : DropdownButton2(
+                customButton: Container(
+                  margin: EdgeInsets.only(left: defaultPadding),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: defaultPadding,
+                    vertical: defaultPadding / 2,
+                  ),
+                  decoration: BoxDecoration(
+                    // color: secondaryColor,
+                    color: Theme.of(context).buttonColor,
+                    borderRadius: const BorderRadius.all(Radius.circular(10)),
+                    border: Border.all(color: Colors.white10),
+                  ),
+                  child: Row(
+                    children: [
+                      UserInformationDataAvatar(),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      UserInformationDataText(
+                        data: FirestoreConstants.nickname,
+                      ),
+                    ],
+                  ),
+                ),
+                customItemsHeights: [
+                  ...List<double>.filled(MenuItems.firstItemsMobile.length, 48),
+                  8,
+                  ...List<double>.filled(MenuItems.secondItems.length, 48),
+                ],
+                items: [
+                  ...MenuItems.firstItemsMobile.map(
+                    (item) => DropdownMenuItem<MenuItem>(
+                      value: item,
+                      child: MenuItems.buildItem(context, item),
+                    ),
+                  ),
+                  const DropdownMenuItem<Divider>(
+                      enabled: false, child: Divider()),
+                  ...MenuItems.secondItems.map(
+                    (item) => DropdownMenuItem<MenuItem>(
+                      value: item,
+                      child: MenuItems.buildItem(context, item),
+                    ),
+                  ),
+                ],
+                onChanged: (value) {
+                  MenuItems.onChanged(context, value as MenuItem);
+                },
+                itemHeight: 48,
+                itemPadding: const EdgeInsets.only(left: 16, right: 16),
+                dropdownWidth: 160,
+                dropdownPadding: const EdgeInsets.symmetric(vertical: 6),
+                dropdownDecoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(4),
+                  color: Theme.of(context).buttonColor,
+                ),
+                dropdownElevation: 8,
+                offset: const Offset(0, 8),
               ),
-            ),
-            const DropdownMenuItem<Divider>(enabled: false, child: Divider()),
-            ...MenuItems.secondItems.map(
-              (item) => DropdownMenuItem<MenuItem>(
-                value: item,
-                child: MenuItems.buildItem(context, item),
-              ),
-            ),
-          ],
-          onChanged: (value) {
-            MenuItems.onChanged(context, value as MenuItem);
-          },
-          itemHeight: 48,
-          itemPadding: const EdgeInsets.only(left: 16, right: 16),
-          dropdownWidth: 160,
-          dropdownPadding: const EdgeInsets.symmetric(vertical: 6),
-          dropdownDecoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(4),
-            color: Theme.of(context).buttonColor,
-          ),
-          dropdownElevation: 8,
-          offset: const Offset(0, 8),
-        ),
       ),
     );
   }
@@ -198,49 +263,122 @@ class ProfileFotoSignOutButton extends StatelessWidget {
     final loginController = Get.put<LoginController>(LoginController());
     return DropdownButtonHideUnderline(
       child: DropdownButtonHideUnderline(
-        child: DropdownButton2(
-          customButton: Container(
-            margin: EdgeInsets.only(left: defaultPadding),
-            padding: EdgeInsets.symmetric(
-              horizontal: defaultPadding,
-              vertical: defaultPadding / 2,
-            ),
-            child: UserInformationDataAvatar(),
-          ),
-          customItemsHeights: [
-            ...List<double>.filled(MenuItems.firstItems.length, 48),
-            8,
-            ...List<double>.filled(MenuItems.secondItems.length, 48),
-          ],
-          items: [
-            ...MenuItems.firstItems.map(
-              (item) => DropdownMenuItem<MenuItem>(
-                value: item,
-                child: MenuItems.buildItem(context, item),
+        child: kIsWeb
+            ? DropdownButton2(
+                customButton: Container(
+                  margin: EdgeInsets.only(left: defaultPadding),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: defaultPadding,
+                    vertical: defaultPadding / 2,
+                  ),
+                  decoration: BoxDecoration(
+                    // color: secondaryColor,
+                    color: Theme.of(context).buttonColor,
+                    borderRadius: const BorderRadius.all(Radius.circular(10)),
+                    border: Border.all(color: Colors.white10),
+                  ),
+                  child: Row(
+                    children: [
+                      UserInformationDataAvatar(),
+                      SizedBox(
+                        width: 10,
+                      ),
+                      UserInformationDataText(
+                        data: FirestoreConstants.nickname,
+                      ),
+                    ],
+                  ),
+                ),
+                customItemsHeights: [
+                  ...List<double>.filled(
+                      MenuItems.firstItemsDesktop.length, 48),
+                  8,
+                  ...List<double>.filled(MenuItems.secondItems.length, 48),
+                ],
+                items: [
+                  ...MenuItems.firstItemsDesktop.map(
+                    (item) => DropdownMenuItem<MenuItem>(
+                      value: item,
+                      child: MenuItems.buildItem(context, item),
+                    ),
+                  ),
+                  const DropdownMenuItem<Divider>(
+                      enabled: false, child: Divider()),
+                  ...MenuItems.secondItems.map(
+                    (item) => DropdownMenuItem<MenuItem>(
+                      value: item,
+                      child: MenuItems.buildItem(context, item),
+                    ),
+                  ),
+                ],
+                onChanged: (value) {
+                  MenuItems.onChanged(context, value as MenuItem);
+                },
+                itemHeight: 48,
+                itemPadding: const EdgeInsets.only(left: 16, right: 16),
+                dropdownWidth: 160,
+                dropdownPadding: const EdgeInsets.symmetric(vertical: 6),
+                dropdownDecoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(4),
+                  color: Theme.of(context).buttonColor,
+                ),
+                dropdownElevation: 8,
+                offset: const Offset(0, 8),
+              )
+            : DropdownButton2(
+                customButton: Container(
+                  margin: EdgeInsets.only(left: defaultPadding),
+                  padding: EdgeInsets.symmetric(
+                    horizontal: defaultPadding,
+                    vertical: defaultPadding / 2,
+                  ),
+                  decoration: BoxDecoration(
+                    // color: secondaryColor,
+                    color: Theme.of(context).buttonColor,
+                    borderRadius: const BorderRadius.all(Radius.circular(10)),
+                    border: Border.all(color: Colors.white10),
+                  ),
+                  child: Row(
+                    children: [
+                      UserInformationDataAvatar(),
+                    ],
+                  ),
+                ),
+                customItemsHeights: [
+                  ...List<double>.filled(MenuItems.firstItemsMobile.length, 48),
+                  8,
+                  ...List<double>.filled(MenuItems.secondItems.length, 48),
+                ],
+                items: [
+                  ...MenuItems.firstItemsMobile.map(
+                    (item) => DropdownMenuItem<MenuItem>(
+                      value: item,
+                      child: MenuItems.buildItem(context, item),
+                    ),
+                  ),
+                  const DropdownMenuItem<Divider>(
+                      enabled: false, child: Divider()),
+                  ...MenuItems.secondItems.map(
+                    (item) => DropdownMenuItem<MenuItem>(
+                      value: item,
+                      child: MenuItems.buildItem(context, item),
+                    ),
+                  ),
+                ],
+                onChanged: (value) {
+                  MenuItems.onChanged(context, value as MenuItem);
+                },
+                itemHeight: 48,
+                itemPadding: const EdgeInsets.only(left: 16, right: 16),
+                dropdownWidth: 160,
+                dropdownPadding: const EdgeInsets.symmetric(vertical: 6),
+                dropdownDecoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(4),
+                  color: Theme.of(context).buttonColor,
+                ),
+                dropdownElevation: 8,
+                offset: const Offset(0, 8),
               ),
-            ),
-            const DropdownMenuItem<Divider>(enabled: false, child: Divider()),
-            ...MenuItems.secondItems.map(
-              (item) => DropdownMenuItem<MenuItem>(
-                value: item,
-                child: MenuItems.buildItem(context, item),
-              ),
-            ),
-          ],
-          onChanged: (value) {
-            MenuItems.onChanged(context, value as MenuItem);
-          },
-          itemHeight: 48,
-          itemPadding: const EdgeInsets.only(left: 16, right: 16),
-          dropdownWidth: 160,
-          dropdownPadding: const EdgeInsets.symmetric(vertical: 6),
-          dropdownDecoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(4),
-            color: Theme.of(context).buttonColor,
-          ),
-          dropdownElevation: 8,
-          offset: const Offset(0, 8),
-        ),
       ),
     );
   }
@@ -257,10 +395,12 @@ class MenuItem {
 }
 
 class MenuItems {
-  static const List<MenuItem> firstItems = [home, darkMode, settings];
+  static const List<MenuItem> firstItemsDesktop = [home, darkMode, settings];
+  static const List<MenuItem> firstItemsMobile = [darkMode, settings];
   static const List<MenuItem> secondItems = [logout];
 
   static const home = MenuItem(text: 'Home', icon: Icons.home);
+
   static const darkMode = MenuItem(text: 'Dark Mode', icon: Icons.dark_mode);
   static const settings = MenuItem(text: 'Settings', icon: Icons.settings);
   static const logout = MenuItem(text: 'Log Out', icon: Icons.logout);
@@ -287,6 +427,7 @@ class MenuItems {
   static onChanged(BuildContext context, MenuItem item) {
     switch (item) {
       case MenuItems.home:
+        Get.offNamed(AppPages.main);
         //Do something
         break;
       case MenuItems.settings:
@@ -306,40 +447,3 @@ class MenuItems {
     }
   }
 }
-
-// class UserInformation extends StatefulWidget {
-//   @override
-//   _UserInformationState createState() => _UserInformationState();
-// }
-
-// class _UserInformationState extends State<UserInformation> {
-//   final Stream<QuerySnapshot> _usersStream =
-//       FirebaseFirestore.instance.collection('users').snapshots();
-
-//   @override
-//   Widget build(BuildContext context) {
-//     return StreamBuilder<QuerySnapshot>(
-//       stream: _usersStream,
-//       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
-//         if (snapshot.hasError) {
-//           return Text('Something went wrong');
-//         }
-
-//         if (snapshot.connectionState == ConnectionState.waiting) {
-//           return Text("Loading");
-//         }
-//         return Text(snapshot.data!.docs.length.toString());
-//         // return ListView(
-//         //   children: snapshot.data!.docs.map((DocumentSnapshot document) {
-//         //     Map<String, dynamic> data =
-//         //         document.data()! as Map<String, dynamic>;
-//         //     return ListTile(
-//         //       title: Text(data['nickname']),
-//         //       // subtitle: Text(data['company']),
-//         //     );
-//         //   }).toList(),
-//         // );
-//       },
-//     );
-//   }
-// }

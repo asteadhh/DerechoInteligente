@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:pulpox_admin/constants/custom_colors.dart';
 import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
 
+import '../../../../constants/theme.dart';
 import '../../../../controllers/MenuController.dart';
 import '../../../../responsive.dart';
 import '../../../../routes/app_pages.dart';
@@ -71,7 +72,7 @@ class SideMenuPlatform extends GetView<MenuPlatformController> {
                   ),
                   DrawerListTile(
                     title: "Revenue",
-                    svgSrc: "assets/icons/menu_doc.svg",
+                    svgSrc: "assets/icons/money2.svg",
                     press: () async {
                       Get.toNamed(AppPages.revenue);
                       // await controller.platformEnabledIndex(3);
@@ -119,13 +120,27 @@ class SideMenuPlatform extends GetView<MenuPlatformController> {
 
               Expanded(child: SizedBox.shrink()),
               // UserLoginWidget(),
-              DrawerListTile(
-                title: "Sign out",
-                svgSrc: "assets/icons/menu_setting.svg",
-                press: () async {
-                  LoginController().signOut();
-                },
-              ),
+              if (!Responsive.isDesktop(context))
+                Column(children: [
+                  DrawerListTile(
+                    title: "Dark Mode",
+                    svgSrc: "assets/icons/dark-mode.svg",
+                    press: () async {
+                      Get.changeThemeMode(ThemeService().loadThemeFromBox()
+                          ? ThemeMode.light
+                          : ThemeMode.dark);
+                      ThemeService()
+                          .saveThemeToBox(!ThemeService().loadThemeFromBox());
+                    },
+                  ),
+                  DrawerListTile(
+                    title: "Sign out",
+                    svgSrc: "assets/icons/sign-out.svg",
+                    press: () async {
+                      LoginController().signOut();
+                    },
+                  ),
+                ]),
 
               Padding(
                 padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
