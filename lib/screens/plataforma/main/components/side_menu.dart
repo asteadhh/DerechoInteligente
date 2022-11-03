@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import 'package:pulpox_admin/constants/custom_colors.dart';
+import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
 
 import '../../../../controllers/MenuController.dart';
 import '../../../../responsive.dart';
@@ -17,131 +18,139 @@ class SideMenuPlatform extends GetView<MenuPlatformController> {
   Widget build(BuildContext context) {
     Get.lazyPut(() => MenuPlatformController());
     return Drawer(
-      child: ListView(
-        children: [
-          if (Responsive.isDesktop(context))
-            DrawerHeader(
-              child: Image.asset(Constants.kPulpoxPath),
-            ),
-          if (!Responsive.isDesktop(context))
-            SizedBox(
-              // height: MediaQuery.of(context).size.height * .15,
-              height: 110,
-              child: DrawerHeader(
-                //CAMBIA ESTO//
-                // child: ProfileLoginButton(),
-                child: Login_information_Choice(),
-              ),
-            ),
+      child: Container(
+        child: Padding(
+          padding: const EdgeInsets.all(0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Column(
+                children: [
+                  if (Responsive.isDesktop(context))
+                    DrawerHeader(
+                      child: Image.asset(Constants.kPulpoxPath),
+                    ),
+                  if (!Responsive.isDesktop(context))
+                    SizedBox(
+                      // height: MediaQuery.of(context).size.height * .15,
+                      height: 150,
+                      child: DrawerHeader(
+                        //CAMBIA ESTO//
+                        // child: ProfileLoginButton(),
+                        child: Login_information_Choice(),
+                      ),
+                    ),
+                  DrawerListTile(
+                    title: "Dashboard",
+                    svgSrc: "assets/icons/menu_dashbord.svg",
+                    press: () async {
+                      // await controller.platformEnabledIndex(0);
+                      Get.toNamed(AppPages.platform);
+                      // print(contsroller.tabIndex);
+                    },
+                  ),
+                  DrawerListTile(
+                    title: "Chat Soporte",
+                    svgSrc: "assets/icons/menu_tran.svg",
+                    press: () async {
+                      // await controller.platformEnabledIndex(1);
+                      Get.toNamed(AppPages.chatSoporte);
+                      // print(controller.tabIndex);
+                    },
+                  ),
+                  DrawerListTile(
+                    title: "Estadisticas",
+                    svgSrc: "assets/icons/menu_task.svg",
+                    press: () async {
+                      // await controller.platformEnabledIndex(2);
 
-          DrawerListTile(
-            title: "Dashboard",
-            svgSrc: "assets/icons/menu_dashbord.svg",
-            press: () async {
-              // await controller.platformEnabledIndex(0);
-              Get.toNamed(AppPages.platform);
-              // print(contsroller.tabIndex);
-            },
-          ),
-          DrawerListTile(
-            title: "Chat Soporte",
-            svgSrc: "assets/icons/menu_tran.svg",
-            press: () async {
-              // await controller.platformEnabledIndex(1);
-              Get.toNamed(AppPages.chatSoporte);
-              // print(controller.tabIndex);
-            },
-          ),
-          DrawerListTile(
-            title: "Estadisticas",
-            svgSrc: "assets/icons/menu_task.svg",
-            press: () async {
-              // await controller.platformEnabledIndex(2);
-
-              Get.toNamed(AppPages.estadisticas);
-              // print(controller.tabIndex);
-            },
-          ),
-          DrawerListTile(
-            title: "Revenue",
-            svgSrc: "assets/icons/menu_doc.svg",
-            press: () async {
-              Get.toNamed(AppPages.revenue);
-              // await controller.platformEnabledIndex(3);
-              // print(controller.tabIndex);
-            },
-          ),
-          DrawerListTile(
-            title: "Información de Usuarios",
-            svgSrc: "assets/icons/menu_store.svg",
-            press: () async {
-              Get.toNamed(AppPages.informacionDeUsuario);
-              // await controller.platformEnabledIndex(4);
-              // print(controller.tabIndex);
-            },
-          ),
-          DrawerListTile(
-            title: "Creditos Maestros",
-            svgSrc: "assets/icons/menu_notification.svg",
-            press: () async {
-              Get.toNamed(AppPages.creditosMaestros);
-              // await controller.platformEnabledIndex(5);
-              // print(controller.tabIndex);
-            },
-          ),
-          DrawerListTile(
-            title: "On Boardin Maestro",
-            svgSrc: "assets/icons/menu_profile.svg",
-            press: () async {
-              Get.toNamed(AppPages.onBoardingMaestros);
-              // await controller.platformEnabledIndex(6);
-              // print(controller.tabIndex);
-            },
-          ),
-          DrawerListTile(
-            title: "Pagos",
-            svgSrc: "assets/icons/menu_setting.svg",
-            press: () async {
-              Get.toNamed(AppPages.pagos);
-              // await controller.platformEnabledIndex(7);
-              // print(controller.tabIndex);
-            },
-          ),
-          // Expanded(child: SizedBox.shrink()),
-          // UserLoginWidget(),
-          Padding(
-            padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
-            child: Divider(
-              color: Colors.blueGrey[400],
-              thickness: 2,
-            ),
-          ),
-          // Expanded(child: SizedBox()),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Text(
-              'Copyright © 2022 | PulPox SpA',
-              style: TextStyle(
-                color: Colors.blueGrey[300],
-                fontSize: 14,
+                      Get.toNamed(AppPages.estadisticas);
+                      // print(controller.tabIndex);
+                    },
+                  ),
+                  DrawerListTile(
+                    title: "Revenue",
+                    svgSrc: "assets/icons/menu_doc.svg",
+                    press: () async {
+                      Get.toNamed(AppPages.revenue);
+                      // await controller.platformEnabledIndex(3);
+                      // print(controller.tabIndex);
+                    },
+                  ),
+                  DrawerListTile(
+                    title: "Información de Usuarios",
+                    svgSrc: "assets/icons/menu_store.svg",
+                    press: () async {
+                      Get.toNamed(AppPages.informacionDeUsuario);
+                      // await controller.platformEnabledIndex(4);
+                      // print(controller.tabIndex);
+                    },
+                  ),
+                  DrawerListTile(
+                    title: "Creditos Maestros",
+                    svgSrc: "assets/icons/menu_notification.svg",
+                    press: () async {
+                      Get.toNamed(AppPages.creditosMaestros);
+                      // await controller.platformEnabledIndex(5);
+                      // print(controller.tabIndex);
+                    },
+                  ),
+                  DrawerListTile(
+                    title: "On Boardin Maestro",
+                    svgSrc: "assets/icons/menu_profile.svg",
+                    press: () async {
+                      Get.toNamed(AppPages.onBoardingMaestros);
+                      // await controller.platformEnabledIndex(6);
+                      // print(controller.tabIndex);
+                    },
+                  ),
+                  DrawerListTile(
+                    title: "Pagos",
+                    svgSrc: "assets/icons/menu_setting.svg",
+                    press: () async {
+                      Get.toNamed(AppPages.pagos);
+                      // await controller.platformEnabledIndex(7);
+                      // print(controller.tabIndex);
+                    },
+                  ),
+                ],
               ),
-            ),
+
+              Expanded(child: SizedBox.shrink()),
+              // UserLoginWidget(),
+              DrawerListTile(
+                title: "Sign out",
+                svgSrc: "assets/icons/menu_setting.svg",
+                press: () async {
+                  LoginController().signOut();
+                },
+              ),
+
+              Padding(
+                padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
+                child: Divider(
+                  color: Colors.blueGrey[400],
+                  thickness: 2,
+                ),
+              ),
+              // Expanded(child: SizedBox()),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: Text(
+                  'Copyright © 2022 | PulPox SpA',
+                  style: TextStyle(
+                    color: Colors.blueGrey[300],
+                    fontSize: 14,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 10,
+              )
+            ],
           ),
-          // if (!Responsive.isDesktop(context))
-          //   Column(
-          //     children: [
-          //       DrawerListTile(
-          //         title: "Log Out",
-          //         svgSrc: "assets/icons/menu_setting.svg",
-          //         press: () async {
-          //           Get.toNamed(AppPages.pagos);
-          //           // await controller.platformEnabledIndex(7);
-          //           // print(controller.tabIndex);
-          //         },
-          //       ),
-          //     ],
-          //   )
-        ],
+        ),
       ),
     );
   }
