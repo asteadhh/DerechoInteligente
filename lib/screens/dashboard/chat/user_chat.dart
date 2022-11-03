@@ -42,9 +42,11 @@ class UserChat extends StatelessWidget {
                   snapshot.data!.data() as Map<String, dynamic>;
               return Row(
                 children: [
-                  CircleAvatar(
-                    radius: 20, // Image radius
-                    backgroundImage: NetworkImage(data['foto']),
+                  Center(
+                    child: CircleAvatar(
+                      radius: 20, // Image radius
+                      backgroundImage: NetworkImage(data['foto']),
+                    ),
                   ),
                   SizedBox(
                     width: 10,

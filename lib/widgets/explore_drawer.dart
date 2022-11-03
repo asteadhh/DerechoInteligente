@@ -101,10 +101,8 @@ class Login_information_Choice extends StatelessWidget {
 // datosUsuarioLogiado(auth.currentUser!.uid);
   @override
   Widget build(BuildContext context) {
-    String imageUrl =
-        "https://scaffoldtecnologia.com.br/wp-content/uploads/2021/10/app-2dd.png";
     return FirebaseAuth.instance.currentUser != null
-        ? Login_information(imageUrl: imageUrl)
+        ? Login_information()
         : SizedBox.shrink();
   }
 }
@@ -112,50 +110,17 @@ class Login_information_Choice extends StatelessWidget {
 class Login_information extends GetView<UserDataController> {
   Login_information({
     Key? key,
-    required this.imageUrl,
   }) : super(key: key);
-
-  final String imageUrl;
-  // final UserDataController controller =
-  //     Get.put<UserDataController>(UserDataController());
 
   @override
   Widget build(BuildContext context) {
     return Container(
       // height: 300,
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          // Obx(() => Text(controller.userInfo[1])),
-          CircleAvatar(
-            radius: MediaQuery.of(context).size.height * .05,
-            child: ImageNetwork(
-              image: imageUrl,
-              imageCache: CachedNetworkImageProvider(imageUrl),
-              height: MediaQuery.of(context).size.height * .05,
-              width: MediaQuery.of(context).size.height * .05,
-              duration: 1500,
-              curve: Curves.easeIn,
-              onPointer: true,
-              debugPrint: false,
-              fullScreen: false,
-              fitAndroidIos: BoxFit.cover,
-              fitWeb: BoxFitWeb.cover,
-              borderRadius: BorderRadius.circular(70),
-              onLoading: const CircularProgressIndicator(
-                color: Colors.indigoAccent,
-              ),
-              onError: Icon(
-                size: (MediaQuery.of(context).size.height * .05),
-                Icons.person,
-                color: Colors.grey,
-              ),
-              onTap: () {
-                debugPrint("Error de Texto");
-              },
-            ),
-          ),
+          Center(child: UserInformationDataAvatar()),
           SizedBox(
             width: MediaQuery.of(context).size.width * .02,
           ),
