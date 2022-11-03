@@ -11,6 +11,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 import '../../db/my_user.dart';
 import '../../models/user_chat.dart';
 import '../../routes/app_pages.dart';
+import '../../widgets/userInformation/User_Information.dart';
 
 class LoginController extends GetxController {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -24,8 +25,11 @@ class LoginController extends GetxController {
 
   UserChatInfo? get myUser => myUserData.value;
 
+  late DocumentSnapshot currentUserData;
+
   RxBool isProcessing = false.obs;
   final GoogleSignIn googleSignIn = GoogleSignIn();
+  final posts = [].obs;
 
   RxString uid = ''.obs;
   RxString name = ''.obs;
@@ -38,11 +42,11 @@ class LoginController extends GetxController {
   updateUserStream() async {
     var currentUser = auth.currentUser;
     print('UPDATE');
-    myUserData.bindStream(MyUserDB.myUserStream(currentUser));
+    myUserData.bindStream(await MyUserDB.myUserStream(currentUser));
   }
 
   @override
-  void onInit() {
+  void onInit() async {
     updateUserStream();
     super.onInit();
   }

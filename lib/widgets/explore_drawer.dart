@@ -3,12 +3,16 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:image_network/image_network.dart';
+import 'package:pulpox_admin/controllers/UserController/user_data_controller.dart';
 
+import '../constants/firebase_auth_constants.dart';
+import '../constants/firestore_constants.dart';
 import '../controllers/LoginController/login_controller.dart';
 import '../routes/app_pages.dart';
 import 'package:flutter/material.dart';
 
 import 'auth_dialog/auth_dialog.dart';
+import 'userInformation/User_Information.dart';
 
 class ExploreDrawer extends StatefulWidget {
   @override
@@ -33,7 +37,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              Login_information(),
+              Login_information_Choice(),
               SizedBox(height: 20),
               // controller.userEmail != null ? SizedBox(height: 20) : Container(),
               InkWell(
@@ -90,58 +94,75 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
   }
 }
 
-class Login_information extends StatelessWidget {
-  const Login_information({
+class Login_information_Choice extends StatelessWidget {
+  const Login_information_Choice({
     Key? key,
   }) : super(key: key);
-
+// datosUsuarioLogiado(auth.currentUser!.uid);
   @override
   Widget build(BuildContext context) {
     String imageUrl =
         "https://scaffoldtecnologia.com.br/wp-content/uploads/2021/10/app-2dd.png";
     return FirebaseAuth.instance.currentUser != null
-        ? Container(
-            // height: 300,
-            child: Row(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                CircleAvatar(
-                  radius: MediaQuery.of(context).size.height * .05,
-                  child: ImageNetwork(
-                    image: imageUrl,
-                    imageCache: CachedNetworkImageProvider(imageUrl),
-                    height: MediaQuery.of(context).size.height * .05,
-                    width: MediaQuery.of(context).size.height * .05,
-                    duration: 1500,
-                    curve: Curves.easeIn,
-                    onPointer: true,
-                    debugPrint: false,
-                    fullScreen: false,
-                    fitAndroidIos: BoxFit.cover,
-                    fitWeb: BoxFitWeb.cover,
-                    borderRadius: BorderRadius.circular(70),
-                    onLoading: const CircularProgressIndicator(
-                      color: Colors.indigoAccent,
-                    ),
-                    onError: Icon(
-                      size: (MediaQuery.of(context).size.height * .05),
-                      Icons.person,
-                      color: Colors.grey,
-                    ),
-                    onTap: () {
-                      debugPrint("Error de Texto");
-                    },
-                  ),
-                ),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width * .02,
-                ),
-                NameLandingUser()
-              ],
-            ),
-          )
+        ? Login_information(imageUrl: imageUrl)
         : SizedBox.shrink();
+  }
+}
+
+class Login_information extends GetView<UserDataController> {
+  Login_information({
+    Key? key,
+    required this.imageUrl,
+  }) : super(key: key);
+
+  final String imageUrl;
+  // final UserDataController controller =
+  //     Get.put<UserDataController>(UserDataController());
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      // height: 300,
+      child: Row(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          // Obx(() => Text(controller.userInfo[1])),
+          CircleAvatar(
+            radius: MediaQuery.of(context).size.height * .05,
+            child: ImageNetwork(
+              image: imageUrl,
+              imageCache: CachedNetworkImageProvider(imageUrl),
+              height: MediaQuery.of(context).size.height * .05,
+              width: MediaQuery.of(context).size.height * .05,
+              duration: 1500,
+              curve: Curves.easeIn,
+              onPointer: true,
+              debugPrint: false,
+              fullScreen: false,
+              fitAndroidIos: BoxFit.cover,
+              fitWeb: BoxFitWeb.cover,
+              borderRadius: BorderRadius.circular(70),
+              onLoading: const CircularProgressIndicator(
+                color: Colors.indigoAccent,
+              ),
+              onError: Icon(
+                size: (MediaQuery.of(context).size.height * .05),
+                Icons.person,
+                color: Colors.grey,
+              ),
+              onTap: () {
+                debugPrint("Error de Texto");
+              },
+            ),
+          ),
+          SizedBox(
+            width: MediaQuery.of(context).size.width * .02,
+          ),
+          NameLandingUser()
+        ],
+      ),
+    );
   }
 }
 
@@ -158,49 +179,32 @@ class _NameLandingUserState extends State<NameLandingUser> {
   @override
   Widget build(BuildContext context) {
     final userController = Get.put<LoginController>(LoginController());
+
     return Column(
       children: [
         SizedBox(
           height: MediaQuery.of(context).size.height * 0.01,
         ),
         Container(
-          child: userController.myUser?.nombre == null
-              ? Icon(
-                  Icons.account_circle,
-                  size: 20,
-                  color: Colors.grey,
-                )
-              : Container(
-                  width: 170,
-                  child: AutoSizeText(userController.myUser?.nombre,
-                      style: TextStyle(
-                        fontSize: 20,
-                        color: Colors.white70,
-                      ),
-                      maxLines: 2,
-                      overflow: TextOverflow.ellipsis),
-                ),
+          width: 160,
+          child: UserInformationDataText(
+            data: FirestoreConstants.nickname,
+            fontSize: 10,
+            color: Colors.white70,
+            maxLines: 2,
+          ),
         ),
         SizedBox(
           height: MediaQuery.of(context).size.height * 0.01,
         ),
         Container(
-          child: userController.myUser?.nombre == null
-              ? Icon(
-                  Icons.account_circle,
-                  size: 20,
-                  color: Colors.grey,
-                )
-              : Container(
-                  width: 160,
-                  child: AutoSizeText(userController.myUser?.correo,
-                      style: TextStyle(
-                        fontSize: 10,
-                        color: Colors.white24,
-                      ),
-                      maxLines: 1,
-                      overflow: TextOverflow.ellipsis),
-                ),
+          width: 160,
+          child: UserInformationDataText(
+            data: FirestoreConstants.correo,
+            fontSize: 10,
+            color: Colors.white24,
+            maxLines: 1,
+          ),
         ),
       ],
     );

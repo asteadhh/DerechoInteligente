@@ -1,11 +1,16 @@
 import 'package:auto_size_text/auto_size_text.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pulpox_admin/constants/firebase_auth_constants.dart';
+import 'package:pulpox_admin/constants/firestore_constants.dart';
 import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
 
 import '../../constants.dart';
 import '../explore_drawer.dart';
+import '../userInformation/User_Information.dart';
 
 class ProfileLoginButton extends StatelessWidget {
   final String? hint;
@@ -91,15 +96,30 @@ class ProfileLoginButton extends StatelessWidget {
                 //       return Text(snapshot.data!.id);
                 //     },
                 //     stream: loginController.myUserData.stream),
-                Container(
-                  child: loginController.myUser?.nickname == null
-                      ? Icon(
-                          Icons.account_circle,
-                          size: 30,
-                          color: Colors.grey,
-                        )
-                      : AutoSizeText(loginController.myUser!.nickname),
+
+                // Container(
+                //   child: Text(datosUsuarioLogiado(auth.currentUser!.uid)),
+                // ),
+
+                UserInformationDataText(
+                  data: FirestoreConstants.nickname,
                 ),
+
+                // Container(
+                //   child: Text(loginController.currentUserDataInformation(
+                //       uid: auth.currentUser!.uid, data: 'nickname')),
+                // )
+
+                // Container(
+                //   child: loginController.myUser?.nickname == null
+                //       ? Icon(
+                //           Icons.account_circle,
+                //           size: 30,
+                //           color: Colors.grey,
+                //         )
+                //       : AutoSizeText(loginController.myUser!.nickname),
+                // ),
+
                 // Container(
                 //   height: 10,
                 //   width: 10,
@@ -239,3 +259,40 @@ class MenuItems {
     }
   }
 }
+
+// class UserInformation extends StatefulWidget {
+//   @override
+//   _UserInformationState createState() => _UserInformationState();
+// }
+
+// class _UserInformationState extends State<UserInformation> {
+//   final Stream<QuerySnapshot> _usersStream =
+//       FirebaseFirestore.instance.collection('users').snapshots();
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return StreamBuilder<QuerySnapshot>(
+//       stream: _usersStream,
+//       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
+//         if (snapshot.hasError) {
+//           return Text('Something went wrong');
+//         }
+
+//         if (snapshot.connectionState == ConnectionState.waiting) {
+//           return Text("Loading");
+//         }
+//         return Text(snapshot.data!.docs.length.toString());
+//         // return ListView(
+//         //   children: snapshot.data!.docs.map((DocumentSnapshot document) {
+//         //     Map<String, dynamic> data =
+//         //         document.data()! as Map<String, dynamic>;
+//         //     return ListTile(
+//         //       title: Text(data['nickname']),
+//         //       // subtitle: Text(data['company']),
+//         //     );
+//         //   }).toList(),
+//         // );
+//       },
+//     );
+//   }
+// }
