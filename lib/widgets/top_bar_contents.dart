@@ -2,13 +2,11 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
 
-import '../constants/theme.dart';
 import '../routes/app_pages.dart';
 import 'auth_dialog/auth_dialog.dart';
 import 'package:flutter/material.dart';
 
 import 'platformButtons/profileLoginButtons.dart';
-import 'userInformation/User_Information.dart';
 
 class TopBarContents extends GetView<LoginController> {
   @override

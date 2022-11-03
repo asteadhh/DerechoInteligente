@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:pulpox_admin/constants/custom_colors.dart';
 
 import '../../../../controllers/MenuController.dart';
+import '../../../../responsive.dart';
 import '../../../../routes/app_pages.dart';
+import '../../../../widgets/explore_drawer.dart';
 
 class SideMenuPlatform extends GetView<MenuPlatformController> {
   const SideMenuPlatform({
@@ -18,9 +19,21 @@ class SideMenuPlatform extends GetView<MenuPlatformController> {
     return Drawer(
       child: ListView(
         children: [
-          DrawerHeader(
-            child: Image.asset(Constants.kPulpoxPath),
-          ),
+          if (Responsive.isDesktop(context))
+            DrawerHeader(
+              child: Image.asset(Constants.kPulpoxPath),
+            ),
+          if (!Responsive.isDesktop(context))
+            SizedBox(
+              // height: MediaQuery.of(context).size.height * .15,
+              height: 110,
+              child: DrawerHeader(
+                //CAMBIA ESTO//
+                // child: ProfileLoginButton(),
+                child: Login_information_Choice(),
+              ),
+            ),
+
           DrawerListTile(
             title: "Dashboard",
             svgSrc: "assets/icons/menu_dashbord.svg",
@@ -94,6 +107,40 @@ class SideMenuPlatform extends GetView<MenuPlatformController> {
               // print(controller.tabIndex);
             },
           ),
+          // Expanded(child: SizedBox.shrink()),
+          // UserLoginWidget(),
+          Padding(
+            padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
+            child: Divider(
+              color: Colors.blueGrey[400],
+              thickness: 2,
+            ),
+          ),
+          // Expanded(child: SizedBox()),
+          Align(
+            alignment: Alignment.bottomCenter,
+            child: Text(
+              'Copyright © 2022 | PulPox SpA',
+              style: TextStyle(
+                color: Colors.blueGrey[300],
+                fontSize: 14,
+              ),
+            ),
+          ),
+          // if (!Responsive.isDesktop(context))
+          //   Column(
+          //     children: [
+          //       DrawerListTile(
+          //         title: "Log Out",
+          //         svgSrc: "assets/icons/menu_setting.svg",
+          //         press: () async {
+          //           Get.toNamed(AppPages.pagos);
+          //           // await controller.platformEnabledIndex(7);
+          //           // print(controller.tabIndex);
+          //         },
+          //       ),
+          //     ],
+          //   )
         ],
       ),
     );
