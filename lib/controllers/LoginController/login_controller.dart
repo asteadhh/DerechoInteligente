@@ -52,16 +52,17 @@ class LoginController extends GetxController {
     print('UPDATE Permitions');
     myUserPermissionData.bindStream(
         await MyUserPermissionDB.myUserPermissionsStream(currentUser));
+    // print(myUserPermitions!.admin);
   }
 
   @override
   void onInit() async {
-    updateUserPermitionsStream();
-    updateUserStream();
     super.onInit();
+    await updateUserPermitionsStream();
+    await updateUserStream();
   }
 
-  Future getUser() async {
+  getUser() async {
     await Firebase.initializeApp();
 
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -71,8 +72,8 @@ class LoginController extends GetxController {
 
     if (authSignedIn == true) {
       if (user != null) {
-        updateUserPermitionsStream();
-        updateUserStream();
+        await updateUserPermitionsStream();
+        await updateUserStream();
       }
     }
   }
@@ -426,8 +427,9 @@ class LoginController extends GetxController {
                 })
                 .then((value) => print(
                     'Iniciado por primera vez con Google ${FirebaseAuth.instance.currentUser!.email.toString()}'))
-                .then((value) {
-                  updateUserStream();
+                .then((value) async {
+                  await updateUserStream();
+                  await updateUserPermitionsStream();
                 })
                 .then((value) {
                   // Get.offAll(Text1Screen);
@@ -446,13 +448,16 @@ class LoginController extends GetxController {
                 .doc(FirebaseAuth.instance.currentUser!.uid)
                 .update(
               {'lastLogInOn': DateTime.now()},
-            ).whenComplete(() {
-              updateUserStream();
+            ).whenComplete(() async {
+              await updateUserStream();
+
+              await updateUserPermitionsStream();
             }).then(
               (value) {
                 print(
                     'Iniciado con Google ${FirebaseAuth.instance.currentUser!.email.toString()}');
                 print('Esta es la foto de google 1 ${myUser?.foto}');
+                print('Permisos en google ${myUser?.foto}');
                 // LandingPageController().registerNotification();
               },
             );

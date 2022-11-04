@@ -47,6 +47,7 @@ class SideMenuPlatform extends GetView<LoginController> {
                           title: "Dashboard",
                           svgSrc: "assets/icons/menu_dashbord.svg",
                           press: () async {
+                            Get.put<LoginController>(LoginController());
                             // await controller.platformEnabledIndex(0);
                             Get.toNamed(AppPages.platform);
                             // print(contsroller.tabIndex);
@@ -58,6 +59,7 @@ class SideMenuPlatform extends GetView<LoginController> {
                           title: "Chat Soporte",
                           svgSrc: "assets/icons/menu_tran.svg",
                           press: () async {
+                            Get.put<LoginController>(LoginController());
                             // await controller.platformEnabledIndex(1);
                             Get.toNamed(AppPages.chatSoporte);
                             // print(controller.tabIndex);
@@ -69,6 +71,7 @@ class SideMenuPlatform extends GetView<LoginController> {
                           title: "Estadisticas",
                           svgSrc: "assets/icons/menu_task.svg",
                           press: () async {
+                            Get.put<LoginController>(LoginController());
                             // await controller.platformEnabledIndex(2);
 
                             Get.toNamed(AppPages.estadisticas);
@@ -81,6 +84,7 @@ class SideMenuPlatform extends GetView<LoginController> {
                           title: "Revenue",
                           svgSrc: "assets/icons/money2.svg",
                           press: () async {
+                            Get.put<LoginController>(LoginController());
                             Get.toNamed(AppPages.revenue);
                             // await controller.platformEnabledIndex(3);
                             // print(controller.tabIndex);
@@ -93,6 +97,7 @@ class SideMenuPlatform extends GetView<LoginController> {
                           title: "Información de Usuarios",
                           svgSrc: "assets/icons/menu_store.svg",
                           press: () async {
+                            Get.put<LoginController>(LoginController());
                             Get.toNamed(AppPages.informacionDeUsuario);
                             // await controller.platformEnabledIndex(4);
                             // print(controller.tabIndex);
@@ -104,6 +109,7 @@ class SideMenuPlatform extends GetView<LoginController> {
                           title: "Creditos Maestros",
                           svgSrc: "assets/icons/menu_notification.svg",
                           press: () async {
+                            Get.put<LoginController>(LoginController());
                             Get.toNamed(AppPages.creditosMaestros);
                             // await controller.platformEnabledIndex(5);
                             // print(controller.tabIndex);
@@ -116,6 +122,7 @@ class SideMenuPlatform extends GetView<LoginController> {
                           title: "On Boardin Maestro",
                           svgSrc: "assets/icons/menu_profile.svg",
                           press: () async {
+                            Get.put<LoginController>(LoginController());
                             Get.toNamed(AppPages.onBoardingMaestros);
                             // await controller.platformEnabledIndex(6);
                             // print(controller.tabIndex);
@@ -127,6 +134,7 @@ class SideMenuPlatform extends GetView<LoginController> {
                           title: "Pagos",
                           svgSrc: "assets/icons/menu_setting.svg",
                           press: () async {
+                            Get.put<LoginController>(LoginController());
                             Get.toNamed(AppPages.pagos);
                             // await controller.platformEnabledIndex(7);
                             // print(controller.tabIndex);
