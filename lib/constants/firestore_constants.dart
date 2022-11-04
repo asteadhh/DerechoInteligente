@@ -37,7 +37,7 @@ class FirestoreConstants {
   static const iniciado = 'iniciado';
   static const status = 'status';
   static const numeroTelefono = 'numeroTelefono';
-  static const support = 'supportChat';
+  static const supportChat = 'supportChat';
 }
 
 class FirestorePermitionsConstants {

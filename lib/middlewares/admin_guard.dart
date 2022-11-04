@@ -25,9 +25,8 @@ class ChatSoporteGuard extends GetMiddleware {
   @override
   RouteSettings? redirect(String? route) {
     print('ChatSoporteGuard ${loginController.myUserPermitions?.chatSoporte}');
-    return loginController.myUserPermitions?.chatSoporte == 'verdad'
-        ? null
-        : const RouteSettings(name: AppPages.main);
+    // return loginController.myUserPermitions?.chatSoporte == 'verdad'
+    return true ? null : const RouteSettings(name: AppPages.main);
   }
 }
 

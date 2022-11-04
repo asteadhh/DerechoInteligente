@@ -20,7 +20,7 @@ class AbrirChatWidget extends StatelessWidget {
     var peerId,
   ) {
     DocumentReference documentReference = FirebaseFirestore.instance
-        .collection(FirestoreConstants.pathMessageCollection)
+        .collection(FirestoreConstants.supportChat)
         .doc(groupChatId)
         .collection(groupChatId)
         .doc(DateTime.now().millisecondsSinceEpoch.toString());

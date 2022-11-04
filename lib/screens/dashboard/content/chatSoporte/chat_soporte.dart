@@ -14,7 +14,11 @@ class ChatSoporteContent extends StatelessWidget {
   Widget build(BuildContext context) {
     return Responsive.isMobile(context)
         ? Container(
-            child: Text('ddd'),
+            child: Column(
+              children: [
+                ChatChoiceScreen(),
+              ],
+            ),
           )
         : Row(
             children: [

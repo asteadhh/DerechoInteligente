@@ -26,11 +26,11 @@ class Header extends StatelessWidget {
               Scaffold.of(context).openDrawer();
             },
           ),
-        if (!Responsive.isMobile(context))
-          Text(
-            text,
-            style: Theme.of(context).textTheme.headline6,
-          ),
+        // if (!Responsive.isMobile(context))
+        Text(
+          text,
+          style: Theme.of(context).textTheme.headline6,
+        ),
 
         if (!Responsive.isMobile(context))
           Spacer(flex: Responsive.isDesktop(context) ? 2 : 1),
