@@ -45,7 +45,6 @@ class ChatController extends GetxController {
 
   @override
   void dispose() {
-    // TODO: implement dispose
     super.dispose();
     btnClearController.close();
   }

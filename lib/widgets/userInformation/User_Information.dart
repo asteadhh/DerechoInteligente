@@ -1,15 +1,14 @@
 import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cached_network_image/cached_network_image.dart';
+import 'package:avatar_view/avatar_view.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:image_network/image_network.dart';
 import 'package:pulpox_admin/constants/firebase_auth_constants.dart';
 import 'package:pulpox_admin/constants/firestore_constants.dart';
 
 import '../../controllers/LoginController/login_controller.dart';
 
+// ignore: must_be_immutable
 class UserInformationDataText extends GetView<LoginController> {
   UserInformationDataText({
     this.uid,
@@ -23,14 +22,13 @@ class UserInformationDataText extends GetView<LoginController> {
   var uid;
   String data;
 
-  var fontSize;
+  double fontSize;
   var color;
   var maxLines;
   var overflow;
 
   @override
   Widget build(BuildContext context) {
-    final loginController = Get.put<LoginController>(LoginController());
     return FutureBuilder<DocumentSnapshot>(
       future: FirebaseFirestore.instance
           .collection('users')
@@ -41,9 +39,7 @@ class UserInformationDataText extends GetView<LoginController> {
           return Center(
             child: Text(snapshot.hasError.toString()),
           );
-        if (snapshot.hasData) {
-          loginController.currentUserData = snapshot.data! as DocumentSnapshot;
-        } else {}
+
         return snapshot.hasData
             ? AutoSizeText("${snapshot.data![data]}",
                 style: TextStyle(
@@ -58,6 +54,7 @@ class UserInformationDataText extends GetView<LoginController> {
   }
 }
 
+// ignore: must_be_immutable
 class UserInformationDataAvatar extends StatefulWidget {
   UserInformationDataAvatar({
     this.uid,
@@ -73,7 +70,6 @@ class UserInformationDataAvatar extends StatefulWidget {
 class _UserInformationDataAvatarState extends State<UserInformationDataAvatar> {
   @override
   Widget build(BuildContext context) {
-    final loginController = Get.put<LoginController>(LoginController());
     return FutureBuilder<DocumentSnapshot>(
       future: FirebaseFirestore.instance
           .collection('users')
@@ -84,34 +80,27 @@ class _UserInformationDataAvatarState extends State<UserInformationDataAvatar> {
           return Center(
             child: Text(snapshot.hasError.toString()),
           );
-        if (snapshot.hasData) {
-          loginController.currentUserData = snapshot.data! as DocumentSnapshot;
-        } else {}
+
         return snapshot.hasData
-            ? ImageNetwork(
-                image: snapshot.data![FirestoreConstants.foto],
-                imageCache: CachedNetworkImageProvider(FirestoreConstants.foto),
-                height: MediaQuery.of(context).size.height * .05,
-                width: MediaQuery.of(context).size.height * .05,
-                duration: 1500,
-                curve: Curves.easeIn,
-                onPointer: true,
-                debugPrint: false,
-                fullScreen: false,
-                fitAndroidIos: BoxFit.cover,
-                fitWeb: BoxFitWeb.fill,
-                borderRadius: BorderRadius.circular(70),
-                onLoading: const CircularProgressIndicator(
-                  color: Colors.indigoAccent,
+            ? AvatarView(
+                radius: 20,
+                // borderWidth: 8,
+                // borderColor: Colors.yellow,
+                avatarType: AvatarType.CIRCLE,
+                backgroundColor: Colors.white,
+                imagePath: snapshot.data![FirestoreConstants.foto],
+                placeHolder: Container(
+                  child: Icon(
+                    Icons.person,
+                    size: 50,
+                  ),
                 ),
-                onError: Icon(
-                  size: (MediaQuery.of(context).size.height * .05),
-                  Icons.person,
-                  color: Colors.grey,
+                errorWidget: Container(
+                  child: Icon(
+                    Icons.error,
+                    size: 50,
+                  ),
                 ),
-                // onTap: () {
-                //   debugPrint("Error de Texto");
-                // },
               )
             : SizedBox.shrink();
       },

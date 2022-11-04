@@ -1,11 +1,7 @@
-import 'package:auto_size_text/auto_size_text.dart';
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-import 'package:image_network/image_network.dart';
 import 'package:pulpox_admin/controllers/UserController/user_data_controller.dart';
 
-import '../constants/firebase_auth_constants.dart';
 import '../constants/firestore_constants.dart';
 import '../controllers/LoginController/login_controller.dart';
 import '../routes/app_pages.dart';
@@ -38,7 +34,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
               Login_information_Choice(),
-              SizedBox(height: 20),
+              SizedBox(height: 40),
               // controller.userEmail != null ? SizedBox(height: 20) : Container(),
               InkWell(
                 onTap: () {
@@ -115,7 +111,7 @@ class Login_information extends GetView<UserDataController> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      // height: 300,
+      // height: 30,
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.start,
@@ -124,7 +120,7 @@ class Login_information extends GetView<UserDataController> {
           SizedBox(
             width: MediaQuery.of(context).size.width * .02,
           ),
-          NameLandingUser()
+          Center(child: NameLandingUser())
         ],
       ),
     );
@@ -146,12 +142,14 @@ class _NameLandingUserState extends State<NameLandingUser> {
     final userController = Get.put<LoginController>(LoginController());
 
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      mainAxisAlignment: MainAxisAlignment.start,
       children: [
         SizedBox(
           height: MediaQuery.of(context).size.height * 0.01,
         ),
         Container(
-          width: 160,
+          width: 180,
           child: UserInformationDataText(
             data: FirestoreConstants.nickname,
             fontSize: 10,
@@ -163,7 +161,7 @@ class _NameLandingUserState extends State<NameLandingUser> {
           height: MediaQuery.of(context).size.height * 0.01,
         ),
         Container(
-          width: 160,
+          width: 180,
           child: UserInformationDataText(
             data: FirestoreConstants.correo,
             fontSize: 10,

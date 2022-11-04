@@ -2,8 +2,6 @@ import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_crashlytics/firebase_crashlytics.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
-import 'package:firebase_auth_web/firebase_auth_web.dart';
-
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:url_strategy/url_strategy.dart';
 
@@ -11,8 +9,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
 
-import 'package:pulpox_admin/routes/app_pages.dart';
-import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
+import '/routes/app_pages.dart';
+import '/controllers/LoginController/login_controller.dart';
 import '/utils/translations.dart';
 import 'constants/theme.dart';
 import 'firebase_options.dart';
@@ -46,6 +44,7 @@ Future main() async {
 
   //
   // await Purchases.configure(_configuration);
+
   FirebaseMessaging messaging = FirebaseMessaging.instance;
 
   // NotificationSettings settings = await messaging.requestPermission(
@@ -69,6 +68,9 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
+    // return MaterialApp(
+    //   home: Text('ddd'),
+    // );
     Future getUserInfo() async {
       print('MyAPP ${LoginController().myUser?.uid}');
       // await MenuController().getUser();
@@ -95,7 +97,7 @@ class MyApp extends StatelessWidget {
       getPages: AppPages.routes,
       // getPages: appPages,
       initialRoute: AppPages.main,
-      // initialRoute: Routes.home,
+      // home: Text('ddd'),
       unknownRoute: GetPage(
         name: AppPages.errorPagina,
         page: () => const Screen404(),

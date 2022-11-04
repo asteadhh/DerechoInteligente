@@ -10,8 +10,8 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../db/my_user.dart';
 import '../../models/user_chat.dart';
+import '../../models/user_permitions.dart';
 import '../../routes/app_pages.dart';
-import '../../widgets/userInformation/User_Information.dart';
 
 class LoginController extends GetxController {
   final FirebaseAuth _auth = FirebaseAuth.instance;
@@ -22,8 +22,10 @@ class LoginController extends GetxController {
   final passwordController = TextEditingController();
 
   Rx<UserChatInfo?> myUserData = Rx<UserChatInfo?>(null);
+  Rx<UserPermissionInfo?> myUserPermissionData = Rx<UserPermissionInfo?>(null);
 
   UserChatInfo? get myUser => myUserData.value;
+  UserPermissionInfo? get myUserPermitions => myUserPermissionData.value;
 
   late DocumentSnapshot currentUserData;
 
@@ -41,21 +43,26 @@ class LoginController extends GetxController {
 
   updateUserStream() async {
     var currentUser = auth.currentUser;
-    print('UPDATE');
-    myUserData.bindStream(await MyUserDB.myUserStream(currentUser));
+    print('UPDATE User Data');
+    myUserData.bindStream(await MyUserDB.myUserDataStream(currentUser));
+  }
+
+  updateUserPermitionsStream() async {
+    var currentUser = auth.currentUser;
+    print('UPDATE Permitions');
+    myUserPermissionData.bindStream(
+        await MyUserPermissionDB.myUserPermissionsStream(currentUser));
+    // print(myUserPermitions!.admin);
   }
 
   @override
   void onInit() async {
-    updateUserStream();
     super.onInit();
+    await updateUserPermitionsStream();
+    await updateUserStream();
   }
 
-  @override
-  // TODO: implement onStart
-  InternalFinalCallback<void> get onStart => super.onStart;
-
-  Future getUser() async {
+  getUser() async {
     await Firebase.initializeApp();
 
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -65,7 +72,8 @@ class LoginController extends GetxController {
 
     if (authSignedIn == true) {
       if (user != null) {
-        updateUserStream();
+        await updateUserPermitionsStream();
+        await updateUserStream();
       }
     }
   }
@@ -419,8 +427,9 @@ class LoginController extends GetxController {
                 })
                 .then((value) => print(
                     'Iniciado por primera vez con Google ${FirebaseAuth.instance.currentUser!.email.toString()}'))
-                .then((value) {
-                  updateUserStream();
+                .then((value) async {
+                  await updateUserStream();
+                  await updateUserPermitionsStream();
                 })
                 .then((value) {
                   // Get.offAll(Text1Screen);
@@ -439,13 +448,16 @@ class LoginController extends GetxController {
                 .doc(FirebaseAuth.instance.currentUser!.uid)
                 .update(
               {'lastLogInOn': DateTime.now()},
-            ).whenComplete(() {
-              updateUserStream();
+            ).whenComplete(() async {
+              await updateUserStream();
+
+              await updateUserPermitionsStream();
             }).then(
               (value) {
                 print(
                     'Iniciado con Google ${FirebaseAuth.instance.currentUser!.email.toString()}');
                 print('Esta es la foto de google 1 ${myUser?.foto}');
+                print('Permisos en google ${myUser?.foto}');
                 // LandingPageController().registerNotification();
               },
             );

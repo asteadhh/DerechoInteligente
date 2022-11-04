@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
 
-import '../controllers/MenuController.dart';
 import '../controllers/menu_landing_page_controller.dart';
 import '../services/auth_service.dart';
 

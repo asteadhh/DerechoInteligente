@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get/get.dart';
-import 'package:pulpox_admin/controllers/MenuController.dart';
 
-import '../../../../constants/theme.dart';
 import '../../../../widgets/platformButtons/profileLoginButtons.dart';
 import '/responsive.dart';
 import '../../../../constants.dart';
@@ -18,9 +15,6 @@ class Header extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final MenuPlatformController menuPlatformController =
-        Get.put<MenuPlatformController>(MenuPlatformController());
-
     return Row(
       children: [
         if (!Responsive.isDesktop(context))
@@ -37,67 +31,11 @@ class Header extends StatelessWidget {
             text,
             style: Theme.of(context).textTheme.headline6,
           ),
-        // Obx(() => IndexedStack(
-        //           index: menuPlatformController.tabIndex.value,
-        //           children: [
-        //             Text(
-        //               "Dashboard",
-        //               style: Theme.of(context).textTheme.headline6,
-        //             ),
-        //             Text(
-        //               "Chat Soporte",
-        //               style: Theme.of(context).textTheme.headline6,
-        //             ),
-        //             Text(
-        //               "Estadisticas",
-        //               style: Theme.of(context).textTheme.headline6,
-        //             ),
-        //             Text(
-        //               "Revenue",
-        //               style: Theme.of(context).textTheme.headline6,
-        //             ),
-        //             Text(
-        //               "Informacion de Usuarios",
-        //               style: Theme.of(context).textTheme.headline6,
-        //             ),
-        //             Text(
-        //               "Creditos Maestros",
-        //               style: Theme.of(context).textTheme.headline6,
-        //             ),
-        //             Text(
-        //               "On Boarding Maestro",
-        //               style: Theme.of(context).textTheme.headline6,
-        //             ),
-        //             Text(
-        //               "Pagos",
-        //               style: Theme.of(context).textTheme.headline6,
-        //             ),
-        //           ],
-        //         )
 
-        //     //  Text(
-        //     //   "Dashboard",
-        //     //   style: Theme.of(context).textTheme.headline6,
-        //     // ),
-        //     ),
-        // IconButton(
-        //   icon: Icon(Icons.brightness_6),
-        //   splashColor: Colors.transparent,
-        //   highlightColor: Colors.transparent,
-        //   color: Theme.of(context).primaryTextTheme.headline6!.color,
-        //   onPressed: () {
-        //     //Change Theme Mode
-        //     // EasyDynamicTheme.of(context).changeTheme();
-        //     Get.changeThemeMode(ThemeService().loadThemeFromBox()
-        //         ? ThemeMode.light
-        //         : ThemeMode.dark);
-        //     ThemeService().saveThemeToBox(!ThemeService().loadThemeFromBox());
-        //   },
-        // ),
         if (!Responsive.isMobile(context))
           Spacer(flex: Responsive.isDesktop(context) ? 2 : 1),
         // Expanded(child: SearchField()),
-        ProfileLoginButton(),
+        if (Responsive.isDesktop(context)) ProfileLoginButton(),
       ],
     );
   }

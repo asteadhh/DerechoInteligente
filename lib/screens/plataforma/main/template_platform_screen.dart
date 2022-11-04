@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '../../../controllers/LoginController/login_controller.dart';
 import '../../dashboard/content/dashboardContent/dashboard_content.dart';
 import 'components/side_menu.dart';
 import '/responsive.dart';
@@ -17,6 +19,8 @@ class PlatformAdminTemplateScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final LoginController loginController =
+        Get.put<LoginController>(LoginController());
     return Scaffold(
       backgroundColor: Theme.of(context).accentColor,
       // key: context.read<MenuController>().scaffoldKey,

@@ -1,11 +1,8 @@
-import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class MenuPlatformController extends GetxController {
   RxBool isProcessing = false.obs;
-
-  final FirebaseAuth _auth = FirebaseAuth.instance;
 
   var tabIndex = 0.obs;
 
