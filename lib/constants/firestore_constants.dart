@@ -39,3 +39,15 @@ class FirestoreConstants {
   static const numeroTelefono = 'numeroTelefono';
   static const support = 'supportChat';
 }
+
+class FirestorePermitionsConstants {
+  // FireStore permission Type//
+  static const admin = 'admin';
+  static const chatSoporte = 'chatSoporte';
+  static const estadisticas = 'estadisticas';
+  static const revenue = 'revenue';
+  static const informacionDeUsuario = 'informacionDeUsuario';
+  static const creditosMaestros = 'creditosMaestros';
+  static const onBoardingMaestro = 'onBoardingMaestro';
+  static const pagos = 'pagos';
+}

@@ -10,6 +10,7 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../db/my_user.dart';
 import '../../models/user_chat.dart';
+import '../../models/user_permitions.dart';
 import '../../routes/app_pages.dart';
 
 class LoginController extends GetxController {
@@ -21,8 +22,10 @@ class LoginController extends GetxController {
   final passwordController = TextEditingController();
 
   Rx<UserChatInfo?> myUserData = Rx<UserChatInfo?>(null);
+  Rx<UserPermissionInfo?> myUserPermissionData = Rx<UserPermissionInfo?>(null);
 
   UserChatInfo? get myUser => myUserData.value;
+  UserPermissionInfo? get myUserPermitions => myUserPermissionData.value;
 
   late DocumentSnapshot currentUserData;
 
@@ -40,12 +43,20 @@ class LoginController extends GetxController {
 
   updateUserStream() async {
     var currentUser = auth.currentUser;
-    print('UPDATE');
-    myUserData.bindStream(await MyUserDB.myUserStream(currentUser));
+    print('UPDATE User Data');
+    myUserData.bindStream(await MyUserDB.myUserDataStream(currentUser));
+  }
+
+  updateUserPermitionsStream() async {
+    var currentUser = auth.currentUser;
+    print('UPDATE Permitions');
+    myUserPermissionData.bindStream(
+        await MyUserPermissionDB.myUserPermissionsStream(currentUser));
   }
 
   @override
   void onInit() async {
+    updateUserPermitionsStream();
     updateUserStream();
     super.onInit();
   }
@@ -60,6 +71,7 @@ class LoginController extends GetxController {
 
     if (authSignedIn == true) {
       if (user != null) {
+        updateUserPermitionsStream();
         updateUserStream();
       }
     }

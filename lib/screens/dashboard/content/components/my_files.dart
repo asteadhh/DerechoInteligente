@@ -35,10 +35,24 @@ class MyFiles extends StatelessWidget {
                 ),
               ),
               onPressed: () {
-                print(controller.myUser!.correo);
+                print(controller.myUser!.uid);
               },
               icon: Icon(Icons.add),
-              label: Text("Add New"),
+              label: Text("Mail Stream"),
+            ),
+            ElevatedButton.icon(
+              style: TextButton.styleFrom(
+                padding: EdgeInsets.symmetric(
+                  horizontal: defaultPadding * 1.5,
+                  vertical:
+                      defaultPadding / (Responsive.isMobile(context) ? 2 : 1),
+                ),
+              ),
+              onPressed: () {
+                print(controller.myUserPermitions!.admin.toString());
+              },
+              icon: Icon(Icons.add),
+              label: Text("Is Admin"),
             ),
           ],
         ),
