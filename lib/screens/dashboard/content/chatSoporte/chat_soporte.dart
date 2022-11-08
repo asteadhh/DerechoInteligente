@@ -12,39 +12,67 @@ class ChatSoporteContent extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        if (!Responsive.isMobile(context))
-          Expanded(
-            flex: 2,
-            child: ChatList(),
-          ),
-        Expanded(
-          flex: 3,
-          child: Column(
+    return Responsive.isMobile(context)
+        ? Container(
+            child: Column(
+              children: [
+                ChatChoiceScreen(),
+              ],
+            ),
+          )
+        : Row(
             children: [
-              if (Responsive.isMobile(context)) ChatList(),
-              if (Responsive.isMobile(context))
-                SizedBox(height: chatSoportePadding),
-              ChatWidget(),
-              SizedBox(height: chatSoportePadding),
-              // RecentFiles(),
-              if (Responsive.isMobile(context))
-                SizedBox(height: chatSoportePadding),
-              if (Responsive.isMobile(context)) UserInformation(),
+              Expanded(
+                flex: 3,
+                child: ChatList(),
+              ),
+              // SizedBox(height: chatSoportePadding),
+              Expanded(
+                flex: 3,
+                child: Column(children: [
+                  ChatWidget(),
+                ]),
+              ),
+              // SizedBox(height: chatSoportePadding),
+              Expanded(
+                flex: 2,
+                child: UserInformation(),
+              ),
             ],
-          ),
-        ),
-        if (!Responsive.isMobile(context)) SizedBox(width: chatSoportePadding),
-        // On Mobile means if the screen is less than 850 we dont want to show it
-        if (!Responsive.isMobile(context))
-          Expanded(
-            flex: 2,
-            child: UserInformation(),
-          ),
-      ],
-    );
+          );
+    //return Row(
+    //   crossAxisAlignment: CrossAxisAlignment.start,
+    //   children: [
+    //     if (!Responsive.isMobile(context))
+    //       Expanded(
+    //         flex: 2,
+    //         child: ChatList(),
+    //       ),
+    //     Expanded(
+    //       flex: 3,
+    //       child: Column(
+    //         children: [
+    //           if (Responsive.isMobile(context)) ChatList(),
+    //           if (Responsive.isMobile(context))
+    //             SizedBox(height: chatSoportePadding),
+    //           ChatWidget(),
+    //           SizedBox(height: chatSoportePadding),
+    //           // RecentFiles(),
+    //           if (Responsive.isMobile(context))
+    //             SizedBox(height: chatSoportePadding),
+    //           if (Responsive.isMobile(context)) UserInformation(),
+    //         ],
+    //       ),
+    //     ),
+    //     if (!Responsive.isMobile(context)) SizedBox(width: chatSoportePadding),
+    //     // On Mobile means if the screen is less than 850 we dont want to show it
+    //     if (!Responsive.isMobile(context))
+    //       Expanded(
+    //         flex: 2,
+    //         child: UserInformation(),
+    //       ),
+    //   ],
+    // );
   }
 }
 
@@ -56,7 +84,7 @@ class UserInformation extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(15.0),
+      // margin: const EdgeInsets.all(15.0),
       padding: const EdgeInsets.all(3.0),
       decoration: BoxDecoration(border: Border.all(color: Colors.blueAccent)),
       child: Column(
@@ -91,7 +119,7 @@ class ChatList extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: const EdgeInsets.all(15.0),
+      // margin: const EdgeInsets.all(15.0),
       padding: const EdgeInsets.all(3.0),
       decoration: BoxDecoration(border: Border.all(color: Colors.blueAccent)),
       child: Column(

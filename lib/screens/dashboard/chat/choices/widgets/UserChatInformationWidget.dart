@@ -11,24 +11,29 @@ import '../../../../../models/user_chat.dart';
 import '../../../../../utils/utilities.dart';
 import '../../chat_page/chat_user_page.dart';
 
-class UserChatInformationWidget extends StatefulWidget {
+class UserChatInformationStreamWidget extends StatefulWidget {
   @override
-  _UserChatInformationWidgetState createState() =>
-      _UserChatInformationWidgetState();
+  _UserChatInformationStreamWidgetState createState() =>
+      _UserChatInformationStreamWidgetState();
 }
 
-class _UserChatInformationWidgetState extends State<UserChatInformationWidget> {
-  final Stream<QuerySnapshot> _usersStream =
-      FirebaseFirestore.instance.collection('users').where(
-    FirestoreConstants.chattingWith,
-    arrayContainsAny: [FirebaseAuth.instance.currentUser!.uid],
-  ).snapshots();
+class _UserChatInformationStreamWidgetState
+    extends State<UserChatInformationStreamWidget> {
+  final Stream<QuerySnapshot> _usersStream = FirebaseFirestore.instance
+      .collection(FirestoreConstants.supportChat)
+      // .doc()
+      // .collection('')
+      //     .where(
+      //   FirestoreConstants.chattingWith,
+      //   arrayContainsAny: [FirebaseAuth.instance.currentUser!.uid],
+      // )
+      .snapshots();
 
   @override
   Widget build(BuildContext context) {
     ChatController controller = Get.put(ChatController());
 
-    // return Text('dddd');3
+    // return Text('dddd');
     return StreamBuilder<QuerySnapshot>(
       stream: _usersStream,
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
@@ -39,24 +44,24 @@ class _UserChatInformationWidgetState extends State<UserChatInformationWidget> {
         if (snapshot.connectionState == ConnectionState.waiting) {
           return Text("Loading");
         }
-        // return Text(snapshot.toString());
-        return ListView.builder(
-          padding: EdgeInsets.all(10),
-          itemBuilder: (context, index) {
-            // print(snapshot.data?.docs[index].id);
-            // return Text(snapshot.data!.docs[index].id.toString());
-            // return Text('Test Información');
-            return Obx(
-              () => buildItem(
-                context: context,
-                document: snapshot.data!.docs[index],
-                textSearch: controller.textSearch.value,
-              ),
-            );
-          },
-          itemCount: snapshot.data?.docs.length,
-          controller: controller.listScrollController,
-        );
+        return Text(snapshot.data!.docs.length.toString());
+        // return ListView.builder(
+        //   padding: EdgeInsets.all(10),
+        //   itemBuilder: (context, index) {
+        //     // print(snapshot.data?.docs[index].id);
+        //     // return Text(snapshot.data!.docs[index].id.toString());
+        //     // return Text('Test Información');
+        //     return Obx(
+        //       () => buildItem(
+        //         context: context,
+        //         document: snapshot.data!.docs[index],
+        //         textSearch: controller.textSearch.value,
+        //       ),
+        //     );
+        //   },
+        //   itemCount: snapshot.data?.docs.length,
+        //   controller: controller.listScrollController,
+        // );
       },
     );
   }

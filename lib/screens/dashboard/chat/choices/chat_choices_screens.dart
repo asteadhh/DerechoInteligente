@@ -170,6 +170,7 @@ class ChatLogedIn extends GetView<ChatController> {
       });
     }
 
+//BUILD Chat
     Get.lazyPut(() => ChatController());
     return SafeArea(
       child: Stack(
@@ -184,7 +185,7 @@ class ChatLogedIn extends GetView<ChatController> {
               // UserChatInformationWidget(),
               Container(
                 height: MediaQuery.of(context).size.height * 0.7,
-                child: UserChatInformationWidget(),
+                child: UserChatInformationStreamWidget(),
                 // child: Text('Tu Cara'),
               ),
             ],

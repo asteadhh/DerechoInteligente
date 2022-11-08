@@ -425,13 +425,14 @@ class LoginController extends GetxController {
                   'chattingWith': [],
                   'pushToken': [],
                 })
-                .then((value) => print(
+                .whenComplete(() => print(
                     'Iniciado por primera vez con Google ${FirebaseAuth.instance.currentUser!.email.toString()}'))
-                .then((value) async {
+                .whenComplete(() async {
                   await updateUserStream();
                   await updateUserPermitionsStream();
                 })
-                .then((value) {
+                .whenComplete(() async {
+                  await Future.delayed(Duration(seconds: 4));
                   // Get.offAll(Text1Screen);
                 })
                 .then(
@@ -452,6 +453,7 @@ class LoginController extends GetxController {
               await updateUserStream();
 
               await updateUserPermitionsStream();
+              await Future.delayed(Duration(seconds: 4));
             }).then(
               (value) {
                 print(

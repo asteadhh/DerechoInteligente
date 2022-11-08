@@ -33,7 +33,7 @@ class ChatSoporteController extends GetxController {
     var type,
   }) {
     DocumentReference documentReference = FirebaseFirestore.instance
-        .collection(FirestoreConstants.support)
+        .collection(FirestoreConstants.supportChat)
         .doc(FirebaseAuth.instance.currentUser!.uid)
         .collection(FirebaseAuth.instance.currentUser!.uid)
         .doc(DateTime.now().millisecondsSinceEpoch.toString());
