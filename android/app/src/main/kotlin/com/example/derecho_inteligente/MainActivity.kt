@@ -1,4 +1,4 @@
-package cl.pulpox.admin
+package com.example.derecho_inteligente
 
 import io.flutter.embedding.android.FlutterActivity
 
