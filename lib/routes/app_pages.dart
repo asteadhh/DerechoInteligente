@@ -1,7 +1,11 @@
+import 'package:derecho_inteligente/screens/landingPage/cancelar/cancelar_screen.dart';
+import 'package:derecho_inteligente/screens/landingPage/faq/faq_screen.dart';
+import 'package:derecho_inteligente/screens/landingPage/postulaciones/postulaciones_screen.dart';
 import 'package:get/get.dart';
 
 import '../middlewares/admin_guard.dart';
 import '../screens/dashboard/screen/dashboard_screen_platform.dart';
+import '../screens/landingPage/pagos/pagos_screen.dart';
 import '/screens/landingPage/aboutUs/aboutUs_screen.dart';
 import '/screens/landingPage/contactUs/contact_us_screen.dart';
 import '/screens/landingPage/help/help_screen.dart';
@@ -34,6 +38,10 @@ class AppPages {
   static const creditosMaestros = _Paths.creditosMaestros;
   static const onBoardingMaestros = _Paths.onBoardingMaestros;
   static const pagos = _Paths.pagos;
+  static const postulaciones = _Paths.postulaciones;
+  static const faq = _Paths.faq;
+  static const pagosScreen = _Paths.pagosScreen;
+  static const cancelar = _Paths.cancelar;
 
   static final routes = [
     GetPage(
@@ -72,6 +80,30 @@ class AppPages {
     GetPage(
       name: _Paths.help,
       page: () => HelpScreen(),
+      transition: Transition.noTransition,
+      // binding: MenuLandingPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.postulaciones,
+      page: () => PostulacionesScreen(),
+      transition: Transition.noTransition,
+      // binding: MenuLandingPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.pagosScreen,
+      page: () => PagosLandingScreen(),
+      transition: Transition.noTransition,
+      // binding: MenuLandingPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.cancelar,
+      page: () => CancelarScreen(),
+      transition: Transition.noTransition,
+      // binding: MenuLandingPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.faq,
+      page: () => FaqScreen(),
       transition: Transition.noTransition,
       // binding: MenuLandingPageBinding(),
     ),

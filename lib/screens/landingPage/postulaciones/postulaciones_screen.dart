@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../base/home_page_landing.dart';
 
-class postulacionesScreen extends StatelessWidget {
-  const postulacionesScreen({super.key});
+class PostulacionesScreen extends StatelessWidget {
+  const PostulacionesScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

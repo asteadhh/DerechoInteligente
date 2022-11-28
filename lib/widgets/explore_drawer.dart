@@ -42,7 +42,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                   // LandingPageBase()
                 },
                 child: Text(
-                  'About Us',
+                  'aboutUs'.tr,
                   style: TextStyle(color: Colors.white, fontSize: 22),
                 ),
               ),
@@ -58,7 +58,71 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                   Get.toNamed(AppPages.contactUS);
                 },
                 child: Text(
-                  'Contact Us',
+                  'contactUs'.tr,
+                  style: TextStyle(color: Colors.white, fontSize: 22),
+                ),
+              ),
+              // Padding(
+              //   padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
+              //   child: Divider(
+              //     color: Colors.blueGrey[400],
+              //     thickness: 2,
+              //   ),
+              // ),
+              // InkWell(
+              //   onTap: () {
+              //     Get.toNamed(AppPages.contactUS);
+              //   },
+              //   child: Text(
+              //     'carreers'.tr,
+              //     style: TextStyle(color: Colors.white, fontSize: 22),
+              //   ),
+              // ),
+              Padding(
+                padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
+                child: Divider(
+                  color: Colors.blueGrey[400],
+                  thickness: 2,
+                ),
+              ),
+              InkWell(
+                onTap: () {
+                  Get.toNamed(AppPages.contactUS);
+                },
+                child: Text(
+                  'payment'.tr,
+                  style: TextStyle(color: Colors.white, fontSize: 22),
+                ),
+              ),
+              // Padding(
+              //   padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
+              //   child: Divider(
+              //     color: Colors.blueGrey[400],
+              //     thickness: 2,
+              //   ),
+              // ),
+              // InkWell(
+              //   onTap: () {
+              //     Get.toNamed(AppPages.contactUS);
+              //   },
+              //   child: Text(
+              //     'cancellation'.tr,
+              //     style: TextStyle(color: Colors.white, fontSize: 22),
+              //   ),
+              // ),
+              Padding(
+                padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
+                child: Divider(
+                  color: Colors.blueGrey[400],
+                  thickness: 2,
+                ),
+              ),
+              InkWell(
+                onTap: () {
+                  Get.toNamed(AppPages.contactUS);
+                },
+                child: Text(
+                  'faq'.tr,
                   style: TextStyle(color: Colors.white, fontSize: 22),
                 ),
               ),
@@ -196,7 +260,7 @@ class AdministraccionEnableWidget extends StatelessWidget {
                   Get.toNamed(AppPages.platform);
                 },
                 child: Text(
-                  'Administracción',
+                  'administration'.tr,
                   style: TextStyle(color: Colors.white, fontSize: 22),
                 ),
               ),
@@ -241,7 +305,7 @@ class UserLoginWidget extends StatelessWidget {
                   mainAxisSize: MainAxisSize.max,
                   children: [
                     Text(
-                      'Sign Out',
+                      'sign_out'.tr,
                       style: TextStyle(
                         fontSize: 20,
                         color: Colors.white,
@@ -311,7 +375,7 @@ class UserLoginWidget extends StatelessWidget {
                   bottom: 15.0,
                 ),
                 child: Text(
-                  'Sign in',
+                  'sign_in'.tr,
                   style: TextStyle(
                     fontSize: 20,
                     color: Colors.white,

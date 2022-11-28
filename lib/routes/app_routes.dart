@@ -36,6 +36,10 @@ class _Paths {
   static const creditosMaestros = '/creditosmaestros';
   static const onBoardingMaestros = '/onboardingmaestros';
   static const pagos = '/pagos';
+  static const postulaciones = '/postulaciones';
+  static const faq = '/faq';
+  static const pagosScreen = '/pagosScreen';
+  static const cancelar = '/cancelar';
 
   // Example :
   // static const index = '/';

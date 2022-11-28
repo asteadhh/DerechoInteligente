@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 
 import '../base/home_page_landing.dart';
 
-class PagosScreen extends StatelessWidget {
-  const PagosScreen({super.key});
+class PagosLandingScreen extends StatelessWidget {
+  const PagosLandingScreen({super.key});
 
   @override
   Widget build(BuildContext context) {

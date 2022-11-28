@@ -20,6 +20,7 @@ class Messages extends Translations {
           'recent_messages': 'Mensajes Recientes',
           'service_needed': '¿Qué servicio necesitas?',
           'sign_out': 'Salir',
+          'sign_in': 'Iniciar Sesión',
           //
           'about': 'NOSOTROS',
           'services': 'Servicios',
@@ -37,6 +38,7 @@ class Messages extends Translations {
           'correo': 'Correo',
           'derecho': 'Derecho',
           'areasDePractica': 'Areas de Practica',
+          'administration': 'Administracción',
 
           // AREA PRACTICA
           'bankruptcyLaw': 'Insolvencia',
@@ -92,6 +94,8 @@ class Messages extends Translations {
           'recent_messages': 'Recent Messages',
           'service_needed': 'What service do you need?',
           'sign_out': 'Sign out',
+
+          'sign_in': 'Sign In',
           //
           'about': 'ABOUT',
           'services': 'Services',
@@ -108,6 +112,7 @@ class Messages extends Translations {
           'youtube': 'YouTube',
           'correo': 'Mail',
           'derecho': 'Derecho',
+          'administration': 'Administration',
 
           // AREA PRACTICA
           'bankruptcyLaw': 'Insolvencia y Reemprendimiento',

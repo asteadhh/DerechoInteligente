@@ -30,12 +30,24 @@ class BottomBar extends StatelessWidget {
                         Get.offNamed(AppPages.aboutUs);
                       },
                       s3: 'carreers'.tr,
+                      s3Page: () {
+                        Get.offNamed(AppPages.postulaciones);
+                      },
                     ),
                     BottomBarColumn(
                       heading: 'help'.tr,
                       s1: 'payment'.tr,
+                      s1Page: () {
+                        Get.offNamed(AppPages.pagosScreen);
+                      },
                       s2: 'cancellation'.tr,
+                      s2Page: () {
+                        Get.offNamed(AppPages.cancelar);
+                      },
                       s3: 'faq'.tr,
+                      s3Page: () {
+                        Get.offNamed(AppPages.faq);
+                      },
                     ),
                     BottomBarColumn(
                       heading: 'Social'.tr,
