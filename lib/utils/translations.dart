@@ -22,6 +22,8 @@ class Messages extends Translations {
           'sign_out': 'Salir',
           'sign_in': 'Iniciar Sesión',
           //
+
+          'home': 'Inicio',
           'about': 'NOSOTROS',
           'services': 'Servicios',
           'contactUs': 'Contactanos',
@@ -100,6 +102,7 @@ class Messages extends Translations {
 
           'sign_in': 'Sign In',
           //
+          'home': 'Home',
           'about': 'ABOUT',
           'services': 'Services',
           'contactUs': 'Contact Us',

@@ -38,6 +38,23 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
               // controller.userEmail != null ? SizedBox(height: 20) : Container(),
               InkWell(
                 onTap: () {
+                  Get.toNamed(AppPages.main);
+                  // LandingPageBase()
+                },
+                child: Text(
+                  'home'.tr,
+                  style: TextStyle(color: Colors.white, fontSize: 22),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
+                child: Divider(
+                  color: Colors.blueGrey[400],
+                  thickness: 2,
+                ),
+              ),
+              InkWell(
+                onTap: () {
                   Get.toNamed(AppPages.aboutUs);
                   // LandingPageBase()
                 },
