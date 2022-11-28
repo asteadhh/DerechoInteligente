@@ -179,7 +179,7 @@ class SideMenuPlatform extends GetView<LoginController> {
               Align(
                 alignment: Alignment.bottomCenter,
                 child: Text(
-                  'Copyright © 2022 | PulPox SpA',
+                  'Copyright © 2022 | Derecho Inteligente SpA',
                   style: TextStyle(
                     color: Colors.blueGrey[300],
                     fontSize: 14,
