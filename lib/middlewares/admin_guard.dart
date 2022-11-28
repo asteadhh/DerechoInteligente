@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
+import '/controllers/LoginController/login_controller.dart';
 
 import '../routes/app_pages.dart';
 import '../services/auth_service.dart';

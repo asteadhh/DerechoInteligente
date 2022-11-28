@@ -1,6 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:pulpox_admin/constants/firebase_auth_constants.dart';
+import '/constants/firebase_auth_constants.dart';
 
 class CreditosMaestrosContent extends StatelessWidget {
   const CreditosMaestrosContent({super.key});

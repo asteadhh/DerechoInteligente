@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:get/get.dart';
 import '/widgets/responsive.dart';
 import 'package:flutter/material.dart';
 
@@ -27,12 +28,24 @@ class _DestinationCarouselState extends State<DestinationCarousel> {
   ];
 
   final List<String> places = [
-    'ASIA',
-    'AFRICA',
-    'EUROPE',
-    'SOUTH AMERICA',
-    'AUSTRALIA',
-    'ANTARCTICA',
+    'bankruptcyLaw'.tr,
+    'corporateLaw'.tr,
+    'taxLaw'.tr,
+    'criminalLaw'.tr,
+    'publicLaw'.tr,
+    'constitutionalLaw'.tr,
+    'familyLaw'.tr,
+    'civilLaw'.tr,
+    'laborLaw'.tr,
+    'jplLaw'.tr,
+    'willLaw'.tr,
+    'consumerLaw'.tr,
+    'environmentalLaw'.tr,
+    'extractionLaw'.tr,
+    'waterRights'.tr,
+    'healthLaw'.tr,
+    'developmentLaw'.tr,
+    'freeCompetitionAndConsumption'.tr,
   ];
 
   List<Widget> generateImageTiles(screenSize) {

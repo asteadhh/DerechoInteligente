@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
-import 'package:pulpox_admin/constants/custom_colors.dart';
-import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
+import '/constants/custom_colors.dart';
+import '/controllers/LoginController/login_controller.dart';
 
 import '../../../../constants/theme.dart';
 import '../../../../responsive.dart';

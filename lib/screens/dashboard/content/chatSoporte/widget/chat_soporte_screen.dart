@@ -9,7 +9,7 @@ import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
-import 'package:pulpox_admin/constants/custom_colors.dart';
+import '/constants/custom_colors.dart';
 
 import '../../../../../constants/firestore_constants.dart';
 import '../../../../../controllers/chatSoporteController/chat_soporte_controller.dart';

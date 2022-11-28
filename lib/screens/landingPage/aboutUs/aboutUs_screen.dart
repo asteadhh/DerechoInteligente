@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
+import '/controllers/LoginController/login_controller.dart';
 
 import '../base/home_page_landing.dart';
 

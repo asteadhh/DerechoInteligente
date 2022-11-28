@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
+import '/controllers/LoginController/login_controller.dart';
 
 import '../routes/app_pages.dart';
 import 'auth_dialog/auth_dialog.dart';

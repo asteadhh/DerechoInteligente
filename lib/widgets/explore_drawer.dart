@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-import 'package:pulpox_admin/controllers/UserController/user_data_controller.dart';
+import '/controllers/UserController/user_data_controller.dart';
 
 import '../constants/firestore_constants.dart';
 import '../controllers/LoginController/login_controller.dart';

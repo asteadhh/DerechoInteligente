@@ -1,3 +1,5 @@
+import 'package:get/get.dart';
+
 import '/widgets/responsive.dart';
 import 'package:flutter/material.dart';
 
@@ -20,7 +22,7 @@ class DestinationHeading extends StatelessWidget {
             width: screenSize.width,
             // color: Colors.black,
             child: Text(
-              'Destinations diversity',
+              'areasDePractica'.tr,
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 24,
@@ -37,7 +39,7 @@ class DestinationHeading extends StatelessWidget {
             width: screenSize.width,
             // color: Colors.black,
             child: Text(
-              'Destinations diversity',
+              'areasDePractica'.tr,
               textAlign: TextAlign.center,
               style: TextStyle(
                 fontSize: 40,

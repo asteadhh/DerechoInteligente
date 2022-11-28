@@ -1,3 +1,5 @@
+import 'package:get/get.dart';
+
 import '/widgets/responsive.dart';
 import 'package:flutter/material.dart';
 
@@ -13,9 +15,30 @@ class FeaturedTiles extends StatelessWidget {
     'assets/images/trekking.jpg',
     'assets/images/animals.jpg',
     'assets/images/photography.jpeg',
+    // 'assets/images/photography.jpeg',
+    // 'assets/images/photography.jpeg',
   ];
 
-  final List<String> title = ['Trekking', 'Animals', 'Photography'];
+  final List<String> title = [
+    'bankruptcyLaw'.tr,
+    'corporateLaw'.tr,
+    'taxLaw'.tr,
+    // 'criminalLaw'.tr,
+    // 'publicLaw'.tr,
+    // 'constitutionalLaw'.tr,
+    // 'familyLaw'.tr,
+    // 'civilLaw'.tr,
+    // 'laborLaw'.tr,
+    // 'jplLaw'.tr,
+    // 'willLaw'.tr,
+    // 'consumerLaw'.tr,
+    // 'environmentalLaw'.tr,
+    // 'extractionLaw'.tr,
+    // 'waterRights'.tr,
+    // 'healthLaw'.tr,
+    // 'developmentLaw'.tr,
+    // 'freeCompetitionAndConsumption'.tr,
+  ];
 
   @override
   Widget build(BuildContext context) {

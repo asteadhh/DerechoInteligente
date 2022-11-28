@@ -2,9 +2,9 @@ import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pulpox_admin/constants/firestore_constants.dart';
-import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
-import 'package:pulpox_admin/routes/app_pages.dart';
+import '/constants/firestore_constants.dart';
+import '/controllers/LoginController/login_controller.dart';
+import '/routes/app_pages.dart';
 
 import '../../constants.dart';
 import '../../constants/theme.dart';

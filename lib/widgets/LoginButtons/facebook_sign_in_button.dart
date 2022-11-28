@@ -2,7 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
 import 'package:get/get.dart';
-import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
+import '/controllers/LoginController/login_controller.dart';
 
 import '../../routes/app_pages.dart';
 import 'package:flutter/material.dart';

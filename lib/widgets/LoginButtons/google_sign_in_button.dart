@@ -1,5 +1,5 @@
 import 'package:get/get.dart';
-import 'package:pulpox_admin/controllers/LoginController/login_controller.dart';
+import '/controllers/LoginController/login_controller.dart';
 
 import 'package:flutter/material.dart';
 

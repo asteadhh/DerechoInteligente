@@ -3,8 +3,8 @@ import 'package:avatar_view/avatar_view.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pulpox_admin/constants/firebase_auth_constants.dart';
-import 'package:pulpox_admin/constants/firestore_constants.dart';
+import '/constants/firebase_auth_constants.dart';
+import '/constants/firestore_constants.dart';
 
 import '../../controllers/LoginController/login_controller.dart';
 

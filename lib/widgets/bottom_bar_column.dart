@@ -9,6 +9,9 @@ class BottomBarColumn extends StatelessWidget {
   String? s2Link;
   final String s3;
   String? s3Link;
+  var s1Page;
+  var s2Page;
+  var s3Page;
 
   BottomBarColumn({
     required this.heading,
@@ -18,6 +21,9 @@ class BottomBarColumn extends StatelessWidget {
     this.s1Link,
     this.s2Link,
     this.s3Link,
+    this.s1Page,
+    this.s2Page,
+    this.s3Page,
   });
 
   _launchURL(url) async {
@@ -47,7 +53,7 @@ class BottomBarColumn extends StatelessWidget {
           SizedBox(
             height: 10,
           ),
-          s1Link != null
+          s1Page != null
               ? GestureDetector(
                   child: Text(
                     s1,
@@ -56,33 +62,92 @@ class BottomBarColumn extends StatelessWidget {
                       fontSize: 14,
                     ),
                   ),
-                  onTap: () {
-                    _launchURL(s1Link);
-                  },
+                  onTap: s1Page,
                 )
-              : Text(
-                  s1,
-                  style: TextStyle(
-                    color: Colors.blueGrey[100],
-                    fontSize: 14,
+              : s1Link != null
+                  ? GestureDetector(
+                      child: Text(
+                        s1,
+                        style: TextStyle(
+                          color: Colors.blueGrey[100],
+                          fontSize: 14,
+                        ),
+                      ),
+                      onTap: () {
+                        _launchURL(s1Link);
+                      },
+                    )
+                  : Text(
+                      s1,
+                      style: TextStyle(
+                        color: Colors.blueGrey[100],
+                        fontSize: 14,
+                      ),
+                    ),
+          SizedBox(height: 5),
+          s2Page != null
+              ? GestureDetector(
+                  child: Text(
+                    s2,
+                    style: TextStyle(
+                      color: Colors.blueGrey[100],
+                      fontSize: 14,
+                    ),
                   ),
-                ),
+                  onTap: s2Page,
+                )
+              : s2Link != null
+                  ? GestureDetector(
+                      onTap: () {
+                        _launchURL(s2Link);
+                      },
+                      child: Text(
+                        s2,
+                        style: TextStyle(
+                          color: Colors.blueGrey[100],
+                          fontSize: 14,
+                        ),
+                      ),
+                    )
+                  : Text(
+                      s2,
+                      style: TextStyle(
+                        color: Colors.blueGrey[100],
+                        fontSize: 14,
+                      ),
+                    ),
           SizedBox(height: 5),
-          Text(
-            s2,
-            style: TextStyle(
-              color: Colors.blueGrey[100],
-              fontSize: 14,
-            ),
-          ),
-          SizedBox(height: 5),
-          Text(
-            s3,
-            style: TextStyle(
-              color: Colors.blueGrey[100],
-              fontSize: 14,
-            ),
-          ),
+          s3Page != null
+              ? GestureDetector(
+                  child: Text(
+                    s3,
+                    style: TextStyle(
+                      color: Colors.blueGrey[100],
+                      fontSize: 14,
+                    ),
+                  ),
+                  onTap: s3Page,
+                )
+              : s3Link != null
+                  ? GestureDetector(
+                      onTap: () {
+                        _launchURL(s3Link);
+                      },
+                      child: Text(
+                        s3,
+                        style: TextStyle(
+                          color: Colors.blueGrey[100],
+                          fontSize: 14,
+                        ),
+                      ),
+                    )
+                  : Text(
+                      s3,
+                      style: TextStyle(
+                        color: Colors.blueGrey[100],
+                        fontSize: 14,
+                      ),
+                    ),
         ],
       ),
     );

@@ -1,5 +1,6 @@
-import 'package:url_launcher/url_launcher.dart';
+import 'package:get/get.dart';
 
+import '../routes/app_pages.dart';
 import '/widgets/bottom_bar_column.dart';
 import '/widgets/info_text.dart';
 import '/widgets/responsive.dart';
@@ -19,23 +20,31 @@ class BottomBar extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     BottomBarColumn(
-                      heading: 'ABOUT',
-                      s1: 'Contact Us',
-                      s2: 'About Us',
-                      s3: 'Careers',
+                      heading: 'about'.tr,
+                      s1: 'contactUs'.tr,
+                      s1Page: () {
+                        Get.offNamed(AppPages.contactUS);
+                      },
+                      s2: 'aboutUs'.tr,
+                      s2Page: () {
+                        Get.offNamed(AppPages.aboutUs);
+                      },
+                      s3: 'carreers'.tr,
                     ),
                     BottomBarColumn(
-                      heading: 'HELP',
-                      s1: 'Payment',
-                      s2: 'Cancellation',
-                      s3: 'FAQ',
+                      heading: 'help'.tr,
+                      s1: 'payment'.tr,
+                      s2: 'cancellation'.tr,
+                      s3: 'faq'.tr,
                     ),
                     BottomBarColumn(
-                      heading: 'SOCIAL',
-                      s1: 'Twitter',
+                      heading: 'Social'.tr,
+                      s1: 'twitter'.tr,
                       s1Link: 'https://www.pulpox.cl',
-                      s2: 'Facebook',
-                      s3: 'YouTube',
+                      s2: 'facebook'.tr,
+                      s2Link:
+                          'https://www.facebook.com/profile.php?id=100087947412598',
+                      s3: 'youtube'.tr,
                     ),
                   ],
                 ),
@@ -46,14 +55,16 @@ class BottomBar extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 InfoText(
-                  type: 'Email',
-                  text: 'contacto@pulpox.cl',
+                  type: 'correo'.tr,
+                  text: 'contacto@derechointeligente.cl',
+                  link:
+                      'mailto:contacto@pulpox.cl?subject=Contacto&body=Quiero Contactarme ',
                 ),
-                SizedBox(height: 5),
-                InfoText(
-                  type: 'Address',
-                  text: '128, Trymore Road, Delft, MN - 56124',
-                ),
+                // SizedBox(height: 5),
+                // InfoText(
+                //   type: 'Address',
+                //   text: '128, Trymore Road, Delft, MN - 56124',
+                // ),
                 SizedBox(height: 20),
                 Container(
                   color: Colors.blueGrey,
@@ -62,7 +73,7 @@ class BottomBar extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 Text(
-                  'Copyright © 2022 | PulPox',
+                  'Copyright © 2022 | Derecho Inteligente',
                   style: TextStyle(
                     color: Colors.blueGrey[300],
                     fontSize: 14,
@@ -77,22 +88,31 @@ class BottomBar extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     BottomBarColumn(
-                      heading: 'ABOUT',
-                      s1: 'Contact Us',
-                      s2: 'About Us',
-                      s3: 'Careers',
+                      heading: 'about'.tr,
+                      s1: 'contactUs'.tr,
+                      s1Page: () {
+                        Get.offNamed(AppPages.contactUS);
+                      },
+                      s2: 'aboutUs'.tr,
+                      s2Page: () {
+                        Get.offNamed(AppPages.aboutUs);
+                      },
+                      s3: 'carreers'.tr,
                     ),
                     BottomBarColumn(
-                      heading: 'HELP',
-                      s1: 'Payment',
-                      s2: 'Cancellation',
-                      s3: 'FAQ',
+                      heading: 'help'.tr,
+                      s1: 'payment'.tr,
+                      s2: 'cancellation'.tr,
+                      s3: 'faq'.tr,
                     ),
                     BottomBarColumn(
-                      heading: 'SOCIAL',
-                      s1: 'Twitter',
-                      s2: 'Facebook',
-                      s3: 'YouTube',
+                      heading: 'Social'.tr,
+                      s1: 'twitter'.tr,
+                      s1Link: 'https://www.pulpox.cl',
+                      s2: 'facebook'.tr,
+                      s2Link:
+                          'https://www.facebook.com/profile.php?id=100087947412598',
+                      s3: 'youtube'.tr,
                     ),
                     Container(
                       color: Colors.blueGrey,
@@ -103,14 +123,16 @@ class BottomBar extends StatelessWidget {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         InfoText(
-                          type: 'Email',
-                          text: 'explore@gmail.com',
+                          type: 'correo'.tr,
+                          text: 'contacto@pulpox.cl',
+                          link:
+                              'mailto:contacto@pulpox.cl?subject=Contacto&body=Quiero Contactarme ',
                         ),
-                        SizedBox(height: 5),
-                        InfoText(
-                          type: 'Address',
-                          text: '128, Trymore Road, Delft, MN - 56124',
-                        )
+                        // SizedBox(height: 5),
+                        // InfoText(
+                        //   type: 'Dirreción',
+                        //   text: '128, Trymore Road, Delft, MN - 56124',
+                        // )
                       ],
                     ),
                   ],
@@ -125,7 +147,7 @@ class BottomBar extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 Text(
-                  'Copyright © 2022 | PulPox',
+                  'Copyright © 2022 | Derecho Inteligente',
                   style: TextStyle(
                     color: Colors.blueGrey[300],
                     fontSize: 14,
