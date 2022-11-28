@@ -70,7 +70,7 @@ class BottomBar extends StatelessWidget {
                   type: 'correo'.tr,
                   text: 'contacto@derechointeligente.cl',
                   link:
-                      'mailto:contacto@pulpox.cl?subject=Contacto&body=Quiero Contactarme ',
+                      'mailto:contacto@derechointeligente.cl?subject=Contacto&body=Quiero Contactarme ',
                 ),
                 // SizedBox(height: 5),
                 // InfoText(
@@ -136,9 +136,9 @@ class BottomBar extends StatelessWidget {
                       children: [
                         InfoText(
                           type: 'correo'.tr,
-                          text: 'contacto@pulpox.cl',
+                          text: 'contacto@derechointeligente.cl',
                           link:
-                              'mailto:contacto@pulpox.cl?subject=Contacto&body=Quiero Contactarme ',
+                              'mailto:contacto@derechointeligente.cl?subject=Contacto&body=Quiero Contactarme ',
                         ),
                         // SizedBox(height: 5),
                         // InfoText(

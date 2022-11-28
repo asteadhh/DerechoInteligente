@@ -44,42 +44,40 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyC3cXNY18G_b4H7kI2oJ4Jkas_IOrPp6BU',
-    appId: '1:258011664234:web:c4a9af83d34d3928839f13',
-    messagingSenderId: '258011664234',
-    projectId: 'projecto-mango',
-    authDomain: 'projecto-mango.firebaseapp.com',
-    storageBucket: 'projecto-mango.appspot.com',
-    measurementId: 'G-92VBZPKEGN',
+    apiKey: 'AIzaSyBKtsTEicBjsSZJOl_cLdoOyKb3rKspZO0',
+    appId: '1:966796738568:web:35bef57290dd16ec1711bd',
+    messagingSenderId: '966796738568',
+    projectId: 'derechointeligente-b881f',
+    authDomain: 'derechointeligente-b881f.firebaseapp.com',
+    storageBucket: 'derechointeligente-b881f.appspot.com',
+    measurementId: 'G-8GCC98C1ZL',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyAsCHcEsl1NVNNuq14Tq-qcfmYBMOWPc4k',
-    appId: '1:258011664234:android:5fa41646dc05a37d839f13',
-    messagingSenderId: '258011664234',
-    projectId: 'projecto-mango',
-    storageBucket: 'projecto-mango.appspot.com',
+    apiKey: 'AIzaSyD3bRBKTPVkf18KaeUNRZVB1sQ5Hy-81Gs',
+    appId: '1:966796738568:android:48bc3a65e43716471711bd',
+    messagingSenderId: '966796738568',
+    projectId: 'derechointeligente-b881f',
+    storageBucket: 'derechointeligente-b881f.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyB6zmp5sTCQCKTjkZSWMsIaWfuJ8S03DOs',
-    appId: '1:258011664234:ios:9770919266ac385b839f13',
-    messagingSenderId: '258011664234',
-    projectId: 'projecto-mango',
-    storageBucket: 'projecto-mango.appspot.com',
-    androidClientId: '258011664234-55aktgdjgqt8k3r9grce8trebsu0h24o.apps.googleusercontent.com',
-    iosClientId: '258011664234-tvdop8vk9tucashgkkvpu1sc81fst8af.apps.googleusercontent.com',
-    iosBundleId: 'cl.pulpox.admin',
+    apiKey: 'AIzaSyAiufzPyQ-qOQ1sk-_SVzjGaxSqk60hat0',
+    appId: '1:966796738568:ios:1136ad06f02334441711bd',
+    messagingSenderId: '966796738568',
+    projectId: 'derechointeligente-b881f',
+    storageBucket: 'derechointeligente-b881f.appspot.com',
+    iosClientId: '966796738568-36b0p3n3gpt0jsdjhuq345lh4sp9h8nk.apps.googleusercontent.com',
+    iosBundleId: 'cl.derechointeligente.portal',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyB6zmp5sTCQCKTjkZSWMsIaWfuJ8S03DOs',
-    appId: '1:258011664234:ios:20224dae0dce7be3839f13',
-    messagingSenderId: '258011664234',
-    projectId: 'projecto-mango',
-    storageBucket: 'projecto-mango.appspot.com',
-    androidClientId: '258011664234-55aktgdjgqt8k3r9grce8trebsu0h24o.apps.googleusercontent.com',
-    iosClientId: '258011664234-cv4pahmv0ra2t1v36b4omhl0821sjli3.apps.googleusercontent.com',
-    iosBundleId: 'com.example.pulpoxAdmin',
+    apiKey: 'AIzaSyAiufzPyQ-qOQ1sk-_SVzjGaxSqk60hat0',
+    appId: '1:966796738568:ios:e13c393f38327cd01711bd',
+    messagingSenderId: '966796738568',
+    projectId: 'derechointeligente-b881f',
+    storageBucket: 'derechointeligente-b881f.appspot.com',
+    iosClientId: '966796738568-vaeue15ghtqhe1do7edovst36b5v87gj.apps.googleusercontent.com',
+    iosBundleId: 'com.example.derechoInteligente',
   );
 }

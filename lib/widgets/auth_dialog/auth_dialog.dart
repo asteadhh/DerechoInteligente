@@ -107,7 +107,7 @@ class _AuthDialogContentDesktopState extends State<AuthDialogContentDesktop> {
             children: [
               Center(
                 child: Text(
-                  'PulPox',
+                  'Derecho Inteligente',
                   style: TextStyle(
                     color: Theme.of(context).textTheme.headline1!.color,
                     fontSize: 24,
@@ -565,7 +565,7 @@ class _AuthDialogContentMobileState extends State<AuthDialogContentMobile> {
                 children: [
                   Center(
                     child: Text(
-                      'PulPox',
+                      'Derecho Inteligente',
                       style: TextStyle(
                         color: Theme.of(context).textTheme.headline1!.color,
                         fontSize: 24,

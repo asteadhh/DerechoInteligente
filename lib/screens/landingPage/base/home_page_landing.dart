@@ -96,7 +96,7 @@ class _LandingPageBaseState extends State<LandingPageBase> {
                   Get.toNamed(AppPages.main);
                 },
                 child: Text(
-                  'PulPox',
+                  'Derecho Inteligente',
                   style: TextStyle(
                     color: Colors.blueGrey[100],
                     fontSize: 20,

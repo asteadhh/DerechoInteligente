@@ -29,7 +29,7 @@ class TopBarContents extends GetView<LoginController> {
                   Get.toNamed(AppPages.main);
                 },
                 child: Text(
-                  'PulPox',
+                  'Derecho Inteligente',
                   style: TextStyle(
                     color: Colors.blueGrey[100],
                     fontSize: 20,

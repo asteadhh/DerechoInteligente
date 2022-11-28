@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "966796738568",
+    "project_id": "derechointeligente-b881f",
+    "storage_bucket": "derechointeligente-b881f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:966796738568:android:48bc3a65e43716471711bd",
+        "android_client_info": {
+          "package_name": "com.example.derecho_inteligente"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "966796738568-16t24rmr1f454l887ga95ck3eb2l9kus.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD3bRBKTPVkf18KaeUNRZVB1sQ5Hy-81Gs"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "966796738568-16t24rmr1f454l887ga95ck3eb2l9kus.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
