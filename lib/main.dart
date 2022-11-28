@@ -92,7 +92,7 @@ class MyApp extends StatelessWidget {
       darkTheme: darkTheme,
       // themeMode: ThemeMode.system,
       themeMode: ThemeService().theme,
-      title: 'PulPox',
+      title: 'Derecho Inteligente',
       debugShowCheckedModeBanner: false,
       getPages: AppPages.routes,
       // getPages: appPages,

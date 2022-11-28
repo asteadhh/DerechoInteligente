@@ -15,7 +15,9 @@ class LandingPageBase extends StatefulWidget {
   Widget widget;
 
   @override
-  _LandingPageBaseState createState() => _LandingPageBaseState(widgets: widget);
+  _LandingPageBaseState createState() => _LandingPageBaseState(
+        widgets: widget,
+      );
 }
 
 class _LandingPageBaseState extends State<LandingPageBase> {
