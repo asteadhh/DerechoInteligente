@@ -58,6 +58,24 @@ class _LandingPageBaseState extends State<LandingPageBase> {
               centerTitle: true,
               actions: [
                 IconButton(
+                  icon: Icon(Icons.language),
+                  splashColor: Colors.transparent,
+                  highlightColor: Colors.transparent,
+                  onPressed: () {
+                    'idioma'.tr == 'Español'
+                        ? Get.updateLocale(Locale('en', 'US'))
+                        : Get.updateLocale(Locale('es', 'ES'));
+                  },
+                ),
+                // Text(Localizations.localeOf(context).toString()),
+                // IconButton(
+                // onPressed: () {
+                //   'idioma'.tr == 'Español'
+                //       ? print('español')
+                //       : print('ingles');
+                // },
+                // icon: Icon(Icons.print)),
+                IconButton(
                   icon: Icon(Icons.brightness_6),
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,

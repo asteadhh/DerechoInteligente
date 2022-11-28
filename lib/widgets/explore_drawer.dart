@@ -87,7 +87,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
               ),
               InkWell(
                 onTap: () {
-                  Get.toNamed(AppPages.contactUS);
+                  Get.toNamed(AppPages.pagosScreen);
                 },
                 child: Text(
                   'payment'.tr,
@@ -119,7 +119,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
               ),
               InkWell(
                 onTap: () {
-                  Get.toNamed(AppPages.contactUS);
+                  Get.toNamed(AppPages.faq);
                 },
                 child: Text(
                   'faq'.tr,

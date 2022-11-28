@@ -30,7 +30,7 @@ class Messages extends Translations {
           'help': 'AYUDA',
           'payment': 'Pagos',
           'cancellation': 'Cancelar',
-          'faq': 'FAQ',
+          'faq': 'Preguntas Frecuentes',
           'Social': 'REDES SOCIALES',
           'twitter': 'Twitter',
           'facebook': 'Facebook',
@@ -39,6 +39,8 @@ class Messages extends Translations {
           'derecho': 'Derecho',
           'areasDePractica': 'Areas de Practica',
           'administration': 'Administracción',
+
+          'idioma': 'Español',
 
           // AREA PRACTICA
           'bankruptcyLaw': 'Insolvencia',
@@ -94,6 +96,7 @@ class Messages extends Translations {
           'recent_messages': 'Recent Messages',
           'service_needed': 'What service do you need?',
           'sign_out': 'Sign out',
+          'idioma': 'Ingles',
 
           'sign_in': 'Sign In',
           //
