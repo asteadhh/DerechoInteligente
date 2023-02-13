@@ -11,7 +11,7 @@ dependencies:
   flutter:
     sdk: flutter
   cupertino_icons: ^1.0.2
-  flutter_platform_widgets: ^2.0.0
+  # flutter_platform_widgets: ^3.0.0
   get: ^4.6.1
   get_storage:
   # get_storage: ^2.0.3
@@ -80,6 +80,7 @@ dependencies:
   flutter_chat_types: ^3.6.0
   file_picker: ^5.2.2
   open_filex: ^4.3.0
+  country_icons: ^2.0.2
 
 dev_dependencies:
   flutter_test:

@@ -24,18 +24,21 @@ class TopBarContents extends GetView<LoginController> {
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
-              GestureDetector(
-                onTap: () {
-                  Get.toNamed(AppPages.main);
-                },
-                child: Text(
-                  'Derecho Inteligente',
-                  style: TextStyle(
-                    color: Colors.blueGrey[100],
-                    fontSize: 20,
-                    fontFamily: 'Montserrat',
-                    fontWeight: FontWeight.w400,
-                    letterSpacing: 3,
+              FittedBox(
+                fit: BoxFit.fitWidth,
+                child: GestureDetector(
+                  onTap: () {
+                    Get.toNamed(AppPages.main);
+                  },
+                  child: Text(
+                    'Derecho Inteligente',
+                    style: TextStyle(
+                      color: Colors.blueGrey[100],
+                      fontSize: 20,
+                      fontFamily: 'Montserrat',
+                      fontWeight: FontWeight.w400,
+                      letterSpacing: 3,
+                    ),
                   ),
                 ),
               ),
@@ -44,120 +47,211 @@ class TopBarContents extends GetView<LoginController> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     SizedBox(width: screenSize.width / 8),
-                    InkWell(
-                      onHover: (value) {
-                        // setState(() {
-                        value
-                            ? controller.isHovering[0] = true
-                            : controller.isHovering[0] = false;
-                        // });
-                      },
-                      onTap: () {
-                        Get.toNamed(AppPages.aboutUs);
-                      },
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(
-                            'About Us',
-                            style: TextStyle(
-                              color: controller.isHovering[0]
-                                  ? Colors.blue[200]
-                                  : Colors.white,
+                    FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: InkWell(
+                        onHover: (value) {
+                          // setState(() {
+                          value
+                              ? controller.isHovering[0] = true
+                              : controller.isHovering[0] = false;
+                          // });
+                        },
+                        onTap: () {
+                          Get.toNamed(AppPages.aboutUs);
+                        },
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              'aboutUs'.tr,
+                              style: TextStyle(
+                                color: controller.isHovering[0]
+                                    ? Colors.blue[200]
+                                    : Colors.white,
+                              ),
                             ),
-                          ),
-                          SizedBox(height: 5),
-                          Visibility(
-                            maintainAnimation: true,
-                            maintainState: true,
-                            maintainSize: true,
-                            visible: controller.isHovering[0],
-                            child: Container(
-                              height: 2,
-                              width: 20,
-                              color: Colors.white,
-                            ),
-                          )
-                        ],
+                            SizedBox(height: 5),
+                            Visibility(
+                              maintainAnimation: true,
+                              maintainState: true,
+                              maintainSize: true,
+                              visible: controller.isHovering[0],
+                              child: Container(
+                                height: 2,
+                                width: 20,
+                                color: Colors.white,
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
-                    SizedBox(width: screenSize.width / 20),
-                    InkWell(
-                      onHover: (value) {
-                        // setState(() {
-                        value
-                            ? controller.isHovering[1] = true
-                            : controller.isHovering[1] = false;
-                        // });
-                      },
-                      onTap: () {
-                        Get.toNamed(AppPages.contactUS);
-                      },
-                      child: Column(
-                        mainAxisSize: MainAxisSize.min,
-                        children: [
-                          Text(
-                            'Contact Us',
-                            style: TextStyle(
-                              color: controller.isHovering[1]
-                                  ? Colors.blue[200]
-                                  : Colors.white,
+                    SizedBox(width: screenSize.width / 40),
+                    FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: InkWell(
+                        onHover: (value) {
+                          // setState(() {
+                          value
+                              ? controller.isHovering[1] = true
+                              : controller.isHovering[1] = false;
+                          // });
+                        },
+                        onTap: () {
+                          Get.toNamed(AppPages.contactUS);
+                        },
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              'contactUs'.tr,
+                              style: TextStyle(
+                                color: controller.isHovering[1]
+                                    ? Colors.blue[200]
+                                    : Colors.white,
+                              ),
                             ),
-                          ),
-                          SizedBox(height: 5),
-                          Visibility(
-                            maintainAnimation: true,
-                            maintainState: true,
-                            maintainSize: true,
-                            visible: controller.isHovering[1],
-                            child: Container(
-                              height: 2,
-                              width: 20,
-                              color: Colors.white,
+                            SizedBox(height: 5),
+                            Visibility(
+                              maintainAnimation: true,
+                              maintainState: true,
+                              maintainSize: true,
+                              visible: controller.isHovering[1],
+                              child: Container(
+                                height: 2,
+                                width: 20,
+                                color: Colors.white,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: screenSize.width / 40),
+                    FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: InkWell(
+                        onHover: (value) {
+                          // setState(() {
+                          value
+                              ? controller.isHovering[1] = true
+                              : controller.isHovering[1] = false;
+                          // });
+                        },
+                        onTap: () {
+                          Get.toNamed(AppPages.contactUS);
+                        },
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              'contactUs'.tr,
+                              style: TextStyle(
+                                color: controller.isHovering[1]
+                                    ? Colors.blue[200]
+                                    : Colors.white,
+                              ),
                             ),
-                          )
-                        ],
+                            SizedBox(height: 5),
+                            Visibility(
+                              maintainAnimation: true,
+                              maintainState: true,
+                              maintainSize: true,
+                              visible: controller.isHovering[1],
+                              child: Container(
+                                height: 2,
+                                width: 20,
+                                color: Colors.white,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: screenSize.width / 40),
+                    FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: InkWell(
+                        onHover: (value) {
+                          // setState(() {
+                          value
+                              ? controller.isHovering[1] = true
+                              : controller.isHovering[1] = false;
+                          // });
+                        },
+                        onTap: () {
+                          Get.toNamed(AppPages.contactUS);
+                        },
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              'contactUs'.tr,
+                              style: TextStyle(
+                                color: controller.isHovering[1]
+                                    ? Colors.blue[200]
+                                    : Colors.white,
+                              ),
+                            ),
+                            SizedBox(height: 5),
+                            Visibility(
+                              maintainAnimation: true,
+                              maintainState: true,
+                              maintainSize: true,
+                              visible: controller.isHovering[1],
+                              child: Container(
+                                height: 2,
+                                width: 20,
+                                color: Colors.white,
+                              ),
+                            )
+                          ],
+                        ),
                       ),
                     ),
                     FirebaseAuth.instance.currentUser != null
                         ? Row(
                             children: [
-                              SizedBox(width: screenSize.width / 20),
-                              InkWell(
-                                onHover: (value) {
-                                  // setState(() {
-                                  value
-                                      ? controller.isHovering[2] = true
-                                      : controller.isHovering[2] = false;
-                                  // });
-                                },
-                                onTap: () {
-                                  Get.toNamed(AppPages.platform);
-                                },
-                                child: Column(
-                                  mainAxisSize: MainAxisSize.min,
-                                  children: [
-                                    Text(
-                                      'Administracción',
-                                      style: TextStyle(
-                                        color: controller.isHovering[2]
-                                            ? Colors.blue[200]
-                                            : Colors.white,
+                              SizedBox(width: screenSize.width / 40),
+                              FittedBox(
+                                fit: BoxFit.fitWidth,
+                                child: InkWell(
+                                  onHover: (value) {
+                                    // setState(() {
+                                    value
+                                        ? controller.isHovering[2] = true
+                                        : controller.isHovering[2] = false;
+                                    // });
+                                  },
+                                  onTap: () {
+                                    Get.toNamed(AppPages.platform);
+                                  },
+                                  child: Column(
+                                    mainAxisSize: MainAxisSize.min,
+                                    children: [
+                                      Text(
+                                        'administration'.tr,
+                                        style: TextStyle(
+                                          color: controller.isHovering[2]
+                                              ? Colors.blue[200]
+                                              : Colors.white,
+                                        ),
                                       ),
-                                    ),
-                                    SizedBox(height: 5),
-                                    Visibility(
-                                      maintainAnimation: true,
-                                      maintainState: true,
-                                      maintainSize: true,
-                                      visible: controller.isHovering[2],
-                                      child: Container(
-                                        height: 2,
-                                        width: 20,
-                                        color: Colors.white,
-                                      ),
-                                    )
-                                  ],
+                                      SizedBox(height: 5),
+                                      Visibility(
+                                        maintainAnimation: true,
+                                        maintainState: true,
+                                        maintainSize: true,
+                                        visible: controller.isHovering[2],
+                                        child: Container(
+                                          height: 2,
+                                          width: 20,
+                                          color: Colors.white,
+                                        ),
+                                      )
+                                    ],
+                                  ),
                                 ),
                               ),
                             ],
@@ -184,44 +278,54 @@ class TopBarContents extends GetView<LoginController> {
               // SizedBox(
               //   width: screenSize.width / 50,
               // ),
-              Row(
-                children: [
-                  FirebaseAuth.instance.currentUser != null
-                      ? Container(height: 60, child: ProfileFotoSignOutButton())
-                      : SizedBox.shrink(),
-                  // SizedBox(
-                  //   width: screenSize.width / 50,
-                  // ),
-                  InkWell(
-                      onHover: (value) {
-                        // setState(() {
-                        value
-                            ? controller.isHovering[3] = true
-                            : controller.isHovering[3] = false;
-                        // });
-                      },
-                      onTap:
-                          //  userEmail == null
-                          //     ?
-                          () {
-                        showDialog(
-                          context: context,
-                          builder: (context) => AuthDialog(),
-                        );
-                      }
-                      // : null
-                      ,
-                      child: FirebaseAuth.instance.currentUser == null
-                          ? Text(
-                              'Sign in',
-                              style: TextStyle(
-                                color: controller.isHovering[3]
-                                    ? Colors.white
-                                    : Colors.white70,
-                              ),
-                            )
-                          : SizedBox.shrink()),
-                ],
+              FittedBox(
+                fit: BoxFit.fitWidth,
+                child: Row(
+                  children: [
+                    FirebaseAuth.instance.currentUser != null
+                        ? Container(
+                            height: 60, child: ProfileFotoSignOutButton())
+                        : SizedBox.shrink(),
+                    // SizedBox(
+                    //   width: screenSize.width / 50,
+                    // ),
+                    FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: InkWell(
+                          onHover: (value) {
+                            // setState(() {
+                            value
+                                ? controller.isHovering[3] = true
+                                : controller.isHovering[3] = false;
+                            // });
+                          },
+                          onTap:
+                              //  userEmail == null
+                              //     ?
+                              () {
+                            showDialog(
+                              context: context,
+                              builder: (context) => AuthDialog(),
+                            );
+                          }
+                          // : null
+                          ,
+                          child: FirebaseAuth.instance.currentUser == null
+                              ? FittedBox(
+                                  fit: BoxFit.fitWidth,
+                                  child: Text(
+                                    'sign_in'.tr,
+                                    style: TextStyle(
+                                      color: controller.isHovering[3]
+                                          ? Colors.white
+                                          : Colors.white70,
+                                    ),
+                                  ),
+                                )
+                              : SizedBox.shrink()),
+                    ),
+                  ],
+                ),
               )
             ],
           ),

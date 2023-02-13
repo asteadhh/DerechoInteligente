@@ -7,7 +7,7 @@ import '../constants/custom_colors.dart';
 
 ThemeData darkTheme = ThemeData(
   primarySwatch: Colors.blueGrey,
-  buttonColor: Constants.secondaryColor,
+  // buttonColor: Constants.secondaryColor,
   backgroundColor: Colors.blueGrey[900],
   accentColor: Constants.bgColor,
   cardColor: Colors.black,
@@ -40,7 +40,7 @@ ThemeData darkTheme = ThemeData(
 
 ThemeData lightTheme = ThemeData(
   accentColor: Colors.white,
-  buttonColor: Colors.grey.shade200,
+  // buttonColor: Colors.grey.shade200,
   primarySwatch: Colors.blueGrey,
   backgroundColor: Colors.white,
   // backgroundColor: Colors.blueGrey,

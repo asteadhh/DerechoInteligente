@@ -29,21 +29,38 @@ class AboutUsScreen extends GetView<LoginController> {
           SizedBox(
             height: 20,
           ),
-          ElevatedButton(
-            onPressed: () {
-              print(controller.myUser?.correo);
-            },
-            child: Text('Imprimir Correo en Stream'),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          ElevatedButton(
-            onPressed: () {
-              print(FirebaseAuth.instance.currentUser!.email);
-            },
-            child: Text('Imprimir Correo en Firebase'),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                Text('aboutUsText1'.tr),
+                SizedBox(
+                  height: 20,
+                ),
+                Text('aboutUsText2'.tr),
+                SizedBox(
+                  height: 20,
+                ),
+                Text('aboutUsText3'.tr),
+              ],
+            ),
           )
+          // ElevatedButton(
+          //   onPressed: () {
+          //     print(controller.myUser?.correo);
+          //   },
+          //   child: Text('Imprimir Correo en Stream'),
+          // ),
+          // SizedBox(
+          //   height: 20,
+          // ),
+          // ElevatedButton(
+          //   onPressed: () {
+          //     print(FirebaseAuth.instance.currentUser!.email);
+          //   },
+          //   child: Text('Imprimir Correo en Firebase'),
+          // )
         ],
       ),
     );

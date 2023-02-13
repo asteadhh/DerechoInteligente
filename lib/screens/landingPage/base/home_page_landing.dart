@@ -1,3 +1,4 @@
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import '/controllers/LoginController/login_controller.dart';
@@ -60,7 +61,11 @@ class _LandingPageBaseState extends State<LandingPageBase> {
               centerTitle: true,
               actions: [
                 IconButton(
-                  icon: Icon(Icons.language),
+                  icon: 'idioma'.tr == 'Español'
+                      ? SvgPicture.asset('icons/flags/svg/cl.svg',
+                          package: 'country_icons')
+                      : SvgPicture.asset('icons/flags/svg/us.svg',
+                          package: 'country_icons'),
                   splashColor: Colors.transparent,
                   highlightColor: Colors.transparent,
                   onPressed: () {
@@ -69,14 +74,6 @@ class _LandingPageBaseState extends State<LandingPageBase> {
                         : Get.updateLocale(Locale('es', 'ES'));
                   },
                 ),
-                // Text(Localizations.localeOf(context).toString()),
-                // IconButton(
-                // onPressed: () {
-                //   'idioma'.tr == 'Español'
-                //       ? print('español')
-                //       : print('ingles');
-                // },
-                // icon: Icon(Icons.print)),
                 IconButton(
                   icon: Icon(Icons.brightness_6),
                   splashColor: Colors.transparent,

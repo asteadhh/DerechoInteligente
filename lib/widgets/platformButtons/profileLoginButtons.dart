@@ -83,7 +83,7 @@ class ProfileLoginButton extends StatelessWidget {
                   ),
                   decoration: BoxDecoration(
                     // color: secondaryColor,
-                    color: Theme.of(context).buttonColor,
+                    color: Theme.of(context).primaryColor,
                     borderRadius: const BorderRadius.all(Radius.circular(10)),
                     border: Border.all(color: Colors.white10),
                   ),
@@ -130,7 +130,7 @@ class ProfileLoginButton extends StatelessWidget {
                 dropdownPadding: const EdgeInsets.symmetric(vertical: 6),
                 dropdownDecoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(4),
-                  color: Theme.of(context).buttonColor,
+                  color: Theme.of(context).primaryColor,
                 ),
                 dropdownElevation: 8,
                 offset: const Offset(0, 8),
@@ -144,7 +144,7 @@ class ProfileLoginButton extends StatelessWidget {
                   ),
                   decoration: BoxDecoration(
                     // color: secondaryColor,
-                    color: Theme.of(context).buttonColor,
+                    color: Theme.of(context).primaryColor,
                     borderRadius: const BorderRadius.all(Radius.circular(10)),
                     border: Border.all(color: Colors.white10),
                   ),
@@ -190,7 +190,7 @@ class ProfileLoginButton extends StatelessWidget {
                 dropdownPadding: const EdgeInsets.symmetric(vertical: 6),
                 dropdownDecoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(4),
-                  color: Theme.of(context).buttonColor,
+                  color: Theme.of(context).primaryColor,
                 ),
                 dropdownElevation: 8,
                 offset: const Offset(0, 8),
@@ -273,7 +273,7 @@ class ProfileFotoSignOutButton extends StatelessWidget {
                   ),
                   decoration: BoxDecoration(
                     // color: secondaryColor,
-                    color: Theme.of(context).buttonColor,
+                    color: Theme.of(context).primaryColor,
                     borderRadius: const BorderRadius.all(Radius.circular(10)),
                     border: Border.all(color: Colors.white10),
                   ),
@@ -320,7 +320,7 @@ class ProfileFotoSignOutButton extends StatelessWidget {
                 dropdownPadding: const EdgeInsets.symmetric(vertical: 6),
                 dropdownDecoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(4),
-                  color: Theme.of(context).buttonColor,
+                  color: Theme.of(context).primaryColor,
                 ),
                 dropdownElevation: 8,
                 offset: const Offset(0, 8),
@@ -334,7 +334,7 @@ class ProfileFotoSignOutButton extends StatelessWidget {
                   ),
                   decoration: BoxDecoration(
                     // color: secondaryColor,
-                    color: Theme.of(context).buttonColor,
+                    color: Theme.of(context).primaryColor,
                     borderRadius: const BorderRadius.all(Radius.circular(10)),
                     border: Border.all(color: Colors.white10),
                   ),
@@ -374,7 +374,7 @@ class ProfileFotoSignOutButton extends StatelessWidget {
                 dropdownPadding: const EdgeInsets.symmetric(vertical: 6),
                 dropdownDecoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(4),
-                  color: Theme.of(context).buttonColor,
+                  color: Theme.of(context).primaryColor,
                 ),
                 dropdownElevation: 8,
                 offset: const Offset(0, 8),

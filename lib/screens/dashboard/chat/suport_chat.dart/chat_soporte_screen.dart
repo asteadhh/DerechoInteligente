@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
+// import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
 import 'package:image_picker/image_picker.dart';
@@ -23,7 +23,7 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: PlatformText('Soporte'),
+        title: Text('Soporte'),
       ),
       body: Stack(children: [
         Column(
@@ -99,28 +99,29 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
               child: IconButton(
                 icon: Icon(Icons.camera_enhance),
                 onPressed: () {
-                  showPlatformDialog(
-                    context: context,
-                    builder: (_) => PlatformAlertDialog(
-                      title: Text('Alert'),
-                      content: Text('Some content'),
-                      actions: <Widget>[
-                        PlatformDialogAction(
-                          child: PlatformText('Camara'),
-                          onPressed: () async {
-                            await getImage(type: ImageSource.camera);
-                            Navigator.pop(context);
-                          },
-                        ),
-                        PlatformDialogAction(
-                          child: PlatformText('Galeria'),
-                          onPressed: () async {
-                            await getImage(type: ImageSource.gallery);
-                            Navigator.pop(context);
-                          },
-                        ),
-                      ],
-                    ),
+                  // showPlatformDialog(
+                  //   context: context,
+                  //   builder: (_) =>
+                  AlertDialog(
+                    title: Text('Alert'),
+                    content: Text('Some content'),
+                    actions: <Widget>[
+                      ElevatedButton(
+                        child: Text('Camara'),
+                        onPressed: () async {
+                          await getImage(type: ImageSource.camera);
+                          Navigator.pop(context);
+                        },
+                      ),
+                      ElevatedButton(
+                        child: Text('Galeria'),
+                        onPressed: () async {
+                          await getImage(type: ImageSource.gallery);
+                          Navigator.pop(context);
+                        },
+                      ),
+                    ],
+                    // ),
                   );
                 },
                 color: CustomColors.jurixNavy,
