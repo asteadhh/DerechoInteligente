@@ -3,7 +3,7 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 
 class Constants {
-  static const Color backgroundcolor = Color.fromRGBO(249, 245, 255, 1);
+  static const Color backgroundcolor = Color.fromRGBO(231, 239, 239, 1);
   static const Color ourBlack = Color.fromRGBO(2, 17, 27, 0.8);
   static const Color ourYellow = Color.fromRGBO(240, 200, 8, 1);
   static const Color ourOrange = Color.fromRGBO(221, 28, 26, 1);

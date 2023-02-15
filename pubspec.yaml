@@ -17,7 +17,7 @@ dependencies:
   # get_storage: ^2.0.3
   intl: ^0.17.0
 
-  carousel_slider: ^4.1.1
+  carousel_slider: ^4.2.1
   easy_dynamic_theme: ^2.0.0
   # dynamic_theme: ^1.0.1
 
@@ -105,6 +105,25 @@ flutter:
     - assets/jurixlogo/
     - assets/jurixlogo/300dpi/300dpi_jurix_isotipo_350px.png
     - assets/images/illustration-2.png
+    - assets/images/logoDerechoInteligente.jpeg
+    - assets/images/output-onlinejpgtools.png
+    - assets/images/FOTOFREE/
+    - assets/images/FOTOFREE/bank-for-saving-money.jpg
+    - assets/images/FOTOFREE/brainstorm-meeting.jpg
+    - assets/images/FOTOFREE/fistbump-over-desk.jpg
+    - assets/images/FOTOFREE/iStock-969500140.jpg
+    - assets/images/FOTOFREE/iStock-1051502202.jpg
+    - assets/images/FOTOFREE/iStock-1053312200.jpg
+    - assets/images/FOTOFREE/iStock-1053597112.jpg
+    - assets/images/FOTOFREE/iStock-1058130072.jpg
+    - assets/images/FOTOFREE/iStock-1080092606.jpg
+    - assets/images/FOTOFREE/iStock-1095177180.jpg
+    - assets/images/FOTOFREE/iStock-1124563104.jpg
+    - assets/images/FOTOFREE/iStock-1127947543.jpg
+    - assets/images/FOTOFREE/iStock-1147717137.jpg
+    - assets/images/FOTOFREE/row-of-young-adults-at-work.jpg
+    - assets/images/FOTOFREE/teamwork-makes-the-dream-work.jpg
+    - assets/images/FOTOFREE/two-customized-cars-rolling-through-a-city-street.jpg
 
   fonts:
     - family: Montserrat

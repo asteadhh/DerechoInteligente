@@ -42,7 +42,7 @@ ThemeData lightTheme = ThemeData(
   accentColor: Colors.white,
   // buttonColor: Colors.grey.shade200,
   primarySwatch: Colors.blueGrey,
-  backgroundColor: Colors.white,
+  backgroundColor: Constants.backgroundcolor,
   // backgroundColor: Colors.blueGrey,
   cardColor: Colors.blueGrey[50],
   cardTheme: CardTheme(

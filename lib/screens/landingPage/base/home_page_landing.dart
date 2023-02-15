@@ -59,49 +59,50 @@ class _LandingPageBaseState extends State<LandingPageBase> {
                   Theme.of(context).bottomAppBarColor.withOpacity(_opacity),
               elevation: 0,
               centerTitle: true,
-              actions: [
-                IconButton(
-                  icon: 'idioma'.tr == 'Español'
-                      ? SvgPicture.asset('icons/flags/svg/cl.svg',
-                          package: 'country_icons')
-                      : SvgPicture.asset('icons/flags/svg/us.svg',
-                          package: 'country_icons'),
-                  splashColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  onPressed: () {
-                    'idioma'.tr == 'Español'
-                        ? Get.updateLocale(Locale('en', 'US'))
-                        : Get.updateLocale(Locale('es', 'ES'));
-                  },
-                ),
-                IconButton(
-                  icon: Icon(Icons.brightness_6),
-                  splashColor: Colors.transparent,
-                  highlightColor: Colors.transparent,
-                  onPressed: () {
-                    //CHANGE THEME MODE
-                    // EasyDynamicTheme.of(context).changeTheme();
 
-                    Get.changeThemeMode(ThemeService().loadThemeFromBox()
-                        ? ThemeMode.light
-                        : ThemeMode.dark);
-                    ThemeService()
-                        .saveThemeToBox(!ThemeService().loadThemeFromBox());
-                  },
-                ),
-              ],
-              title: GestureDetector(
+              // actions: [
+              //   IconButton(
+              //     icon: 'idioma'.tr == 'Español'
+              //         ? SvgPicture.asset('icons/flags/svg/cl.svg',
+              //             package: 'country_icons')
+              //         : SvgPicture.asset('icons/flags/svg/us.svg',
+              //             package: 'country_icons'),
+              //     splashColor: Colors.transparent,
+              //     highlightColor: Colors.transparent,
+              //     onPressed: () {
+              //       'idioma'.tr == 'Español'
+              //           ? Get.updateLocale(Locale('en', 'US'))
+              //           : Get.updateLocale(Locale('es', 'ES'));
+              //     },
+              //   ),
+              //   IconButton(
+              //     icon: Icon(Icons.brightness_6),
+              //     splashColor: Colors.transparent,
+              //     highlightColor: Colors.transparent,
+              //     onPressed: () {
+              //       //CHANGE THEME MODE
+              //       // EasyDynamicTheme.of(context).changeTheme();
+
+              //       Get.changeThemeMode(ThemeService().loadThemeFromBox()
+              //           ? ThemeMode.light
+              //           : ThemeMode.dark);w
+              //       ThemeService()
+              //           .saveThemeToBox(!ThemeService().loadThemeFromBox());
+              //     },
+              //   ),
+              // ],
+              leading: GestureDetector(
                 onTap: () {
                   Get.toNamed(AppPages.main);
                 },
-                child: Text(
-                  'Derecho Inteligente',
-                  style: TextStyle(
-                    color: Colors.blueGrey[100],
-                    fontSize: 20,
-                    fontFamily: 'Montserrat',
-                    fontWeight: FontWeight.w400,
-                    letterSpacing: 3,
+                child: Container(
+                  height: 40,
+                  width: 40,
+                  // color: Colors.red,
+                  child: FittedBox(
+                    fit: BoxFit.fill,
+                    child:
+                        Image.asset('assets/images/output-onlinejpgtools.png'),
                   ),
                 ),
               ),
@@ -110,7 +111,7 @@ class _LandingPageBaseState extends State<LandingPageBase> {
               preferredSize: Size(screenSize.width, 1000),
               child: TopBarContents(),
             ),
-      drawer: ExploreDrawer(),
+      endDrawer: ExploreDrawer(),
       body:
           // WebScrollbar(
           //   color: Colors.blueGrey,

@@ -26,7 +26,7 @@ class FeaturedHeading extends StatelessWidget {
               children: [
                 Row(),
                 Text(
-                  'Servicios'.tr,
+                  'areasDePractica'.tr,
                   style: TextStyle(
                     fontSize: 24,
                     fontFamily: 'Montserrat',
