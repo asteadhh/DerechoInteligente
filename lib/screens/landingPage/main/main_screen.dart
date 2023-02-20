@@ -7,6 +7,7 @@ import '../../../widgets/destination_heading.dart';
 import '../../../widgets/featured_heading.dart';
 import '../../../widgets/featured_tiles.dart';
 import '../../../widgets/floating_quick_access_bar.dart';
+import '../../../widgets/responsive.dart';
 
 class HomeLanding extends StatelessWidget {
   HomeLanding({
@@ -121,27 +122,14 @@ class HomeLandingContent extends StatelessWidget {
             Row(
               children: [
                 // IF tamaño pantalla
-                SizedBox(
-                  height: MediaQuery.of(context).size.height * 0.45,
-                  width: MediaQuery.of(context).size.width,
-                  child: Container(
-                      child: CarouselSlider(
-                    options: CarouselOptions(
-                      autoPlay: true,
-                      autoPlayInterval: Duration(seconds: 5),
-                      autoPlayAnimationDuration: Duration(milliseconds: 800),
-                      autoPlayCurve: Curves.fastOutSlowIn,
-                      aspectRatio: 2.0,
-                      enlargeCenterPage: true,
-                      pageViewKey: PageStorageKey<String>('carousel_slider'),
-                    ),
-                    items: imageSliders,
-                  )),
-                  // child: Image.asset(
-                  //   'assets/images/cover.jpg',
-                  //   fit: BoxFit.cover,
-                  // ),
-                ),
+                ResponsiveWidget.isSmallScreen(context)
+                    ? HomePageCaruselFirst(imageSliders: imageSliders)
+                    : Row(
+                        children: [
+                          ContactoHomePage(),
+                          HomePageCaruselFirst(imageSliders: imageSliders),
+                        ],
+                      ),
               ],
             ),
             Column(
@@ -150,6 +138,9 @@ class HomeLandingContent extends StatelessWidget {
                 Container(
                   child: Column(
                     children: [
+                      ResponsiveWidget.isSmallScreen(context)
+                          ? ContactoHomePage()
+                          : SizedBox.shrink(),
                       FeaturedHeading(
                         screenSize: MediaQuery.of(context).size,
                       ),
@@ -165,6 +156,53 @@ class HomeLandingContent extends StatelessWidget {
         DestinationHeading(screenSize: MediaQuery.of(context).size),
         DestinationCarousel(),
       ],
+    );
+  }
+}
+
+class ContactoHomePage extends StatelessWidget {
+  const ContactoHomePage({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: [
+        Text('data'),
+      ],
+    );
+  }
+}
+
+class HomePageCaruselFirst extends StatelessWidget {
+  const HomePageCaruselFirst({
+    super.key,
+    required this.imageSliders,
+  });
+
+  final List<Widget> imageSliders;
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox(
+      height: MediaQuery.of(context).size.height * 0.45,
+      width: ResponsiveWidget.isSmallScreen(context)
+          ? MediaQuery.of(context).size.width
+          : MediaQuery.of(context).size.width - 40,
+      child: Container(
+          child: CarouselSlider(
+        options: CarouselOptions(
+          autoPlay: true,
+          autoPlayInterval: Duration(seconds: 5),
+          autoPlayAnimationDuration: Duration(milliseconds: 800),
+          autoPlayCurve: Curves.fastOutSlowIn,
+          aspectRatio: 2.0,
+          enlargeCenterPage: true,
+          pageViewKey: PageStorageKey<String>('carousel_slider'),
+        ),
+        items: imageSliders,
+      )),
     );
   }
 }
