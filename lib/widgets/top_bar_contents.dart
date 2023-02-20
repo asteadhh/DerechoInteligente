@@ -1,5 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import '../constants/custom_colors.dart';
 import '/controllers/LoginController/login_controller.dart';
 
 import '../routes/app_pages.dart';
@@ -20,7 +22,8 @@ class TopBarContents extends GetView<LoginController> {
       child: Container(
         color: Theme.of(context).bottomAppBarColor.withOpacity(0),
         child: Padding(
-          padding: EdgeInsets.all(20),
+          // padding: EdgeInsets.all(20),
+          padding: EdgeInsets.only(bottom: 5, left: 5, right: 5, top: 5),
           child: Row(
             crossAxisAlignment: CrossAxisAlignment.center,
             children: [
@@ -30,15 +33,25 @@ class TopBarContents extends GetView<LoginController> {
                   onTap: () {
                     Get.toNamed(AppPages.main);
                   },
-                  child: Text(
-                    'Derecho Inteligente',
-                    style: TextStyle(
-                      color: Colors.blueGrey[100],
-                      fontSize: 20,
-                      fontFamily: 'Montserrat',
-                      fontWeight: FontWeight.w400,
-                      letterSpacing: 3,
-                    ),
+                  child: Row(
+                    children: [
+                      SvgPicture.asset(
+                        // color: Colors.red,
+                        height: 40,
+                        fit: BoxFit.fitHeight,
+                        Constants.LogoSvg,
+                      ),
+                      Text(
+                        'Derecho Inteligente',
+                        style: TextStyle(
+                          color: Colors.blueGrey[100],
+                          fontSize: 20,
+                          fontFamily: 'Montserrat',
+                          fontWeight: FontWeight.w400,
+                          letterSpacing: 3,
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ),
@@ -135,20 +148,20 @@ class TopBarContents extends GetView<LoginController> {
                         onHover: (value) {
                           // setState(() {
                           value
-                              ? controller.isHovering[1] = true
-                              : controller.isHovering[1] = false;
+                              ? controller.isHovering[2] = true
+                              : controller.isHovering[2] = false;
                           // });
                         },
                         onTap: () {
-                          Get.toNamed(AppPages.contactUS);
+                          Get.toNamed(AppPages.pagosScreen);
                         },
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Text(
-                              'contactUs'.tr,
+                              'payment'.tr,
                               style: TextStyle(
-                                color: controller.isHovering[1]
+                                color: controller.isHovering[2]
                                     ? Colors.blue[200]
                                     : Colors.white,
                               ),
@@ -158,7 +171,7 @@ class TopBarContents extends GetView<LoginController> {
                               maintainAnimation: true,
                               maintainState: true,
                               maintainSize: true,
-                              visible: controller.isHovering[1],
+                              visible: controller.isHovering[2],
                               child: Container(
                                 height: 2,
                                 width: 20,
@@ -176,20 +189,20 @@ class TopBarContents extends GetView<LoginController> {
                         onHover: (value) {
                           // setState(() {
                           value
-                              ? controller.isHovering[1] = true
-                              : controller.isHovering[1] = false;
+                              ? controller.isHovering[3] = true
+                              : controller.isHovering[3] = false;
                           // });
                         },
                         onTap: () {
-                          Get.toNamed(AppPages.contactUS);
+                          Get.toNamed(AppPages.faq);
                         },
                         child: Column(
                           mainAxisSize: MainAxisSize.min,
                           children: [
                             Text(
-                              'contactUs'.tr,
+                              'faq'.tr,
                               style: TextStyle(
-                                color: controller.isHovering[1]
+                                color: controller.isHovering[3]
                                     ? Colors.blue[200]
                                     : Colors.white,
                               ),
@@ -199,7 +212,7 @@ class TopBarContents extends GetView<LoginController> {
                               maintainAnimation: true,
                               maintainState: true,
                               maintainSize: true,
-                              visible: controller.isHovering[1],
+                              visible: controller.isHovering[3],
                               child: Container(
                                 height: 2,
                                 width: 20,
@@ -220,8 +233,8 @@ class TopBarContents extends GetView<LoginController> {
                                   onHover: (value) {
                                     // setState(() {
                                     value
-                                        ? controller.isHovering[2] = true
-                                        : controller.isHovering[2] = false;
+                                        ? controller.isHovering[4] = true
+                                        : controller.isHovering[4] = false;
                                     // });
                                   },
                                   onTap: () {
@@ -233,7 +246,7 @@ class TopBarContents extends GetView<LoginController> {
                                       Text(
                                         'administration'.tr,
                                         style: TextStyle(
-                                          color: controller.isHovering[2]
+                                          color: controller.isHovering[4]
                                               ? Colors.blue[200]
                                               : Colors.white,
                                         ),
@@ -243,7 +256,7 @@ class TopBarContents extends GetView<LoginController> {
                                         maintainAnimation: true,
                                         maintainState: true,
                                         maintainSize: true,
-                                        visible: controller.isHovering[2],
+                                        visible: controller.isHovering[4],
                                         child: Container(
                                           height: 2,
                                           width: 20,
