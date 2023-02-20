@@ -34,7 +34,7 @@ dependencies:
 
   google_fonts: ^2.3.1
   eva_icons_flutter: ^3.0.2
-  flutter_svg: ^0.22.0
+  flutter_svg: ^2.0.1
 
   sign_in_with_apple: ^3.3.0
   # facebook_and_google_signin: ^0.0.5
@@ -124,6 +124,13 @@ flutter:
     - assets/images/FOTOFREE/row-of-young-adults-at-work.jpg
     - assets/images/FOTOFREE/teamwork-makes-the-dream-work.jpg
     - assets/images/FOTOFREE/two-customized-cars-rolling-through-a-city-street.jpg
+    - assets/LogoDerechoInteligente/Asset2.svg
+    - assets/LogoDerechoInteligente/Asset1.svg
+    - assets/LogoDerechoInteligente/Asset3.svg
+    - assets/LogoDerechoInteligente/Asset4.svg
+    - assets/LogoDerechoInteligente/Asset5.svg
+    # - assets/LogoDerechoInteligente/Asset6.svg
+    # - assets/LogoDerechoInteligente/Asset7.svg
 
   fonts:
     - family: Montserrat

@@ -1,3 +1,4 @@
+import 'package:derecho_inteligente/constants/custom_colors.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
@@ -102,10 +103,17 @@ class _LandingPageBaseState extends State<LandingPageBase> {
                   child: FittedBox(
                     fit: BoxFit.fill,
                     child:
-                        Image.asset('assets/images/output-onlinejpgtools.png'),
+                        // Image.asset('assets/images/output-onlinejpgtools.png'),
+                        SvgPicture.asset(
+                      // color: Colors.red,
+
+                      Constants.LogoSvg,
+                    ),
                   ),
                 ),
               ),
+              iconTheme: IconThemeData(
+                  color: _opacity == 0 ? Colors.black : Colors.white),
             )
           : PreferredSize(
               preferredSize: Size(screenSize.width, 1000),

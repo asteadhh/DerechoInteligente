@@ -58,7 +58,7 @@ class HomeLandingContent extends StatelessWidget {
 
   //
   final List<String> imgTextListAsset = [
-    'Imagen 1',
+    'Derecho de Agua',
     'Imagen 2',
     'Imagen 3',
     'Imagen 4',
@@ -74,7 +74,7 @@ class HomeLandingContent extends StatelessWidget {
     final List<Widget> imageSliders = imgListAsset
         .map((item) => Container(
               child: Container(
-                margin: EdgeInsets.all(5.0),
+                margin: EdgeInsets.only(top: 50, bottom: 5, left: 5, right: 5),
                 child: ClipRRect(
                     borderRadius: BorderRadius.all(Radius.circular(5.0)),
                     child: Stack(

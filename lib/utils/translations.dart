@@ -46,7 +46,7 @@ class Messages extends Translations {
           'idioma': 'Español',
 
           // AREA PRACTICA
-          'bankruptcyLaw': 'Insolvencia',
+          'bankruptcyLaw': 'Insolvencia y Reemprendimiento',
           'corporateLaw': 'Derecho Corporativo',
           'taxLaw': 'Derecho Tributario',
           'criminalLaw': 'Derecho Penal',
