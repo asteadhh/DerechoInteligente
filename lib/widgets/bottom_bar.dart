@@ -74,11 +74,12 @@ class BottomBar extends StatelessWidget {
                   link:
                       'mailto:contacto@derechointeligente.cl?subject=Contacto&body=Quiero Contactarme ',
                 ),
-                // SizedBox(height: 5),
-                // InfoText(
-                //   type: 'Address',
-                //   text: '128, Trymore Road, Delft, MN - 56124',
-                // ),
+                SizedBox(height: 5),
+                InfoText(
+                  type: 'Address',
+                  text: 'Apoquindo 5950, Las Condes, RM, Chile',
+                  link: 'https://goo.gl/maps/xhwWcg6XSnbxhhGB7',
+                ),
                 SizedBox(height: 20),
                 Container(
                   color: Colors.blueGrey,
@@ -142,11 +143,11 @@ class BottomBar extends StatelessWidget {
                           link:
                               'mailto:contacto@derechointeligente.cl?subject=Contacto&body=Quiero Contactarme ',
                         ),
-                        // SizedBox(height: 5),
-                        // InfoText(
-                        //   type: 'Dirreción',
-                        //   text: '128, Trymore Road, Delft, MN - 56124',
-                        // )
+                        SizedBox(height: 5),
+                        InfoText(
+                          type: 'Dirreción',
+                          text: '128, Trymore Road, Delft, MN - 56124',
+                        )
                       ],
                     ),
                   ],

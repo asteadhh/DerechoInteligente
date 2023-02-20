@@ -1,3 +1,4 @@
+import 'package:derecho_inteligente/constants/custom_colors.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import '/controllers/UserController/user_data_controller.dart';
@@ -26,7 +27,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
     // controller.myUser!.foto;
     return Drawer(
       child: Container(
-        color: Theme.of(context).bottomAppBarColor,
+        color: Constants.derechoInteligenteIndigoDye,
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
@@ -43,6 +44,23 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                 },
                 child: Text(
                   'home'.tr,
+                  style: TextStyle(color: Colors.white, fontSize: 22),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(top: 5.0, bottom: 5.0),
+                child: Divider(
+                  color: Colors.blueGrey[400],
+                  thickness: 2,
+                ),
+              ),
+              InkWell(
+                onTap: () {
+                  Get.toNamed(AppPages.work);
+                  // LandingPageBase()
+                },
+                child: Text(
+                  'work'.tr,
                   style: TextStyle(color: Colors.white, fontSize: 22),
                 ),
               ),

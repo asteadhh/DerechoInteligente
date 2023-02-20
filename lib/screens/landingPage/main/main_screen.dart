@@ -115,30 +115,34 @@ class HomeLandingContent extends StatelessWidget {
 
     return Column(
       children: [
+        // Fotos Login
         Stack(
           children: [
-            Container(
-              child: SizedBox(
-                height: MediaQuery.of(context).size.height * 0.45,
-                width: MediaQuery.of(context).size.width,
-                child: Container(
-                    child: CarouselSlider(
-                  options: CarouselOptions(
-                    autoPlay: true,
-                    autoPlayInterval: Duration(seconds: 5),
-                    autoPlayAnimationDuration: Duration(milliseconds: 800),
-                    autoPlayCurve: Curves.fastOutSlowIn,
-                    aspectRatio: 2.0,
-                    enlargeCenterPage: true,
-                    pageViewKey: PageStorageKey<String>('carousel_slider'),
-                  ),
-                  items: imageSliders,
-                )),
-                // child: Image.asset(
-                //   'assets/images/cover.jpg',
-                //   fit: BoxFit.cover,
-                // ),
-              ),
+            Row(
+              children: [
+                // IF tamaño pantalla
+                SizedBox(
+                  height: MediaQuery.of(context).size.height * 0.45,
+                  width: MediaQuery.of(context).size.width,
+                  child: Container(
+                      child: CarouselSlider(
+                    options: CarouselOptions(
+                      autoPlay: true,
+                      autoPlayInterval: Duration(seconds: 5),
+                      autoPlayAnimationDuration: Duration(milliseconds: 800),
+                      autoPlayCurve: Curves.fastOutSlowIn,
+                      aspectRatio: 2.0,
+                      enlargeCenterPage: true,
+                      pageViewKey: PageStorageKey<String>('carousel_slider'),
+                    ),
+                    items: imageSliders,
+                  )),
+                  // child: Image.asset(
+                  //   'assets/images/cover.jpg',
+                  //   fit: BoxFit.cover,
+                  // ),
+                ),
+              ],
             ),
             Column(
               children: [
@@ -157,6 +161,7 @@ class HomeLandingContent extends StatelessWidget {
             )
           ],
         ),
+        //
         DestinationHeading(screenSize: MediaQuery.of(context).size),
         DestinationCarousel(),
       ],

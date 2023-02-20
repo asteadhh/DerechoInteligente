@@ -42,7 +42,7 @@ ThemeData lightTheme = ThemeData(
   accentColor: Colors.white,
   // buttonColor: Colors.grey.shade200,
   primarySwatch: Colors.blueGrey,
-  backgroundColor: Constants.backgroundcolor,
+  backgroundColor: Constants.derechoInteligenteAliceBlue,
   // backgroundColor: Colors.blueGrey,
   cardColor: Colors.blueGrey[50],
   cardTheme: CardTheme(
@@ -64,7 +64,7 @@ ThemeData lightTheme = ThemeData(
     headline1: TextStyle(color: Colors.blueGrey[800]),
     headline6: TextStyle(color: Colors.blueGrey[800]),
   ),
-  bottomAppBarColor: Colors.blueGrey[900],
+  bottomAppBarColor: Constants.derechoInteligenteIndigoDye,
   iconTheme: IconThemeData(color: Colors.blueGrey),
   brightness: Brightness.light,
 );

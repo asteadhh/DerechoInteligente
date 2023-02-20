@@ -32,6 +32,7 @@ class Messages extends Translations {
           'carreers': 'Postulaciones',
           'help': 'AYUDA',
           'payment': 'Pagos',
+          'work': 'Areas Legales',
           'cancellation': 'Cancelar',
           'faq': 'Preguntas Frecuentes',
           'Social': 'REDES SOCIALES',
@@ -138,6 +139,8 @@ class Messages extends Translations {
           'aboutUs': 'About Us',
           'carreers': 'Carreers',
           'help': 'HELP',
+
+          'work': 'Areas Legales',
           'payment': 'Payment',
           'cancellation': 'Cancellation',
           'faq': 'FAQ',

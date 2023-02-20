@@ -20,7 +20,8 @@ class TopBarContents extends GetView<LoginController> {
     return PreferredSize(
       preferredSize: Size(screenSize.width, 1000),
       child: Container(
-        color: Theme.of(context).bottomAppBarColor.withOpacity(0),
+        // color: Theme.of(context).bottomAppBarColor.withOpacity(0),
+        color: Constants.derechoInteligenteIndigoDye,
         child: Padding(
           // padding: EdgeInsets.all(20),
           padding: EdgeInsets.only(bottom: 5, left: 5, right: 5, top: 5),
@@ -57,9 +58,50 @@ class TopBarContents extends GetView<LoginController> {
               ),
               Expanded(
                 child: Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.end,
                   children: [
-                    SizedBox(width: screenSize.width / 8),
+                    // SizedBox(width: screenSize.width / 10),
+                    FittedBox(
+                      fit: BoxFit.fitWidth,
+                      child: InkWell(
+                        onHover: (value) {
+                          // setState(() {
+                          value
+                              ? controller.isHovering[6] = true
+                              : controller.isHovering[6] = false;
+                          // });
+                        },
+                        onTap: () {
+                          Get.toNamed(AppPages.aboutUs);
+                        },
+                        child: Column(
+                          mainAxisSize: MainAxisSize.min,
+                          children: [
+                            Text(
+                              'work'.tr,
+                              style: TextStyle(
+                                color: controller.isHovering[6]
+                                    ? Colors.blue[200]
+                                    : Colors.white,
+                              ),
+                            ),
+                            SizedBox(height: 5),
+                            Visibility(
+                              maintainAnimation: true,
+                              maintainState: true,
+                              maintainSize: true,
+                              visible: controller.isHovering[6],
+                              child: Container(
+                                height: 2,
+                                width: 20,
+                                color: Colors.white,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                    SizedBox(width: screenSize.width / 40),
                     FittedBox(
                       fit: BoxFit.fitWidth,
                       child: InkWell(
@@ -270,6 +312,8 @@ class TopBarContents extends GetView<LoginController> {
                             ],
                           )
                         : SizedBox.shrink(),
+
+                    SizedBox(width: screenSize.width / 40),
                   ],
                 ),
               ),

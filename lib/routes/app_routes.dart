@@ -40,6 +40,7 @@ class _Paths {
   static const faq = '/faq';
   static const pagosScreen = '/pagosScreen';
   static const cancelar = '/cancelar';
+  static const work = '/work';
 
   // Example :
   // static const index = '/';

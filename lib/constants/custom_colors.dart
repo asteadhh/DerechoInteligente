@@ -5,6 +5,16 @@ import 'package:flutter/material.dart';
 class Constants {
   static const String LogoSvg = 'assets/LogoDerechoInteligente/Asset5.svg';
 
+  static const Color derechoInteligenteIndigoDye =
+      Color.fromRGBO(24, 64, 98, 1);
+  static const Color derechoInteligenteAliceBlue =
+      Color.fromRGBO(231, 239, 239, 0.8);
+  static const Color derechoInteligenteBlack = Color.fromRGBO(0, 0, 0, 0);
+  static const Color derechoInteligenteBlueGreen =
+      Color.fromRGBO(93, 147, 172, 1);
+  static const Color derechoInteligenteSealBrown =
+      Color.fromRGBO(88, 39, 14, 1);
+
   static const Color backgroundcolor = Color.fromRGBO(231, 239, 239, 1);
   static const Color ourBlack = Color.fromRGBO(2, 17, 27, 0.8);
   static const Color ourYellow = Color.fromRGBO(240, 200, 8, 1);

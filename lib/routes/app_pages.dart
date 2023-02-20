@@ -6,6 +6,7 @@ import 'package:get/get.dart';
 import '../middlewares/admin_guard.dart';
 import '../screens/dashboard/screen/dashboard_screen_platform.dart';
 import '../screens/landingPage/pagos/pagos_screen.dart';
+import '../screens/landingPage/work/work_screen.dart';
 import '/screens/landingPage/aboutUs/aboutUs_screen.dart';
 import '/screens/landingPage/contactUs/contact_us_screen.dart';
 import '/screens/landingPage/help/help_screen.dart';
@@ -42,6 +43,7 @@ class AppPages {
   static const faq = _Paths.faq;
   static const pagosScreen = _Paths.pagosScreen;
   static const cancelar = _Paths.cancelar;
+  static const work = _Paths.work;
 
   static final routes = [
     GetPage(
@@ -92,6 +94,12 @@ class AppPages {
     GetPage(
       name: _Paths.pagosScreen,
       page: () => PagosLandingScreen(),
+      transition: Transition.noTransition,
+      // binding: MenuLandingPageBinding(),
+    ),
+    GetPage(
+      name: _Paths.work,
+      page: () => WorkScreen(),
       transition: Transition.noTransition,
       // binding: MenuLandingPageBinding(),
     ),
