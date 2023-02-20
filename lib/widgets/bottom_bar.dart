@@ -19,47 +19,9 @@ class BottomBar extends StatelessWidget {
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    BottomBarColumn(
-                      heading: 'about'.tr,
-                      s1: 'contactUs'.tr,
-                      s1Page: () {
-                        Get.offNamed(AppPages.contactUS);
-                      },
-                      s2: 'aboutUs'.tr,
-                      s2Page: () {
-                        Get.offNamed(AppPages.aboutUs);
-                      },
-                      s3: 'carreers'.tr,
-                      s3Page: () {
-                        Get.offNamed(AppPages.postulaciones);
-                      },
-                    ),
-                    BottomBarColumn(
-                      heading: 'help'.tr,
-                      s1: 'payment'.tr,
-                      s1Page: () {
-                        Get.offNamed(AppPages.pagosScreen);
-                      },
-                      s2: 'cancellation'.tr,
-                      s2Page: () {
-                        Get.offNamed(AppPages.cancelar);
-                      },
-                      s3: 'faq'.tr,
-                      s3Page: () {
-                        Get.offNamed(AppPages.faq);
-                      },
-                    ),
-                    BottomBarColumn(
-                      heading: 'Social'.tr,
-                      s1: 'twitter'.tr,
-                      s1Link: 'https://twitter.com/DerInteligente',
-                      s2: 'facebook'.tr,
-                      s2Link:
-                          'https://www.facebook.com/profile.php?id=100090427900495',
-                      s3: 'youtube'.tr,
-                      s3Link:
-                          'https://www.youtube.com/channel/UCMIAQIW5EGGCPvWV-C8rpVw',
-                    ),
+                    Nosotros_Widget(),
+                    HelpWidget(),
+                    SocialMediaWidget(),
                   ],
                 ),
                 Container(
@@ -68,18 +30,7 @@ class BottomBar extends StatelessWidget {
                   height: 1,
                 ),
                 SizedBox(height: 20),
-                InfoText(
-                  type: 'correo'.tr,
-                  text: 'contacto@derechointeligente.cl',
-                  link:
-                      'mailto:contacto@derechointeligente.cl?subject=Contacto&body=Quiero Contactarme ',
-                ),
-                SizedBox(height: 5),
-                InfoText(
-                  type: 'Address',
-                  text: 'Apoquindo 5950, Las Condes, RM, Chile',
-                  link: 'https://goo.gl/maps/xhwWcg6XSnbxhhGB7',
-                ),
+                ContactDetails(),
                 SizedBox(height: 20),
                 Container(
                   color: Colors.blueGrey,
@@ -87,13 +38,7 @@ class BottomBar extends StatelessWidget {
                   height: 1,
                 ),
                 SizedBox(height: 20),
-                Text(
-                  'Copyright © 2022 | Derecho Inteligente SpA',
-                  style: TextStyle(
-                    color: Colors.blueGrey[300],
-                    fontSize: 14,
-                  ),
-                ),
+                Copyright(),
               ],
             )
           : Column(
@@ -102,54 +47,15 @@ class BottomBar extends StatelessWidget {
                   mainAxisSize: MainAxisSize.max,
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
-                    BottomBarColumn(
-                      heading: 'about'.tr,
-                      s1: 'contactUs'.tr,
-                      s1Page: () {
-                        Get.offNamed(AppPages.contactUS);
-                      },
-                      s2: 'aboutUs'.tr,
-                      s2Page: () {
-                        Get.offNamed(AppPages.aboutUs);
-                      },
-                      s3: 'carreers'.tr,
-                    ),
-                    BottomBarColumn(
-                      heading: 'help'.tr,
-                      s1: 'payment'.tr,
-                      s2: 'cancellation'.tr,
-                      s3: 'faq'.tr,
-                    ),
-                    BottomBarColumn(
-                      heading: 'Social'.tr,
-                      s1: 'twitter'.tr,
-                      s1Link: 'https://www.pulpox.cl',
-                      s2: 'facebook'.tr,
-                      s2Link:
-                          'https://www.facebook.com/profile.php?id=100087947412598',
-                      s3: 'youtube'.tr,
-                    ),
+                    Nosotros_Widget(),
+                    HelpWidget(),
+                    SocialMediaWidget(),
                     Container(
                       color: Colors.blueGrey,
                       width: 2,
                       height: 150,
                     ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        InfoText(
-                          type: 'correo'.tr,
-                          text: 'contacto@derechointeligente.cl',
-                          link:
-                              'mailto:contacto@derechointeligente.cl?subject=Contacto&body=Quiero Contactarme ',
-                        ),
-                        SizedBox(height: 5),
-                        InfoText(
-                          type: 'Dirreción',
-                          text: '128, Trymore Road, Delft, MN - 56124',
-                        )
-                      ],
-                    ),
+                    ContactDetails(),
                   ],
                 ),
                 Padding(
@@ -161,15 +67,122 @@ class BottomBar extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 20),
-                Text(
-                  'Copyright © 2022 | Derecho Inteligente',
-                  style: TextStyle(
-                    color: Colors.blueGrey[300],
-                    fontSize: 14,
-                  ),
-                ),
+                Copyright(),
               ],
             ),
+    );
+  }
+}
+
+class Copyright extends StatelessWidget {
+  const Copyright({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Text(
+      'Copyright © 2022 | Derecho Inteligente',
+      style: TextStyle(
+        color: Colors.blueGrey[300],
+        fontSize: 14,
+      ),
+    );
+  }
+}
+
+class ContactDetails extends StatelessWidget {
+  const ContactDetails({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        InfoText(
+          type: 'correo'.tr,
+          text: 'contacto@derechointeligente.cl',
+          link:
+              'mailto:contacto@derechointeligente.cl?subject=Contacto&body=Quiero Contactarme ',
+        ),
+        SizedBox(height: 5),
+        InfoText(
+          type: 'Dirreción',
+          text: 'Apoquindo 5950, Las Condes, RM, Chile',
+          link: 'https://goo.gl/maps/xhwWcg6XSnbxhhGB7',
+        ),
+      ],
+    );
+  }
+}
+
+class SocialMediaWidget extends StatelessWidget {
+  const SocialMediaWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return BottomBarColumn(
+      heading: 'Social'.tr,
+      s1: 'twitter'.tr,
+      s1Link: 'https://twitter.com/DerInteligente',
+      s2: 'facebook'.tr,
+      s2Link: 'https://www.facebook.com/profile.php?id=100090427900495',
+      s3: 'youtube'.tr,
+      s3Link: 'https://www.youtube.com/channel/UCMIAQIW5EGGCPvWV-C8rpVw',
+    );
+  }
+}
+
+class HelpWidget extends StatelessWidget {
+  const HelpWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return BottomBarColumn(
+      heading: 'help'.tr,
+      s1: 'payment'.tr,
+      s1Page: () {
+        Get.offNamed(AppPages.pagosScreen);
+      },
+      s2: 'cancellation'.tr,
+      s2Page: () {
+        Get.offNamed(AppPages.cancelar);
+      },
+      s3: 'faq'.tr,
+      s3Page: () {
+        Get.offNamed(AppPages.faq);
+      },
+    );
+  }
+}
+
+class Nosotros_Widget extends StatelessWidget {
+  const Nosotros_Widget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return BottomBarColumn(
+      heading: 'about'.tr,
+      s1: 'contactUs'.tr,
+      s1Page: () {
+        Get.offNamed(AppPages.contactUS);
+      },
+      s2: 'aboutUs'.tr,
+      s2Page: () {
+        Get.offNamed(AppPages.aboutUs);
+      },
+      s3: 'carreers'.tr,
+      s3Page: () {
+        Get.offNamed(AppPages.postulaciones);
+      },
     );
   }
 }
