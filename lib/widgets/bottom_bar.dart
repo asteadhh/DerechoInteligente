@@ -52,11 +52,13 @@ class BottomBar extends StatelessWidget {
                     BottomBarColumn(
                       heading: 'Social'.tr,
                       s1: 'twitter'.tr,
-                      s1Link: 'https://www.pulpox.cl',
+                      s1Link: 'https://twitter.com/DerInteligente',
                       s2: 'facebook'.tr,
                       s2Link:
-                          'https://www.facebook.com/profile.php?id=100087947412598',
+                          'https://www.facebook.com/profile.php?id=100090427900495',
                       s3: 'youtube'.tr,
+                      s3Link:
+                          'https://www.youtube.com/channel/UCMIAQIW5EGGCPvWV-C8rpVw',
                     ),
                   ],
                 ),
@@ -85,7 +87,7 @@ class BottomBar extends StatelessWidget {
                 ),
                 SizedBox(height: 20),
                 Text(
-                  'Copyright © 2022 | Derecho Inteligente',
+                  'Copyright © 2022 | Derecho Inteligente SpA',
                   style: TextStyle(
                     color: Colors.blueGrey[300],
                     fontSize: 14,

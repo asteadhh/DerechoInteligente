@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../base/home_page_landing.dart';
+import 'faq_content.dart';
 
 class FaqScreen extends StatelessWidget {
   const FaqScreen({super.key});
@@ -20,7 +21,7 @@ class FaqScreen extends StatelessWidget {
               ),
             ),
           ),
-          Text('FAQ'),
+          FAQ_Content(),
         ],
       ),
     );
