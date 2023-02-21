@@ -4,6 +4,11 @@ class Messages extends Translations {
   @override
   Map<String, Map<String, String>> get keys => {
         'es_ES': {
+          'privacyPolicy': 'Politica de Privacidad',
+          'termsOfService': 'Termino y Condiciones',
+          'warranty': 'Garantia de Servicio',
+          'legal': 'Legal',
+
           'change_language': 'Cambiar idioma',
           'Chats': 'Chats',
           'error': 'Algo salió mal',
@@ -111,6 +116,11 @@ class Messages extends Translations {
               'Otra particularidad que ofrecemos son las formas y facilidades de pago. Contamos con un sistema webpay mediante el cual nuestros clientes podrán cancelar los trámites correspondientes de la forma que más les acomode, y en cuotas si así lo prefieren. ',
         },
         'en_US': {
+          'privacyPolicy': 'Politica de Privacidad',
+          'termsOfService': 'Termino y Condiciones',
+          'warranty': 'Garantia de Servicio',
+          'legal': 'Legal',
+
           'change_language': 'Change language',
           'Chats': 'Mensajes',
           'error': 'Something went wrong',

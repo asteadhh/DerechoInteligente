@@ -41,6 +41,9 @@ class _Paths {
   static const pagosScreen = '/pagosScreen';
   static const cancelar = '/cancelar';
   static const work = '/work';
+  static const privacyPolicy = '/privacyPolicy';
+  static const termsOfService = '/termsOfService';
+  static const warranty = '/warranty';
 
   // Example :
   // static const index = '/';

@@ -60,9 +60,7 @@ class BottomBarColumn extends GetView<TextoHoveringController> {
                   : controller.isHovering[(hoveringNumber * 10) + 0] = false;
               // });
             },
-            onTap: () {
-              headingPage;
-            },
+            onTap: headingPage,
             child: Obx(
               () => Column(
                 mainAxisSize: MainAxisSize.min,

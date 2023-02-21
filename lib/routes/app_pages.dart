@@ -1,5 +1,8 @@
 import 'package:derecho_inteligente/screens/landingPage/cancelar/cancelar_screen.dart';
+import 'package:derecho_inteligente/screens/landingPage/contactUs%20copy%202/contact_us_screen.dart';
+import 'package:derecho_inteligente/screens/landingPage/contactUs%20copy%203/contact_us_screen.dart';
 import 'package:derecho_inteligente/screens/landingPage/faq/faq_screen.dart';
+import 'package:derecho_inteligente/screens/landingPage/politica%20de%20privacidad%20screen/politica_de_privacidad_screen.dart';
 import 'package:derecho_inteligente/screens/landingPage/postulaciones/postulaciones_screen.dart';
 import 'package:get/get.dart';
 
@@ -44,14 +47,39 @@ class AppPages {
   static const pagosScreen = _Paths.pagosScreen;
   static const cancelar = _Paths.cancelar;
   static const work = _Paths.work;
+  static const termsOfService = _Paths.termsOfService;
+  static const privacyPolicy = _Paths.privacyPolicy;
+  static const warranty = _Paths.warranty;
 
   static final routes = [
+//Legal
+    GetPage(
+      name: _Paths.termsOfService,
+      page: () => TermsAndServicesScreen(),
+      transition: Transition.noTransition,
+      // binding: NotificacionesScreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.privacyPolicy,
+      page: () => PoliticaDePrivacidadScreen(),
+      transition: Transition.noTransition,
+      // binding: NotificacionesScreenBinding(),
+    ),
+    GetPage(
+      name: _Paths.warranty,
+      page: () => WarrantyScreen(),
+      transition: Transition.noTransition,
+      // binding: NotificacionesScreenBinding(),
+    ),
+    //Legal
+
     GetPage(
       name: _Paths.main,
       page: () => Home(),
       transition: Transition.noTransition,
       // binding: NotificacionesScreenBinding(),
     ),
+
     GetPage(
       name: _Paths.platform,
       page: () => PlatformAdminMainScreen(),

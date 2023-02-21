@@ -35,6 +35,8 @@ class BottomBar extends StatelessWidget {
                 SizedBox(height: 20),
                 ContactDetails(),
                 SizedBox(height: 20),
+                LegalWidget(),
+                SizedBox(height: 20),
                 Container(
                   color: Colors.blueGrey,
                   width: double.maxFinite,
@@ -53,6 +55,7 @@ class BottomBar extends StatelessWidget {
                     Nosotros_Widget(),
                     HelpWidget(),
                     SocialMediaWidget(),
+                    LegalWidget(),
                     Container(
                       color: Colors.blueGrey,
                       width: 2,
@@ -155,15 +158,41 @@ class HelpWidget extends StatelessWidget {
       heading: 'help'.tr,
       s1: 'payment'.tr,
       s1Page: () {
-        Get.offNamed(AppPages.pagosScreen);
+        Get.offAllNamed(AppPages.pagosScreen);
       },
       s2: 'cancellation'.tr,
       s2Page: () {
-        Get.offNamed(AppPages.cancelar);
+        Get.offAllNamed(AppPages.cancelar);
       },
       s3: 'faq'.tr,
       s3Page: () {
-        Get.offNamed(AppPages.faq);
+        Get.offAllNamed(AppPages.faq);
+      },
+    );
+  }
+}
+
+class LegalWidget extends StatelessWidget {
+  const LegalWidget({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return BottomBarColumn(
+      hoveringNumber: 4,
+      heading: 'legal'.tr,
+      s1: 'privacyPolicy'.tr,
+      s1Page: () {
+        Get.offAllNamed(AppPages.privacyPolicy);
+      },
+      s2: 'termsOfService'.tr,
+      s2Page: () {
+        Get.offAllNamed(AppPages.termsOfService);
+      },
+      s3: 'warranty'.tr,
+      s3Page: () {
+        Get.offAllNamed(AppPages.warranty);
       },
     );
   }
@@ -186,15 +215,15 @@ class Nosotros_Widget extends StatelessWidget {
       // ),
       s1: 'contactUs'.tr,
       s1Page: () {
-        Get.offNamed(AppPages.contactUS);
+        Get.offAllNamed(AppPages.contactUS);
       },
       s2: 'aboutUs'.tr,
       s2Page: () {
-        Get.offNamed(AppPages.aboutUs);
+        Get.offAllNamed(AppPages.aboutUs);
       },
       s3: 'carreers'.tr,
       s3Page: () {
-        Get.offNamed(AppPages.postulaciones);
+        Get.offAllNamed(AppPages.postulaciones);
       },
     );
   }
