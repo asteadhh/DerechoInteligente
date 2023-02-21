@@ -98,106 +98,86 @@ class BottomBarColumn extends GetView<TextoHoveringController> {
             height: 10,
           ),
 
-          STextWidget(
-            controller: controller,
-            hoveringNumber: hoveringNumber,
-            headingPage: headingPage,
-            s1: s1,
-          ),
+          // STextWidget(
+          //   controller: controller,
+          //   hoveringNumber: hoveringNumber,
+          //   // headingPage: headingPage,
+          //   s1: s1,
+          // ),
           s1Page != null
-              ? GestureDetector(
-                  child: Text(
-                    s1,
-                    style: TextStyle(
-                      color: Colors.blueGrey[100],
-                      fontSize: 14,
-                    ),
-                  ),
-                  onTap: s1Page,
+              ? STextWidget(
+                  numero: 1,
+                  controller: controller,
+                  hoveringNumber: hoveringNumber,
+                  headingPage: s1Page,
+                  s1: s1,
                 )
               : s1Link != null
-                  ? GestureDetector(
-                      child: Text(
-                        s1,
-                        style: TextStyle(
-                          color: Colors.blueGrey[100],
-                          fontSize: 14,
-                        ),
-                      ),
-                      onTap: () {
+                  ? STextWidget(
+                      numero: 1,
+                      controller: controller,
+                      hoveringNumber: hoveringNumber,
+                      headingPage: () {
                         _launchURL(s1Link);
                       },
+                      s1: s1,
                     )
-                  : Text(
-                      s1,
-                      style: TextStyle(
-                        color: Colors.blueGrey[100],
-                        fontSize: 14,
-                      ),
+                  : STextWidget(
+                      numero: 1,
+                      controller: controller,
+                      hoveringNumber: hoveringNumber,
+                      // headingPage: s1Page,
+                      s1: s1,
                     ),
-          SizedBox(height: 5),
           s2Page != null
-              ? GestureDetector(
-                  child: Text(
-                    s2,
-                    style: TextStyle(
-                      color: Colors.blueGrey[100],
-                      fontSize: 14,
-                    ),
-                  ),
-                  onTap: s2Page,
+              ? STextWidget(
+                  numero: 2,
+                  controller: controller,
+                  hoveringNumber: hoveringNumber,
+                  headingPage: s2Page,
+                  s1: s2,
                 )
+              // _launchURL(s2Link);
               : s2Link != null
-                  ? GestureDetector(
-                      onTap: () {
+                  ? STextWidget(
+                      numero: 2,
+                      controller: controller,
+                      hoveringNumber: hoveringNumber,
+                      s1: s2,
+                      headingPage: () {
                         _launchURL(s2Link);
                       },
-                      child: Text(
-                        s2,
-                        style: TextStyle(
-                          color: Colors.blueGrey[100],
-                          fontSize: 14,
-                        ),
-                      ),
                     )
-                  : Text(
-                      s2,
-                      style: TextStyle(
-                        color: Colors.blueGrey[100],
-                        fontSize: 14,
-                      ),
+                  : STextWidget(
+                      numero: 2,
+                      controller: controller,
+                      hoveringNumber: hoveringNumber,
+                      s1: s2,
                     ),
           SizedBox(height: 5),
           s3Page != null
-              ? GestureDetector(
-                  child: Text(
-                    s3,
-                    style: TextStyle(
-                      color: Colors.blueGrey[100],
-                      fontSize: 14,
-                    ),
-                  ),
-                  onTap: s3Page,
+              ? STextWidget(
+                  numero: 3,
+                  controller: controller,
+                  hoveringNumber: hoveringNumber,
+                  headingPage: s3Page,
+                  s1: s3,
                 )
               : s3Link != null
-                  ? GestureDetector(
-                      onTap: () {
+                  ? STextWidget(
+                      numero: 3,
+                      controller: controller,
+                      hoveringNumber: hoveringNumber,
+                      s1: s3,
+                      headingPage: () {
                         _launchURL(s3Link);
                       },
-                      child: Text(
-                        s3,
-                        style: TextStyle(
-                          color: Colors.blueGrey[100],
-                          fontSize: 14,
-                        ),
-                      ),
                     )
-                  : Text(
-                      s3,
-                      style: TextStyle(
-                        color: Colors.blueGrey[100],
-                        fontSize: 14,
-                      ),
+                  : STextWidget(
+                      numero: 3,
+                      controller: controller,
+                      hoveringNumber: hoveringNumber,
+                      s1: s3,
                     ),
         ],
       ),
@@ -210,13 +190,15 @@ class STextWidget extends StatelessWidget {
     super.key,
     required this.controller,
     required this.hoveringNumber,
-    required this.headingPage,
+    this.headingPage,
     required this.s1,
+    required this.numero,
   });
 
   final TextoHoveringController controller;
   var hoveringNumber;
   var headingPage;
+  var numero;
   final String s1;
 
   @override
@@ -225,13 +207,11 @@ class STextWidget extends StatelessWidget {
       onHover: (value) {
         // setState(() {
         value
-            ? controller.isHovering[(hoveringNumber * 10) + 1] = true
-            : controller.isHovering[(hoveringNumber * 10) + 1] = false;
+            ? controller.isHovering[(hoveringNumber * 10) + numero] = true
+            : controller.isHovering[(hoveringNumber * 10) + numero] = false;
         // });
       },
-      onTap: () {
-        headingPage;
-      },
+      onTap: headingPage,
       child: Obx(
         () => Column(
           mainAxisSize: MainAxisSize.min,
@@ -241,7 +221,7 @@ class STextWidget extends StatelessWidget {
               style: TextStyle(
                 fontSize: 14,
                 fontWeight: FontWeight.w500,
-                color: controller.isHovering[(hoveringNumber * 10) + 1]
+                color: controller.isHovering[(hoveringNumber * 10) + numero]
                     ? Colors.blue[200]
                     : Colors.blueGrey[100],
               ),
@@ -250,7 +230,7 @@ class STextWidget extends StatelessWidget {
               maintainAnimation: true,
               maintainState: true,
               maintainSize: true,
-              visible: controller.isHovering[(hoveringNumber * 10) + 1],
+              visible: controller.isHovering[(hoveringNumber * 10) + numero],
               child: Column(
                 children: [
                   SizedBox(height: 5),
