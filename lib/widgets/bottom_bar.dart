@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
 
+import '../controllers/TextoHovering/texto_hovering_controller.dart';
 import '../routes/app_pages.dart';
 import '/widgets/bottom_bar_column.dart';
 import '/widgets/info_text.dart';
@@ -7,6 +8,8 @@ import '/widgets/responsive.dart';
 import 'package:flutter/material.dart';
 
 class BottomBar extends StatelessWidget {
+  final TextoHoveringController controller =
+      Get.put<TextoHoveringController>(TextoHoveringController());
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -119,13 +122,16 @@ class ContactDetails extends StatelessWidget {
 }
 
 class SocialMediaWidget extends StatelessWidget {
-  const SocialMediaWidget({
+  SocialMediaWidget({
     super.key,
   });
 
+  final TextoHoveringController controller =
+      Get.put<TextoHoveringController>(TextoHoveringController());
   @override
   Widget build(BuildContext context) {
     return BottomBarColumn(
+      hoveringNumber: 0,
       heading: 'Social'.tr,
       s1: 'twitter'.tr,
       s1Link: 'https://twitter.com/DerInteligente',
@@ -145,6 +151,7 @@ class HelpWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomBarColumn(
+      hoveringNumber: 1,
       heading: 'help'.tr,
       s1: 'payment'.tr,
       s1Page: () {
@@ -170,7 +177,13 @@ class Nosotros_Widget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomBarColumn(
+      hoveringNumber: 2,
       heading: 'about'.tr,
+      // heading: TextoHovering(
+      //   funcion: () {},
+      //   hoveringNumber: 1,
+      //   texto: 'ff',
+      // ),
       s1: 'contactUs'.tr,
       s1Page: () {
         Get.offNamed(AppPages.contactUS);

@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class BottomBarColumn extends StatelessWidget {
-  final String heading;
+import '../controllers/TextoHovering/texto_hovering_controller.dart';
+
+class BottomBarColumn extends GetView<TextoHoveringController> {
+  var heading;
   final String s1;
   String? s1Link;
   final String s2;
@@ -12,6 +15,8 @@ class BottomBarColumn extends StatelessWidget {
   var s1Page;
   var s2Page;
   var s3Page;
+  var headingPage;
+  var hoveringNumber;
 
   BottomBarColumn({
     required this.heading,
@@ -24,6 +29,8 @@ class BottomBarColumn extends StatelessWidget {
     this.s1Page,
     this.s2Page,
     this.s3Page,
+    this.headingPage,
+    required this.hoveringNumber,
   });
 
   _launchURL(url) async {
@@ -35,6 +42,8 @@ class BottomBarColumn extends StatelessWidget {
     }
   }
 
+  final TextoHoveringController controller =
+      Get.put<TextoHoveringController>(TextoHoveringController());
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -42,16 +51,58 @@ class BottomBarColumn extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
-            heading,
-            style: TextStyle(
-              color: Colors.blueGrey[300],
-              fontSize: 18,
-              fontWeight: FontWeight.w500,
+          //
+          InkWell(
+            onHover: (value) {
+              // setState(() {
+              value
+                  ? controller.isHovering[(hoveringNumber * 10) + 0] = true
+                  : controller.isHovering[(hoveringNumber * 10) + 0] = false;
+              // });
+            },
+            onTap: () {
+              headingPage;
+            },
+            child: Obx(
+              () => Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    heading,
+                    style: TextStyle(
+                      fontSize: 18,
+                      fontWeight: FontWeight.w500,
+                      color: controller.isHovering[(hoveringNumber * 10) + 0]
+                          ? Colors.blue[200]
+                          : Colors.blueGrey[300],
+                    ),
+                  ),
+                  SizedBox(height: 5),
+                  Visibility(
+                    maintainAnimation: true,
+                    maintainState: true,
+                    maintainSize: true,
+                    visible: controller.isHovering[(hoveringNumber * 10) + 0],
+                    child: Container(
+                      height: 2,
+                      width: 20,
+                      color: Colors.white,
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
+
           SizedBox(
             height: 10,
+          ),
+
+          STextWidget(
+            controller: controller,
+            hoveringNumber: hoveringNumber,
+            headingPage: headingPage,
+            s1: s1,
           ),
           s1Page != null
               ? GestureDetector(
@@ -149,6 +200,127 @@ class BottomBarColumn extends StatelessWidget {
                       ),
                     ),
         ],
+      ),
+    );
+  }
+}
+
+class STextWidget extends StatelessWidget {
+  STextWidget({
+    super.key,
+    required this.controller,
+    required this.hoveringNumber,
+    required this.headingPage,
+    required this.s1,
+  });
+
+  final TextoHoveringController controller;
+  var hoveringNumber;
+  var headingPage;
+  final String s1;
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onHover: (value) {
+        // setState(() {
+        value
+            ? controller.isHovering[(hoveringNumber * 10) + 1] = true
+            : controller.isHovering[(hoveringNumber * 10) + 1] = false;
+        // });
+      },
+      onTap: () {
+        headingPage;
+      },
+      child: Obx(
+        () => Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              s1,
+              style: TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.w500,
+                color: controller.isHovering[(hoveringNumber * 10) + 1]
+                    ? Colors.blue[200]
+                    : Colors.blueGrey[100],
+              ),
+            ),
+            Visibility(
+              maintainAnimation: true,
+              maintainState: true,
+              maintainSize: true,
+              visible: controller.isHovering[(hoveringNumber * 10) + 1],
+              child: Column(
+                children: [
+                  SizedBox(height: 5),
+                  Container(
+                    height: 2,
+                    width: 20,
+                    color: Colors.white,
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class s_Texts extends GetView<TextoHoveringController> {
+  s_Texts({
+    super.key,
+    required this.hoveringNumber,
+    required this.s1Text,
+    required this.numbers,
+  });
+
+  var hoveringNumber;
+  final String s1Text;
+  var numbers;
+
+  final TextoHoveringController controller =
+      Get.put<TextoHoveringController>(TextoHoveringController());
+
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onHover: (value) {
+        value
+            ? controller.isHovering[(hoveringNumber * 10) + numbers] = true
+            : controller.isHovering[(hoveringNumber * 10) + numbers] = false;
+        print(controller.isHovering);
+      },
+      child: Obx(
+        () => Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Text(
+              s1Text,
+              style: TextStyle(
+                fontSize: 14,
+                color: controller.isHovering[(hoveringNumber * 10) + numbers]
+                    ? Colors.blue[200]
+                    : Colors.blueGrey[100],
+              ),
+            ),
+            SizedBox(height: 5),
+            Visibility(
+              maintainAnimation: true,
+              maintainState: true,
+              maintainSize: true,
+              visible: controller.isHovering[(hoveringNumber * 10) + numbers],
+              // visible: true,
+              child: Container(
+                height: 2,
+                width: 20,
+                color: Colors.white,
+              ),
+            )
+          ],
+        ),
       ),
     );
   }
