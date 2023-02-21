@@ -1,3 +1,4 @@
+import 'package:derecho_inteligente/constants/custom_colors.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_faq/flutter_faq.dart';
 
@@ -12,36 +13,19 @@ class FAQ_Content extends StatelessWidget {
       children: [
         SizedBox(height: 5),
         FAQ(
-            separator: Container(
-              height: 5,
-              width: double.infinity,
-              color: Colors.purple,
-            ),
-            question: "Question",
-            answer: "data",
-            expandedIcon: const Icon(Icons.minimize),
-            collapsedIcon: const Icon(Icons.add),
-            ansStyle: const TextStyle(color: Colors.blue, fontSize: 15),
-            queStyle: const TextStyle(color: Colors.green, fontSize: 35),
-            ansDecoration: BoxDecoration(
-                color: Colors.grey[550],
-                borderRadius: const BorderRadius.all(Radius.circular(20))),
-            queDecoration: BoxDecoration(
-                color: Colors.grey[500],
-                borderRadius: const BorderRadius.all(Radius.circular(20))),
-            ansPadding: const EdgeInsets.all(50)),
-        FAQ(
           question: "Question",
           answer: "data",
           expandedIcon: const Icon(Icons.minimize),
           collapsedIcon: const Icon(Icons.add),
-          ansStyle: const TextStyle(color: Colors.blue, fontSize: 15),
-          queStyle: const TextStyle(color: Colors.green, fontSize: 35),
+          ansStyle: const TextStyle(
+              color: Constants.derechoInteligenteIndigoDye, fontSize: 15),
+          queStyle: const TextStyle(
+              color: Constants.derechoInteligenteAliceBlue, fontSize: 35),
           ansDecoration: BoxDecoration(
               color: Colors.grey[550],
               borderRadius: const BorderRadius.all(Radius.circular(20))),
           queDecoration: BoxDecoration(
-              color: Colors.grey[500],
+              color: Constants.derechoInteligenteIndigoDye,
               borderRadius: const BorderRadius.all(Radius.circular(20))),
         ),
       ],

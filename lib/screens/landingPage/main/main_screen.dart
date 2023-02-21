@@ -71,6 +71,35 @@ class HomeLandingContent extends StatelessWidget {
     'Imagen 8',
     'Imagen 9',
   ];
+  var imgPathListAsset = [
+    () {
+      print('1');
+    },
+    () {
+      print('2');
+    },
+    () {
+      print('3');
+    },
+    () {
+      print('4');
+    },
+    () {
+      print('5');
+    },
+    () {
+      print('6');
+    },
+    () {
+      print('7');
+    },
+    () {
+      print('8');
+    },
+    () {
+      print('9');
+    },
+  ];
 //
   @override
   Widget build(BuildContext context) {
@@ -78,40 +107,46 @@ class HomeLandingContent extends StatelessWidget {
         .map((item) => Container(
               child: Container(
                 margin: EdgeInsets.only(top: 50, bottom: 5, left: 5, right: 5),
-                child: ClipRRect(
-                    borderRadius: BorderRadius.all(Radius.circular(5.0)),
-                    child: Stack(
-                      children: <Widget>[
-                        Image.asset(item, fit: BoxFit.cover, width: 1000.0),
-                        Positioned(
-                          bottom: 0.0,
-                          left: 0.0,
-                          right: 0.0,
-                          child: Container(
-                            decoration: BoxDecoration(
-                              gradient: LinearGradient(
-                                colors: [
-                                  Color.fromARGB(200, 0, 0, 0),
-                                  Color.fromARGB(0, 0, 0, 0)
-                                ],
-                                begin: Alignment.bottomCenter,
-                                end: Alignment.topCenter,
+                child: GestureDetector(
+                  onTap: () {
+                    imgPathListAsset[imgListAsset.indexOf(item)].call();
+                    // print('object');
+                  },
+                  child: ClipRRect(
+                      borderRadius: BorderRadius.all(Radius.circular(5.0)),
+                      child: Stack(
+                        children: <Widget>[
+                          Image.asset(item, fit: BoxFit.cover, width: 1000.0),
+                          Positioned(
+                            bottom: 0.0,
+                            left: 0.0,
+                            right: 0.0,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                gradient: LinearGradient(
+                                  colors: [
+                                    Color.fromARGB(200, 0, 0, 0),
+                                    Color.fromARGB(0, 0, 0, 0)
+                                  ],
+                                  begin: Alignment.bottomCenter,
+                                  end: Alignment.topCenter,
+                                ),
                               ),
-                            ),
-                            padding: EdgeInsets.symmetric(
-                                vertical: 10.0, horizontal: 20.0),
-                            child: Text(
-                              '${imgTextListAsset[imgListAsset.indexOf(item)]}',
-                              style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 20.0,
-                                fontWeight: FontWeight.bold,
+                              padding: EdgeInsets.symmetric(
+                                  vertical: 10.0, horizontal: 20.0),
+                              child: Text(
+                                '${imgTextListAsset[imgListAsset.indexOf(item)]}',
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontSize: 20.0,
+                                  fontWeight: FontWeight.bold,
+                                ),
                               ),
                             ),
                           ),
-                        ),
-                      ],
-                    )),
+                        ],
+                      )),
+                ),
               ),
             ))
         .toList();
@@ -154,7 +189,10 @@ class HomeLandingContent extends StatelessWidget {
                   child: Column(
                     children: [
                       ResponsiveWidget.isSmallScreen(context)
-                          ? ContactoHomePage()
+                          ? Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: ContactoHomePage(),
+                            )
                           : SizedBox.shrink(),
                       FeaturedHeading(
                         screenSize: MediaQuery.of(context).size,
@@ -182,18 +220,28 @@ class ContactoHomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: [
-        Text('data'),
-        SizedBox(
-          height: 20,
-        ),
-        ElevatedButton(
-            onPressed: () {
-              showDialogContactForm(context);
-            },
-            child: Text('Solicita tu Consulta Gratis'))
-      ],
+    return Center(
+      child: Column(
+        children: [
+          Text(
+            'Servicios Legales rapidos y de alta calidad.',
+            style: TextStyle(fontSize: 40),
+          ),
+          SizedBox(
+            height: 30,
+          ),
+          Text(
+              'Servicios Legales por un equipo de profecionales que tienen como valores fundamentales la transparencia, cercanía y confianza. Cuentanos tu problema y te ayudamos de inmediato.'),
+          SizedBox(
+            height: 40,
+          ),
+          ElevatedButton(
+              onPressed: () {
+                showDialogContactForm(context);
+              },
+              child: Text('Solicita tu Consulta Gratis'))
+        ],
+      ),
     );
   }
 }

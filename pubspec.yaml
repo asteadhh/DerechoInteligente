@@ -88,11 +88,12 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_launcher_icons: ^0.9.2
+  flutter_launcher_icons: "^0.11.0"
 flutter_icons:
   android: true
   ios: true
-  image_path: "dev_assets/300dpi_jurix_isotipo_350px.png"
+
+  image_path: "assets/LogoDerechoInteligente/DerechoInteligente.png"
   # adaptive_icon_backgroud: "dev_assets/300dpi_jurix_isotipo_350px.png"
 
   flutter_lints: ^1.0.0
