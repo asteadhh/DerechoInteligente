@@ -124,11 +124,24 @@ class HomeLandingContent extends StatelessWidget {
                 // IF tamaño pantalla
                 ResponsiveWidget.isSmallScreen(context)
                     ? HomePageCaruselFirst(imageSliders: imageSliders)
-                    : Row(
-                        children: [
-                          ContactoHomePage(),
-                          HomePageCaruselFirst(imageSliders: imageSliders),
-                        ],
+                    : Container(
+                        padding: EdgeInsets.all(8),
+                        width: MediaQuery.of(context).size.width,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Flexible(
+                              flex: 1,
+                              child: ContactoHomePage(),
+                            ),
+                            // Flexible(child: Spacer()),
+                            Flexible(
+                              flex: 2,
+                              child: HomePageCaruselFirst(
+                                  imageSliders: imageSliders),
+                            ),
+                          ],
+                        ),
                       ),
               ],
             ),

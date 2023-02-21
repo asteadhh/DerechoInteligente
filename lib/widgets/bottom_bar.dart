@@ -27,6 +27,13 @@ class BottomBar extends StatelessWidget {
                     SocialMediaWidget(),
                   ],
                 ),
+                Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: [
+                    LegalWidget(),
+                  ],
+                ),
                 Container(
                   color: Colors.blueGrey,
                   width: double.maxFinite,
@@ -35,7 +42,6 @@ class BottomBar extends StatelessWidget {
                 SizedBox(height: 20),
                 ContactDetails(),
                 SizedBox(height: 20),
-                LegalWidget(),
                 SizedBox(height: 20),
                 Container(
                   color: Colors.blueGrey,
