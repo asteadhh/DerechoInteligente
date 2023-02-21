@@ -8,6 +8,8 @@ import '../../../widgets/featured_heading.dart';
 import '../../../widgets/featured_tiles.dart';
 import '../../../widgets/floating_quick_access_bar.dart';
 import '../../../widgets/responsive.dart';
+import '../contactUs copy/contactUs/contact_us_screen.dart';
+import '../contactUs/alertDialog_widget.dart';
 
 class HomeLanding extends StatelessWidget {
   HomeLanding({
@@ -183,6 +185,14 @@ class ContactoHomePage extends StatelessWidget {
     return Column(
       children: [
         Text('data'),
+        SizedBox(
+          height: 20,
+        ),
+        ElevatedButton(
+            onPressed: () {
+              showDialogContactForm(context);
+            },
+            child: Text('Solicita tu Consulta Gratis'))
       ],
     );
   }
