@@ -134,9 +134,9 @@ class _LandingPageBaseState extends State<LandingPageBase> {
         // child: HomeLanding(content: widgets),
         child: Column(
           children: [
-            SizedBox(
-              height: 10,
-            ),
+            // SizedBox(
+            //   height: 10,
+            // ),
             widgets,
             SizedBox(height: screenSize.height / 10),
             BottomBar(),

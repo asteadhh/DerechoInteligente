@@ -13,6 +13,7 @@ class AdminGuard extends GetMiddleware {
   RouteSettings? redirect(String? route) {
     print('AdminGuard ${loginController.myUserPermitions?.admin}');
     return loginController.myUserPermitions?.admin == 'verdad'
+        // true
         ? null
         : const RouteSettings(name: AppPages.main);
   }

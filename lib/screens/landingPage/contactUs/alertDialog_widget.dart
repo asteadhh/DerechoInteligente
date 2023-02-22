@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../contactUs copy/contactUs/contact_us_screen.dart';
 
@@ -90,6 +91,7 @@ class BlurryDialog extends StatelessWidget {
                         nameController.clear();
                         emailController.clear();
                         messageController.clear();
+                        Navigator.pop(context, 0);
                       }
                     },
                     child: const Text('Send', style: TextStyle(fontSize: 16)),

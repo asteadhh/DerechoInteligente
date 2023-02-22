@@ -119,7 +119,7 @@ class SideMenuPlatform extends GetView<LoginController> {
                   loginController.myUserPermitions?.onBoardingMaestro ==
                           'verdad'
                       ? DrawerListTile(
-                          title: "On Boardin Maestro",
+                          title: "Clientes",
                           svgSrc: "assets/icons/menu_profile.svg",
                           press: () async {
                             Get.put<LoginController>(LoginController());
