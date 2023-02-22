@@ -8,7 +8,6 @@ import '../../../widgets/featured_heading.dart';
 import '../../../widgets/featured_tiles.dart';
 import '../../../widgets/floating_quick_access_bar.dart';
 import '../../../widgets/responsive.dart';
-import '../contactUs copy/contactUs/contact_us_screen.dart';
 import '../contactUs/alertDialog_widget.dart';
 
 class HomeLanding extends StatelessWidget {
