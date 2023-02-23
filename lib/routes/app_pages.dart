@@ -1,14 +1,15 @@
 import 'package:derecho_inteligente/screens/landingPage/cancelar/cancelar_screen.dart';
-import 'package:derecho_inteligente/screens/landingPage/contactUs%20copy%202/contact_us_screen.dart';
-import 'package:derecho_inteligente/screens/landingPage/contactUs%20copy%203/contact_us_screen.dart';
+import 'package:derecho_inteligente/screens/landingPage/warranty/warranty_screen.dart';
 import 'package:derecho_inteligente/screens/landingPage/faq/faq_screen.dart';
-import 'package:derecho_inteligente/screens/landingPage/politica%20de%20privacidad%20screen/politica_de_privacidad_screen.dart';
 import 'package:derecho_inteligente/screens/landingPage/postulaciones/postulaciones_screen.dart';
 import 'package:get/get.dart';
 
 import '../middlewares/admin_guard.dart';
+import '../screens/Areas/derecho de aguas/derecho_de_aguas_screen.dart';
 import '../screens/dashboard/screen/dashboard_screen_platform.dart';
 import '../screens/landingPage/pagos/pagos_screen.dart';
+import '../screens/landingPage/politica de privacidad screen/politica_de_privacidad_screen.dart';
+import '../screens/landingPage/termino y condiciones/termino_y_condiciones_screen.dart';
 import '../screens/landingPage/work/work_screen.dart';
 import '/screens/landingPage/aboutUs/aboutUs_screen.dart';
 import '/screens/landingPage/contactUs/contact_us_screen.dart';
@@ -50,8 +51,19 @@ class AppPages {
   static const termsOfService = _Paths.termsOfService;
   static const privacyPolicy = _Paths.privacyPolicy;
   static const warranty = _Paths.warranty;
+  static const aguas = _Paths.aguas;
 
   static final routes = [
+//Areas LEgales//
+
+    GetPage(
+      name: _Paths.aguas,
+      page: () => DerechoDeAguasScreen(),
+      transition: Transition.noTransition,
+      // binding: NotificacionesScreenBinding(),
+    ),
+//Areas LEgales//
+
 //Legal
     GetPage(
       name: _Paths.termsOfService,

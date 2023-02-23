@@ -44,6 +44,7 @@ class _Paths {
   static const privacyPolicy = '/privacyPolicy';
   static const termsOfService = '/termsOfService';
   static const warranty = '/warranty';
+  static const aguas = '/aguas';
 
   // Example :
   // static const index = '/';

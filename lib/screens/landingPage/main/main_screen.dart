@@ -1,6 +1,8 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
+import '../../../routes/app_pages.dart';
 import '../../../widgets/bottom_bar.dart';
 import '../../../widgets/carousel.dart';
 import '../../../widgets/destination_heading.dart';
@@ -72,7 +74,7 @@ class HomeLandingContent extends StatelessWidget {
   ];
   var imgPathListAsset = [
     () {
-      print('1');
+      Get.offAllNamed(AppPages.aguas);
     },
     () {
       print('2');
