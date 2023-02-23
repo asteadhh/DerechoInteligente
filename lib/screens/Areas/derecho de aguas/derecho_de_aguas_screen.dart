@@ -15,8 +15,8 @@ class DerechoDeAguasScreen extends StatelessWidget {
               height: MediaQuery.of(context).size.height * 0.45,
               width: MediaQuery.of(context).size.width,
               child: Image.asset(
-                'assets/images/cover.jpg',
-                fit: BoxFit.cover,
+                'assets/images/FOTOFREE/iStock-1051502202.jpg',
+                fit: BoxFit.fitWidth,
               ),
             ),
           ),
