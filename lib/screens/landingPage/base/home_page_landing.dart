@@ -2,6 +2,7 @@ import 'package:derecho_inteligente/constants/custom_colors.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import '../../../widgets/web_scrollbar.dart';
 import '/controllers/LoginController/login_controller.dart';
 
 import '../../../constants/theme.dart';
@@ -120,30 +121,28 @@ class _LandingPageBaseState extends State<LandingPageBase> {
               child: TopBarContents(),
             ),
       endDrawer: ExploreDrawer(),
-      body:
-          // WebScrollbar(
-          //   color: Colors.blueGrey,
-          //   backgroundColor: Colors.blueGrey.withOpacity(0.3),
-          //   width: 10,
-          //   heightFraction: 0.3,
-          //   controller: _scrollController,
-          //   child:
-          SingleChildScrollView(
+      body: WebScrollbar(
+        color: Colors.blueGrey,
+        backgroundColor: Colors.blueGrey.withOpacity(0.3),
+        width: 10,
+        heightFraction: 0.3,
         controller: _scrollController,
-        physics: ClampingScrollPhysics(),
-        // child: HomeLanding(content: widgets),
-        child: Column(
-          children: [
-            // SizedBox(
-            //   height: 10,
-            // ),
-            widgets,
-            SizedBox(height: screenSize.height / 10),
-            BottomBar(),
-          ],
+        child: SingleChildScrollView(
+          controller: _scrollController,
+          physics: ClampingScrollPhysics(),
+          // child: HomeLanding(content: widgets),
+          child: Column(
+            children: [
+              // SizedBox(
+              //   height: 10,
+              // ),
+              widgets,
+              SizedBox(height: screenSize.height / 10),
+              BottomBar(),
+            ],
+          ),
+          // child: HomeLanding(content: Text('ss')),
         ),
-        // child: HomeLanding(content: Text('ss')),
-        // ),
       ),
     );
   }

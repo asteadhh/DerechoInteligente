@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 import '../../../controllers/LoginController/login_controller.dart';
-import '../../dashboard/content/dashboardContent/dashboard_content.dart';
 import 'components/side_menu.dart';
 import '/responsive.dart';
 import '../../dashboard/platform_main_screen.dart';
@@ -22,7 +21,7 @@ class PlatformAdminTemplateScreen extends StatelessWidget {
     final LoginController loginController =
         Get.put<LoginController>(LoginController());
     return Scaffold(
-      backgroundColor: Theme.of(context).accentColor,
+      backgroundColor: Theme.of(context).colorScheme.secondary,
       // key: context.read<MenuController>().scaffoldKey,
       drawer: SideMenuPlatform(),
       body: SafeArea(

@@ -126,7 +126,7 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
                     // ),
                   );
                 },
-                color: Theme.of(context).accentColor,
+                color: Theme.of(context).colorScheme.secondary,
               ),
             ),
             color: Colors.white,
@@ -139,7 +139,8 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
                       controller.textEditingController.text, TypeMessage.text);
                 },
                 style: TextStyle(
-                    color: Theme.of(context).accentColor, fontSize: 15),
+                    color: Theme.of(context).colorScheme.secondary,
+                    fontSize: 15),
                 controller: controller.textEditingController,
                 decoration: InputDecoration.collapsed(
                   hintText: 'Type your message...',
@@ -158,7 +159,7 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
                 icon: Icon(Icons.send),
                 onPressed: () => onSendMessage(
                     controller.textEditingController.text, TypeMessage.text),
-                color: Theme.of(context).accentColor,
+                color: Theme.of(context).colorScheme.secondary,
               ),
             ),
             color: Colors.white,
@@ -169,8 +170,8 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
       height: 50,
       decoration: BoxDecoration(
           border: Border(
-              top:
-                  BorderSide(color: Theme.of(context).accentColor, width: 0.5)),
+              top: BorderSide(
+                  color: Theme.of(context).colorScheme.secondary, width: 0.5)),
           color: Colors.white),
     );
   }
@@ -226,12 +227,13 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
                 ? Container(
                     child: Text(
                       messageChat.content,
-                      style: TextStyle(color: Theme.of(context).accentColor),
+                      style: TextStyle(
+                          color: Theme.of(context).colorScheme.secondary),
                     ),
                     padding: EdgeInsets.fromLTRB(15, 10, 15, 10),
                     width: 200,
                     decoration: BoxDecoration(
-                      color: Theme.of(context).accentColor,
+                      color: Theme.of(context).colorScheme.secondary,
                       borderRadius: BorderRadius.circular(8),
                     ),
                     margin: EdgeInsets.only(
@@ -261,7 +263,9 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
                                   height: 200,
                                   child: Center(
                                     child: CircularProgressIndicator(
-                                        color: Theme.of(context).accentColor,
+                                        color: Theme.of(context)
+                                            .colorScheme
+                                            .secondary,
                                         value: loadingProgress
                                                         .expectedTotalBytes !=
                                                     null &&
@@ -275,7 +279,8 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
                                             : null),
                                   ),
                                   decoration: BoxDecoration(
-                                    color: Theme.of(context).accentColor,
+                                    color:
+                                        Theme.of(context).colorScheme.secondary,
                                     borderRadius: BorderRadius.all(
                                       Radius.circular(8),
                                     ),
@@ -339,7 +344,8 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
                               if (loadingProgress == null) return child;
                               return Center(
                                 child: CircularProgressIndicator(
-                                    color: Theme.of(context).accentColor,
+                                    color:
+                                        Theme.of(context).colorScheme.secondary,
                                     value: loadingProgress.expectedTotalBytes !=
                                                 null &&
                                             loadingProgress
@@ -355,7 +361,7 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
                               return Icon(
                                 Icons.account_circle,
                                 size: 35,
-                                color: Theme.of(context).accentColor,
+                                color: Theme.of(context).colorScheme.secondary,
                               );
                             },
                             width: 35,
@@ -382,7 +388,7 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
                           width: 200,
                           margin: EdgeInsets.only(left: 10),
                           decoration: BoxDecoration(
-                              color: Theme.of(context).accentColor,
+                              color: Theme.of(context).colorScheme.secondary,
                               borderRadius: BorderRadius.circular(8)),
                         )
                       : messageChat.type == '1'
@@ -409,8 +415,9 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
                                         height: 200,
                                         child: Center(
                                           child: CircularProgressIndicator(
-                                              color:
-                                                  Theme.of(context).accentColor,
+                                              color: Theme.of(context)
+                                                  .colorScheme
+                                                  .secondary,
                                               value: loadingProgress
                                                               .expectedTotalBytes !=
                                                           null &&
@@ -424,7 +431,9 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
                                                   : null),
                                         ),
                                         decoration: BoxDecoration(
-                                          color: Theme.of(context).accentColor,
+                                          color: Theme.of(context)
+                                              .colorScheme
+                                              .secondary,
                                           borderRadius: BorderRadius.all(
                                             Radius.circular(8),
                                           ),
@@ -474,7 +483,7 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
                               ),
                             ),
                             style: TextStyle(
-                              color: Theme.of(context).accentColor,
+                              color: Theme.of(context).colorScheme.secondary,
                               fontSize: 12,
                               fontStyle: FontStyle.italic,
                             ),

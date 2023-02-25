@@ -6,10 +6,8 @@ import 'package:get_storage/get_storage.dart';
 import '../constants/custom_colors.dart';
 
 ThemeData darkTheme = ThemeData(
-  primarySwatch: Colors.blueGrey,
-  // buttonColor: Constants.secondaryColor,
-  backgroundColor: Colors.blueGrey[900],
-  accentColor: Constants.bgColor,
+  //  colorScheme: ColorScheme.fromSwatch().copyWith(secondary: Colors.blue,
+  //             brightness: Brightness.dark)
   cardColor: Colors.black,
   cardTheme: CardTheme(
     color: Colors.black,
@@ -36,20 +34,24 @@ ThemeData darkTheme = ThemeData(
   bottomAppBarColor: Colors.black,
   iconTheme: IconThemeData(color: Colors.blueGrey[200]),
   brightness: Brightness.dark,
+  // colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blueGrey)
+  //     .copyWith(secondary: Constants.bgColor)
+  //     .copyWith(background: Colors.blueGrey[900]),
+
+  toggleableActiveColor: Colors.blue,
+  visualDensity: VisualDensity.adaptivePlatformDensity,
+  colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blue)
+      .copyWith(secondary: Colors.blueAccent, brightness: Brightness.dark),
 );
 
 ThemeData lightTheme = ThemeData(
-  accentColor: Colors.white,
-  // buttonColor: Colors.grey.shade200,
-  primarySwatch: Colors.blueGrey,
+  brightness: Brightness.light,
   backgroundColor: Constants.derechoInteligenteAliceBlue,
-  // backgroundColor: Colors.blueGrey,
   cardColor: Colors.blueGrey[50],
   cardTheme: CardTheme(
     color: Colors.black,
     shadowColor: Colors.white,
   ),
-
   primaryTextTheme: TextTheme(
     button: TextStyle(
       color: Colors.blueGrey,
@@ -66,7 +68,9 @@ ThemeData lightTheme = ThemeData(
   ),
   bottomAppBarColor: Constants.derechoInteligenteIndigoDye,
   iconTheme: IconThemeData(color: Colors.blueGrey),
-  brightness: Brightness.light,
+  colorScheme: ColorScheme.fromSwatch(primarySwatch: Colors.blueGrey)
+      .copyWith(secondary: Colors.white)
+      .copyWith(background: Constants.derechoInteligenteAliceBlue),
 );
 
 class ThemeService extends GetxController {
