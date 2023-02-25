@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import '../../../widgets/web_scrollbar.dart';
 import '/controllers/LoginController/login_controller.dart';
 
-import '../../../constants/theme.dart';
 import '../../../widgets/bottom_bar.dart';
 import '/routes/app_pages.dart';
 import '/widgets/explore_drawer.dart';
@@ -45,6 +44,12 @@ class _LandingPageBaseState extends State<LandingPageBase> {
   }
 
   @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     Get.put<LoginController>(LoginController());
     var screenSize = MediaQuery.of(context).size;
@@ -58,7 +63,8 @@ class _LandingPageBaseState extends State<LandingPageBase> {
       appBar: ResponsiveWidget.isSmallScreen(context)
           ? AppBar(
               backgroundColor:
-                  Theme.of(context).bottomAppBarColor.withOpacity(_opacity),
+                  // Theme.of(context).bottomAppBarColor.withOpacity(_opacity),
+                  Theme.of(context).bottomAppBarColor.withOpacity(1),
               elevation: 0,
               centerTitle: true,
 
@@ -113,8 +119,10 @@ class _LandingPageBaseState extends State<LandingPageBase> {
                   ),
                 ),
               ),
-              iconTheme: IconThemeData(
-                  color: _opacity == 0 ? Colors.black : Colors.white),
+              //   iconTheme: IconThemeData(
+              //       color: _opacity == 0 ? Colors.black : Colors.white),
+              // )
+              iconTheme: IconThemeData(color: Colors.white),
             )
           : PreferredSize(
               preferredSize: Size(screenSize.width, 1000),

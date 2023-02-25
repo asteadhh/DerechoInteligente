@@ -29,9 +29,11 @@ class BottomBar extends StatelessWidget {
                 ),
                 Row(
                   mainAxisSize: MainAxisSize.max,
-                  mainAxisAlignment: MainAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: [
                     LegalWidget(),
+                    // LegalWidget(),
+                    // LegalWidget(),
                   ],
                 ),
                 Container(

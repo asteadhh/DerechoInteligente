@@ -44,6 +44,12 @@ class _WebScrollbarState extends State<WebScrollbar> {
   }
 
   @override
+  void dispose() {
+    // TODO: implement dispose
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     var screenSize = MediaQuery.of(context).size;
     double _scrollerHeight = screenSize.height * widget.heightFraction;
