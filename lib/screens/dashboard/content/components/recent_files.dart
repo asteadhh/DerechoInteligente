@@ -1,5 +1,6 @@
 import 'package:data_table_2/data_table_2.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:flutter_svg/svg.dart';
 
 import '/models/RecentFile.dart';
@@ -21,7 +22,7 @@ class RecentFiles extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          PlatformText(
             "Recent Files",
             style: Theme.of(context).textTheme.subtitle1,
           ),
@@ -32,13 +33,13 @@ class RecentFiles extends StatelessWidget {
               minWidth: 600,
               columns: [
                 DataColumn(
-                  label: Text("File Name"),
+                  label: PlatformText("File Name"),
                 ),
                 DataColumn(
-                  label: Text("Date"),
+                  label: PlatformText("Date"),
                 ),
                 DataColumn(
-                  label: Text("Size"),
+                  label: PlatformText("Size"),
                 ),
               ],
               rows: List.generate(
@@ -66,13 +67,13 @@ DataRow recentFileDataRow(RecentFile fileInfo) {
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: defaultPadding),
-              child: Text(fileInfo.title!),
+              child: PlatformText(fileInfo.title!),
             ),
           ],
         ),
       ),
-      DataCell(Text(fileInfo.date!)),
-      DataCell(Text(fileInfo.size!)),
+      DataCell(PlatformText(fileInfo.date!)),
+      DataCell(PlatformText(fileInfo.size!)),
     ],
   );
 }

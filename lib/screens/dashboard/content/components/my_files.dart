@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:get/get.dart';
 
 import '../../../../constants.dart';
@@ -22,7 +23,7 @@ class MyFiles extends StatelessWidget {
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            Text(
+            PlatformText(
               "My Files",
               style: Theme.of(context).textTheme.subtitle1,
             ),
@@ -38,7 +39,7 @@ class MyFiles extends StatelessWidget {
                 print(controller.myUser!.uid);
               },
               icon: Icon(Icons.add),
-              label: Text("Mail Stream"),
+              label: PlatformText("Mail Stream"),
             ),
             ElevatedButton.icon(
               style: TextButton.styleFrom(
@@ -52,7 +53,7 @@ class MyFiles extends StatelessWidget {
                 print(controller.myUserPermitions!.admin.toString());
               },
               icon: Icon(Icons.add),
-              label: Text("Is Admin"),
+              label: PlatformText("Is Admin"),
             ),
           ],
         ),

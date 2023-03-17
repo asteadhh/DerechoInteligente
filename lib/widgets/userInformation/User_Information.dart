@@ -2,6 +2,7 @@ import 'package:auto_size_text/auto_size_text.dart';
 import 'package:avatar_view/avatar_view.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:get/get.dart';
 import '/constants/firebase_auth_constants.dart';
 import '/constants/firestore_constants.dart';
@@ -37,7 +38,7 @@ class UserInformationDataText extends GetView<LoginController> {
       builder: (context, AsyncSnapshot<DocumentSnapshot> snapshot) {
         if (snapshot.hasError)
           return Center(
-            child: Text(snapshot.hasError.toString()),
+            child: PlatformText(snapshot.hasError.toString()),
           );
 
         return snapshot.hasData
@@ -78,7 +79,7 @@ class _UserInformationDataAvatarState extends State<UserInformationDataAvatar> {
       builder: (context, AsyncSnapshot<DocumentSnapshot> snapshot) {
         if (snapshot.hasError)
           return Center(
-            child: Text(snapshot.hasError.toString()),
+            child: PlatformText(snapshot.hasError.toString()),
           );
 
         return snapshot.hasData

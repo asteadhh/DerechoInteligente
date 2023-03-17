@@ -1,3 +1,4 @@
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:get/get.dart';
 
 import '../../controllers/LoginController/login_controller.dart';
@@ -106,7 +107,7 @@ class _AuthDialogContentDesktopState extends State<AuthDialogContentDesktop> {
             mainAxisSize: MainAxisSize.min,
             children: [
               Center(
-                child: Text(
+                child: PlatformText(
                   'Derecho Inteligente',
                   style: TextStyle(
                     color: Theme.of(context).textTheme.headline1!.color,
@@ -123,7 +124,7 @@ class _AuthDialogContentDesktopState extends State<AuthDialogContentDesktop> {
                   left: 20.0,
                   bottom: 8,
                 ),
-                child: Text(
+                child: PlatformText(
                   'Email address',
                   textAlign: TextAlign.left,
                   style: TextStyle(
@@ -186,7 +187,7 @@ class _AuthDialogContentDesktopState extends State<AuthDialogContentDesktop> {
                   left: 20.0,
                   bottom: 8,
                 ),
-                child: Text(
+                child: PlatformText(
                   'Password',
                   textAlign: TextAlign.left,
                   style: TextStyle(
@@ -339,7 +340,7 @@ class _AuthDialogContentDesktopState extends State<AuthDialogContentDesktop> {
                                       ),
                                     ),
                                   )
-                                : Text(
+                                : PlatformText(
                                     'Log in',
                                     style: TextStyle(
                                       fontSize: 14,
@@ -415,7 +416,7 @@ class _AuthDialogContentDesktopState extends State<AuthDialogContentDesktop> {
                                       ),
                                     ),
                                   )
-                                : Text(
+                                : PlatformText(
                                     'Sign up',
                                     style: TextStyle(
                                       fontSize: 14,
@@ -435,7 +436,7 @@ class _AuthDialogContentDesktopState extends State<AuthDialogContentDesktop> {
                         padding: const EdgeInsets.only(
                           bottom: 20.0,
                         ),
-                        child: Text(
+                        child: PlatformText(
                           loginStatus!,
                           style: TextStyle(
                             color: loginStringColor,
@@ -464,7 +465,7 @@ class _AuthDialogContentDesktopState extends State<AuthDialogContentDesktop> {
               SizedBox(height: 5),
               Padding(
                 padding: const EdgeInsets.all(8.0),
-                child: Text(
+                child: PlatformText(
                   'By proceeding, you agree to our Terms of Use and confirm you have read our Privacy Policy.',
                   maxLines: 2,
                   style: TextStyle(
@@ -564,7 +565,7 @@ class _AuthDialogContentMobileState extends State<AuthDialogContentMobile> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Center(
-                    child: Text(
+                    child: PlatformText(
                       'Derecho Inteligente',
                       style: TextStyle(
                         color: Theme.of(context).textTheme.headline1!.color,
@@ -581,7 +582,7 @@ class _AuthDialogContentMobileState extends State<AuthDialogContentMobile> {
                       left: 20.0,
                       bottom: 8,
                     ),
-                    child: Text(
+                    child: PlatformText(
                       'Email address',
                       textAlign: TextAlign.left,
                       style: TextStyle(
@@ -645,7 +646,7 @@ class _AuthDialogContentMobileState extends State<AuthDialogContentMobile> {
                       left: 20.0,
                       bottom: 8,
                     ),
-                    child: Text(
+                    child: PlatformText(
                       'Password',
                       textAlign: TextAlign.left,
                       style: TextStyle(
@@ -801,7 +802,7 @@ class _AuthDialogContentMobileState extends State<AuthDialogContentMobile> {
                                           ),
                                         ),
                                       )
-                                    : Text(
+                                    : PlatformText(
                                         'Log in',
                                         style: TextStyle(
                                           fontSize: 14,
@@ -879,7 +880,7 @@ class _AuthDialogContentMobileState extends State<AuthDialogContentMobile> {
                                           ),
                                         ),
                                       )
-                                    : Text(
+                                    : PlatformText(
                                         'Sign up',
                                         style: TextStyle(
                                           fontSize: 14,
@@ -899,7 +900,7 @@ class _AuthDialogContentMobileState extends State<AuthDialogContentMobile> {
                             padding: const EdgeInsets.only(
                               bottom: 20.0,
                             ),
-                            child: Text(
+                            child: PlatformText(
                               loginStatus!,
                               style: TextStyle(
                                 color: loginStringColor,
@@ -928,7 +929,7 @@ class _AuthDialogContentMobileState extends State<AuthDialogContentMobile> {
                   SizedBox(height: 5),
                   Padding(
                     padding: const EdgeInsets.all(8.0),
-                    child: Text(
+                    child: PlatformText(
                       'By proceeding, you agree to our Terms of Use and confirm you have read our Privacy Policy.',
                       maxLines: 2,
                       style: TextStyle(

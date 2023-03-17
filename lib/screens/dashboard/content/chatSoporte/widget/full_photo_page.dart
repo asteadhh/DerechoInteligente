@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import 'package:photo_view/photo_view.dart';
 
@@ -16,7 +17,7 @@ class FullPhotoPage extends StatelessWidget {
         iconTheme: IconThemeData(
           color: Theme.of(context).backgroundColor,
         ),
-        title: Text(
+        title: PlatformText(
           AppConstants.fullPhotoTitle,
           style: TextStyle(
             color: Theme.of(context).backgroundColor,

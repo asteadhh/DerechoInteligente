@@ -69,7 +69,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // return MaterialApp(
-    //   home: Text('ddd'),
+    //   home: PlatformText('ddd'),
     // );
     Future getUserInfo() async {
       print('MyAPP ${LoginController().myUser?.uid}');
@@ -98,7 +98,7 @@ class MyApp extends StatelessWidget {
       getPages: AppPages.routes,
       // getPages: appPages,
       initialRoute: AppPages.main,
-      // home: Text('ddd'),
+      // home: PlatformText('ddd'),
       unknownRoute: GetPage(
         name: AppPages.errorPagina,
         page: () => const Screen404(),

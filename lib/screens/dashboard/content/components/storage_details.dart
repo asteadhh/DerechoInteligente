@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import '../../../../constants.dart';
 import 'chart.dart';
@@ -20,7 +21,7 @@ class StarageDetails extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          Text(
+          PlatformText(
             "Storage Details",
             style: TextStyle(
               fontSize: 18,

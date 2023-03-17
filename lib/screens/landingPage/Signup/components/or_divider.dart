@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import '../../../../constants/custom_colors.dart';
 
@@ -14,9 +15,9 @@ class OrDivider extends StatelessWidget {
       child: Row(
         children: <Widget>[
           buildDivider(),
-          const Padding(
+          Padding(
             padding: EdgeInsets.symmetric(horizontal: 10),
-            child: Text(
+            child: PlatformText(
               "OR",
               style: TextStyle(
                 color: Constants.kPrimaryColor,

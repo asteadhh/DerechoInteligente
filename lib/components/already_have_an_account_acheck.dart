@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import '../constants/custom_colors.dart';
 
@@ -16,13 +17,13 @@ class AlreadyHaveAnAccountCheck extends StatelessWidget {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        Text(
+        PlatformText(
           login ? "Don’t have an Account ? " : "Already have an Account ? ",
           style: const TextStyle(color: Constants.kPrimaryColor),
         ),
         GestureDetector(
           onTap: press as void Function()?,
-          child: Text(
+          child: PlatformText(
             login ? "Sign Up" : "Sign In",
             style: const TextStyle(
               color: Constants.kPrimaryColor,

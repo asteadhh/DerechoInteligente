@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_facebook_auth/flutter_facebook_auth.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:get/get.dart';
 import '/controllers/LoginController/login_controller.dart';
 
@@ -165,7 +166,7 @@ class FacebookButton extends GetView<LoginController> {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 20),
-                      child: Text(
+                      child: PlatformText(
                         'Continue with Facebook',
                         style: TextStyle(
                           fontSize: 20,

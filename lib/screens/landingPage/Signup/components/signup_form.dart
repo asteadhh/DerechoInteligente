@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:get/get.dart';
 
 import '../../../../components/already_have_an_account_acheck.dart';
@@ -47,7 +48,7 @@ class SignUpForm extends GetView<MenuLandingPageController> {
           SizedBox(height: defaultPadding / 2),
           ElevatedButton(
             onPressed: () {},
-            child: Text("Sign Up".toUpperCase()),
+            child: PlatformText("Sign Up".toUpperCase()),
           ),
           SizedBox(height: defaultPadding),
           AlreadyHaveAnAccountCheck(

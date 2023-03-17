@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:get/get.dart';
 
 import '../../../../../constants/firebase_auth_constants.dart';
@@ -33,24 +34,24 @@ class _UserChatInformationStreamWidgetState
   Widget build(BuildContext context) {
     ChatController controller = Get.put(ChatController());
 
-    // return Text('dddd');
+    // return PlatformText('dddd');
     return StreamBuilder<QuerySnapshot>(
       stream: _usersStream,
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (snapshot.hasError) {
-          return Text('Something went wrong');
+          return PlatformText('Something went wrong');
         }
 
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Text("Loading");
+          return PlatformText("Loading");
         }
-        return Text(snapshot.data!.docs.length.toString());
+        return PlatformText(snapshot.data!.docs.length.toString());
         // return ListView.builder(
         //   padding: EdgeInsets.all(10),
         //   itemBuilder: (context, index) {
         //     // print(snapshot.data?.docs[index].id);
-        //     // return Text(snapshot.data!.docs[index].id.toString());
-        //     // return Text('Test Información');
+        //     // return PlatformText(snapshot.data!.docs[index].id.toString());
+        //     // return PlatformText('Test Información');
         //     return Obx(
         //       () => buildItem(
         //         context: context,
@@ -154,7 +155,7 @@ class _UserChatInformationStreamWidgetState
                     child: Column(
                       children: <Widget>[
                         Container(
-                          child: Text(
+                          child: PlatformText(
                             '${userChat.nickname}',
                             maxLines: 1,
                             style: TextStyle(
@@ -168,7 +169,7 @@ class _UserChatInformationStreamWidgetState
                           margin: EdgeInsets.fromLTRB(10, 0, 0, 5),
                         ),
                         Container(
-                          child: Text(
+                          child: PlatformText(
                             '${userChat.aboutMe}',
                             maxLines: 1,
                             style: TextStyle(

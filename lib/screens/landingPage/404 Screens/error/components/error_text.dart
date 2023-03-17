@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:flutter_svg/svg.dart';
 
 class ErrorText extends StatelessWidget {
@@ -28,7 +29,7 @@ class ErrorText extends StatelessWidget {
             ),
           ),
           onPressed: () {},
-          child: Text(
+          child: PlatformText(
             "Back To Home".toUpperCase(),
             style: Theme.of(context)
                 .textTheme

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 import '/constants/custom_colors.dart';
@@ -178,7 +179,7 @@ class SideMenuPlatform extends GetView<LoginController> {
               // Expanded(child: SizedBox()),
               Align(
                 alignment: Alignment.bottomCenter,
-                child: Text(
+                child: PlatformText(
                   'Copyright © 2022 | Derecho Inteligente SpA',
                   style: TextStyle(
                     color: Colors.blueGrey[300],
@@ -219,7 +220,7 @@ class DrawerListTile extends StatelessWidget {
         color: Theme.of(context).primaryTextTheme.headline1!.color,
         height: 16,
       ),
-      title: Text(
+      title: PlatformText(
         title,
         style: TextStyle(
             color: Theme.of(context).primaryTextTheme.headline1!.color),

@@ -1,3 +1,4 @@
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:get/get.dart';
 
 import '../controllers/TextoHovering/texto_hovering_controller.dart';
@@ -95,7 +96,7 @@ class Copyright extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Text(
+    return PlatformText(
       'Copyright © 2022 | Derecho Inteligente',
       style: TextStyle(
         color: Colors.blueGrey[300],

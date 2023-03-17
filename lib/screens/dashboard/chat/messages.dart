@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:intl/intl.dart';
 import 'package:sticky_grouped_list/sticky_grouped_list.dart';
 
@@ -29,22 +30,22 @@ class ChatMessages extends StatelessWidget {
       stream: messageDatabase,
       builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
         if (snapshot.hasError) {
-          return Text('Something went wrong');
+          return PlatformText('Something went wrong');
         }
 
         if (snapshot.connectionState == ConnectionState.waiting) {
-          return Text("Loading");
+          return PlatformText("Loading");
         }
 
         final documents = snapshot.data!.docs;
-        // return Text(chatId['message']);
+        // return PlatformText(chatId['message']);
         // return ListView(
         //   children: snapshot.data!.docs.map((DocumentSnapshot document) {
         //     Map<String, dynamic> data =
         //         document.data()! as Map<String, dynamic>;
         //     return ListTile(
-        //       title: Text(data['message']),
-        //       // subtitle: Text(data['company']),
+        //       title: PlatformText(data['message']),
+        //       // subtitle: PlatformText(data['company']),
         //     );
         //   }).toList(),
         // );
@@ -72,7 +73,7 @@ class ChatMessages extends StatelessWidget {
                   color: CustomColors.jurixNavy,
                   child: Padding(
                     padding: const EdgeInsets.all(8),
-                    child: Text(
+                    child: PlatformText(
                       // DateFormat.yMMMMd().format(element['createdTime']),
                       DateFormat.yMMMMd().format(
                         DateTime.parse(
@@ -97,7 +98,7 @@ class ChatMessages extends StatelessWidget {
                 elevation: 8,
                 child: Padding(
                   padding: const EdgeInsets.all(12),
-                  child: Text(documents[index]['message']),
+                  child: PlatformText(documents[index]['message']),
                 ),
               ),
             );

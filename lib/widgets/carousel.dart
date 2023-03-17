@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:get/get.dart';
 import '/widgets/responsive.dart';
 import 'package:flutter/material.dart';
@@ -93,12 +94,12 @@ class _DestinationCarouselState extends State<DestinationCarousel> {
               }),
           carouselController: _controller,
         ),
-        // Text('data'),
+        // PlatformText('data'),
 
         AspectRatio(
           aspectRatio: 18 / 8,
           child: Center(
-            child: Text(
+            child: PlatformText(
               places[_current],
               style: TextStyle(
                 letterSpacing: 8,
@@ -155,7 +156,7 @@ class _DestinationCarouselState extends State<DestinationCarousel> {
         //                               padding: EdgeInsets.only(
         //                                   top: screenSize.height / 80,
         //                                   bottom: screenSize.height / 90),
-        //                               child: Text(
+        //                               child: PlatformText(
         //                                 places[i],
         //                                 style: TextStyle(
         //                                   color: _isHovering[i]

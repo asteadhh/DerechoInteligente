@@ -149,7 +149,7 @@ class _LandingPageBaseState extends State<LandingPageBase> {
               BottomBar(),
             ],
           ),
-          // child: HomeLanding(content: Text('ss')),
+          // child: HomeLanding(content: PlatformText('ss')),
         ),
       ),
     );

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import '../../constants/custom_colors copy.dart';
 
@@ -28,7 +29,7 @@ class PrimaryButton extends StatelessWidget {
       color: color,
       minWidth: double.infinity,
       onPressed: press,
-      child: Text(
+      child: PlatformText(
         text,
         style: TextStyle(color: Colors.white),
       ),

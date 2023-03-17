@@ -73,7 +73,7 @@ class _ChatDetailState extends State<ChatDetail> {
 
   @override
   Widget build(BuildContext context) {
-    // return Text(chatId);
+    // return PlatformText(chatId);
     return UserChat(
       friendUid: friendUid,
       chatId: chatId,

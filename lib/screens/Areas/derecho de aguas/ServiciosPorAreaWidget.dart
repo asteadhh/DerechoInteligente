@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:get/get.dart';
 
 import '../../../controllers/Areas/ServiciosPorAreaController.dart';
@@ -55,7 +56,7 @@ class ServiciosPorArea extends GetView<ServiciosPorAreaController> {
                       padding: EdgeInsets.all(8.0),
                       child: Column(
                         children: [
-                          Text(
+                          PlatformText(
                             title,
                             style: TextStyle(
                               color: Colors.white,
@@ -68,7 +69,7 @@ class ServiciosPorArea extends GetView<ServiciosPorAreaController> {
                           ),
                           Align(
                             alignment: Alignment.topLeft,
-                            child: Text(
+                            child: PlatformText(
                               text,
                               style: TextStyle(
                                 color: Colors.white,
@@ -80,7 +81,7 @@ class ServiciosPorArea extends GetView<ServiciosPorAreaController> {
                         ],
                       ),
                     )
-                  : Text(
+                  : PlatformText(
                       title,
                       style: TextStyle(
                         color: Colors.white,

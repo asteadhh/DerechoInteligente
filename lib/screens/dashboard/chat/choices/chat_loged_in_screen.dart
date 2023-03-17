@@ -4,6 +4,7 @@ import 'dart:io';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:get/get.dart';
 
 import '../../../../constants/custom_colors copy.dart';
@@ -41,7 +42,7 @@ class ChatLogedInScreen extends GetView<ChatController> {
                     ),
                     margin: EdgeInsets.only(bottom: 10),
                   ),
-                  Text(
+                  PlatformText(
                     'Salir de la app',
                     style: TextStyle(
                       color: Colors.white,
@@ -49,7 +50,7 @@ class ChatLogedInScreen extends GetView<ChatController> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Text(
+                  PlatformText(
                     'Estas Seguro que quieres Salir de la Aplicacción?',
                     style: TextStyle(color: Colors.white70, fontSize: 14),
                   )
@@ -72,7 +73,7 @@ class ChatLogedInScreen extends GetView<ChatController> {
                       color: CustomColors.kBlue,
                     ),
                   ),
-                  Text(
+                  PlatformText(
                     'Cancel',
                     style: TextStyle(
                         color: CustomColors.kBlue, fontWeight: FontWeight.bold),
@@ -95,7 +96,7 @@ class ChatLogedInScreen extends GetView<ChatController> {
                       color: CustomColors.kBlue,
                     ),
                   ),
-                  Text(
+                  PlatformText(
                     'Yes',
                     style: TextStyle(
                         color: CustomColors.kBlue, fontWeight: FontWeight.bold),
@@ -286,7 +287,7 @@ class ChatLogedInScreen extends GetView<ChatController> {
                         child: Column(
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
-                            Text(
+                            PlatformText(
                               'Enviar Mensaje',
                               style: TextStyle(
                                 color: Colors.white,
@@ -322,29 +323,29 @@ class ChatLogedInScreen extends GetView<ChatController> {
                   children: [
                     buildSearchBar(),
                     ElevatedButton(
-                      child: Text('Abrir Chat'),
+                      child: PlatformText('Abrir Chat'),
                       onPressed: abrirChat,
                     ),
                     Obx(
-                      () => Text(controller.textSearch.value),
+                      () => PlatformText(controller.textSearch.value),
                     ),
                     // StreamBuilder<QuerySnapshot>(
                     //   stream: controller.usersStream,
                     //   builder: (BuildContext context,
                     //       AsyncSnapshot<QuerySnapshot> snapshot) {
                     //     if (snapshot.hasError) {
-                    //       return Text('Something went wrong');
+                    //       return PlatformText('Something went wrong');
                     //     }
 
                     //     if (snapshot.connectionState == ConnectionState.waiting) {
-                    //       return Text("Loading");
+                    //       return PlatformText("Loading");
                     //     }
 
                     //     return ListView.builder(
                     //       padding: EdgeInsets.all(10),
                     //       itemBuilder: (context, index) {
                     //         // print(snapshot.data?.docs[index].id);
-                    //         // return Text('ddd');
+                    //         // return PlatformText('ddd');
                     //         return Obx(
                     //           () => buildItem(
                     //             context: context,
@@ -534,7 +535,7 @@ class ChatLogedInScreen extends GetView<ChatController> {
                     child: Column(
                       children: <Widget>[
                         Container(
-                          child: Text(
+                          child: PlatformText(
                             '${userChat.nickname}',
                             maxLines: 1,
                             style: TextStyle(
@@ -548,7 +549,7 @@ class ChatLogedInScreen extends GetView<ChatController> {
                           margin: EdgeInsets.fromLTRB(10, 0, 0, 5),
                         ),
                         Container(
-                          child: Text(
+                          child: PlatformText(
                             '${userChat.aboutMe}',
                             maxLines: 1,
                             style: TextStyle(

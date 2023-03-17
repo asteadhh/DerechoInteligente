@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import '../../../../constants/custom_colors copy.dart';
 
@@ -30,7 +31,7 @@ class MessageBubble extends StatelessWidget {
             vertical: 4,
             horizontal: 8,
           ),
-          child: Text(
+          child: PlatformText(
             message,
             style: TextStyle(
               color: CustomColors.jurixNaranjo,

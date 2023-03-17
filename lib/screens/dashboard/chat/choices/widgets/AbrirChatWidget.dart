@@ -1,6 +1,7 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import '../../../../../constants/custom_colors copy.dart';
 import '../../../../../constants/firebase_auth_constants.dart';
@@ -178,7 +179,7 @@ class AbrirChatWidget extends StatelessWidget {
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: <Widget>[
-                          Text(
+                          PlatformText(
                             'Enviar Mensaje',
                             style: TextStyle(
                               color: Colors.white,
@@ -203,7 +204,7 @@ class AbrirChatWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
-      child: Text('Abrir Chat'),
+      child: PlatformText('Abrir Chat'),
       onPressed: () {
         abrirChat(context);
       },

@@ -1,3 +1,4 @@
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:get/get.dart';
 
 import '/widgets/responsive.dart';
@@ -25,7 +26,7 @@ class FeaturedHeading extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Row(),
-                Text(
+                PlatformText(
                   'areasDePractica'.tr,
                   style: TextStyle(
                     fontSize: 24,
@@ -34,7 +35,7 @@ class FeaturedHeading extends StatelessWidget {
                   ),
                 ),
                 SizedBox(height: 5),
-                Text(
+                PlatformText(
                   'service_needed'.tr,
                   textAlign: TextAlign.end,
                   style: Theme.of(context).primaryTextTheme.subtitle1,
@@ -46,7 +47,7 @@ class FeaturedHeading extends StatelessWidget {
               mainAxisSize: MainAxisSize.max,
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Text(
+                PlatformText(
                   'Servicios'.tr,
                   style: TextStyle(
                     fontSize: 40,
@@ -55,7 +56,7 @@ class FeaturedHeading extends StatelessWidget {
                   ),
                 ),
                 Expanded(
-                  child: Text(
+                  child: PlatformText(
                     'service_needed'.tr,
                     textAlign: TextAlign.end,
                     style: Theme.of(context).primaryTextTheme.subtitle1,

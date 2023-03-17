@@ -1,4 +1,5 @@
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
 import '../constants/custom_colors.dart';
@@ -38,7 +39,7 @@ class TopBarContents extends GetView<LoginController> {
                   child: Row(
                     children: [
                       LogoDerechoInteligente(),
-                      Text(
+                      PlatformText(
                         'Derecho Inteligente',
                         style: TextStyle(
                           color: Colors.blueGrey[100],
@@ -74,7 +75,7 @@ class TopBarContents extends GetView<LoginController> {
                           () => Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Text(
+                              PlatformText(
                                 'work'.tr,
                                 style: TextStyle(
                                   color: controller.isHovering[6]
@@ -117,7 +118,7 @@ class TopBarContents extends GetView<LoginController> {
                           () => Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Text(
+                              PlatformText(
                                 'aboutUs'.tr,
                                 style: TextStyle(
                                   color: controller.isHovering[0]
@@ -160,7 +161,7 @@ class TopBarContents extends GetView<LoginController> {
                           () => Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Text(
+                              PlatformText(
                                 'contactUs'.tr,
                                 style: TextStyle(
                                   color: controller.isHovering[1]
@@ -203,7 +204,7 @@ class TopBarContents extends GetView<LoginController> {
                           () => Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Text(
+                              PlatformText(
                                 'payment'.tr,
                                 style: TextStyle(
                                   color: controller.isHovering[2]
@@ -246,7 +247,7 @@ class TopBarContents extends GetView<LoginController> {
                           () => Column(
                             mainAxisSize: MainAxisSize.min,
                             children: [
-                              Text(
+                              PlatformText(
                                 'faq'.tr,
                                 style: TextStyle(
                                   color: controller.isHovering[3]
@@ -292,7 +293,7 @@ class TopBarContents extends GetView<LoginController> {
                                     () => Column(
                                       mainAxisSize: MainAxisSize.min,
                                       children: [
-                                        Text(
+                                        PlatformText(
                                           'administration'.tr,
                                           style: TextStyle(
                                             color: controller.isHovering[4]
@@ -413,7 +414,7 @@ class TopBarContents extends GetView<LoginController> {
                               ? FittedBox(
                                   fit: BoxFit.fitWidth,
                                   child: Obx(
-                                    () => Text(
+                                    () => PlatformText(
                                       'sign_in'.tr,
                                       style: TextStyle(
                                         color: controller.isHovering[7]

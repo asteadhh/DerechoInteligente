@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:get/get.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 import 'package:sign_button/sign_button.dart';
@@ -51,7 +52,7 @@ class LoginForm extends GetView<MenuLandingPageController> {
             tag: "login_btn",
             child: ElevatedButton(
               onPressed: () {},
-              child: Text(
+              child: PlatformText(
                 "Login".toUpperCase(),
               ),
             ),

@@ -1,3 +1,4 @@
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:get/get.dart';
 
 import '/widgets/responsive.dart';
@@ -72,7 +73,7 @@ class FeaturedTiles extends StatelessWidget {
                               padding: EdgeInsets.only(
                                 top: screenSize.height / 70,
                               ),
-                              child: Text(
+                              child: PlatformText(
                                 title[pageIndex],
                                 style: TextStyle(
                                   fontSize: 16,
@@ -122,7 +123,7 @@ class FeaturedTiles extends StatelessWidget {
                         padding: EdgeInsets.only(
                           top: screenSize.height / 70,
                         ),
-                        child: Text(
+                        child: PlatformText(
                           title[pageIndex],
                           style: TextStyle(
                             fontSize: 16,

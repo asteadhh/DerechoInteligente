@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '/models/MyFiles.dart';
@@ -43,7 +44,7 @@ class FileInfoCard extends StatelessWidget {
               Icon(Icons.more_vert, color: Colors.white54)
             ],
           ),
-          Text(
+          PlatformText(
             info.title!,
             maxLines: 1,
             overflow: TextOverflow.ellipsis,
@@ -55,14 +56,14 @@ class FileInfoCard extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
+              PlatformText(
                 "${info.numOfFiles} Files",
                 style: Theme.of(context)
                     .textTheme
                     .caption!
                     .copyWith(color: Colors.white70),
               ),
-              Text(
+              PlatformText(
                 info.totalStorage!,
                 style: Theme.of(context)
                     .textTheme

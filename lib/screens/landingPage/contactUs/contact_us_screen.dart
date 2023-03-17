@@ -2,6 +2,7 @@ import 'dart:convert';
 
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import 'package:http/http.dart' as http;
 import 'package:http/retry.dart';
@@ -71,7 +72,7 @@ class ContactUsForm extends StatelessWidget {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              const Text('Contact Us',
+              PlatformText('Contact Us',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
               TextFormField(
                 controller: nameController,
@@ -123,11 +124,12 @@ class ContactUsForm extends StatelessWidget {
                           messageController.value.text);
                       ScaffoldMessenger.of(context).showSnackBar(
                         response == 200
-                            ? const SnackBar(
-                                content: Text('Message Sent!'),
+                            ? SnackBar(
+                                content: PlatformText('Message Sent!'),
                                 backgroundColor: Colors.green)
-                            : const SnackBar(
-                                content: Text('Failed to send message!'),
+                            : SnackBar(
+                                content:
+                                    PlatformText('Failed to send message!'),
                                 backgroundColor: Colors.red),
                       );
                       nameController.clear();
@@ -135,7 +137,7 @@ class ContactUsForm extends StatelessWidget {
                       messageController.clear();
                     }
                   },
-                  child: const Text('Send', style: TextStyle(fontSize: 16)),
+                  child: PlatformText('Send', style: TextStyle(fontSize: 16)),
                 ),
               ),
             ],

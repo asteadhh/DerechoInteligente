@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:get/get.dart';
 
 import '../../constants.dart';
@@ -17,7 +18,7 @@ class SignInBody extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
+              PlatformText(
                 'Sign In to \nMy Application',
                 style: TextStyle(
                   fontSize: 45,
@@ -27,7 +28,7 @@ class SignInBody extends StatelessWidget {
               SizedBox(
                 height: 30,
               ),
-              Text(
+              PlatformText(
                 "If you don't have an account",
                 style: TextStyle(
                     color: Colors.black54, fontWeight: FontWeight.bold),
@@ -37,7 +38,7 @@ class SignInBody extends StatelessWidget {
               ),
               Row(
                 children: [
-                  Text(
+                  PlatformText(
                     "You can",
                     style: TextStyle(
                         color: Colors.black54, fontWeight: FontWeight.bold),
@@ -47,7 +48,7 @@ class SignInBody extends StatelessWidget {
                     onTap: () {
                       print(MediaQuery.of(context).size.width);
                     },
-                    child: Text(
+                    child: PlatformText(
                       "Register here!",
                       style: TextStyle(
                           color: Colors.deepPurple,
@@ -146,7 +147,7 @@ class SignInBody extends StatelessWidget {
             child: Container(
                 width: double.infinity,
                 height: 50,
-                child: Center(child: Text("Sign In"))),
+                child: Center(child: PlatformText("Sign In"))),
             onPressed: () {
               Get.offAllNamed(AppPages.platform);
             },
@@ -169,7 +170,7 @@ class SignInBody extends StatelessWidget {
           ),
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Text("Or continue with"),
+            child: PlatformText("Or continue with"),
           ),
           Expanded(
             child: Divider(

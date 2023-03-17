@@ -1,5 +1,6 @@
 import 'package:derecho_inteligente/constants/custom_colors.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:get/get.dart';
 import '/controllers/UserController/user_data_controller.dart';
 
@@ -42,7 +43,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                   Get.toNamed(AppPages.main);
                   // LandingPageBase()
                 },
-                child: Text(
+                child: PlatformText(
                   'home'.tr,
                   style: TextStyle(color: Colors.white, fontSize: 22),
                 ),
@@ -59,7 +60,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                   Get.toNamed(AppPages.work);
                   // LandingPageBase()
                 },
-                child: Text(
+                child: PlatformText(
                   'work'.tr,
                   style: TextStyle(color: Colors.white, fontSize: 22),
                 ),
@@ -76,7 +77,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                   Get.toNamed(AppPages.aboutUs);
                   // LandingPageBase()
                 },
-                child: Text(
+                child: PlatformText(
                   'aboutUs'.tr,
                   style: TextStyle(color: Colors.white, fontSize: 22),
                 ),
@@ -92,7 +93,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                 onTap: () {
                   Get.toNamed(AppPages.contactUS);
                 },
-                child: Text(
+                child: PlatformText(
                   'contactUs'.tr,
                   style: TextStyle(color: Colors.white, fontSize: 22),
                 ),
@@ -108,7 +109,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
               //   onTap: () {
               //     Get.toNamed(AppPages.contactUS);
               //   },
-              //   child: Text(
+              //   child: PlatformText(
               //     'carreers'.tr,
               //     style: TextStyle(color: Colors.white, fontSize: 22),
               //   ),
@@ -124,7 +125,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                 onTap: () {
                   Get.toNamed(AppPages.pagosScreen);
                 },
-                child: Text(
+                child: PlatformText(
                   'payment'.tr,
                   style: TextStyle(color: Colors.white, fontSize: 22),
                 ),
@@ -140,7 +141,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
               //   onTap: () {
               //     Get.toNamed(AppPages.contactUS);
               //   },
-              //   child: Text(
+              //   child: PlatformText(
               //     'cancellation'.tr,
               //     style: TextStyle(color: Colors.white, fontSize: 22),
               //   ),
@@ -156,7 +157,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
                 onTap: () {
                   Get.toNamed(AppPages.faq);
                 },
-                child: Text(
+                child: PlatformText(
                   'faq'.tr,
                   style: TextStyle(color: Colors.white, fontSize: 22),
                 ),
@@ -173,7 +174,7 @@ class _ExploreDrawerState extends State<ExploreDrawer> {
               ),
               Align(
                 alignment: Alignment.bottomCenter,
-                child: Text(
+                child: PlatformText(
                   'Copyright © 2022 | Derecho Inteligente SpA',
                   style: TextStyle(
                     color: Colors.blueGrey[300],
@@ -294,7 +295,7 @@ class AdministraccionEnableWidget extends StatelessWidget {
                 onTap: () {
                   Get.toNamed(AppPages.platform);
                 },
-                child: Text(
+                child: PlatformText(
                   'administration'.tr,
                   style: TextStyle(color: Colors.white, fontSize: 22),
                 ),
@@ -339,7 +340,7 @@ class UserLoginWidget extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   mainAxisSize: MainAxisSize.max,
                   children: [
-                    Text(
+                    PlatformText(
                       'sign_out'.tr,
                       style: TextStyle(
                         fontSize: 20,
@@ -359,7 +360,7 @@ class UserLoginWidget extends StatelessWidget {
                     //       : Container(),
                     // ),
                     // SizedBox(width: 10),
-                    // Text(
+                    // PlatformText(
                     //   'dd',
                     //   //  LoginController().myUser?.nickname ??
                     //   //     LoginController().myUser?.correo!
@@ -370,7 +371,7 @@ class UserLoginWidget extends StatelessWidget {
                     // )
                   ],
                 ),
-                // child: Text(
+                // child: PlatformText(
                 //   'Sign Out',
                 //   style: TextStyle(
                 //     fontSize: 20,
@@ -409,7 +410,7 @@ class UserLoginWidget extends StatelessWidget {
                   top: 15.0,
                   bottom: 15.0,
                 ),
-                child: Text(
+                child: PlatformText(
                   'sign_in'.tr,
                   style: TextStyle(
                     fontSize: 20,

@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import '/constants/firebase_auth_constants.dart';
 
 class CreditosMaestrosContent extends StatelessWidget {
@@ -16,14 +17,14 @@ class CreditosMaestrosContent extends StatelessWidget {
         stream: _usersStream,
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (snapshot.hasError) {
-            return Text('Something went wrong');
+            return PlatformText('Something went wrong');
           }
 
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Text("Loading");
+            return PlatformText("Loading");
           }
 
-          return Text(snapshot.data!.docs[0]['correo']);
+          return PlatformText(snapshot.data!.docs[0]['correo']);
         },
       ),
     );

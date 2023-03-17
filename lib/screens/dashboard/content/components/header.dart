@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../../../widgets/platformButtons/profileLoginButtons.dart';
@@ -27,7 +28,7 @@ class Header extends StatelessWidget {
             },
           ),
         // if (!Responsive.isMobile(context))
-        Text(
+        PlatformText(
           text,
           style: Theme.of(context).textTheme.headline6,
         ),

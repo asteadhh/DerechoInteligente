@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:get/get.dart';
 import '/controllers/LoginController/login_controller.dart';
 
@@ -23,7 +24,7 @@ class AboutUsScreen extends GetView<LoginController> {
               ),
             ),
           ),
-          // Text('Imprimir Correo en'),
+          // PlatformText('Imprimir Correo en'),
 
           SizedBox(
             height: 20,
@@ -33,15 +34,15 @@ class AboutUsScreen extends GetView<LoginController> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                Text('aboutUsText1'.tr),
+                PlatformText('aboutUsText1'.tr),
                 SizedBox(
                   height: 20,
                 ),
-                Text('aboutUsText2'.tr),
+                PlatformText('aboutUsText2'.tr),
                 SizedBox(
                   height: 20,
                 ),
-                Text('aboutUsText3'.tr),
+                PlatformText('aboutUsText3'.tr),
               ],
             ),
           )
@@ -49,7 +50,7 @@ class AboutUsScreen extends GetView<LoginController> {
           //   onPressed: () {
           //     print(controller.myUser?.correo);
           //   },
-          //   child: Text('Imprimir Correo en Stream'),
+          //   child: PlatformText('Imprimir Correo en Stream'),
           // ),
           // SizedBox(
           //   height: 20,
@@ -58,7 +59,7 @@ class AboutUsScreen extends GetView<LoginController> {
           //   onPressed: () {
           //     print(FirebaseAuth.instance.currentUser!.email);
           //   },
-          //   child: Text('Imprimir Correo en Firebase'),
+          //   child: PlatformText('Imprimir Correo en Firebase'),
           // )
         ],
       ),

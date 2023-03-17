@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import '../../../../constants/custom_colors copy.dart';
 import '../../../../constants/firebase_auth_constants.dart';
@@ -23,11 +24,11 @@ class ChatCard extends StatelessWidget {
       builder:
           (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
         if (snapshot.hasError) {
-          return Text("Something went wrong");
+          return PlatformText("Something went wrong");
         }
 
         if (snapshot.hasData && !snapshot.data!.exists) {
-          return Text('');
+          return PlatformText('');
         }
 
         if (snapshot.connectionState == ConnectionState.done) {
@@ -77,8 +78,8 @@ class ChatCard extends StatelessWidget {
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          // Text(chatId),
-                          Text(
+                          // PlatformText(chatId),
+                          PlatformText(
                             data['nombre'].toString(),
                             style: TextStyle(
                               fontSize: 16,
@@ -90,7 +91,7 @@ class ChatCard extends StatelessWidget {
                           ),
                           // Opacity(
                           //   opacity: 0.64,
-                          //   child: Text(
+                          //   child: PlatformText(
                           //     chat['lastMessage'],
                           //     maxLines: 1,
                           //     overflow: TextOverflow.ellipsis,
@@ -102,7 +103,7 @@ class ChatCard extends StatelessWidget {
                   ),
                   // Opacity(
                   //   opacity: 0.64,
-                  //   child: Text(chat['time']),
+                  //   child: PlatformText(chat['time']),
                   // ),
                 ],
               ),
@@ -110,7 +111,7 @@ class ChatCard extends StatelessWidget {
           );
         }
 
-        return Text("loading");
+        return PlatformText("loading");
       },
     );
   }

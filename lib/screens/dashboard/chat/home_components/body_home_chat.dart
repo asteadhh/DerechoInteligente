@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:get/get.dart';
 
 import 'package:async/async.dart' show StreamGroup;
@@ -89,11 +90,11 @@ class ChatHomeBody extends StatelessWidget {
                 (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
               // var d = snapshot;
               if (snapshot.hasError) {
-                return Text('Something went wrong');
+                return PlatformText('Something went wrong');
               }
 
               if (snapshot.connectionState == ConnectionState.waiting) {
-                return Text("Loading");
+                return PlatformText("Loading");
               }
               return ListView(
                 children: snapshot.data!.docs.map((DocumentSnapshot document) {

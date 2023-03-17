@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:get/get.dart';
 
 import '../../../routes/app_pages.dart';
@@ -128,7 +129,7 @@ class HomeLandingContent extends StatelessWidget {
                               ),
                               padding: EdgeInsets.symmetric(
                                   vertical: 10.0, horizontal: 20.0),
-                              child: Text(
+                              child: PlatformText(
                                 '${imgTextListAsset[imgListAsset.indexOf(item)]}',
                                 style: TextStyle(
                                   color: Colors.white,
@@ -217,14 +218,14 @@ class ContactoHomePage extends StatelessWidget {
     return Center(
       child: Column(
         children: [
-          Text(
+          PlatformText(
             'Servicios Legales rapidos y de alta calidad.',
             style: TextStyle(fontSize: 40),
           ),
           SizedBox(
             height: 30,
           ),
-          Text(
+          PlatformText(
               'Servicios Legales por un equipo de profecionales que tienen como valores fundamentales la transparencia, cercanía y confianza. Cuentanos tu problema y te ayudamos de inmediato.'),
           SizedBox(
             height: 40,
@@ -233,7 +234,7 @@ class ContactoHomePage extends StatelessWidget {
               onPressed: () {
                 showDialogContactForm(context);
               },
-              child: Text('Solicita tu Consulta Gratis'))
+              child: PlatformText('Solicita tu Consulta Gratis'))
         ],
       ),
     );

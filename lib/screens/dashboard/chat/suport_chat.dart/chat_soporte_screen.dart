@@ -4,6 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 // import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:fluttertoast/fluttertoast.dart';
 import 'package:get/get.dart';
@@ -23,7 +24,7 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Soporte'),
+        title: PlatformText('Soporte'),
       ),
       body: Stack(children: [
         Column(
@@ -103,18 +104,18 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
                   //   context: context,
                   //   builder: (_) =>
                   AlertDialog(
-                    title: Text('Alert'),
-                    content: Text('Some content'),
+                    title: PlatformText('Alert'),
+                    content: PlatformText('Some content'),
                     actions: <Widget>[
                       ElevatedButton(
-                        child: Text('Camara'),
+                        child: PlatformText('Camara'),
                         onPressed: () async {
                           await getImage(type: ImageSource.camera);
                           Navigator.pop(context);
                         },
                       ),
                       ElevatedButton(
-                        child: Text('Galeria'),
+                        child: PlatformText('Galeria'),
                         onPressed: () async {
                           await getImage(type: ImageSource.gallery);
                           Navigator.pop(context);
@@ -186,11 +187,11 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
         stream: _usersStream,
         builder: (BuildContext context, AsyncSnapshot<QuerySnapshot> snapshot) {
           if (snapshot.hasError) {
-            return Text('Something went wrong');
+            return PlatformText('Something went wrong');
           }
 
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return Text("Loading");
+            return PlatformText("Loading");
           }
           controller.listMessage.addAll(snapshot.data!.docs);
           return ListView.builder(
@@ -215,7 +216,7 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
           children: [
             messageChat.type == '0'
                 ? Container(
-                    child: Text(
+                    child: PlatformText(
                       messageChat.content,
                       style: TextStyle(color: CustomColors.jurixNavy),
                     ),
@@ -363,7 +364,7 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
                         ),
                   messageChat.type == '0'
                       ? Container(
-                          child: Text(
+                          child: PlatformText(
                             messageChat.content,
                             style: TextStyle(
                               color: Colors.white,
@@ -457,7 +458,7 @@ class ChatSoporteScreen extends GetView<ChatSoporteController> {
                   isLastMessageLeft(index)
                       ? Container(
                           margin: EdgeInsets.only(left: 50, top: 5, bottom: 5),
-                          child: Text(
+                          child: PlatformText(
                             DateFormat('dd MMM yyyy, hh:mm a').format(
                               DateTime.fromMillisecondsSinceEpoch(
                                 int.parse(messageChat.timeStamp),

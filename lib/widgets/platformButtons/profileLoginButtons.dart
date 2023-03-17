@@ -1,6 +1,7 @@
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:get/get.dart';
 import '/constants/firestore_constants.dart';
 import '/controllers/LoginController/login_controller.dart';
@@ -414,7 +415,7 @@ class MenuItems {
         const SizedBox(
           width: 10,
         ),
-        Text(
+        PlatformText(
           item.text,
           style: TextStyle(
             color: Theme.of(context).primaryTextTheme.subtitle1!.color,

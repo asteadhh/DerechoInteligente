@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import '../../../constants/custom_colors.dart';
 import '../../landingPage/Login/login_screen.dart';
@@ -26,7 +27,7 @@ class LoginAndSignupBtn extends StatelessWidget {
                 ),
               );
             },
-            child: Text(
+            child: PlatformText(
               "Login".toUpperCase(),
             ),
           ),
@@ -45,7 +46,7 @@ class LoginAndSignupBtn extends StatelessWidget {
           },
           style: ElevatedButton.styleFrom(
               primary: Constants.kPrimaryLightColor, elevation: 0),
-          child: Text(
+          child: PlatformText(
             "Sign Up".toUpperCase(),
             style: TextStyle(color: Colors.black),
           ),

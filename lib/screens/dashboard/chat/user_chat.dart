@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import 'home_components/new_messages.dart';
 import 'messages.dart';
@@ -30,11 +31,11 @@ class UserChat extends StatelessWidget {
           builder:
               (BuildContext context, AsyncSnapshot<DocumentSnapshot> snapshot) {
             if (snapshot.hasError) {
-              return Text("Something went wrong");
+              return PlatformText("Something went wrong");
             }
 
             if (snapshot.hasData && !snapshot.data!.exists) {
-              return Text("Document does not exist");
+              return PlatformText("Document does not exist");
             }
 
             if (snapshot.connectionState == ConnectionState.done) {
@@ -51,13 +52,13 @@ class UserChat extends StatelessWidget {
                   SizedBox(
                     width: 10,
                   ),
-                  // Text(chatId),
+                  // PlatformText(chatId),
                   Container(
                     width: MediaQuery.of(context).size.width * .6,
                     child: FittedBox(
                       fit: BoxFit.fitHeight,
                       // alignment: ,
-                      child: Text(
+                      child: PlatformText(
                         data['nombre'].toString(),
                       ),
                     ),
@@ -66,11 +67,11 @@ class UserChat extends StatelessWidget {
               );
             }
 
-            return Text("loading");
+            return PlatformText("loading");
           },
         ),
 
-        // title: Text('data'),
+        // title: PlatformText('data'),
       ),
       body: Container(
         child: Column(

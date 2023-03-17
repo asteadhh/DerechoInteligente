@@ -1,5 +1,6 @@
 import 'package:fl_chart/fl_chart.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import '../../../../constants.dart';
 
@@ -27,7 +28,7 @@ class Chart extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 SizedBox(height: defaultPadding),
-                Text(
+                PlatformText(
                   "29.1",
                   style: Theme.of(context).textTheme.headline4!.copyWith(
                         color: Colors.white,
@@ -35,7 +36,7 @@ class Chart extends StatelessWidget {
                         height: 0.5,
                       ),
                 ),
-                Text("of 128GB")
+                PlatformText("of 128GB")
               ],
             ),
           ),

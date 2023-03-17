@@ -1,6 +1,7 @@
 import 'dart:ui';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:get/get.dart';
 
 import 'contact_us_screen.dart';
@@ -25,7 +26,7 @@ class BlurryDialog extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
-                const Text('Contact Us',
+                PlatformText('Contact Us',
                     style:
                         TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
                 TextFormField(
@@ -81,11 +82,12 @@ class BlurryDialog extends StatelessWidget {
                             messageController.value.text);
                         ScaffoldMessenger.of(context).showSnackBar(
                           response == 200
-                              ? const SnackBar(
-                                  content: Text('Message Sent!'),
+                              ? SnackBar(
+                                  content: PlatformText('Message Sent!'),
                                   backgroundColor: Colors.green)
-                              : const SnackBar(
-                                  content: Text('Failed to send message!'),
+                              : SnackBar(
+                                  content:
+                                      PlatformText('Failed to send message!'),
                                   backgroundColor: Colors.red),
                         );
                         nameController.clear();
@@ -94,7 +96,7 @@ class BlurryDialog extends StatelessWidget {
                         Navigator.pop(context, 0);
                       }
                     },
-                    child: const Text('Send', style: TextStyle(fontSize: 16)),
+                    child: PlatformText('Send', style: TextStyle(fontSize: 16)),
                   ),
                 ),
               ],

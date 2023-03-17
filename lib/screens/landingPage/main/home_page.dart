@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import '../../../utils/app_assets.dart';
 import '../../../utils/app_colors.dart';
@@ -81,7 +82,7 @@ class HomePage extends StatelessWidget {
         SizedBox(
           width: 10,
         ),
-        Text(
+        PlatformText(
           "Picnic",
           style: TextStyle(fontFamily: AppString.fontBold, fontSize: 30),
         ),
@@ -105,7 +106,7 @@ class HomePage extends StatelessWidget {
   _menuItemWidget({required String text}) {
     return Container(
       margin: EdgeInsets.symmetric(horizontal: 20),
-      child: Text(
+      child: PlatformText(
         text,
         style: TextStyle(fontSize: 24, fontFamily: AppString.fontLight),
       ),
@@ -115,7 +116,7 @@ class HomePage extends StatelessWidget {
   Widget _btnWidget() {
     return Container(
       child: ElevatedButton(
-        child: Text(
+        child: PlatformText(
           "Get a Quote",
           style: TextStyle(fontSize: 18, fontFamily: AppString.fontMedium),
         ),
@@ -150,7 +151,7 @@ class HomePage extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               mainAxisSize: MainAxisSize.min,
               children: [
-                Text(
+                PlatformText(
                   "Enjoy the\ntime together",
                   style: TextStyle(
                     fontSize: 55,
@@ -160,7 +161,7 @@ class HomePage extends StatelessWidget {
                 SizedBox(
                   height: 10,
                 ),
-                Text(
+                PlatformText(
                   "650+ Travel Agents serving 1258+ Destinations worldwide",
                   style: TextStyle(
                     fontSize: 20,
@@ -179,7 +180,7 @@ class HomePage extends StatelessWidget {
                   child: Row(
                     mainAxisSize: MainAxisSize.min,
                     children: [
-                      Text(
+                      PlatformText(
                         "Watch Video",
                         style: TextStyle(
                           color: AppColors.white,
@@ -261,7 +262,7 @@ class HomePage extends StatelessWidget {
                     width: 200,
                     fit: BoxFit.contain,
                   ),
-                  Text(text),
+                  PlatformText(text),
                 ],
               ),
             ),

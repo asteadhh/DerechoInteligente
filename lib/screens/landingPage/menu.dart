@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:get/get.dart';
 
 import '../../constants.dart';
@@ -68,7 +69,7 @@ class MenuLandingPage extends GetView<MenuLandingPageController> {
           cursor: SystemMouseCursors.click,
           child: Column(
             children: [
-              Text(
+              PlatformText(
                 '$title',
                 style: TextStyle(
                   fontWeight: FontWeight.bold,
@@ -111,7 +112,7 @@ class MenuLandingPage extends GetView<MenuLandingPageController> {
             ),
           ],
         ),
-        child: Text(
+        child: PlatformText(
           'Register',
           style: TextStyle(
             fontWeight: FontWeight.bold,

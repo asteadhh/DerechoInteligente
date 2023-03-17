@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 // import '../constants.dart';
 
@@ -24,7 +25,7 @@ class FillOutlineButton extends StatelessWidget {
       elevation: isFilled ? 2 : 0,
       color: isFilled ? Colors.white : Colors.transparent,
       onPressed: press,
-      child: Text(
+      child: PlatformText(
         text,
         style: TextStyle(
           // color: isFilled ? CustomColors.kContentColorLightTheme : Colors.white,

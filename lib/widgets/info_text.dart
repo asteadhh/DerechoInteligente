@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class InfoText extends StatelessWidget {
@@ -27,7 +28,7 @@ class InfoText extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
-        Text(
+        PlatformText(
           '$type: ',
           style: TextStyle(
             color: Colors.blueGrey[300],
@@ -37,7 +38,7 @@ class InfoText extends StatelessWidget {
         Flexible(
           child: link != null
               ? GestureDetector(
-                  child: Text(
+                  child: PlatformText(
                     text,
                     style: TextStyle(
                       color: Colors.blueGrey[100],
@@ -48,7 +49,7 @@ class InfoText extends StatelessWidget {
                     _launchURL(link);
                   },
                 )
-              : Text(
+              : PlatformText(
                   text,
                   style: TextStyle(
                     color: Colors.blueGrey[100],

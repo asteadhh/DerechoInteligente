@@ -1,3 +1,4 @@
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:get/get.dart';
 
 import '/widgets/responsive.dart';
@@ -21,7 +22,7 @@ class DestinationHeading extends StatelessWidget {
             ),
             width: screenSize.width,
             // color: Colors.black,
-            child: Text(
+            child: PlatformText(
               'areasDePractica'.tr,
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -38,7 +39,7 @@ class DestinationHeading extends StatelessWidget {
             ),
             width: screenSize.width,
             // color: Colors.black,
-            child: Text(
+            child: PlatformText(
               'areasDePractica'.tr,
               textAlign: TextAlign.center,
               style: TextStyle(

@@ -2,6 +2,7 @@ import 'dart:io';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:get/get.dart';
 
 import '../../../../constants/custom_colors copy.dart';
@@ -43,7 +44,7 @@ class ChatChoiceScreen extends GetView<ChatController> {
                     ),
                     margin: EdgeInsets.only(bottom: 10),
                   ),
-                  Text(
+                  PlatformText(
                     'Salir de la app',
                     style: TextStyle(
                       color: Colors.white,
@@ -51,7 +52,7 @@ class ChatChoiceScreen extends GetView<ChatController> {
                       fontWeight: FontWeight.bold,
                     ),
                   ),
-                  Text(
+                  PlatformText(
                     'Estas Seguro que quieres Salir de la Aplicacción?',
                     style: TextStyle(color: Colors.white70, fontSize: 14),
                   )
@@ -74,7 +75,7 @@ class ChatChoiceScreen extends GetView<ChatController> {
                       color: CustomColors.kBlue,
                     ),
                   ),
-                  Text(
+                  PlatformText(
                     'Cancel',
                     style: TextStyle(
                         color: CustomColors.kBlue, fontWeight: FontWeight.bold),
@@ -97,7 +98,7 @@ class ChatChoiceScreen extends GetView<ChatController> {
                       color: CustomColors.kBlue,
                     ),
                   ),
-                  Text(
+                  PlatformText(
                     'Yes',
                     style: TextStyle(
                         color: CustomColors.kBlue, fontWeight: FontWeight.bold),
@@ -177,7 +178,7 @@ class ChatLogedIn extends GetView<ChatController> {
         children: [
           Column(
             children: [
-              // Text('data'),
+              // PlatformText('data'),
               BuildSearchBarWidget(),
               AbrirChatWidget(
                 context: context,
@@ -186,7 +187,7 @@ class ChatLogedIn extends GetView<ChatController> {
               Container(
                 height: MediaQuery.of(context).size.height * 0.7,
                 child: UserChatInformationStreamWidget(),
-                // child: Text('Tu Cara'),
+                // child: PlatformText('Tu Cara'),
               ),
             ],
           ),

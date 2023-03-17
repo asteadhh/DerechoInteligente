@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:get/get.dart';
 
 import '../../../../constants.dart';
@@ -89,19 +90,19 @@ class UserInformation extends StatelessWidget {
       decoration: BoxDecoration(border: Border.all(color: Colors.blueAccent)),
       child: Column(
         children: [
-          Text('Informacion Basica Maestro'),
+          PlatformText('Informacion Basica Maestro'),
           SizedBox(
             height: 10,
           ),
-          Text('Controlador Rating Maestro, y creditos'),
+          PlatformText('Controlador Rating Maestro, y creditos'),
           SizedBox(
             height: 10,
           ),
-          Text('Informacion Basica Usuario'),
+          PlatformText('Informacion Basica Usuario'),
           SizedBox(
             height: 10,
           ),
-          Text('Informacion Ratting Usuario'),
+          PlatformText('Informacion Ratting Usuario'),
           SizedBox(
             height: 10,
           ),
@@ -124,11 +125,11 @@ class ChatList extends StatelessWidget {
       decoration: BoxDecoration(border: Border.all(color: Colors.blueAccent)),
       child: Column(
         children: [
-          // Text('Aca Van los chats   '),
+          // PlatformText('Aca Van los chats   '),
           // SizedBox(
           //   height: 20,
           // ),
-          // Text('Ordenados por orden de tiempo y prioridad'),
+          // PlatformText('Ordenados por orden de tiempo y prioridad'),
 
           ChatChoiceScreen(),
         ],
@@ -150,7 +151,7 @@ class ChatWidget extends StatelessWidget {
       padding: const EdgeInsets.all(3.0),
       decoration: BoxDecoration(border: Border.all(color: Colors.blueAccent)),
       child: ChatSoporteScreen(),
-      // child: Text('dddd'),
+      // child: PlatformText('dddd'),
     );
   }
 }

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import '../base/home_page_landing.dart';
 
@@ -20,7 +21,7 @@ class PoliticaDePrivacidadScreen extends StatelessWidget {
               ),
             ),
           ),
-          Text('Politica de Privacidad')
+          PlatformText('Politica de Privacidad')
         ],
       ),
     );

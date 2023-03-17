@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:get/get.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -65,7 +66,7 @@ class BottomBarColumn extends GetView<TextoHoveringController> {
               () => Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  Text(
+                  PlatformText(
                     heading,
                     style: TextStyle(
                       fontSize: 18,
@@ -214,7 +215,7 @@ class STextWidget extends StatelessWidget {
         () => Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
+            PlatformText(
               s1,
               style: TextStyle(
                 fontSize: 14,
@@ -275,7 +276,7 @@ class s_Texts extends GetView<TextoHoveringController> {
         () => Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Text(
+            PlatformText(
               s1Text,
               style: TextStyle(
                 fontSize: 14,

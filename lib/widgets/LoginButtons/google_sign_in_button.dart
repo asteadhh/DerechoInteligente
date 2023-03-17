@@ -1,3 +1,4 @@
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 import 'package:get/get.dart';
 import '/controllers/LoginController/login_controller.dart';
 
@@ -60,7 +61,7 @@ class GoogleButton extends GetView<LoginController> {
                     ),
                     Padding(
                       padding: const EdgeInsets.only(left: 20),
-                      child: Text(
+                      child: PlatformText(
                         'Continue with Google',
                         style: TextStyle(
                           fontSize: 20,

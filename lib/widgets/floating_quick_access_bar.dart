@@ -1,3 +1,5 @@
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
+
 import '/widgets/responsive.dart';
 import 'package:flutter/material.dart';
 
@@ -42,7 +44,7 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
           });
         },
         onTap: () {},
-        child: Text(
+        child: PlatformText(
           items[i],
           style: TextStyle(
             color: _isHovering[i]
@@ -108,7 +110,7 @@ class _FloatingQuickAccessBarState extends State<FloatingQuickAccessBar> {
                 //                 splashColor: Colors.transparent,
                 //                 hoverColor: Colors.transparent,
                 //                 onTap: () {},
-                //                 child: Text(
+                //                 child: PlatformText(
                 //                   items[pageIndex],
                 //                   style: TextStyle(
                 //                       color: Theme.of(context)

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
 
 import '../../../widgets/responsive.dart';
 import '../../landingPage/base/home_page_landing.dart';
@@ -42,7 +43,7 @@ class DerechoDeAguasScreen extends StatelessWidget {
                             fontWeight: FontWeight.bold,
                           ),
                         ),
-                        child: Text(
+                        child: PlatformText(
                           'Contactanos',
                           style: TextStyle(fontSize: 40),
                         ),
@@ -56,7 +57,8 @@ class DerechoDeAguasScreen extends StatelessWidget {
               ],
             ),
           ),
-          Servicios()
+          PlatformText('data'),
+          // Servicios()
         ],
       ),
     );
