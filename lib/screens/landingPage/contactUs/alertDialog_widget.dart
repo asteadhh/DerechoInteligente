@@ -2,7 +2,6 @@ import 'dart:ui';
 import 'package:email_validator/email_validator.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_platform_widgets/flutter_platform_widgets.dart';
-import 'package:get/get.dart';
 
 import 'contact_us_screen.dart';
 
@@ -19,7 +18,7 @@ class BlurryDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     return BackdropFilter(
       filter: ImageFilter.blur(sigmaX: 6, sigmaY: 6),
-      child: AlertDialog(
+      child: PlatformAlertDialog(
         title: Center(
           child: Form(
             key: _formKey,
@@ -68,12 +67,12 @@ class BlurryDialog extends StatelessWidget {
                 SizedBox(
                   height: 45,
                   width: 110,
-                  child: TextButton(
-                    style: TextButton.styleFrom(
-                        primary: Colors.white,
-                        backgroundColor: const Color(0xff151534),
-                        shape: RoundedRectangleBorder(
-                            borderRadius: BorderRadius.circular(40))),
+                  child: PlatformDialogAction(
+                    // style: TextButton.styleFrom(
+                    //     primary: Colors.white,
+                    //     backgroundColor: const Color(0xff151534),
+                    //     shape: RoundedRectangleBorder(
+                    //         borderRadius: BorderRadius.circular(40))),
                     onPressed: () async {
                       if (_formKey.currentState!.validate()) {
                         final response = await sendEmail(

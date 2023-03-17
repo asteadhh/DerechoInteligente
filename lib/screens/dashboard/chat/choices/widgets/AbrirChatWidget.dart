@@ -136,7 +136,7 @@ class AbrirChatWidget extends StatelessWidget {
           ),
         );
 
-        return AlertDialog(
+        return PlatformAlertDialog(
           content: Container(
             width: MediaQuery.of(context).size.width / 1.3,
             height: MediaQuery.of(context).size.height / 4,
@@ -150,7 +150,7 @@ class AbrirChatWidget extends StatelessWidget {
               children: <Widget>[
                 uidField,
                 mensajeField,
-                MaterialButton(
+                PlatformDialogAction(
                   onPressed: () async {
                     onSendMessage(
                       _mensajesController.text,

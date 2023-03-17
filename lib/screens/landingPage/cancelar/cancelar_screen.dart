@@ -21,9 +21,7 @@ class CancelarScreen extends StatelessWidget {
               ),
             ),
           ),
-          PlatformTex
-          
-          t('Cancelar'),
+          PlatformText('Cancelar'),
         ],
       ),
     );

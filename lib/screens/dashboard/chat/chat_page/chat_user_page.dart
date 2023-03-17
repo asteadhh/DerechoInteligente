@@ -325,18 +325,18 @@ class ChatUserPage extends GetView<ChatUserPageController> {
                   // showPlatformDialog(
                   //   context: context,
                   //   builder: (_) =>
-                  AlertDialog(
+                  PlatformAlertDialog(
                     title: PlatformText('Alert'),
                     content: PlatformText('Some content'),
                     actions: <Widget>[
-                      ElevatedButton(
+                      PlatformDialogAction(
                         child: PlatformText('Camara'),
                         onPressed: () async {
                           await getImage(type: ImageSource.camera);
                           Navigator.pop(context);
                         },
                       ),
-                      ElevatedButton(
+                      PlatformDialogAction(
                         child: PlatformText('Galeria'),
                         onPressed: () async {
                           await getImage(type: ImageSource.gallery);

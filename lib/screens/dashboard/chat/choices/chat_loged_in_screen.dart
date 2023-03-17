@@ -244,7 +244,7 @@ class ChatLogedInScreen extends GetView<ChatController> {
             ),
           );
 
-          return AlertDialog(
+          return PlatformAlertDialog(
             content: Container(
               width: MediaQuery.of(context).size.width / 1.3,
               height: MediaQuery.of(context).size.height / 4,
@@ -258,7 +258,7 @@ class ChatLogedInScreen extends GetView<ChatController> {
                 children: <Widget>[
                   uidField,
                   mensajeField,
-                  MaterialButton(
+                  PlatformDialogAction(
                     onPressed: () async {
                       onSendMessage(
                         _mensajesController.text,
