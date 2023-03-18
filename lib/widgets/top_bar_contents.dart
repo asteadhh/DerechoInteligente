@@ -326,8 +326,9 @@ class TopBarContents extends GetView<LoginController> {
                   ],
                 ),
               ),
-              // SizedBox(width: screenSize.width / 40),
+
               //NO///
+              // SizedBox(width: screenSize.width / 40),
               // IconButton(
               //   icon: Icon(Icons.brightness_6),
               //   splashColor: Colors.transparent,
@@ -345,6 +346,7 @@ class TopBarContents extends GetView<LoginController> {
               // ),
 
               //NO///
+
               SizedBox(width: screenSize.width / 40),
               IconButton(
                 icon: 'idioma'.tr == 'Español'
@@ -389,46 +391,46 @@ class TopBarContents extends GetView<LoginController> {
                     // SizedBox(
                     //   width: screenSize.width / 50,
                     // ),
-                    FittedBox(
-                      fit: BoxFit.fitWidth,
-                      child: InkWell(
-                          onHover: (value) {
-                            // setState(() {
-                            value
-                                ? controller.isHovering[7] = true
-                                : controller.isHovering[7] = false;
-                            // });
-                          },
-                          onTap:
-                              //  userEmail == null
-                              //     ?
-                              () {
-                            showDialog(
-                              context: context,
-                              builder: (context) => AuthDialog(),
-                            );
-                          }
-                          // : null
-                          ,
-                          child: FirebaseAuth.instance.currentUser == null
-                              ? FittedBox(
-                                  fit: BoxFit.fitWidth,
-                                  child: Obx(
-                                    () => PlatformText(
-                                      'sign_in'.tr,
-                                      style: TextStyle(
-                                        color: controller.isHovering[7]
-                                            ? Colors.black
-                                            : Colors.white70,
-                                      ),
-                                    ),
-                                  ),
-                                )
-                              : SizedBox.shrink()),
-                    ),
+                    // FittedBox(
+                    //   fit: BoxFit.fitWidth,
+                    //   child: InkWell(
+                    //       onHover: (value) {
+                    //         // setState(() {
+                    //         value
+                    //             ? controller.isHovering[7] = truec
+                    //             : controller.isHovering[7] = false;
+                    //         // });
+                    //       },
+                    //       onTap:
+                    //           //  userEmail == null
+                    //           //     ?
+                    //           () {
+                    //         showDialog(
+                    //           context: context,
+                    //           builder: (context) => AuthDialog(),
+                    //         );
+                    //       }
+                    //       // : null
+                    //       ,
+                    //       child: FirebaseAuth.instance.currentUser == null
+                    //           ? FittedBox(
+                    //               fit: BoxFit.fitWidth,
+                    //               child: Obx(
+                    //                 () => PlatformText(
+                    //                   'sign_in'.tr,
+                    //                   style: TextStyle(
+                    //                     color: controller.isHovering[7]
+                    //                         ? Colors.black
+                    //                         : Colors.white70,
+                    //                   ),
+                    //                 ),
+                    //               ),
+                    //             )
+                    //           : SizedBox.shrink()),
+                    // ),
                   ],
                 ),
-              )
+              ),
             ],
           ),
         ),
