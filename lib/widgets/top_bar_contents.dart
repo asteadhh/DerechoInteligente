@@ -386,7 +386,10 @@ class TopBarContents extends GetView<LoginController> {
                   children: [
                     FirebaseAuth.instance.currentUser != null
                         ? Container(
-                            height: 60, child: ProfileFotoSignOutButton())
+                            height: 60,
+                            // child: Text('ddd'),
+                            child: ProfileFotoSignOutButton(),
+                          )
                         : SizedBox.shrink(),
                     // SizedBox(
                     //   width: screenSize.width / 50,

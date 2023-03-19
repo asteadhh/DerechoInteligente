@@ -570,10 +570,10 @@ packages:
     dependency: "direct main"
     description:
       name: flutter_platform_widgets
-      sha256: "5d85593be60aa3ec6a7ec9fb9239d6c0b8ec5965fbb5931530f251ec43a88c21"
+      sha256: b787f001d659ce1fb601332e908efdf44dbedab832387b33162abeed60c1eca2
       url: "https://pub.dev"
     source: hosted
-    version: "3.1.0"
+    version: "3.2.0"
   flutter_plugin_android_lifecycle:
     dependency: transitive
     description:
